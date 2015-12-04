@@ -14,7 +14,7 @@ InteractionManager.runAfterInteractions(() => {
 * setImmediate/setTimeout(): 稍后运行代码。注意着可能会导致动画的延迟。
 * runAfterInteractions(): 稍后运行代码，不会导致动画的延迟。
 
-触摸处理系统会把一个或多个触摸操作看做一次“交互”，然后会延迟`runAfterInteractions()`的毁掉函数的执行，直到所有的触摸操作都已经结束或者取消。
+触摸处理系统会把一个或多个触摸操作看做一次“交互”，然后会延迟`runAfterInteractions()`的回调函数的执行，直到所有的触摸操作都已经结束或者取消。
 
 Interactionmanager还允许应用程序在动画开始前注册动画的“句柄”，然后在动画结束后清除它。
 

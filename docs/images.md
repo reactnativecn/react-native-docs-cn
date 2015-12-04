@@ -99,7 +99,7 @@ iOS会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 ## 资源属性是一个对象（object）
 
-在React Native中，另一个值得一提的变动是我们把`src`属性改为了`source`属性，而且并不接受字符串，正确的值是一个带有`url`属性的对象。 
+在React Native中，另一个值得一提的变动是我们把`src`属性改为了`source`属性，而且并不接受字符串，正确的值是一个带有`uri`属性的对象。 
 
 ```javascript
 <Image source={{uri: 'something.jpg'}} />
