@@ -51,6 +51,6 @@ Xcode中运行IntegrationTest和UIExplorer两个官方示例应用时，可以�
 
 ## 快照测试 (仅限iOS)
 
-快照测试是集成测试的一种常见类型。这类测试首先渲染一个组件，然后使用`TestModule.verifySnapshot()`比对屏幕截图与参考效果图，其原理是利用了[`FBSnapshotTestCase`](https://github.com/facebook/ios-snapshot-test-case)这个库。参考效果图是通过在`RCTTestRunner`中设置`recordMode = YES`，然后在运行测试时录制的。屏幕截图在32位和64位色深以及不同的操作系统版本上可能会有细微的差别，所以建议强制在指定的配置环境中执行测试。此外我们还强烈建议所有的网络数据和其他的潜在依赖项都应该事先模拟。你可以参考[`SimpleSnapshotTest`](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/UIExplorerIntegrationTests/js/SimpleSnapshotTest.js)这个例子。
+快照测试是集成测试的一种常见类型。这类测试首先渲染一个组件，然后使用`TestModule.verifySnapshot()`比对屏幕截图与参考效果图，其原理是利用了[`FBSnapshotTestCase`](https://github.com/facebook/ios-snapshot-test-case)这个库。参考效果图是通过在`RCTTestRunner`中设置`recordMode = YES`，然后在运行测试时录制的。屏幕截图在32位和64位色深以及不同的操作系统版本上可能会有细微的差别，所以建议强制在指定的配置环境中执行测试。此外我们还强烈建议所有的网络数据和其他的潜在依赖项都应该事先模拟。你可以参考[`SimpleSnapshotTest`](https://github.com/facebook/react-native/blob/master/IntegrationTests/SimpleSnapshotTest.js)这个例子。
 
 如果你提交的PR（Pull Request，即提交你贡献的代码，并请求官方人员合并到仓库中）会影响到快照测试，比如给现有的快照测试添加一个新的测试用例，那么首先需要重新录制参考效果图。只需在[UIExplorer/UIExplorerSnapshotTests.m](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/UIExplorerIntegrationTests/UIExplorerSnapshotTests.m#L42)中设置`_runner.recordMode = YES;`，然后重新运行先前失败的测试代码，再之后将这一设置改回去，最后提交/更新你的PR，看Travis的自动测试能否通过。

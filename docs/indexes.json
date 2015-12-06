@@ -33,7 +33,7 @@
                     "mdlink": "images"
                 },
                 {
-                    "subject": "手势应答系统",
+                    "subject": "手势响应系统",
                     "mdlink": "gesture-responder-system"
                 },
                 {
@@ -75,6 +75,10 @@
                 {
                     "subject": "升级",
                     "mdlink": "upgrading"
+                },
+                {
+                    "subject": "特定平台代码",
+                    "mdlink": "platform-specific-code"
                 }
             ]
         },

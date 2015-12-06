@@ -2,16 +2,16 @@
 
 ## 1. 更新`react-native`的node依赖包
 
-请去下面的网址查看`react-native`的npm包的最新版本：（译注：或使用`npm info react-native`命令查看）
+请去下面的网址查看`react-native`的npm包的最新版本，或使用`npm info react-native`命令查看。
 
 * [https://www.npmjs.com/package/react-native](https://www.npmjs.com/package/react-native)
 
-打开项目目录下的`package.json`文件，然后在`dependencies`模块下找到`react-native`，将其版本号改到最新，然后在命令行中运行（译注：如果提示权限错误，就在命令前加上sudo）： 
+打开项目目录下的`package.json`文件，然后在`dependencies`模块下找到`react-native`，将当前版本号改到最新，然后在命令行中运行（译注：如果提示权限错误，就在命令前加上sudo）： 
 
 ```sh
 $ npm install
 ```
-
+注：有些朋友会在命令行中执行`react-native -v`，那个查看的是react-native-cli的版本，并不是react-native的版本。
 ## 2. 升级项目模板文件
 
 新版本的npm包通常还会包含一些动态生成的文件，这些文件是在运行`react-native init`创建新项目时生成的，比如iOS和Android的项目文件。为了使老项目的项目文件也能得到更新（不重新init），你需要在命令行中运行：
