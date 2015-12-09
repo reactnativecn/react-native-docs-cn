@@ -27,7 +27,7 @@ __译注__：Chrome中并不能直接看到App的用户界面，而只能提供c
 在真机上调试：
 
 1. 在iOS上 —— 打开`RCTWebSocketExecutor.m`文件，将其中的`localhost`替换为你电脑的ip地址。然后晃动设备打开开发菜单，即可开始调试。
-2. 对于Android设备 —— 如果你通过usb连接了一个Android 5.0或更高版本的设备，则可以通过`adb`命令建立一个从设备向电脑转发的端口：`adb reverse 8081 8081`(点击[这里](http://developer.android.com/tools/help/adb.html)查看`adb`命令的帮助)。或者，你可以通过摇晃打开开发者菜单，选择`Dev Settings`，然后在`Debug server host for device`中设置你电脑的`ip地址:端口号`。
+2. 对于Android设备 —— 如果你通过usb连接了一个Android 5.0或更高版本的设备，则可以通过`adb`命令建立一个从设备向电脑转发的端口：`adb reverse tcp:8081 tcp:8081`(点击[这里](http://developer.android.com/tools/help/adb.html)查看`adb`命令的帮助)。或者，你可以通过摇晃打开开发者菜单，选择`Dev Settings`，然后在`Debug server host for device`中设置你电脑的`ip地址:端口号`。
 
 ### React开发工具（可选的）
 
