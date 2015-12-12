@@ -104,6 +104,10 @@
                 {
                     "subject": "植入原生应用",
                     "mdlink": "embedded-app-ios"
+                },
+                {
+                    "subject": "在原生和React Native间通信",
+                    "mdlink": "communication-ios"
                 }
             ]
         },
@@ -133,6 +137,10 @@
                 {
                     "subject": "调试Android UI性能",
                     "mdlink": "android-ui-performance"
+                },
+                {
+                    "subject": "从源代码编译React Native",
+                    "mdlink": "android-buildingfromsource"
                 }
             ]
         },
