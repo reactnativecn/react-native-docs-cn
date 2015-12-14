@@ -1,5 +1,3 @@
-## 关于React Native中文网 ##
-
 “React Native中文网”由以下人员维护：
 
 [天地之灵](http://github.com/tdzl2003) 
@@ -68,7 +66,7 @@ React Native及相关标识版权由©Facebook Inc.所有。本网站并非隶�
 
 ## 关于我们 ##
 
-React Native中文网由杭州欧石南网络科技有限公司创办，提供与React Native相关的文档、资讯以及教程。
+React Native中文网是由杭州欧石南网络科技有限公司创办的，提供与React Native相关的文档、资讯以及教程。React Native是一个跨平台移动APP开发框架，着力于提高多平台开发的开发效率，使你能够在JavaScript 和react的基础上获得完全一致的开发体验，构建世界一流的原生app.
 
 地址：杭州市西湖区古墩路616号同人精华大厦2座1516室
 
