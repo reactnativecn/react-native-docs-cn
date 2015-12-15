@@ -4,7 +4,8 @@
 你需要在Info.plist中增加`NSLocationWhenInUseUsageDescription`字段来启用定位功能。如果你使用`react-native init`创建项目，定位会被默认启用。
 
 ## Android
-要请求访问地理位置的权限，你需要在`AndroidManifest.xml`文件中加入如下一行：
+要请求访问地理位置的权限，你需要在`AndroidManifest.xml`文件中加入如下一行：  
+
 `<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />`
 
 ## 方法
@@ -17,7 +18,7 @@
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="watchposition"></a><span
             class="propType">static </span>watchPosition<span class="propType">(success: Function, error?: Function, options?: GeoOptions)</span>
         <a class="hash-link" href="#watchposition">#</a></h4>
-        <div><p>持续监听位置，每当位置变化之后都调用success回调。支持的选项： timeout (ms), maximumAge (ms), enableHighAccuracy (bool)</p></div>
+        <div><p>持续监听位置，每当位置变化之后都调用success回调。支持的选项：timeout (ms), maximumAge (ms), enableHighAccuracy (bool)</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="clearwatch"></a><span
             class="propType">static </span>clearWatch<span class="propType">(watchID: number)</span> <a
