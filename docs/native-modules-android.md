@@ -118,10 +118,6 @@ mReactInstanceManager = ReactInstanceManager.builder()
 为了让你的功能从JavaScript端访问起来更为方便，通常我们都会把原生模块封装成一个JavaScript模块。这不是必须的，但省下了每次都从`NativeModules`中获取对应模块的步骤。JavaScript也是一个很好的地方用于添加一些JavaScript端实现的功能。
 
 ```javascript
-/**
- * @providesModule ToastAndroid
- */
-
 'use strict';
 
 /**
@@ -135,14 +131,11 @@ var { NativeModules } = require('react-native');
 module.exports = NativeModules.ToastAndroid;
 ```
 
-现在，在你的JavaScript代码中可以这样调用你的方法：
+现在，在别处的JavaScript代码中可以这样调用你的方法：
 
 ```javascript
-var ToastAndroid = require('ToastAndroid')
+var ToastAndroid = require('./ToastAndroid')
 ToastAndroid.show('Awesome', ToastAndroid.SHORT);
-
-// Note: We require ToastAndroid without any relative filepath because
-// of the @providesModule directive. Using @providesModule is optional.
 ```
 
 ## 更多特性
