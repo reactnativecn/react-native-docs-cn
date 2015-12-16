@@ -18,7 +18,7 @@
 
 ## Chrome开发者工具
 
-在Chrome上调试js代码，需要在开发菜单中选择`Debug in Chrome`，这会打开一个新的[http://localhost:8081/debugger-uitab](http://localhost:8081/debugger-uitab)页。
+在Chrome上调试js代码，需要在开发菜单中选择`Debug in Chrome`，这会打开一个新的[http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui)tab页。
 
 在Chrome中，按下`⌘ + option + i`或者选择`视图(View) -> 开发者(Developer) -> 开发工具(Developer Tools)`来打开开发工具控制台。打开[有异常时暂停（Pause On Caught Exceptions）](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511)选项，能够获得更好的开发体验。  
 
