@@ -1,75 +1,62 @@
----
-id: android-building-from-source
-title: Building React Native from source
-layout: docs
-category: Guides (Android)
-permalink: docs/android-building-from-source.html
-next: activityindicatorios
----
+如果你想使用新的功能，获得官方的修复补丁，尝试还没发布的最新特性，或者维护你自己的不能合并到核心版本的补丁，你可能需要自己从源代码编译React Native。
 
-You will need to build React Native from source if you want to work on a new feature/bug fix, try out the latest features which are not released yet, or maintain your own fork with patches that cannot be merged to the core.
+# 预备条件
 
-## Prerequisites
+如果你已经安装了安卓SDK，那么运行`android`命令打开安卓SDK管理器。
 
-Assuming you have the Android SDK installed, run `android` to open the Android SDK Manager.
+确保你已经安装了以下模块：
 
-Make sure you have the following installed:
+* Android SDK version 23 (编译SDK版本号在[build.gradle](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)中可以找到)
+* SDK build tools version 23.0.1(编译工具版本号在[build.gradle](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)中可以找到)
+* Android Support Repository >= 17 (Android Support Library所需的模块)
+* Android NDK(下载及解压指南看[这里](http://developer.android.com/ndk/downloads/index.html))
 
-1. Android SDK version 23 (compileSdkVersion in [`build.gradle`](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle))
-2. SDK build tools version 23.0.1 (buildToolsVersion in [`build.gradle`](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)])
-3. Android Support Repository >= 17 (for Android Support Library)
-4. Android NDK (download & extraction instructions [here](http://developer.android.com/ndk/downloads/index.html))
-
-Point Gradle to your Android SDK: either have `$ANDROID_SDK` and `$ANDROID_NDK ` defined, or create a local.properties file in the root of your react-native checkout with the following contents:
+将Gradle指向你的安卓SDK: 设置`$ANDROID_SDK`和`$ANDORID_NDK`为对应的目录，或者按照以下内容在react-native根目录下创建local.properties文件（注意：windows下需要使用反双斜杠）。
 
 ```
-sdk.dir=absolute_path_to_android_sdk
-ndk.dir=absolute_path_to_android_ndk
-```
-
-Example:
+sdk.dir=指向android sdk目录的绝对路径
+ndk.dir=指向android ndk目录的绝对路径
+``` 
+例如：
 
 ```
 sdk.dir=/Users/your_unix_name/android-sdk-macosx
 ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r10e
 ```
 
+# 编译源代码：
 
-## Building the source
+## 1.在你的分支代码中进行安装
 
-#### 1. Installing the fork
+首先，在你的分支代码中安装react-native。例如从官方地址安装主干版本：
 
-First, you need to install `react-native` from your fork. For example, to install the master branch from the official repo, run the following:
-
-```sh
+```
 npm install --save github:facebook/react-native#master
 ```
 
-Alternatively, you can clone the repo to your `node_modules` directory and run `npm install` inside the cloned repo.
+或者，你也可以把仓库克隆到你的`node_modules`目录，然后运行`npm install`进行安装
 
+## 2.添加gradle依赖
 
-#### 2. Adding missing dependencies
+在`android/build.gradle`中添加`gradle-download-task`依赖
 
-Add `gradle-download-task` as dependency in `android/build.gradle`:
-
-```gradle
+```
 ...
     dependencies {
         classpath 'com.android.tools.build:gradle:1.3.1'
         classpath 'de.undercouch:gradle-download-task:2.0.0'
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        // 注意：不要把你的应用的依赖放在这里；
+        // 它们应该放在各自模块的build.gradle文件中
     }
 ...
 ```
 
+## 添加`:ReactAndroid `项目
 
-#### 3. Adding the `:ReactAndroid` project
+在`android/settings.gradle`中添加`:ReactAndroid`项目
 
-Add the `:ReactAndroid` project in `android/settings.gradle`:
-
-```gradle
+```
 ...
 include ':ReactAndroid'
 
@@ -77,10 +64,9 @@ project(':ReactAndroid').projectDir = new File(rootProject.projectDir, '../node_
 ...
 ```
 
+修改你的`android/app/build.gradle`文件，使用`:ReactAndroid`替换预编译库。例如用`compile project(':ReactAndroid'):`替换`compile 'com.facebook.react:react-native:0.16.+'`
 
-Modify your `android/app/build.gradle` to use the `:ReactAndroid` project instead of the pre-compiled library, e.g. - replace `compile 'com.facebook.react:react-native:0.16.+'` with `compile project(':ReactAndroid')`:
-
-```gradle
+```
 ...
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -93,25 +79,21 @@ dependencies {
 ...
 ```
 
+## 让第三方模块使用你的分支
+如果你使用第三方的React Native模块，你需要重写它们的依赖以避免它们仍然打包官方的预编译库。否则当你编译时会报错-`Error: more than one library with package name 'com.facebook.react'.`（错误：有几个重名的'com.facebook.react'的包）
 
-#### 4. Making 3rd-party modules use your fork
+修改你的`android/app/build.gradle`文件，替换`compile project(':react-native-custom-module')`为以下内容：
 
-If you use 3rd-party React Native modules, you need to override their dependencies so that they don't bundle the pre-compiled library. Otherwise you'll get an error while compiling - `Error: more than one library with package name 'com.facebook.react'`.
-
-Modify your `android/app/build.gradle` and replace `compile project(':react-native-custom-module')` with:
-
-```gradle
+```
 compile(project(':react-native-custom-module')) {
     exclude group: 'com.facebook.react', module: 'react-native'
 }
 ```
 
+# 其他注意事项
+从源码进行编译将会花费很长时间，尤其是第一次编译，需要下载接近200M的文件然后编译原生代码。每次你在自己的仓库更新`react-native`版本时，构建的目录可能会被删除，所有的文件都需要重新下载。为了避免构建目录被删，你需要编辑`~/.gradle/init.gradle`文件来修改构建目录路径。
 
-## Additional notes
-
-Building from source can take a long time, especially for the first build, as it needs to download ~200 MB of files and compile JSC etc. Every time you update the `react-native` version from your repo, the build directory may get deleted, and all the files are re-downloaded. To avoid this, you might want to change your build directory path by editing the `~/.gradle/init.gradle ` file:
-
-```gradle
+```
 gradle.projectsLoaded {
     rootProject.allprojects {
         buildDir = "/path/to/build/directory/${rootProject.name}/${project.name}"
