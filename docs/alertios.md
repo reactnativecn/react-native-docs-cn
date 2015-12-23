@@ -2,7 +2,7 @@
 
 你还可以指定一系列的按钮，点击对应的按钮会调用对应的onPress回调并且关闭提示框。默认情况下，对话框会仅有一个'确定'按钮。
 
-列表中的最后一个按钮会被认为是“主要按钮”，并且加粗显示。
+这个API主要用于需要iOS特有功能的场景，比如提示用户输入一些信息等。其他情况下，尤其是仅仅显示一个静态的提示框时，应该使用跨平台的[`Alert`](alert.html)接口。
 
 ```javascript
 AlertIOS.alert(
@@ -14,18 +14,22 @@ AlertIOS.alert(
   ]
 )
 ```
-
+### 截图
+![alertios1](../img/api/alertios1.png)
+![alertios2](../img/api/alertios2.png)
 ### 方法
 
 <div class="props">
 	<div class="prop"><h4 class="propTitle"><a class="anchor" name="alert"></a><span class="propType">static </span>alert<span class="propType">(title: string, message?: string, buttons?: Array&lt;{
-      text: ?string;
+      text?: string;
       onPress?: ?Function;
-    }&gt;, type?: string)</span> <a class="hash-link" href="#alert">#</a></h4></div>
+      style?: AlertButtonStyle;
+    }&gt;, type?: AlertType)</span> <a class="hash-link" href="#alert">#</a></h4></div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="prompt"></a><span class="propType">static </span>prompt<span class="propType">(title: string, value?: string, buttons?: Array&lt;{
-      text: ?string;
+      text?: string;
       onPress?: ?Function;
-    }&gt;, callback?: Function)</span> <a class="hash-link" href="#prompt">#</a></h4></div>
+      style?: AlertButtonStyle;
+    }&gt;, callback?: Function)</span> <a class="hash-link" href="#prompt">#</a></h4><div><p>提示用户输入一些文字。</p></div></div>
 </div>
 
 ### 例子

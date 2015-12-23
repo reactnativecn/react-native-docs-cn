@@ -277,6 +277,10 @@
                     "mdlink": "actionsheetios"
                 },
                 {
+                    "subject": "Alert",
+                    "mdlink": "alert"
+                },
+                {
                     "subject": "AlertIOS",
                     "mdlink": "alertios"
                 },
