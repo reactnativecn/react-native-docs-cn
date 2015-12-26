@@ -1,7 +1,10 @@
 本模块将原生的ToastAndroid模块导出为一个JS模块，用于在Android设备上显示一个悬浮的提示信息。本模块包含一个`show`函数接受以下的参数：
 
 1. String message: 一个字符串，表示将要显示的文本内容。
-2. int duration: 提示信息存在的事件。可以是`ToastAndroid.SHORT`或者`ToastAndroid.LONG`。
+2. int duration: 提示信息持续显示的时间。可以是`ToastAndroid.SHORT`或者`ToastAndroid.LONG`。
+
+### 截图
+![toastandroid](../img/api/toastandroid.png)
 
 ### 方法
 

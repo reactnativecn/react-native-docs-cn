@@ -172,12 +172,12 @@
                     "mdlink": "mapview"
                 },
                 {
-                    "subject": "Navigator",
-                    "mdlink": "navigator"
-                },
-                {
                     "subject": "Modal",
                     "mdlink": "modal"
+                },
+                {
+                    "subject": "Navigator",
+                    "mdlink": "navigator"
                 },
                 {
                     "subject": "NavigatorIOS",
@@ -311,6 +311,10 @@
                 {
                     "subject": "Dimensions",
                     "mdlink": "dimensions"
+                },
+                {
+                    "subject": "IntentAndroid",
+                    "mdlink": "intentandroid"
                 },
                 {
                     "subject": "InteractionManager",

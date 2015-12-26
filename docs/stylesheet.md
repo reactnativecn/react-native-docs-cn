@@ -34,11 +34,10 @@ var styles = StyleSheet.create({
 
 从性能角度：
 
-* 创建一个样式表，就可以使得我们后续更容易通过ID来引用样式，而不是都创建一个新的对象。
+* 创建一个样式表，就可以使得我们后续更容易通过ID来引用样式，而不是每次都创建一个新的对象。
 * 它还使得样式只会在JavaScript和原生之间传递一次，随后的过程都可以只传递一个ID（这个优化还未实现）。
 
 ### 方法
-
 
 <div class="props">
 	<div class="prop"><h4 class="propTitle"><a class="anchor" name="create"></a><span class="propType">static </span>create<span class="propType">(obj: {[key: string]: any})</span> <a class="hash-link" href="#create">#</a></h4></div>

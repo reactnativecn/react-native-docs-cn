@@ -1,3 +1,8 @@
+__译注__：本模块用于设置iOS状态的显隐与样式。
+
+### 截图
+![statusbarios](../img/api/statusbarios.png)
+
 ### 方法
 
 
