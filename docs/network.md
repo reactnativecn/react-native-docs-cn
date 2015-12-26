@@ -66,25 +66,25 @@ WebSocket是一种基于TCP连接的全双工通讯协议。
 ```javascript
 var ws = new WebSocket('ws://host.com/path');
 
-ws.on('open', function() {
+ws.onopen = () => {
   // 建立连接
   ws.send('something');
-});
+};
 
-ws.on('message', function(e) {
+ws.onmessage = (e) => {
   // 收到了消息
   console.log(e.data);
-});
+};
 
-ws.on('error', function(e) {
+ws.onerror = (e) => {
   // 有错误发生
   console.log(e.message);
-});
+};
 
-ws.on('close', function(e) {
+ws.onclose = (e) => {
   // 连接关闭
   console.log(e.code, e.reason);
-});
+};
 ```
 
 ## XMLHttpRequest
