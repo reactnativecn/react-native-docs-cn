@@ -1,9 +1,10 @@
 AsyncStorage是一个简单的、异步的、持久化的Key-Value存储系统，它对于App来说是全局性的。它用来代替LocalStorage。
 
-我们推荐您在AsyncStorage的基础上做一层抽象封装，而不是直接使用AsyncStorage。
+我们推荐您在AsyncStorage的基础上做一层抽象封装，而不是直接使用AsyncStorage。  
+
 __译注__：推荐由`React Native中文网`封装维护的[`react-native-storage`](https://github.com/sunnylqm/react-native-storage/blob/master/README-CHN.md)模块，提供了较多便利功能。
 
-本模块的JS代码提供了对原生实现的一个封装，以提供一个更清晰的JavaScript API：返回真正的错误对象
+本模块的JS代码提供了对原生实现的一个封装，以提供一个更清晰的JS API、返回真正的错误对象，以及简单的单项对象操作函数。每个方法都会返回一个`Promise`对象。
 
 ### 方法
 
