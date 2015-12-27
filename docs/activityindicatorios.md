@@ -1,3 +1,6 @@
+### 截图
+![activityindicatorios](../img/components/activityindicatorios.png)
+
 ### 属性
 
 <div class="props">
@@ -19,7 +22,7 @@
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="hideswhenstopped"></a>hidesWhenStopped <span class="propType">bool</span> <a class="hash-link" href="#hideswhenstopped">#</a></h4>
         <div>
-            <p>在没有运动的时候，是否要隐藏指示器（默认为true）。</p>
+            <p>在没有动画的时候，是否要隐藏指示器（默认为true）。</p>
         </div>
     </div>
     <div class="prop">
@@ -37,7 +40,7 @@
     </div>
 </div>
 
-### 样例
+### 例子
 
 ```javascript
 'use strict';

@@ -1,4 +1,7 @@
-使用`DatePickerIOS`来在iOS平台上渲染一个日期/时间选择器。这是一个受约束的(Controlled)组件，所以你必须监听`onDateChange`回调函数并且及时更新`date`属性来使得组件更新，否则用户的修改会立刻被撤销来确保`props.date`显示正确。
+使用`DatePickerIOS`来在iOS平台上渲染一个日期/时间选择器。这是一个受约束的(Controlled)组件，所以你必须监听`onDateChange`回调函数并且及时更新`date`属性来使得组件更新，否则用户的修改会立刻被撤销来确保当前显示值和`props.date`一致。
+
+### 截图
+![](../img/components/datepickerios.png)
 
 ### 属性
 
@@ -49,7 +52,7 @@
         <h4 class="propTitle"><a class="anchor" name="timezoneoffsetinminutes"></a>timeZoneOffsetInMinutes <span class="propType">number</span> <a class="hash-link" href="#timezoneoffsetinminutes">#</a></h4>
         <div>
             <p>时区差，单位是分钟。</p>
-            <p>默认情况下，选择器会选择设备的默认时区。通过此参数，可以指定一个时区。举个例子，要使用北京时间，可以传递8 * 60。</p>
+            <p>默认情况下，选择器会选择设备的默认时区。通过此参数，可以指定一个时区。举个例子，要使用北京时间（东八区），可以传递8 * 60。</p>
         </div>
     </div>
 </div>
