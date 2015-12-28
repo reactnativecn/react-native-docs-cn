@@ -1,5 +1,8 @@
 使用`ProgressViewIOS`来在iOS上渲染一个UIProgressView。
 
+### 截图
+![](../img/components/progressviewios.png)
+
 ### 属性
 
 <div class="props">

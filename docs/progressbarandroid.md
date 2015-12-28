@@ -1,6 +1,6 @@
-用于包装Android平台的`ProgressBar`的React组件。这个组件可以用来表示应用正在加载或者有些事情正在进展。
+封装了Android平台上的`ProgressBar`的React组件。这个组件可以用来表示应用正在加载或者有些事情正在进行中。
 
-样例：
+例子：
 
 ```javascript
 render: function() {
@@ -18,6 +18,8 @@ render: function() {
   );
 },
 ```
+### 截图
+![](../img/components/progressbarandroid.png)
 
 ### 属性
 

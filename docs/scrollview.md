@@ -1,8 +1,8 @@
-一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了了触摸锁定的“响应者”系统。
+一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。
 
-记住ScrollView必须有一个确定的高度才能正常工作，因为它实际上所做的就是将一系列不确定高度的孩子装进一个确定高度的容器（通过滚动操作）。想要给一个ScrollView确定一个高度，或者直接给它设置高度（不建议），或者确定所有的父容器都已经绑定了高度。在视图栈的任意一个位置忘记使用`{flex:1}`都会导致错误，你可以使用元素查看器来查找问题的原因。
+记住ScrollView必须有一个确定的高度才能正常工作，因为它实际上所做的就是将一系列不确定高度的子组件装进一个确定高度的容器（通过滚动操作）。要给一个ScrollView确定一个高度的话，要么直接给它设置高度（不建议），要么确定所有的父容器都已经绑定了高度。在视图栈的任意一个位置忘记使用`{flex:1}`都会导致错误，你可以使用元素查看器来查找问题的原因。
 
-还不支持它内部的其他响应者阻止ScrollView本身成为响应者。
+ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者。
 
 ### 属性
 
@@ -36,28 +36,30 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="keyboarddismissmode"></a>keyboardDismissMode <span class="propType">enum('none', "interactive", 'on-drag')</span> <a class="hash-link" href="#keyboarddismissmode">#</a></h4>
 		<div>
-			<p>决定当用户拖拽滚动视图的时候，是否要隐藏软键盘。</p>
-			<p> - 'none' （默认值），拖拽不会导致隐藏软键盘。</p>
-			<p> - 'on-drag' 当拖拽开始的时候隐藏软键盘。</p>
-			<p> - 'interactive' 软键盘伴随拖拽操作同步地消失，并且如果往上滑动会恢复键盘。安卓设备上不支持这个选项，会表现的和'none'一样。</p>
+			<p>用户拖拽滚动视图的时候，是否要隐藏软键盘。</p>
+			<ul>
+			<li><p><code>none</code>（默认值），拖拽时不隐藏软键盘。</p></li>
+			<li><p><code>on-drag</code> 当拖拽开始的时候隐藏软键盘。</p></li>
+			<li><p><code>interactive</code> 软键盘伴随拖拽操作同步地消失，并且如果往上滑动会恢复键盘。安卓设备上不支持这个选项，会表现的和<code>none</code>一样。</p></li>
+			</ul>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="keyboardshouldpersisttaps"></a>keyboardShouldPersistTaps <span class="propType">bool</span> <a class="hash-link" href="#keyboardshouldpersisttaps">#</a></h4>
 		<div>
-			<p>当此属性为false的时候，当软键盘激活的时候，点击焦点文本输入框以外的地方，键盘就会隐藏。如果为true，滚动视图不会响应tap操作，并且键盘不会自动消失。默认值为false。</p>
+			<p>当此属性为false的时候，在软键盘激活之后，点击焦点文本输入框以外的地方，键盘就会隐藏。如果为true，滚动视图不会响应点击操作，并且键盘不会自动消失。默认值为false。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onscroll"></a>onScroll <span class="propType">function</span> <a class="hash-link" href="#onscroll">#</a></h4>
 		<div>
-			<p>在滚动的过程中，每帧最多调用此回调一次。调用的频率可以用<code>scrollEventThrottle</code>属性来控制。</p>
+			<p>在滚动的过程中，每帧最多调用一次此回调函数。调用的频率可以用<code>scrollEventThrottle</code>属性来控制。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="removeclippedsubviews"></a>removeClippedSubviews <span class="propType">bool</span> <a class="hash-link" href="#removeclippedsubviews">#</a></h4>
 		<div>
-			<p>（实验特性）：当此属性为true时，离开屏幕的子视图（子视图的<code>overflow</code>样式应该为<code>hidden</code>）会被移除。这个可以提升大列表的滚动性能。默认值为false。</p>
+			<p>（实验特性）：当此属性为true时，屏幕之外的子视图（子视图的<code>overflow</code>样式需要设为<code>hidden</code>）会被移除。这个可以提升大列表的滚动性能。默认值为true。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -158,43 +160,43 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="alwaysbouncehorizontal"></a><span class="platform">ios</span>alwaysBounceHorizontal <span class="propType">bool</span> <a class="hash-link" href="#alwaysbouncehorizontal">#</a></h4>
 		<div>
-			<p>当此属性为true的时候，水平方向即使内容比滚动视图本身还要小，也可以弹性的拉动一截。当<code>horizontal={true}</code>默认值为true，否则为false。</p>
+			<p>当此属性为true时，水平方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当<code>horizontal={true}</code>时默认值为true，否则为false。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="alwaysbouncevertical"></a><span class="platform">ios</span>alwaysBounceVertical <span class="propType">bool</span> <a class="hash-link" href="#alwaysbouncevertical">#</a></h4>
 		<div>
-			<p>当此属性为true的时候，垂直方向即使内容比滚动视图本身还要小，也可以弹性的；拉动一截。当<code>horizontal={true}</code>默认值为false，否则为true。</p>
+			<p>当此属性为true时，垂直方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当<code>horizontal={true}</code>时默认值为false，否则为true。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="automaticallyadjustcontentinsets"></a><span class="platform">ios</span>automaticallyAdjustContentInsets <span class="propType">bool</span> <a class="hash-link" href="#automaticallyadjustcontentinsets">#</a></h4>
 		<div>
-			<p>决定如果滚动视图放在一个导航条或者工具条后面的时候，iOS系统是否要自动调整内容的范围。默认值为true。</p>
+			<p>如果滚动视图放在一个导航条或者工具条后面的时候，iOS系统是否要自动调整内容的范围。默认值为true。（译注：如果你的ScrollView或ListView的头部出现莫名其妙的空白，尝试将此属性置为false）</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="bounces"></a><span class="platform">ios</span>bounces <span class="propType">bool</span> <a class="hash-link" href="#bounces">#</a></h4>
 		<div>
-			<p>当值为true时，如果内容范围比滚动视图本身大，在到达内容末尾的时候，可以弹性的拉动一截。如果为false，尾部的所有弹性都会被禁用，即使<code>alwaysBounce*</code>属性为真。默认值为真。</p>
+			<p>当值为true时，如果内容范围比滚动视图本身大，在到达内容末尾的时候，可以弹性地拉动一截。如果为false，尾部的所有弹性都会被禁用，即使<code>alwaysBounce*</code>属性为true。默认值为true。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="bounceszoom"></a><span class="platform">ios</span>bouncesZoom <span class="propType">bool</span> <a class="hash-link" href="#bounceszoom">#</a></h4>
 		<div>
-			<p>当值为真的时候，手势驱动内容的缩放时可以超过min/max的限制，然后在手指抬起的时候弹回min/max的缩放比例。否则的话，缩放不会超过限制。</p>
+			<p>当值为true时，使用手势缩放内容可以超过min/max的限制，然后在手指抬起之后弹回min/max的缩放比例。否则的话，缩放不能超过限制。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="cancancelcontenttouches"></a><span class="platform">ios</span>canCancelContentTouches <span class="propType">bool</span> <a class="hash-link" href="#cancancelcontenttouches">#</a></h4>
 		<div>
-			<p>当值为false，一旦有子节点响应触摸操作，即使手指开始移动也不会拖动滚动视图。默认值为真（在以上情况下可以拖动滚动视图。）</p>
+			<p>当值为false时，一旦有子节点响应触摸操作，即使手指开始移动也不会拖动滚动视图。默认值为true（在以上情况下可以拖动滚动视图。）</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="centercontent"></a><span class="platform">ios</span>centerContent <span class="propType">bool</span> <a class="hash-link" href="#centercontent">#</a></h4>
 		<div>
-			<p>当值为真的时候，如果滚动视图的内容比视图本身小，则会自动把内容居中放置。当内容比滚动视图大的时候，此属性没有作用。默认值为false。</p>
+			<p>当值为true时，如果滚动视图的内容比视图本身小，则会自动把内容居中放置。当内容比滚动视图大的时候，此属性没有作用。默认值为false。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -213,8 +215,10 @@
 		<h4 class="propTitle"><a class="anchor" name="decelerationrate"></a><span class="platform">ios</span>decelerationRate <span class="propType">number</span> <a class="hash-link" href="#decelerationrate">#</a></h4>
 		<div>
 			<p>一个浮点数，用于决定当用户抬起手指之后，滚动视图减速停下的速度。常见的选项有：</p>
-			<p>   - Normal: 0.998 (the default)</p>
-			<p>   - Fast: 0.9</p>
+			<ul>
+			<li><p><code>Normal</code>: 0.998 (默认值)</p></li>
+			<li><p><code>Fast</code>: 0.9</p></li>
+			</ul>
 		</div>
 	</div>
 	<div class="prop">
@@ -235,6 +239,14 @@
 			<p>允许的最小缩放比例。默认值为1.0。</p>
 		</div>
 	</div>
+	<div class="prop">
+	<h4 class="propTitle"><a class="anchor" name="onrefreshstart"></a><span class="platform">ios</span>onRefreshStart <span class="propType">function</span> <a class="hash-link" href="#onrefreshstart">#</a></h4>
+	<div><p>如设置了此属性，则会显示一个UIRefreshControl。参数为一个函数，用来在合适的时候执行，以停止UIRefreshControl的动画</p>
+<pre>
+<div class="prism language-javascript"><span class="token punctuation">(</span>endRefreshing<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+     <span class="token function">endRefreshing<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></div></div></div>
+</pre>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onscrollanimationend"></a><span class="platform">ios</span>onScrollAnimationEnd <span class="propType">function</span> <a class="hash-link" href="#onscrollanimationend">#</a></h4>
 		<div>
@@ -268,16 +280,18 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="scrollstotop"></a><span class="platform">ios</span>scrollsToTop <span class="propType">bool</span> <a class="hash-link" href="#scrollstotop">#</a></h4>
 		<div>
-			<p>当此值为真，点击状态栏的时候滚动视图会滚动到顶部。默认值为true。</p>
+			<p>当此值为true时，点击状态栏的时候视图会滚动到顶部。默认值为true。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="snaptoalignment"></a><span class="platform">ios</span>snapToAlignment <span class="propType">enum('start', "center", 'end')</span> <a class="hash-link" href="#snaptoalignment">#</a></h4>
 		<div>
 			<p>当设置了<code>snapToInterval</code>，<code>snapToAlignment</code>会定义停驻点与滚动视图之间的关系。</p>
-			<p>   - <code>start</code> (默认) 会将停驻点对齐在左侧（水平）或顶部（垂直）</p>
-			<p>   - <code>center</code> 会将停驻点对齐到中间</p>
-			<p>   - <code>end</code> 会将停驻点对齐到右侧（水平）或底部（垂直）</p>
+			<ul>
+			<li><p><code>start</code> (默认) 会将停驻点对齐在左侧（水平）或顶部（垂直）</p></li>
+			<li><p><code>center</code> 会将停驻点对齐到中间</p></li>
+			<li><p><code>end</code> 会将停驻点对齐到右侧（水平）或底部（垂直）</p></li>
+			</ul>
 		</div>
 	</div>
 	<div class="prop">

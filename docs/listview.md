@@ -1,4 +1,4 @@
-ListView - 一个核心组件，用于高性能的显示一个可以垂直滚动的变化的数据列表。最基础的使用方式就是创建一个`ListView.DataSource`数据源，然后给他传递一个普通的数据数组，再使用数据源来实例化一个`ListView`组件，并且定义它的`renderRow`回调函数，这个函数会接受数组中的单个数据作为参数，应当返回一个可渲染的组件。
+ListView - 一个核心组件，用于高效地显示一个可以垂直滚动的变化的数据列表。最基本的使用方式就是创建一个`ListView.DataSource`数据源，然后给它传递一个普通的数据数组，再使用数据源来实例化一个`ListView`组件，并且定义它的`renderRow`回调函数，这个函数会接受数组中的每个数据作为参数，返回一个可渲染的组件（作为listview的每一行）。
 
 最简单的例子：
 
@@ -20,12 +20,19 @@ render: function() {
 },
 ```
 
-ListView还支持一些高级特性，譬如使用一个加粗的标题来进行分段，在头部和尾部增加内容，在到达可用数据尾部的时候调用回调函数(`onEndReached`)，还有在视野内可见的数据组变化的时候调用回调函数(`onChangeVisibleRows`)，还有一些性能方面的优化。
+ListView还支持一些高级特性，譬如给每段/组(section)数据添加一个带有粘性的头部（类似iPhone的通讯录，其首字母会在滑动过程中吸附在屏幕上方）；在列表头部和尾部增加单独的内容；在到达列表尾部的时候调用回调函数(`onEndReached`)，还有在视野内可见的数据变化时调用回调函数(`onChangeVisibleRows`)，以及一些性能方面的优化。
 
 有一些性能优化使得ListView可以滚动的更加平滑，尤其是在动态加载可能很大（或者概念上无限长的）数据集的时候：
 
 * 只更新变化的行 - 提供给数据源的rowHasChanged函数可以告诉ListView它是否需要重绘一行数据（即：数据是否发生了变化）参见ListViewDataSource
 * 限制频率的行渲染 - 默认情况下，每次消息循环只有一行会被渲染（可以用`pageSize`属性配置）。这把较大的工作分散成小的碎片，以降低因为渲染而导致丢帧的可能性。
+
+### 截图
+![](../img/components/listview1.png)
+
+![](../img/components/listview2.png)
+
+![](../img/components/listview3.png)
 
 ### 属性
 
@@ -39,20 +46,20 @@ ListView还支持一些高级特性，譬如使用一个加粗的标题来进行
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="initiallistsize"></a>initialListSize <span class="propType">number</span> <a class="hash-link" href="#initiallistsize">#</a></h4>
     <div>
-      <p>当组件刚刚挂载的时候渲染多少行数据。用这个属性来确保首屏显示合适数量的数据，而不是花费许多帧逐步显示出来。</p>
+      <p>指定在组件刚挂载的时候渲染多少行数据。用这个属性来确保首屏显示合适数量的数据，而不是花费太多帧逐步显示出来。</p>
     </div>
   </div>
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="onchangevisiblerows"></a>onChangeVisibleRows <span class="propType">function</span> <a class="hash-link" href="#onchangevisiblerows">#</a></h4>
     <div>
       <p>(visibleRows, changedRows) =&gt; void</p>
-      <p>当可见的行的集合变化的时候调用此回调函数。<code>visibleRows</code> 是一个对所有可见的行包含 { sectionID: { rowID: true }}的映射，而<code>changedRows</code> 是一个对刚刚改变可见性的行包含{ sectionID: { rowID: true | false }}的映射，其中如果值为true表示一个行变得可见，而为false表示行刚刚离开可视区域而变得不可见。</p>
+      <p>当可见的行的集合变化的时候调用此回调函数。<code>visibleRows</code> 以 { sectionID: { rowID: true }}的格式包含了所有可见行，而<code>changedRows</code> 以{ sectionID: { rowID: true | false }}的格式包含了所有刚刚改变了可见性的行，其中如果值为true表示一个行变得可见，而为false表示行刚刚离开可视区域而变得不可见。</p>
     </div>
   </div>
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="onendreached"></a>onEndReached <span class="propType">function</span> <a class="hash-link" href="#onendreached">#</a></h4>
     <div>
-      <p>当所有的数据都已经渲染过并且列表被滚动到距离最底部不足onEndReachedThreshold个像素时调用。原生的滚动事件会被作为参数传递。</p>
+      <p>当所有的数据都已经渲染过，并且列表被滚动到距离最底部不足onEndReachedThreshold个像素的距离时调用。原生的滚动事件会被作为参数传递。</p>
     </div>
   </div>
   <div class="prop">
@@ -70,14 +77,14 @@ ListView还支持一些高级特性，譬如使用一个加粗的标题来进行
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="removeclippedsubviews"></a>removeClippedSubviews <span class="propType">bool</span> <a class="hash-link" href="#removeclippedsubviews">#</a></h4>
     <div>
-      <p>一个实验性的性能优化，用于提升大列表的滚动性能。与行容器的overflow:'hidden'结合使用。因为还不稳定，使用此属性需自行承担风险。</p>
+      <p>用于提升大列表的滚动性能。需要给行容器添加样式overflow:'hidden'。（Android已默认添加此样式）。此属性默认开启。</p>
     </div>
   </div>
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="renderfooter"></a>renderFooter <span class="propType">function</span> <a class="hash-link" href="#renderfooter">#</a></h4>
     <div>
       <p>() =&gt; renderable</p>
-      <p>页头也页脚会在每次渲染过程中一直被渲染（如果提供了这些属性）。如果它们重绘的性能开销很大，把他们包装到一个StaticContainer或者其它恰当的结构中。页脚会永远在列表的最底部，而页头会在最顶部。</p>
+      <p>页头与页脚会在每次渲染过程中都重新渲染（如果提供了这些属性）。如果它们重绘的性能开销很大，把他们包装到一个StaticContainer或者其它恰当的结构中。页脚会永远在列表的最底部，而页头会在最顶部。</p>
     </div>
   </div>
   <div class="prop">
@@ -87,7 +94,7 @@ ListView还支持一些高级特性，譬如使用一个加粗的标题来进行
     <h4 class="propTitle"><a class="anchor" name="renderrow"></a>renderRow <span class="propType">function</span> <a class="hash-link" href="#renderrow">#</a></h4>
     <div>
       <p>(rowData, sectionID, rowID, highlightRow) =&gt; renderable</p>
-      <p>从数据源(Data source)中接受一个数据入口，以及它和它所在小节的ID，应当返回一个可渲染的组件来为这行数据进行渲染。默认情况下参数中的数据就是放进数据源中的数据本身，不过也可以提供一些转换器。</p>
+      <p>从数据源(Data source)中接受一条数据，以及它和它所在section的ID。返回一个可渲染的组件来为这行数据进行渲染。默认情况下参数中的数据就是放进数据源中的数据本身，不过也可以提供一些转换器。</p>
       <p>如果某一行正在被高亮（通过调用highlightRow函数），ListView会得到相应的通知。当一行被高亮时，其两侧的分割线会被隐藏。行的高亮状态可以通过调用highlightRow(null)来重置。</p>
     </div>
   </div>
@@ -95,14 +102,14 @@ ListView还支持一些高级特性，譬如使用一个加粗的标题来进行
     <h4 class="propTitle"><a class="anchor" name="renderscrollcomponent"></a>renderScrollComponent <span class="propType">function</span> <a class="hash-link" href="#renderscrollcomponent">#</a></h4>
     <div>
       <p>(props) =&gt; renderable</p>
-      <p>一个函数，返回一个可以滚动的组件，列表会在该组件内部渲染。默认情况下会返回一个包含指定属性的ScrollView。</p>
+      <p>指定一个函数，在其中返回一个可以滚动的组件。ListView将会在该组件内部进行渲染。默认情况下会返回一个包含指定属性的ScrollView。</p>
     </div>
   </div>
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="rendersectionheader"></a>renderSectionHeader <span class="propType">function</span> <a class="hash-link" href="#rendersectionheader">#</a></h4>
     <div>
       <p>(sectionData, sectionID) =&gt; renderable</p>
-      <p>如果提供了此函数，会为每个小节渲染一个粘性的标题。</p>
+      <p>如果提供了此函数，会为每个小节(section)渲染一个粘性的标题。</p>
       <p>粘性是指当它刚出现时，会处在对应小节的内容顶部；继续下滑当它到达屏幕顶端的时候，它会停留在屏幕顶端，一直到对应的位置被下一个小节的标题占据为止。</p>
     </div>
   </div>
@@ -110,7 +117,7 @@ ListView还支持一些高级特性，譬如使用一个加粗的标题来进行
     <h4 class="propTitle"><a class="anchor" name="renderseparator"></a>renderSeparator <span class="propType">function</span> <a class="hash-link" href="#renderseparator">#</a></h4>
     <div>
       <p>(sectionID, rowID, adjacentRowHighlighted) =&gt; renderable</p>
-      <p>如果提供了此属性，一个可渲染的组件会被渲染在每一行下面，除了小节标题的前面的最后一行。在其上方的小节ID和行ID，以及邻近的行是否被高亮会作为参数传递。</p>
+      <p>如果提供了此属性，一个可渲染的组件会被渲染在每一行下面，除了小节标题的前面的最后一行。在其上方的小节ID和行ID，以及邻近的行是否被高亮会作为参数传递进来。</p>
     </div>
   </div>
   <div class="prop">

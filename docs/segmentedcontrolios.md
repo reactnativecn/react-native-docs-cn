@@ -1,6 +1,7 @@
 使用`SegmentedControlIOS`来在iOS设备上渲染一个`UISegmentedControl`组件。这是一个分段显示多个选项的组件。
 
-![SegmentedControlIOS](../img/segmentedcontrolios.jpg)
+### 截图
+![SegmentedControlIOS](../img/components/segmentedcontrolios.png)
 
 ### 属性
 
@@ -17,7 +18,7 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="momentary"></a>momentary <span class="propType">bool</span> <a class="hash-link" href="#momentary">#</a></h4>
 		<div>
-			<p>如果为真，选中的段不会一直保持特效。<code>onValueChange</code>回调还是会正常工作。</p>
+			<p>如果为true，选中的段不会一直保持特效。但<code>onValueChange</code>回调还是会正常工作。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -52,7 +53,7 @@
 	</div>
 </div>
 
-### 样例
+### 例子
 
 ```javascript
 'use strict';

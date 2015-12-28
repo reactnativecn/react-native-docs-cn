@@ -1,5 +1,6 @@
 ### 截图
 ![showActionSheetWithOptions](../img/api/actionsheetios1.png)
+
 ![showShareActionSheetWithOptions](../img/api/actionsheetios2.png)
 
 ### 方法

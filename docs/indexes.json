@@ -212,12 +212,8 @@
                     "mdlink": "sliderios"
                 },
                 {
-                    "subject": "SwitchAndroid",
-                    "mdlink": "switchandroid"
-                },
-                {
-                    "subject": "SwitchIOS",
-                    "mdlink": "switchios"
+                    "subject": "Switch",
+                    "mdlink": "switch"
                 },
                 {
                     "subject": "TabBarIOS",

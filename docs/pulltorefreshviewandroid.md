@@ -1,4 +1,8 @@
 本组件是一个视图，可以放置单个可滚动子视图（比如ScrollView）。当子视图的竖直方向偏移（scrollY）为0时，将其下拉可以触发一个onRefresh事件。
+
+### 截图
+![](../img/components/pulltorefreshviewandroid.png)
+
 ### 属性列表
 
 <div class="props">

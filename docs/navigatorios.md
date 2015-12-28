@@ -1,8 +1,18 @@
-NavigatorIOS包装了UIKit的导航功能，允许使用左划功能来返回到上一界面。
+NavigatorIOS包装了UIKit的导航功能，可以使用左划功能来返回到上一界面。
+
+> 注：本组件并非由Facebook官方开发组维护。  
+> 
+> 这一组件的开发完全由社区主导。如果纯js的方案能够满足你的需求的话，那么我们建议你选择`Navigator`组件。
+
+
+### 截图
+![](../img/components/navigatorios1.png)
+
+![](../img/components/navigatorios2.png)
 
 ### 路由
 
-一个路由是用于描述导航器中一页的对象。你提供给NavigatorIOS的第一个路由通过`initialRoute`属性来提供。
+一个路由是用于描述导航器中一页的对象。NavigatorIOS的第一个路由通过`initialRoute`属性来提供。
 
 ```javascript
 render: function() {
@@ -18,11 +28,12 @@ render: function() {
 },
 ```
 
-现在MyView会被导航器渲染出来。它会接到`route`属性是对应的路由对象，导航器本身，还有所有`passProps`中传递的属性。
+现在MyView会被导航器渲染出来。它可以通过`route`属性获得对应的路由对象，导航器本身，还有所有`passProps`中传递的属性。
+查看initialRoute的propTypes来了解路由（route）的完整定义。
 
 ### 导航器
 
-导航器是一个包含了一系列视图可以调用的导航函数的对象。它会作为属性传递给NavigatorIOS渲染的任何组件。
+导航器是一个object，包含了一系列导航函数，可供视图调用。它会作为props传递给NavigatorIOS渲染的任何组件。
 
 ```javascript
 var MyView = React.createClass({
@@ -48,7 +59,7 @@ var MyView = React.createClass({
 * `popToRoute(route)` - 一直回到某个指定的路由。
 * `popToTop()` - 回到最顶层的路由。
 
-Navigator函数也可以从NavigatorIOS组件中拿到：
+导航函数也可以从NavigatorIOS的子组件中获得：
 
 ```javascript
 var MyView = React.createClass({
@@ -76,7 +87,7 @@ var MyView = React.createClass({
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="initialroute"></a>initialRoute <span class="propType">{component: function, title: string, passProps: object, backButtonIcon: Image.propTypes.source, backButtonTitle: string, leftButtonIcon: Image.propTypes.source, leftButtonTitle: string, onLeftButtonPress: function, rightButtonIcon: Image.propTypes.source, rightButtonTitle: string, onRightButtonPress: function, wrapperStyle: [object Object]}</span> <a class="hash-link" href="#initialroute">#</a></h4>
 		<div>
-			<p>NavigatorIOS使用"路由"对象来包含要渲染的子视图、它们的属性、以及导航条配置。"push"和任何其它的导航操作都想要这样的路由对象。</p>
+			<p>NavigatorIOS使用"路由"对象来包含要渲染的子视图、它们的属性、以及导航条配置。"push"和任何其它的导航函数的参数都是这样的路由对象。</p>
 		</div>
 	</div>
 	<div class="prop">
