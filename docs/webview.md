@@ -1,6 +1,7 @@
 创建一个原生的WebView，可以用于访问一个网页。
 
-注意WebView目前还仅在iOS平台支持，参见[已知问题](/docs/known-issues.html)
+### 截图
+![](../img/components/webview.png)
 
 ### 属性
 
@@ -9,7 +10,7 @@
 		<h4 class="propTitle"><a class="anchor" name="automaticallyadjustcontentinsets"></a>automaticallyAdjustContentInsets <span class="propType">bool</span> <a class="hash-link" href="#automaticallyadjustcontentinsets">#</a></h4>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="bounces"></a>bounces <span class="propType">bool</span> <a class="hash-link" href="#bounces">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="bounces"></a><span class="platform">ios</span>bounces <span class="propType">bool</span> <a class="hash-link" href="#bounces">#</a></h4>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="contentinset"></a>contentInset <span class="propType">{top: number, left: number, bottom: number, right: number}</span> <a class="hash-link" href="#contentinset">#</a></h4>
@@ -24,7 +25,7 @@
 		</div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="javascriptenabledandroid"></a>javaScriptEnabledAndroid <span class="propType">bool</span> <a class="hash-link" href="#javascriptenabledandroid">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="javascriptenabledandroid"></a><span class="platform">android</span>javaScriptEnabledAndroid <span class="propType">bool</span> <a class="hash-link" href="#javascriptenabledandroid">#</a></h4>
 		<div>
 			<p>仅限Android平台。iOS平台JavaScript是默认开启的。</p>
 		</div>
@@ -33,25 +34,27 @@
 		<h4 class="propTitle"><a class="anchor" name="onnavigationstatechange"></a>onNavigationStateChange <span class="propType">function</span> <a class="hash-link" href="#onnavigationstatechange">#</a></h4>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="onshouldstartloadwithrequest"></a>onShouldStartLoadWithRequest <span class="propType">function</span> <a class="hash-link" href="#onshouldstartloadwithrequest">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="onshouldstartloadwithrequest"></a><span class="platform">ios</span>onShouldStartLoadWithRequest <span class="propType">function</span> <a class="hash-link" href="#onshouldstartloadwithrequest">#</a></h4>
 		<div>
 			<p>允许为webview发起的请求运行一个自定义的处理函数。返回true或false表示是否要继续执行响应的请求。</p>
 		</div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="rendererror"></a>renderError <span class="propType">function</span> <a class="hash-link" href="#rendererror">#</a></h4>
+	<h4 class="propTitle"><a class="anchor" name="rendererror"></a>renderError <span class="propType">function</span> <a class="hash-link" href="#rendererror">#</a></h4>
+	<div><p>设置一个函数，返回一个视图用于显示错误。</p></div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="renderloading"></a>renderLoading <span class="propType">function</span> <a class="hash-link" href="#renderloading">#</a></h4>
+	<h4 class="propTitle"><a class="anchor" name="renderloading"></a>renderLoading <span class="propType">function</span> <a class="hash-link" href="#renderloading">#</a></h4>
+	<div><p>设置一个函数，返回一个加载指示器。</p></div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="scalespagetofit"></a>scalesPageToFit <span class="propType">bool</span> <a class="hash-link" href="#scalespagetofit">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="scalespagetofit"></a><span class="platform">ios</span>scalesPageToFit <span class="propType">bool</span> <a class="hash-link" href="#scalespagetofit">#</a></h4>
 		<div>
-			<p>仅限iOS平台，设置是否要把网页缩放到适应视图的大小，以及是否允许用户改变缩放比例。</p>
+			<p>设置是否要把网页缩放到适应视图的大小，以及是否允许用户改变缩放比例。</p>
 		</div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="scrollenabled"></a>scrollEnabled <span class="propType">bool</span> <a class="hash-link" href="#scrollenabled">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="scrollenabled"></a><span class="platform">ios</span>scrollEnabled <span class="propType">bool</span> <a class="hash-link" href="#scrollenabled">#</a></h4>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="startinloadingstate"></a>startInLoadingState <span class="propType">bool</span> <a class="hash-link" href="#startinloadingstate">#</a></h4>
@@ -62,4 +65,235 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="url"></a>url <span class="propType">string</span> <a class="hash-link" href="#url">#</a></h4>
 	</div>
+	<div class="prop">
+	<h4 class="propTitle"><a class="anchor" name="allowsinlinemediaplayback"></a><span class="platform">ios</span>allowsInlineMediaPlayback <span class="propType">bool</span> <a class="hash-link" href="#allowsinlinemediaplayback">#</a></h4>
+	<div><p>指定HTML5视频是在网页当前位置播放还是使用原生的全屏播放器播放。
+	默认值为<code>false</code>。</p>
+	<p><strong>注意</strong> : 要让视频在网页中播放，不光要将这个属性设为true，HTML中的视频元素本身也需要包含<code>webkit-playsinline</code>属性。</p></div>
+	</div>
 </div>
+
+### 例子
+```javascript
+'use strict';
+
+var React = require('react-native');
+var {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  WebView
+} = React;
+
+var HEADER = '#3b5998';
+var BGWASH = 'rgba(255,255,255,0.8)';
+var DISABLED_WASH = 'rgba(255,255,255,0.25)';
+
+var TEXT_INPUT_REF = 'urlInput';
+var WEBVIEW_REF = 'webview';
+var DEFAULT_URL = 'https://m.facebook.com';
+
+var WebViewExample = React.createClass({
+
+  getInitialState: function() {
+    return {
+      url: DEFAULT_URL,
+      status: 'No Page Loaded',
+      backButtonEnabled: false,
+      forwardButtonEnabled: false,
+      loading: true,
+      scalesPageToFit: true,
+    };
+  },
+
+  inputText: '',
+
+  handleTextInputChange: function(event) {
+    this.inputText = event.nativeEvent.text;
+  },
+
+  render: function() {
+    this.inputText = this.state.url;
+
+    return (
+      <View style={[styles.container]}>
+        <View style={[styles.addressBarRow]}>
+          <TouchableOpacity
+            onPress={this.goBack}
+            style={this.state.backButtonEnabled ? styles.navButton : styles.disabledButton}>
+            <Text>
+               {'<'}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={this.goForward}
+            style={this.state.forwardButtonEnabled ? styles.navButton : styles.disabledButton}>
+            <Text>
+              {'>'}
+            </Text>
+          </TouchableOpacity>
+          <TextInput
+            ref={TEXT_INPUT_REF}
+            autoCapitalize="none"
+            defaultValue={this.state.url}
+            onSubmitEditing={this.onSubmitEditing}
+            onChange={this.handleTextInputChange}
+            clearButtonMode="while-editing"
+            style={styles.addressBarTextInput}
+          />
+          <TouchableOpacity onPress={this.pressGoButton}>
+            <View style={styles.goButton}>
+              <Text>
+                 Go!
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <WebView
+          ref={WEBVIEW_REF}
+          automaticallyAdjustContentInsets={false}
+          style={styles.webView}
+          url={this.state.url}
+          javaScriptEnabledAndroid={true}
+          onNavigationStateChange={this.onNavigationStateChange}
+          onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
+          startInLoadingState={true}
+          scalesPageToFit={this.state.scalesPageToFit}
+        />
+        <View style={styles.statusBar}>
+          <Text style={styles.statusBarText}>{this.state.status}</Text>
+        </View>
+      </View>
+    );
+  },
+
+  goBack: function() {
+    this.refs[WEBVIEW_REF].goBack();
+  },
+
+  goForward: function() {
+    this.refs[WEBVIEW_REF].goForward();
+  },
+
+  reload: function() {
+    this.refs[WEBVIEW_REF].reload();
+  },
+
+  onShouldStartLoadWithRequest: function(event) {
+    // Implement any custom loading logic here, don't forget to return!
+    return true;
+  },
+
+  onNavigationStateChange: function(navState) {
+    this.setState({
+      backButtonEnabled: navState.canGoBack,
+      forwardButtonEnabled: navState.canGoForward,
+      url: navState.url,
+      status: navState.title,
+      loading: navState.loading,
+      scalesPageToFit: true
+    });
+  },
+
+  onSubmitEditing: function(event) {
+    this.pressGoButton();
+  },
+
+  pressGoButton: function() {
+    var url = this.inputText.toLowerCase();
+    if (url === this.state.url) {
+      this.reload();
+    } else {
+      this.setState({
+        url: url,
+      });
+    }
+    // dismiss keyboard
+    this.refs[TEXT_INPUT_REF].blur();
+  },
+
+});
+
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: HEADER,
+  },
+  addressBarRow: {
+    flexDirection: 'row',
+    padding: 8,
+  },
+  webView: {
+    backgroundColor: BGWASH,
+    height: 350,
+  },
+  addressBarTextInput: {
+    backgroundColor: BGWASH,
+    borderColor: 'transparent',
+    borderRadius: 3,
+    borderWidth: 1,
+    height: 24,
+    paddingLeft: 10,
+    paddingTop: 3,
+    paddingBottom: 3,
+    flex: 1,
+    fontSize: 14,
+  },
+  navButton: {
+    width: 20,
+    padding: 3,
+    marginRight: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: BGWASH,
+    borderColor: 'transparent',
+    borderRadius: 3,
+  },
+  disabledButton: {
+    width: 20,
+    padding: 3,
+    marginRight: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: DISABLED_WASH,
+    borderColor: 'transparent',
+    borderRadius: 3,
+  },
+  goButton: {
+    height: 24,
+    padding: 3,
+    marginLeft: 8,
+    alignItems: 'center',
+    backgroundColor: BGWASH,
+    borderColor: 'transparent',
+    borderRadius: 3,
+    alignSelf: 'stretch',
+  },
+  statusBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 5,
+    height: 22,
+  },
+  statusBarText: {
+    color: 'white',
+    fontSize: 13,
+  },
+  spinner: {
+    width: 20,
+    marginRight: 6,
+  },
+});
+
+exports.displayName = (undefined: ?string);
+exports.title = '<WebView>';
+exports.description = 'Base component to display web content';
+exports.examples = [
+  {
+    title: 'WebView',
+    render(): ReactElement { return <WebViewExample />; }
+  }
+];
+```

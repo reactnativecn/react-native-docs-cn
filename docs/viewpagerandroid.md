@@ -1,6 +1,6 @@
 一个允许在子视图之间左右翻页的容器。每一个`ViewPagerAndroid`的子容器会被视作一个单独的页，并且会被拉伸填满`ViewPagerAndroid`。
 
-注意所有的子视图都必须是<View>，而不能是组合容器。你可以给每个子视图设置样式属性譬如`padding`或`backgroundColor`。
+注意所有的子视图都必须是纯View，而不能是自定义的复合容器。你可以给每个子视图设置样式属性譬如`padding`或`backgroundColor`。
 
 例子：
 
@@ -31,6 +31,9 @@ var styles = {
 }
 ```
 
+### 截图
+![](../img/components/viewpager.png)
+
 ### 属性
 
 <div class="props">
@@ -44,17 +47,21 @@ var styles = {
 		<h4 class="propTitle"><a class="anchor" name="keyboarddismissmode"></a>keyboardDismissMode <span class="propType">enum('none', "on-drag")</span> <a class="hash-link" href="#keyboarddismissmode">#</a></h4>
 		<div>
 			<p>决定在滑动的时候是否要让软键盘消失。</p>
-			<p> - 'none' （默认值），拖拽不会让键盘消失。 <p>
-			<p> - 'on-drag'， 当拖拽开始的时候会让键盘消失。</p>
+			<ul>
+			<li><p><code>none</code> （默认值），拖拽不会让键盘消失。 <p></li>
+			<li><p><code>on-drag</code>， 当拖拽开始的时候会让键盘消失。</p></li>
+			</ul>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onpagescroll"></a>onPageScroll <span class="propType">function</span> <a class="hash-link" href="#onpagescroll">#</a></h4>
 		<div>
-			<p>当在页间切换时（不论是由于动画还是由于用户在页间滑动/拖拽）</p>
+			<p>当在页间切换时（不论是由于动画还是由于用户在页间滑动/拖拽）执行。</p>
 			<p>回调参数中的<code>event.nativeEvent</code>对象会包含如下数据：</p>
-			<p>  - position - 从左数起第一个当前可见的页面的下标。</p>
-			<p>  - offset - 一个在[0,1)（大于等于0，小于1）之间的范围，代表当前页面切换的状态。值x表示现在"position"所表示的页有(1 - x)的部分可见，而下一页有x的部分可见。</p>
+			<ul>
+			<li><p><code>position</code> 从左数起第一个当前可见的页面的下标。</p></li>
+			<li><p><code>offset</code> 一个在[0,1)（大于等于0，小于1）之间的范围，代表当前页面切换的状态。值x表示现在"position"所表示的页有(1 - x)的部分可见，而下一页有x的部分可见。</p></li>
+			</ul>
 		</div>
 	</div>
 	<div class="prop">
@@ -62,7 +69,9 @@ var styles = {
 		<div>
 			<p>这个回调会在页面切换完成后（当用户在页面间滑动）调用。</p>
 			<p>回调参数中的<code>event.nativeEvent</code>对象会包含如下的字段：</p>
-			<p> - position - 当前被选中的页面下标</p>
+			<ul>
+			<li><p><code>position</code> 当前被选中的页面下标</p></li>
+			</ul>
 		</div>
 	</div>
 </div>
