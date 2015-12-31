@@ -1,4 +1,4 @@
-要想往[Google Play store](https://play.google.com/store)或者其它渠道发布应用，你需要生成一个签名的发行版APK包。Android开发者文档中的[为你的应用程序签名](https://developer.android.com/tools/publishing/app-signing.html)已经说明了相应的内容。本向导会简略的介绍这些过程，然后着重讲解如何打包JavaScript代码。
+要通过[Google Play store](https://play.google.com/store)或者其它渠道发布应用，你需要生成一个签名的发行版APK包。Android开发者文档中的[为你的应用程序签名](https://developer.android.com/tools/publishing/app-signing.html)已经说明了相应的内容。本向导会简略的介绍这些过程，然后着重讲解如何打包JavaScript代码。
 
 ### 生成一个签名密钥
 
@@ -6,11 +6,11 @@
 
     $ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 
-这条命令会要求你输入密钥库（keystore）和对应密钥的密码，然后设置一些发行相关的信息。最后它会生成一个密钥库文件，叫做`my-release-key.keystore`。
+这条命令会要求你输入密钥库（keystore）和对应密钥的密码，然后设置一些发行相关的信息。最后它会生成一个叫做`my-release-key.keystore`密钥库文件。
 
-在上面这条语句之后，密钥库里应该已经包含了一个单独的密钥，有效期为10000天。--alias参数后面的别名是你将来为应用签名时所需要用到的，所以记得记录这个别名。
+在运行上面这条语句之后，密钥库里应该已经生成了一个单独的密钥，有效期为10000天。--alias参数后面的别名是你将来为应用签名时所需要用到的，所以记得记录这个别名。
 
-_注：请记得私密地保管好你的密钥库文件，不要上传到版本库或者其它的地方。_、
+_注：请记得妥善地保管好你的密钥库文件，不要上传到版本库或者其它的地方。_、
 
 ### 设置gradle变量
 
@@ -59,7 +59,7 @@ android {
 
 #### 如果你在`android/app`下有一个`react.gradle`
 
-只要再终端下运行以下命令：
+只要在终端下运行以下命令：
 
 ```sh
 $ cd android && ./gradlew assembleRelease
@@ -90,6 +90,7 @@ $ cd android && ./gradlew installRelease
 ```
 
 注意`installRelease`命令只能在你完成了上面的签名配置之后才可以使用。
+你可以结束掉任何的packager实例，所有你的代码和框架代码都被打包到了apk资源中。
 
 ### 启用Proguard代码混淆来缩小APK文件的大小（可选）
 
