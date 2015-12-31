@@ -1,12 +1,12 @@
-有时候我们的App需要访问平台API，并且React Native可能还没有相应的模块包装；或者你需要复用一些Java代码，而不是用Javascript重新实现一遍；又或者你需要实现某些高性能的、多线程的代码，譬如图片处理、数据库、或者各种高级扩展等等。
+有时候App需要访问平台API，但React Native可能还没有相应的模块包装；或者你需要复用一些Java代码，而不是用Javascript重新实现一遍；又或者你需要实现某些高性能的、多线程的代码，譬如图片处理、数据库、或者各种高级扩展等等。
 
-我们把React Native设计为你可以在它的基础上编写真正原生的代码，并且可以访问平台所有的能力。这是一个相对高级的特性，我们并不认为它应当在日常开发的过程中经常出现，但具备这样的能力是很重要的。如果React Native还不支持某个你需要的原生特性，你应当可以自己实现该特性的封装。
+我们把React Native设计为可以在其基础上编写真正的原生代码，并且可以访问平台所有的能力。这是一个相对高级的特性，我们并不认为它应当在日常开发的过程中经常出现，但具备这样的能力是很重要的。如果React Native还不支持某个你需要的原生特性，你应当可以自己实现该特性的封装。
 
 ## Toast模块
 
-本向导会用[Toast](http://developer.android.com/reference/android/widget/Toast.html)作为例子。假设我们希望我们可以从Javascript发起一个Toast消息（Android下一种会在屏幕下方弹出、保持一段时间的消息通知）
+本向导会用[Toast](http://developer.android.com/reference/android/widget/Toast.html)作为例子。假设我们希望可以从Javascript发起一个Toast消息（Android中的一种会在屏幕下方弹出、保持一段时间的消息通知）
 
-我们首先来创建一个原生模块。一个原生模块是一个继承了`ReactContextBaseJavaModule`的Java类，它可以实现一些JavaScript所需的功能。我们这里的目标是让我们可以在JavaScript里写`ToastAndroid.show('Awesome', ToastAndroid.SHORT);`，来调起一个Toast通知。
+我们首先来创建一个原生模块。一个原生模块是一个继承了`ReactContextBaseJavaModule`的Java类，它可以实现一些JavaScript所需的功能。我们这里的目标是可以在JavaScript里写`ToastAndroid.show('Awesome', ToastAndroid.SHORT);`，来调起一个Toast通知。
 
 ```java
 package com.facebook.react.modules.toast;
@@ -32,7 +32,7 @@ public class ToastModule extends ReactContextBaseJavaModule {
 }
 ```
 
-`ReactContextBaseJavaModule`要求派生类实现`getName`方法。这个函数用于返回一个字符串名字，这个名字在JavaScript端标记这个模块。所以我们这里把我们的模块叫做`ToastAndroid`，这样我们就可以在JavaScript中通过`React.NativeModules.ToastAndroid`访问到这个模块。
+`ReactContextBaseJavaModule`要求派生类实现`getName`方法。这个函数用于返回一个字符串名字，这个名字在JavaScript端标记这个模块。这里我们把这个模块叫做`ToastAndroid`，这样就可以在JavaScript中通过`React.NativeModules.ToastAndroid`访问到这个模块。
 
 ```java
   @Override
@@ -78,10 +78,11 @@ Callback -> function
 ReadableMap -> Object
 ReadableArray -> Array
 ```
+参阅[ReadableMap](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/bridge/ReadableMap.java)和[ReadableArray](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/bridge/ReadableArray.java)。
 
 ### 注册模块
 
-在Java这边要做的最后一件事就是注册这个模块。我们需要在你的应用的Package类的`createNativeModules`方法中添加这个模块。如果一个模块没有被注册，它从JavaScript中也无法访问到。
+在Java这边要做的最后一件事就是注册这个模块。我们需要在应用的Package类的`createNativeModules`方法中添加这个模块。如果模块没有被注册，它也无法在JavaScript中被访问到。
 
 ```java
 class AnExampleReactPackage implements ReactPackage {
@@ -99,7 +100,7 @@ class AnExampleReactPackage implements ReactPackage {
   }
 ```
 
-这个Package需要在它创建之后提供给**ReactInstanceManager**。你需要在你的`mReactInstanceManager = ReactInstanceManager.builder()`调用链中，增加一条`.addPackage(new YourPackageName())`
+这个Package需要在它创建之后提供给**ReactInstanceManager**。你需要在`mReactInstanceManager = ReactInstanceManager.builder()`调用链中，增加一条`.addPackage(new YourPackageName())`
 
 阅读下面的代码并且添加addPackage那行到你的应用的`MainActivity.java`文件。这个文件在你的React Native工程的`android`文件夹下，路径为`android/app/src/main/java/com/your-app-name/MainActivity.java`。
 
@@ -115,7 +116,7 @@ mReactInstanceManager = ReactInstanceManager.builder()
   .build();
 ```
 
-为了让你的功能从JavaScript端访问起来更为方便，通常我们都会把原生模块封装成一个JavaScript模块。这不是必须的，但省下了每次都从`NativeModules`中获取对应模块的步骤。JavaScript也是一个很好的地方用于添加一些JavaScript端实现的功能。
+为了让你的功能从JavaScript端访问起来更为方便，通常我们都会把原生模块封装成一个JavaScript模块。这不是必须的，但省下了每次都从`NativeModules`中获取对应模块的步骤。这个JS文件也可以用于添加一些其他JavaScript端实现的功能。
 
 ```javascript
 'use strict';
@@ -142,7 +143,7 @@ ToastAndroid.show('Awesome', ToastAndroid.SHORT);
 
 ### 回调函数
 
-原生模块还支持一种特殊的参数——回调函数。在大部分情况下，回调函数用来往调用的函数提供一个异步调用的返回值。
+原生模块还支持一种特殊的参数——回调函数。它提供了一个函数来把返回值传回给JavaScript。
 
 ```java
 public class UIManagerModule extends ReactContextBaseJavaModule {
@@ -189,6 +190,64 @@ UIManager.measureLayout(
 
 请务必注意callback并非在对应的原生函数返回后立即被执行——注意跨语言通讯是异步的，这个执行过程会通过消息循环来进行。
 
+## Promises
+
+__译注__：这一部分涉及到较新的js语法和特性，不熟悉的读者建议先阅读ES6的相关书籍和文档。
+
+原生模块还可以使用promise来简化代码，搭配ES2016(ES7)标准的`async/await`语法则效果更佳。如果桥接原生方法的最后一个参数是一个`Promise`，则对应的JS方法就会返回一个Promise对象。
+
+我们把上面的代码用promise来代替回调进行重构：
+
+```java
+public class UIManagerModule extends ReactContextBaseJavaModule {
+
+...
+
+  @ReactMethod
+  public void measureLayout(
+      int tag,
+      int ancestorTag,
+      Promise promise) {
+    try {
+      measureLayout(tag, ancestorTag, mMeasureBuffer);
+
+      WritableMap map = Arguments.createMap();
+
+      map.putDouble("relativeX", PixelUtil.toDIPFromPixel(mMeasureBuffer[0]));
+      map.putDouble("relativeY", PixelUtil.toDIPFromPixel(mMeasureBuffer[1]));
+      map.putDouble("width", PixelUtil.toDIPFromPixel(mMeasureBuffer[2]));
+      map.putDouble("height", PixelUtil.toDIPFromPixel(mMeasureBuffer[3]));
+
+      promise.resolve(map);
+    } catch (IllegalViewOperationException e) {
+      promise.reject(e.getMessage());
+    }
+  }
+
+...
+```
+
+现在JavaScript端的方法会返回一个Promise。这样你就可以在一个声明了`async`的异步函数内使用`await`关键字来调用，并等待其结果返回。（虽然这样写着看起来像同步操作，但实际仍然是异步的，并不会阻塞执行来等待）。
+
+```js
+async function measureLayout() {
+  try {
+    var {
+      relativeX,
+      relativeY,
+      width,
+      height,
+    } = await UIManager.measureLayout(100, 100);
+
+    console.log(relativeX + ':' + relativeY + ':' + width + ':' + height);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+measureLayout();
+```
+
 ### 多线程
 
 原生模块不应对自己被调用时所处的线程做任何假设，当前的状况有可能会在将来的版本中改变。如果一个过程要阻塞执行一段时间，这个工作应当分配到一个内部管理的工作线程，然后从那边可以调用任意的回调函数。_译注_：我们通常用AsyncTask来完成这项工作。
@@ -212,7 +271,7 @@ WritableMap params = Arguments.createMap();
 sendEvent(reactContext, "keyboardWillShow", params);
 ```
 
-JavaScript模块可以通过`Subscribable` mixin的`addListenerOn`方法来接受事件。
+JavaScript模块可以通过`Subscribable`mixin的`addListenerOn`方法来接受事件。
 
 ```js
 var { DeviceEventEmitter } = require('react-native');

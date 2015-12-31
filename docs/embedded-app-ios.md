@@ -16,7 +16,7 @@
 ```ruby
 # 取决于你的工程如何组织，你的node_modules文件夹可能会在别的地方。
 # 请将:path后面的内容修改为正确的路径。
-pod 'React', :path => '../node_modules/react-native', :subspecs => [
+pod 'React', :path => './node_modules/react-native', :subspecs => [
   'Core',
   'RCTImage',
   'RCTNetwork',
@@ -116,7 +116,7 @@ React.AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
 在`ReactView.m`中，我们需要先使用你的`index.ios.bundle`的URI来初始化`RCTRootView`。`index.ios.bundle`会由packager服务创建，可以通过React Native服务器访问到。我们会在后面讨论这个问题。
 
 ```
-NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
 // For production use, this `NSURL` could instead point to a pre-bundled file on disk:
 //
 //   NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
@@ -154,7 +154,7 @@ _译注_：这一部分的官方文档都有一些过时。翻译组在翻译&�
 
 ![Example](../img/EmbeddedAppExample.png)
 
-在模拟器下也可以实现热加载。现在你已经拥有了一个React组件，它在Objective-C中完全表现为一个`UIView`的子类。
+在模拟器下也可以实现热加载（需要在Build Settings -> Preprocessor Macros中设置DEBUG=1）。现在你已经拥有了一个React组件，它在Objective-C中完全表现为一个`UIView`的子类。
 
 ## 总结
 

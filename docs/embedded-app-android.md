@@ -9,7 +9,7 @@
 
 在你的App里的`build.gradle`文件中，添加React Native依赖：
 
-    compile 'com.facebook.react:react-native:0.14.0'
+    compile 'com.facebook.react:react-native:0.13.0'
 
 你可以在[Maven中央库](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.facebook.react%22%20AND%20a%3A%22react-native%22) [国内镜像](http://maven.oschina.net/index.html#nexus-search;quick~React native) 查询到React Native库的最新版本。然后，在你的`AndroidManifest.xml`里增加Internet访问权限：
 
@@ -21,7 +21,7 @@
 
 ## 添加原生代码
 
-你需要添加一些原生代码来启动React Native运行库以及让它渲染出东西来。我们接下来创建一个`Activity`然后创建一个`ReactRootView`，然后在里面启动一个React应用并把它设置为`Activity`的主要内容视图。
+你需要添加一些原生代码来启动React Native运行库以及让它渲染出东西来。我们接下来创建一个`Activity`和一个`ReactRootView`，然后在里面启动一个React应用并把它设置为`Activity`的主要内容视图。
 
 ```java
 public class MyReactActivity extends Activity implements DefaultHardwareBackBtnHandler {
@@ -115,13 +115,13 @@ $ npm install --save react-native
 $ curl -o .flowconfig https://raw.githubusercontent.com/facebook/react-native/master/.flowconfig
 ```
 
-上面的代码会创建一个Node.js模块，然后把React Native作为npm依赖添加。现在打开新创建的`package.json`文件然后在`scripts`字段下添加如下内容：
+上面的代码会创建一个node模块，然后`react-native`作为npm依赖添加。现在打开新创建的`package.json`文件然后在`scripts`字段下添加如下内容：
 
 ```javascript
 "start": "node_modules/react-native/packager/packager.sh"
 ```
 
-复制&粘贴下面的这段代码到你工程根目录下的`index.android.js`——这是一个简单的React Native应用：
+复制并粘贴下面的这段代码到你工程根目录下的`index.android.js`——这是一个简单的React Native应用：
 
 ```js
 'use strict';
@@ -158,14 +158,14 @@ React.AppRegistry.registerComponent('MyAwesomeApp', () => MyAwesomeApp);
 
 ## 运行你的应用
 
-为了运行你的应用，你首先要启动开发服务器。你只需要在你的工程目录下运行这段代码：
+为了运行你的应用，首先要启动开发服务器。只需要在你的工程目录下运行这段代码：
 
     $ npm start
 
-现在来来构建和运行你的Android应用（譬如`./gradlew installDebug`）。一旦你在应用中抵达React Native制作的Activity，它应该会从开发服务器加载代码并显示：
+现在来构建和运行你的Android应用（譬如`./gradlew installDebug`）。一旦启动了React Native制作的Activity，它应该会从开发服务器加载代码并显示：
 
 ![Screenshot](../img/EmbeddedAppAndroid.png)
 
 ## 在多个Activity/Fragment之间共享一个ReactInstance
 
-你可以有多个Activity或者Fragment，它们使用同一个`ReactInstancemanager`。譬如你想创建你的"ReactFragmenet"或者"ReactActivity"，你可能需要创建一个单例对象来保持住`ReactInstanceManager`的引用。当你需要ReactInstanceManager或者传递一些Activity或者Fragment的生命周期事件的时候，可以使用单例对象所提供的引用。
+你可以有多个Activity或者Fragment，它们可以使用同一个`ReactInstancemanager`。譬如你想创建自定义的"ReactFragmenet"或者"ReactActivity"，那么可能需要创建一个单例对象来保存`ReactInstanceManager`的引用。当你需要ReactInstanceManager或者传递一些Activity或者Fragment的生命周期事件的时候，可以使用单例对象所提供的引用。

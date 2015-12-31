@@ -200,7 +200,7 @@ MapView.propTypes = {
 
 现在你可以看到region属性的整个结构已经加上了文档说明——将来可能我们会自动生成一些类似的代码，但目前还没有这样的手段。
 
-有时候你的原生组件有一些特殊的属性希望导出，但并不希望它成为公开的接口。举个例子，`Switch`组件可能会有一个`onChange`属性用来传递原始的原生事件，然后导出一个`onValueChange`属性，这个属性在调用的时候会带上`Switch`的状态作为参数之一。这样的话你可能不希望原生专用的属性出现在API之中，也就不希望把它放到`propTypes`里。可是如果你不放的话，又会出现一个报错。解决方案就是在调用`requireNativeOnly`的时候，带上额外的`nativeOnly`参数，像这样：
+有时候你的原生组件有一些特殊的属性希望导出，但并不希望它成为公开的接口。举个例子，`Switch`组件可能会有一个`onChange`属性用来传递原始的原生事件，然后导出一个`onValueChange`属性，这个属性在调用的时候会带上`Switch`的状态作为参数之一。这样的话你可能不希望原生专用的属性出现在API之中，也就不希望把它放到`propTypes`里。可是如果你不放的话，又会出现一个报错。解决方案就是带上额外的`nativeOnly`参数，像这样：
 
 ```javascript
 var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
