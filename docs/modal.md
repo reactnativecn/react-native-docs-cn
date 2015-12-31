@@ -1,4 +1,4 @@
-一个Modal组件用来覆盖包含React Native根视图的原生视图（如UIViewController，Activity）。
+Modal组件可以用来覆盖包含React Native根视图的原生视图（如UIViewController，Activity）。
 
 在嵌入React Native的混合应用中可以使用Modal。Modal可以使你应用中RN编写的那部分内容覆盖在原生视图上显示。
 

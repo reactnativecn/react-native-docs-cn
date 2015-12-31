@@ -1,6 +1,6 @@
-有时候我们的App需要访问平台API，并且React Native可能还没有相应的模块包装；或者你需要复用Objective-C、Swift或C++代码，而不是用Javascript重新实现一遍；又或者你需要实现某些高性能的、多线程的代码，譬如图片处理、数据库、或者各种高级扩展等等。
+有时候App需要访问平台API，但React Native可能还没有相应的模块封装；或者你需要复用Objective-C、Swift或C++代码，而不是用JavaScript重新实现一遍；又或者你需要实现某些高性能、多线程的代码，譬如图片处理、数据库、或者各种高级扩展等等。
 
-我们把React Native设计为你可以在它的基础上编写真正原生的代码，并且可以访问平台所有的能力。这是一个相对高级的特性，我们并不认为它应当在日常开发的过程中经常出现，但具备这样的能力是很重要的。如果React Native还不支持某个你需要的原生特性，你应当可以自己实现该特性的封装。
+我们把React Native设计为可以在其基础上编写真正的原生代码，并且可以访问平台所有的能力。这是一个相对高级的特性，我们并不认为它应当在日常开发的过程中经常出现，但具备这样的能力是很重要的。如果React Native还不支持某个你需要的原生特性，你应当可以自己实现该特性的封装。
 
 本文是关于如何封装原生模块的高级向导，我们假设您已经具备Objective-C或者Swift，以及iOS核心库（Foundation、UIKit）的相关知识。
 
@@ -64,7 +64,7 @@ CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
 
 除此以外，任何`RCTConvert`类支持的的类型也都可以使用(参见[`RCTConvert`](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h)了解更多信息)。`RCTConvert`还提供了一系列辅助函数，用来接收一个JSON值并转换到原生Objective-C类型或类。
 
-在我们的`CalendarManager`例子里，我们需要把事件的时间交给原生方法。我们不能在桥接通道里传递Date对象，所以我们需要把日期转化成字符串或数字来传递。我们可以这么实现原生函数：
+在我们的`CalendarManager`例子里，我们需要把事件的时间交给原生方法。我们不能在桥接通道里传递Date对象，所以需要把日期转化成字符串或数字来传递。我们可以这么实现原生函数：
 
 ```objective-c
 RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(NSNumber *)secondsSinceUnixEpoch)
@@ -82,7 +82,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 }
 ```
 
-不过我们可以依靠自动类型转换的特性，我们可以跳过手动的类型转换，而直接这么写：
+不过我们可以依靠自动类型转换的特性，跳过手动的类型转换，而直接这么写：
 
 ```objective-c
 RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(NSDate *)date)
@@ -91,21 +91,21 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 }
 ```
 
-我们在Javascript既可以这样：
+在Javascript既可以这样：
 
 ```javascript
-CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey', date.getTime()); // 把日期
+CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey', date.getTime()); // 把日期以unix时间戳形式传递
 ```
 
 也可以这样：
 
 ```javascript
-CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey', date.toISOString()); // passing date as ISO-8601 string
+CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey', date.toISOString()); // 把日期以ISO-8601的字符串形式传递
 ```
 
-两个值都会被转换为正确的`NSDate`类型。而提供一个不合法的值，譬如一个`Array`，会产生一个“红屏”报错信息。
+两个值都会被转换为正确的`NSDate`类型。但如果提供一个不合法的值，譬如一个`Array`，则会产生一个“红屏”报错信息。
 
-随着`CalendarManager.addEvent`方法变得越来越复杂，参数的个数越来越多，其中有一些可能是可选的参数。在这种情况下我们应该考虑修改我们的API，用一个dictionary来存放所有的属性，像这样：
+随着`CalendarManager.addEvent`方法变得越来越复杂，参数的个数越来越多，其中有一些可能是可选的参数。在这种情况下我们应该考虑修改我们的API，用一个dictionary来存放所有的事件参数，像这样：
 
 ```objective-c
 #import "RCTConvert.h"
@@ -130,15 +130,15 @@ CalendarManager.addEvent('Birthday Party', {
 
 > **注意**: 关于数组和映射
 >
-> Objective-C并没有提供确保这些结构体内部值的类型的方式。你的原生模块可能希望收到一个字符串数组，但如果Javascript在调用的时候可能提供了一个混合number和string的数组，你会收到一个`NSArray`，里面既有`NSNumber`也有`NSString`。对于数组来说，`RCTConvert`提供了一些类型化的集合，譬如`NSStringArray`或者`UIColorArray`，你可以用在你的函数声明中。对于映射而言，开发者有责任自己调用`RCTConvert`的辅助方法来检测和转换值的类型。
+> Objective-C并没有提供确保这些结构体内部值的类型的方式。你的原生模块可能希望收到一个字符串数组，但如果JavaScript在调用的时候提供了一个混合number和string的数组，你会收到一个`NSArray`，里面既有`NSNumber`也有`NSString`。对于数组来说，`RCTConvert`提供了一些类型化的集合，譬如`NSStringArray`或者`UIColorArray`，你可以用在你的函数声明中。对于映射而言，开发者有责任自己调用`RCTConvert`的辅助方法来检测和转换值的类型。
 
 ## 回调函数
 
 > **警告**
 >
-> 本章节内容目前还处在实验阶段，因为我们还并没有一套牢固的准则来处理回调函数。
+> 本章节内容目前还处在实验阶段，因为我们还并没有太多的实践经验来处理回调函数。
 
-原生模块还支持一种特殊的参数——回调函数。在大部分情况下，回调函数用来往调用的函数提供一个异步调用的返回值。
+原生模块还支持一种特殊的参数——回调函数。它提供了一个函数来把返回值传回给JavaScript。
 
 ```objective-c
 RCT_EXPORT_METHOD(findEvents:(RCTResponseSenderBlock)callback)
@@ -160,13 +160,50 @@ CalendarManager.findEvents((error, events) => {
 })
 ```
 
-原生模块通常只应调用回调函数一次。但是，它可以保存callback并在将来调用。这在包装那些通过“委托函数”来获得返回值的iOS API时最为常见。在[`RCTAlertManager`](https://github.com/facebook/react-native/blob/master/React/Modules/RCTAlertManager.m)中就属于这种情况。
+原生模块通常只应调用回调函数一次。但是，它可以保存callback并在将来调用。这在封装那些通过“委托函数”来获得返回值的iOS API时最为常见。[`RCTAlertManager`](https://github.com/facebook/react-native/blob/master/React/Modules/RCTAlertManager.m)中就属于这种情况。
 
 如果你想传递一个更接近`Error`类型的对象给Javascript，可以用[`RCTUtils.h`](https://github.com/facebook/react-native/blob/master/React/Base/RCTUtils.h)提供的`RCTMakeError`函数。现在它仅仅是发送了一个和Error结构一样的dictionary给Javascript，但我们考虑在将来版本里让它产生一个真正的`Error`对象。
 
+## Promises
+__译注__：这一部分涉及到较新的js语法和特性，不熟悉的读者建议先阅读ES6的相关书籍和文档。
+
+原生模块还可以使用promise来简化代码，搭配ES2016(ES7)标准的`async/await`语法则效果更佳。如果桥接原生方法的最后两个参数是`RCTPromiseResolveBlock`和`RCTPromiseRejectBlock`，则对应的JS方法就会返回一个Promise对象。
+
+我们把上面的代码用promise来代替回调进行重构：
+
+```objective-c
+RCT_REMAP_METHOD(findEvents,
+                 resolver:(RCTPromiseResolveBlock)resolve,
+                 rejecter:(RCTPromiseRejectBlock)reject))
+{
+  NSArray *events = ...
+  if (events) {
+    resolve(events);
+  } else {
+    reject(error);
+  }
+}
+```
+
+现在JavaScript端的方法会返回一个Promise。这样你就可以在一个声明了`async`的异步函数内使用`await`关键字来调用，并等待其结果返回。（虽然这样写着看起来像同步操作，但实际仍然是异步的，并不会阻塞执行来等待）。
+
+```js
+async function updateEvents() {
+  try {
+    var events = await CalendarManager.findEvents();
+
+    this.setState({ events });
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+updateEvents();
+```
+
 ## 多线程
 
-原生模块不应对自己被调用时所处的线程做任何假设。React Native在一个独立的串行GCD队列中调用原生模块的方法，但这属于实现的细节，并且可能会在将来的版本中改变。通过实现方法`- (dispatch_queue_t)methodQueue`，原生模块可以指定自己想在哪个队列中被执行。距离来说，如果模块需要调用一些必须在主线程才能使用的API，那应当这样指定：
+原生模块不应对自己被调用时所处的线程做任何假设。React Native在一个独立的串行GCD队列中调用原生模块的方法，但这属于实现的细节，并且可能会在将来的版本中改变。通过实现方法`- (dispatch_queue_t)methodQueue`，原生模块可以指定自己想在哪个队列中被执行。具体来说，如果模块需要调用一些必须在主线程才能使用的API，那应当这样指定：
 
 ```objective-c
 - (dispatch_queue_t)methodQueue
@@ -184,7 +221,7 @@ CalendarManager.findEvents((error, events) => {
 }
 ```
 
-指定的`methodQueue`会被你模块里的所有方法共享。如果你的方法中“只有一个”是耗时较长的（或者是由于某种原因必须在不同的队列中运行的），你可以在函数体内用`dispatch_async`方法来再另一个队列执行一段代码，而不影响其他方法：
+指定的`methodQueue`会被你模块里的所有方法共享。如果你的方法中“只有一个”是耗时较长的（或者是由于某种原因必须在不同的队列中运行的），你可以在函数体内用`dispatch_async`方法来在另一个队列执行，而不影响其他方法：
 
 ```objective-c
 RCT_EXPORT_METHOD(doSomethingExpensive:(NSString *)param callback:(RCTResponseSenderBlock)callback)
@@ -200,7 +237,7 @@ RCT_EXPORT_METHOD(doSomethingExpensive:(NSString *)param callback:(RCTResponseSe
 
 > **注意**: 在模块之间共享分发队列
 >
-> 方法`methodQueue`会在模块被初始化的时候被执行一次，然后会被React Native的桥接机制保存下来，所以你不需要自己保存队列的引用，除非你希望在模块的其它地方使用它。但是，如果你希望在若干个模块中共享同一个队列，你需要自己保存并返回相同的队列实例；仅仅是返回相同名字的队列是不行的。
+> `methodQueue`方法会在模块被初始化的时候被执行一次，然后会被React Native的桥接机制保存下来，所以你不需要自己保存队列的引用，除非你希望在模块的其它地方使用它。但是，如果你希望在若干个模块中共享同一个队列，则需要自己保存并返回相同的队列实例；仅仅是返回相同名字的队列是不行的。
 
 ## 导出常量
 
@@ -246,7 +283,7 @@ typedef NS_ENUM(NSInteger, UIStatusBarAnimation) {
 @end
 ```
 
-接着你可以这样定义方法并且导出你的enum值作为常量：
+接着你可以这样定义方法并且导出enum值作为常量：
 
 ```objc
 - (NSDictionary *)constantsToExport
@@ -262,7 +299,7 @@ RCT_EXPORT_METHOD(updateStatusBarAnimation:(UIStatusBarAnimation)animation
 
 你的枚举现在会用上面提供的选择器进行转换（上面的例子中是`integerValue`），然后再传递给你导出的函数。
 
-## 给Javascript发送事件。
+## 给Javascript发送事件
 
 即使没有被JavaScript调用，本地模块也可以给JavaScript发送事件通知。最直接的方式是使用`eventDispatcher`:
 
@@ -302,7 +339,7 @@ subscription.remove();
 
 ## 从Swift导出
 
-Swift不支持宏，所以从Swift想React Native导出类和函数需要多做一些设置，但是大致与Objective-C是相同的。
+Swift不支持宏，所以从Swift向React Native导出类和函数需要多做一些设置，但是大致与Objective-C是相同的。
 
 假设我们已经有了一个一样的`CalendarManager`，不过是用Swift实现的类:
 
@@ -334,7 +371,7 @@ RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 @end
 ```
 
-如果你不了解Swift和Objective-C混编的知识，请注意，一旦你[在IOS中混用2个种语言](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html), 你还需要一个额外的桥接头文件，称作“bridging header”，用来导出Objective-C文件给Swift。如果你是通过Xcode菜单中的`File>New File`来创建的Swift文件，Xcode会自动为你创建这个头文件。在这个头文件中，你需要引入`RCTBridgeModule.h`。
+请注意，一旦你[在IOS中混用2种语言](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html), 你还需要一个额外的桥接头文件，称作“bridging header”，用来导出Objective-C文件给Swift。如果你是通过Xcode菜单中的`File>New File`来创建的Swift文件，Xcode会自动为你创建这个头文件。在这个头文件中，你需要引入`RCTBridgeModule.h`。
 
 ```objc
 // CalendarManager-Bridging-Header.h
@@ -342,6 +379,6 @@ RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 ```
 
 同样的，你也可以使用`RCT_EXTERN_REMAP_MODULE`和`RCT_EXTERN_REMAP_METHOD`来改变导出模块和方法的JavaScript调用名称。
-了解更多信息，请参见[`RCTBridgeModule`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridgeModule.h).
+了解更多信息，请参阅[`RCTBridgeModule`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridgeModule.h).
 
 

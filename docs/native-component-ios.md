@@ -1,12 +1,12 @@
-在如今的App中，已经有成千上万的原生UI部件了——其中的一些是平台的一部分，另一些可能来自于一些第三方库，其中有很多你可能至今都在使用。React Native已经包装了大部分最常见的组件，譬如`ScrollView`和`TextInput`，但不可能包装全部组件。而且，说不定你曾经为自己以前的App包装过一些组件，React Native肯定没法包含它们。幸运的是，在React Naitve应用程序中包装和植入已有的组件非常简单。
+在如今的App中，已经有成千上万的原生UI部件了——其中的一些是平台的一部分，另一些可能来自于一些第三方库，而且可能你自己还收藏了很多。React Native已经封装了大部分最常见的组件，譬如`ScrollView`和`TextInput`，但不可能封装全部组件。而且，说不定你曾经为自己以前的App还封装过一些组件，React Native肯定没法包含它们。幸运的是，在React Naitve应用程序中封装和植入已有的组件非常简单。
 
 和原生模块向导一样，本向导也是一个相对高级的向导，我们假设你已经对iOS编程颇有经验。本向导会引导你如何构建一个原生UI组件，带领你了解React Native核心库中`MapView`组件的具体实现。
 
 ## iOS MapView样例
 
-假设我们要把地图组件植入到我们的App中——我们只要用[`MKMapView`](https://developer.apple.com/library/prerelease/mac/documentation/MapKit/Reference/MKMapView_Class/index.html)就好，我们现在只需要让它可以被Javascript重用。
+假设我们要把地图组件植入到我们的App中——我们用到的是[`MKMapView`](https://developer.apple.com/library/prerelease/mac/documentation/MapKit/Reference/MKMapView_Class/index.html)，而现在只需要让它可以被Javascript重用。
 
-原生视图都需要被一个`RCTViewManager`的子类来创建和管理。这些管理器在功能上有些类似“视图控制器”，但他们本质上都是单例 - React Native只会为每个管理器创建一个实例。它们创建原生的视图并提供给`RCTUIManager`，RCTUIManager则会反过来委托它们在需要的时候去设置和更新视图的属性。`RCTViewManager`还会代理视图的所有委托，并给JavaScript发回对应的事件。
+原生视图都需要被一个`RCTViewManager`的子类来创建和管理。这些管理器在功能上有些类似“视图控制器”，但它们本质上都是单例 - React Native只会为每个管理器创建一个实例。它们创建原生的视图并提供给`RCTUIManager`，`RCTUIManager`则会反过来委托它们在需要的时候去设置和更新视图的属性。`RCTViewManager`还会代理视图的所有委托，并给JavaScript发回对应的事件。
 
 提供原生视图很简单：
 
@@ -57,7 +57,7 @@ module.exports = requireNativeComponent('RCTMap', null);
 RCT_EXPORT_VIEW_PROPERTY(pitchEnabled, BOOL)
 ```
 
-注意我们现在把声明为`BOOL`类型——React Native用`RCTConvert`来在JavaScript和原生代码之间完成类型转换。如果转换无法完成，会产生一个“红屏”的报错提示，这样你立即就能知道代码中出现了问题。如果整个状况都这样直接，上面这个宏就已经包含了导出属性的全部实现。
+注意我们现在把类型声明为`BOOL`类型——React Native用`RCTConvert`来在JavaScript和原生代码之间完成类型转换。如果转换无法完成，会产生一个“红屏”的报错提示，这样你就能立即知道代码中出现了问题。如果一切进展顺利，上面这个宏就已经包含了导出属性的全部实现。
 
 现在要想禁用捏放操作，我们只需要在JS里设置对应的属性：
 
@@ -66,7 +66,7 @@ RCT_EXPORT_VIEW_PROPERTY(pitchEnabled, BOOL)
 <MapView pitchEnabled={false} />
 ```
 
-但这样并不能很好的说明这个组件的用法——用户要想知道我们的组件有哪些属性可以用，以及可以取什么样的值，他不得不一路翻到Objective-C的代码。要避免这个结果，我们可以创建一个包装组件，并且通过`PropTypes`来说明这个组件的接口。
+但这样并不能很好的说明这个组件的用法——用户要想知道我们的组件有哪些属性可以用，以及可以取什么样的值，他不得不一路翻到Objective-C的代码。要解决这个问题，我们可以创建一个封装组件，并且通过`PropTypes`来说明这个组件的接口。
 
 ```javascript
 // MapView.js
@@ -81,11 +81,9 @@ class MapView extends React.Component {
 
 MapView.propTypes = {
   /**
-   * When this property is set to `true` and a valid camera is associated
-   * with the map, the camera’s pitch angle is used to tilt the plane
-   * of the map. When this property is set to `false`, the camera’s pitch
-   * angle is ignored and the map is always displayed as if the user
-   * is looking straight down onto it.
+   * 当这个属性被设置为true，并且地图上绑定了一个有效的可视区域的情况下，
+   * 可以通过捏放操作来改变摄像头的偏转角度。
+   * 当这个属性被设置成false时，摄像头的角度会被忽略，地图会一直显示为俯视状态。
    */
   pitchEnabled: React.PropTypes.bool,
 };
@@ -95,11 +93,9 @@ var RCTMap = requireNativeComponent('RCTMap', MapView);
 module.exports = MapView;
 ```
 
-_注_：上文中注释的意思是：当这个属性被设置为true，并且地图上绑定了一个有效的可视区域的情况下，可以通过捏放操作来改变摄像头的偏转角度。当这个属性被设置成false时，摄像头的角度会被忽略，地图会一直显示为俯视状态。
+_译注_：使用了封装组件之后，你还需要注意到module.exports导出的不再是requireNativeComponent的返回值，而是所创建的包装组件。
 
-_译注_：使用了包装组件之后，你还需要注意到module.exports导出的不再是requireNativeComponent的返回值，而是所创建的包装组件。
-
-现在我们有了一个包装好的组件，包含了一个不错的说明，因此更易被用户使用了。注意我们现在把`requireNativeComponent`的第二个参数从null变成了用于包装的组件`MapView`。这使得React Native的底层框架可以检查原生属性和包装类的属性是否一致，来减少出现问题的可能。
+现在我们有了一个封装好的组件，还有了一些注释文档，用户使用起来也更方便了。注意我们现在把`requireNativeComponent`的第二个参数从null变成了用于封装的组件`MapView`。这使得React Native的底层框架可以检查原生属性和包装类的属性是否一致，来减少出现问题的可能。
 
 现在，让我们添加一个更复杂些的`region`属性。我们首先添加原生代码：
 
@@ -111,9 +107,9 @@ RCT_CUSTOM_VIEW_PROPERTY(region, MKCoordinateRegion, RCTMap)
 }
 ```
 
-这段代码比刚才的一个简单的`BOOL`要复杂的多了。现在我们多了一个需要做类型转换的`MKCoordinateRegion`类型，还添加了一部分自定义的代码，这样当我们在JS里改变地图的可视区域的时候，视角会平滑地移动过去。在我们提供的函数体内，`json`代表了JS中传递的没解析的原始值。函数里还有一个`view`变量，使得我们可以访问到对应的视图实例。最后，还有一个`defaultView`对象，这样当JS给我们发送null的时候，可以把视图的这个属性回复为默认值。
+这段代码比刚才的一个简单的`BOOL`要复杂的多了。现在我们多了一个需要做类型转换的`MKCoordinateRegion`类型，还添加了一部分自定义的代码，这样当我们在JS里改变地图的可视区域的时候，视角会平滑地移动过去。在我们提供的函数体内，`json`代表了JS中传递的尚未解析的原始值。函数里还有一个`view`变量，使得我们可以访问到对应的视图实例。最后，还有一个`defaultView`对象，这样当JS给我们发送null的时候，可以把视图的这个属性重置回默认值。
 
-你可以为你的视图编写你所需要的任何的转换函数——下面就是`MKCoordinateRegion`的转换实现，它通过两个RCTConvert的扩展来完成：
+你可以为视图编写任何你所需要的转换函数——下面就是`MKCoordinateRegion`的转换实现，它通过两个RCTConvert的扩展来完成：
 
 ```objective-c
 @implementation RCTConvert(CoreLocation)
@@ -154,37 +150,34 @@ RCT_CONVERTER(CLLocationDistance, CLLocationDistance, doubleValue);
 
 这些转换函数被设计为可以安全的处理任何JS扔过来的JSON：当有任何缺少的键或者其它问题发生的时候，显示一个“红屏”的错误提示。
 
-为了完成`region`属性的支持，我们还需要在`propTypes`里添加相应的说明（否则我们会立刻收到一个错误提示），然后我们可以就像使用其他属性一样使用它：
+为了完成`region`属性的支持，我们还需要在`propTypes`里添加相应的说明（否则我们会立刻收到一个错误提示），然后就可以像使用其他属性一样使用了：
 
 ```javascript
 // MapView.js
 
 MapView.propTypes = {
   /**
-   * When this property is set to `true` and a valid camera is associated
-   * with the map, the camera’s pitch angle is used to tilt the plane
-   * of the map. When this property is set to `false`, the camera’s pitch
-   * angle is ignored and the map is always displayed as if the user
-   * is looking straight down onto it.
+   * 当这个属性被设置为true，并且地图上绑定了一个有效的可视区域的情况下，
+   * 可以通过捏放操作来改变摄像头的偏转角度。
+   * 当这个属性被设置成false时，摄像头的角度会被忽略，地图会一直显示为俯视状态。
    */
   pitchEnabled: React.PropTypes.bool,
 
   /**
-   * The region to be displayed by the map.
+   * 地图要显示的区域。
    *
-   * The region is defined by the center coordinates and the span of
-   * coordinates to display.
+   * 区域由中心点坐标和区域范围坐标来定义。
+   * 
    */
   region: React.PropTypes.shape({
     /**
-     * Coordinates for the center of the map.
+     * 地图中心点的坐标。
      */
     latitude: React.PropTypes.number.isRequired,
     longitude: React.PropTypes.number.isRequired,
 
     /**
-     * Distance between the minimum and the maximum latitude/longitude
-     * to be displayed.
+     * 最小/最大经、纬度间的距离。
      */
     latitudeDelta: React.PropTypes.number.isRequired,
     longitudeDelta: React.PropTypes.number.isRequired,
@@ -205,9 +198,9 @@ MapView.propTypes = {
 
 ```
 
-现在你可以看到region属性的整个结构已经被说明好了——将来可能我们会自动生成一些类似的代码，但目前还没有这样的手段。
+现在你可以看到region属性的整个结构已经加上了文档说明——将来可能我们会自动生成一些类似的代码，但目前还没有这样的手段。
 
-有时候你的原生组件有一些特殊的属性希望导出，但并不希望它成为公开的接口。举个例子，`Switch`组件可能会有一个'onChange'属性用来传递原始的原生事件，然后导出一个`onValueChange`属性，这个属性在调用的时候会带上Switch的状态作为参数之一。这样的话你可能不希望原生专用的属性出现在API之中，也就不希望把它放到`propTypes`里。可是如果你不放的话，又会出现一个报错。解决方案就是在调用`requireNativeOnly`的时候，带上额外的`nativeOnly`参数，像这样：
+有时候你的原生组件有一些特殊的属性希望导出，但并不希望它成为公开的接口。举个例子，`Switch`组件可能会有一个`onChange`属性用来传递原始的原生事件，然后导出一个`onValueChange`属性，这个属性在调用的时候会带上`Switch`的状态作为参数之一。这样的话你可能不希望原生专用的属性出现在API之中，也就不希望把它放到`propTypes`里。可是如果你不放的话，又会出现一个报错。解决方案就是在调用`requireNativeOnly`的时候，带上额外的`nativeOnly`参数，像这样：
 
 ```javascript
 var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
@@ -262,9 +255,8 @@ RCT_EXPORT_MODULE()
 }
 ```
 
-如你所见，我们刚才配置了我们的管理器创建的所有视图的委托，并且在委托方法·-mapView:regionDidChangeAnimated:`中，把地图目前的区域以及`reactTag`目标包装成了一个事件，这样我们的事件就可以通过`sendInputEventWithName:body:`发送到正确的React组件实例上。 事件名'@"topChange"'对应到JavaScript端的`onChange`回调属性上。(详细的映射关系在[这里](https://github.com/facebook/react-native/blob/master/React/Modules/RCTUIManager.m#L1165))。这个回调会被原生事件执行，然后我们通常都会在包装组件里做一些处理，来使得API更简明：
+如你所见，我们刚才配置了管理器，委托它代理创建的所有视图，并且在委托方法`-mapView:regionDidChangeAnimated:`中，把地图目前的区域以及`reactTag`目标封装成了一个事件，这样我们的事件就可以通过`sendInputEventWithName:body:`发送到正确的React组件实例上。事件名`@"topChange"`对应的是JavaScript端的`onChange`回调属性。这个回调会被原生事件执行，然后我们通常都会在封装组件里做一些处理，来使得API更简明：
 
-_译注_：上文中的代码已经找不到对应的内容了，可能这是因为内部的实现已经变更了。
 
 ```javascript
 // MapView.js
@@ -294,7 +286,7 @@ MapView.propTypes = {
 
 ## 样式
 
-因为我们所有的视图都是`UIView`的子类，大部分的样式属性应该直接就可以生效。但有一部分组件会希望使用自己定义的默认样式，举个例子，`UIDatePicker`希望自己的大小是固定的。这个默认属性对布局算法按正常工作来说很重要，但我们也希望当我们使用这个组件的时候可以覆盖这些默认的样式。`DatePickerIOS`实现这个功能的办法是通过包装一个拥有弹性的样式的额外视图，然后在内层的视图上应用一个固定样式（通过原生提供来的常数生成）：
+因为我们所有的视图都是`UIView`的子类，大部分的样式属性应该直接就可以生效。但有一部分组件会希望使用自己定义的默认样式，例如`UIDatePicker`希望自己的大小是固定的。这个默认属性对于布局算法的正常工作来说很重要，但我们也希望在使用这个组件的时候可以覆盖这些默认的样式。`DatePickerIOS`实现这个功能的办法是通过封装一个拥有弹性样式的额外视图，然后在内层的视图上应用一个固定样式（通过原生传递来的常数生成）：
 
 ```javascript
 // DatePickerIOS.ios.js
@@ -344,5 +336,5 @@ var styles = StyleSheet.create({
 }
 ```
 
-本向导覆盖了包装原生组件所需了解的许多方面，不过你可能还有很多知识需要了解，譬如特殊的方式来插入和布局子视图。如果你想更深入一步，可以阅读`RCTMapManager`和其它的组件的[源代码](https://github.com/facebook/react-native/blob/master/React/Views)。
+本向导覆盖了包装原生组件所需了解的许多方面，不过你可能还有很多知识需要了解，譬如特殊的方式来插入和布局子视图。如果你想更深入了解，可以阅读`RCTMapManager`和其它的组件的[源代码](https://github.com/facebook/react-native/blob/master/React/Views)。
 

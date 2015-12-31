@@ -6,7 +6,7 @@
 
     $ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 
-这条命令会要求你输入密钥库（keystore）和对应密钥的密码，然后设置一些发行相关的信息。最后它会生成一个叫做`my-release-key.keystore`密钥库文件。
+这条命令会要求你输入密钥库（keystore）和对应密钥的密码，然后设置一些发行相关的信息。最后它会生成一个叫做`my-release-key.keystore`的密钥库文件。
 
 在运行上面这条语句之后，密钥库里应该已经生成了一个单独的密钥，有效期为10000天。--alias参数后面的别名是你将来为应用签名时所需要用到的，所以记得记录这个别名。
 
@@ -15,7 +15,7 @@ _注：请记得妥善地保管好你的密钥库文件，不要上传到版本�
 ### 设置gradle变量
 
 1. 把`my-release-key.keystore`文件放到你工程中的`android/app`文件夹下。
-2. 编辑`~/.gradle/gradle.properties`，添加如下的代码（注意把其中的`****`替代为替换的keystore密码）
+2. 编辑`~/.gradle/gradle.properties`，添加如下的代码（注意把其中的`****`替换为相应密码）
 
 ```
 MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
@@ -24,9 +24,9 @@ MYAPP_RELEASE_STORE_PASSWORD=*****
 MYAPP_RELEASE_KEY_PASSWORD=*****
 ```
 
-上面的这些会作为全局的gradle变量，我们在后面的步骤中可以用它们来给我们的应用签名。
+上面的这些会作为全局的gradle变量，我们在后面的步骤中可以用来给应用签名。
 
-_注：一旦你在Play Store发布你的应用，如果你想修改你的签名，你就必须用一个不同的包名来重新发布你的应用。所以请务必备份好你的签名库和密码。_
+_注：一旦你在Play Store发布了你的应用，如果想修改签名，就必须用一个不同的包名来重新发布你的应用。所以请务必备份好你的签名库和密码。_
 
 ### 添加签名到应用的gradle配置文件
 
@@ -90,11 +90,11 @@ $ cd android && ./gradlew installRelease
 ```
 
 注意`installRelease`命令只能在你完成了上面的签名配置之后才可以使用。
-你可以结束掉任何的packager实例，所有你的代码和框架代码都被打包到了apk资源中。
+你可以结束掉任何的packager实例，所有你的代码和框架代码已经都被打包到了apk资源中。
 
 ### 启用Proguard代码混淆来缩小APK文件的大小（可选）
 
-Proguard是一个Java字节码码混淆压缩工具，它可以移除掉React Native Java（和它的依赖库中）中没有被使用到的部分，最终有效的减少APK的大小。
+Proguard是一个Java字节码混淆压缩工具，它可以移除掉React Native Java（和它的依赖库中）中没有被使用到的部分，最终有效的减少APK的大小。
 
 _**重要**：启用Proguard之后，你必须再次全面地测试你的应用。Proguard有时候需要为你引入的每个原生库做一些额外的配置。参见`app/proguard-rules.pro`文件。_
 

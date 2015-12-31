@@ -36,10 +36,10 @@ $ pod install
 
 ## 创建你的React Native应用
 
-有两个地方要进行准备：
+有两个地方需要准备：
 
 1. 入口JavaScript文件必须要包含你实际的React Native应用和其他的组件。
-- 包装Objective-C代码，加载你的脚本并创建一个`RCTRootView`来显示和管理你的React Native组件。
+2. 封装Objective-C代码，加载你的脚本并创建一个`RCTRootView`来显示和管理你的React Native组件。
 
 首先，创建一个文件夹来保存你的React代码，然后创建一个`index.ios.js`文件。
 
@@ -48,7 +48,7 @@ $ mkdir ReactComponent
 $ touch ReactComponent/index.ios.js
 ```
 
-然后复制&粘贴一个`index.ios.js`的初始代码——这是一个简单的React Native应用：
+然后复制并粘贴一个`index.ios.js`的初始代码——这是一个简单的React Native应用：
 
 ```
 'use strict';
@@ -87,7 +87,7 @@ React.AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
 
 ![Container view example](../img/EmbeddedAppContainerViewExample.png)
 
-不过，为了让代码更整洁，我们可以派生一个`UIView`。让我们给它取名`ReactView`。打开你的`Yourproject.xcworkspace`来创建一个新的`ReactView`类（你也可以取任何你想要的名字！）
+不过，为了让代码更整洁，我们可以派生一个`UIView`，取名`ReactView`。打开你的`Yourproject.xcworkspace`来创建一个新的`ReactView`类（你也可以取任何你想要的名字！）
 
 ```
 // ReactView.h
@@ -111,9 +111,9 @@ React.AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
 
 ## 往容器视图里添加RCTRootView
 
-准备好开始最有意思的部分了吗？现在我们要创建`RCTRootView`，来包含你的React Native应用。
+准备好开始最有意思的部分了吗？现在我们要创建`RCTRootView`来包含你的React Native应用。
 
-在`ReactView.m`中，我们需要先使用你的`index.ios.bundle`的URI来初始化`RCTRootView`。`index.ios.bundle`会被packager服务创建，可以通过React Native服务器访问到。我们会在后面讨论这个问题。
+在`ReactView.m`中，我们需要先使用你的`index.ios.bundle`的URI来初始化`RCTRootView`。`index.ios.bundle`会由packager服务创建，可以通过React Native服务器访问到。我们会在后面讨论这个问题。
 
 ```
 NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
@@ -138,19 +138,19 @@ rootView.frame = self.bounds;
 
 ## 启动开发服务器。
 
-_译注_：这一部分的官方文档都有一些过时。翻译组在翻译&审校完其它部分的文档后，如果官方文档还没有更新，会帮助校正官方文档同时翻译中文文档。
+_译注_：这一部分的官方文档都有一些过时。翻译组在翻译&审校完其它部分的文档后，如果官方文档还没有更新，会帮助校正官方文档的同时翻译中文文档。
 
-在工程的根目录下，我们可以开启React Native开发服务器
+在工程的根目录下，我们可以开启React Native开发服务器：
 
 ```
-(JS_DIR=`pwd`/ReactComponent; cd Pods/React; npm run start -- --root $JS_DIR)
+(JS_DIR=`pwd`/ReactComponent; cd node_modules/react-native; npm run start -- --root $JS_DIR)
 ```
 
 这条命令会启动一个React Native开发服务器，用于构建我们的bundle文件。`--root`选项用来标明你的React Native应用所在的根目录。在我们这里是`ReactComponents`目录，里面有一个`index.ios.js`文件。开发服务器启动后会打包出`index.ios.bundle`文件来，并可以通过`http://localhost:8081/index.ios.bundle`来访问。
 
 ## 编译和运行
 
-现再编译和运行你的应用。你应该可以看到你的React Native应用在`ReactView`内运行。
+现在编译和运行你的应用。你应该可以看到你的React Native应用在`ReactView`内运行。
 
 ![Example](../img/EmbeddedAppExample.png)
 

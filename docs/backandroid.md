@@ -4,13 +4,14 @@
 
 ```javascript
 BackAndroid.addEventListener('hardwareBackPress', function() {
-     if (!this.onMainScreen()) {
+     if (!this.onMainScreen()) { 
        this.goBack();
        return true;
      }
      return false;
 });
 ```
+__译注__：以上的`this.onMainScreen()`和`this.goBack()`两个方法都只是伪方法，需要你自己去具体实现！
 
 ### 方法
 

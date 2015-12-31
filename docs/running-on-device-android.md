@@ -1,19 +1,20 @@
-## 必要条件：USB调试
+## 前提条件：USB调试
 
 你需要开启USB调试才能在你的设备上安装你的APP。首先，确定[你已经打开设备的USB调试开关](https://www.baidu.com/s?wd=%E5%AE%89%E5%8D%93%E6%89%93%E5%BC%80usb%E8%B0%83%E8%AF%95)
 
-确保你的设备已经被**成功连接**，可以输入`adb device`:
+确保你的设备已经**成功连接**。可以输入`adb device`来查看:
 
     $ adb devices
     List of devices attached
-    emulator-5554 offline   # Google emulator
-    14ed2fcc device         # Physical device
+    emulator-5554 offline   # Google模拟器
+    14ed2fcc device         # 真实设备
 
 在右边那列看到**device**说明你的设备已经被正确连接了。注意，你只应当**连接仅仅一个设备**。
 
-_译注_；如果你连接了多个设备（包含模拟器在内），你后续的一些操作可能会失败。拔掉不需要的设备，或者关掉模拟器，确保adb devices的输出只有一个是连接状态。
+__译注__：如果你连接了多个设备（包含模拟器在内），后续的一些操作可能会失败。拔掉不需要的设备，或者关掉模拟器，确保adb devices的输出只有一个是连接状态。
 
-现在你可以运行`react-native run-android`来在你的设备上安装并启动你的应用了。  
+现在你可以运行`react-native run-android`来在设备上安装并启动应用了。 
+ 
 __译注__：在真机上运行时可能会遇到白屏的情况，请找到并开启`悬浮窗权限`。比如miui系统的设置[在此处](http://jingyan.baidu.com/article/f25ef25466c0fc482d1b824d.html)。
 
 ## 从设备上访问开发服务器。
@@ -24,7 +25,7 @@ __译注__：在真机上运行时可能会遇到白屏的情况，请找到并�
 >
 > 大部分现代的安卓设备已经没有了硬件"Menu"按键，这是我们用来调出开发者菜单的。在这种情况下你可以通过摇晃设备来打开开发者菜单(重新加载、调试，等等……)
 
-### 使用adb reverse命令
+### (Android 5.0及以上)使用adb reverse命令
 
 > 注意，这个选项只能在5.0以上版本(API 21+)的安卓设备上使用。
 
@@ -33,7 +34,7 @@ __译注__：在真机上运行时可能会遇到白屏的情况，请找到并�
 1. 运行`adb reverse tcp:8081 tcp:8081`
 2. 不需要更多配置，你就可以使用`Reload JS`和其它的开发选项了。
 
-### 通过Wi-Fi连接你的本地开发服务器
+### (Android 5.0以下)通过Wi-Fi连接你的本地开发服务器
 
 1. 首先确保你的电脑和手机设备在**同一个Wi-Fi环境**下。
 2. 在设备上运行你的React Native应用。和打开其它App一样操作。
