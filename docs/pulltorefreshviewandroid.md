@@ -1,4 +1,7 @@
-React view that supports a single scrollable child view (e.g. ScrollView). When this child view is at scrollY: 0, swiping down triggers an onRefresh event.
+本组件是一个视图，可以放置单个可滚动子视图（比如ScrollView）。当子视图的竖直方向偏移（scrollY）为0时，将其下拉可以触发一个onRefresh事件。
+
+### 截图
+![](../img/components/pulltorefreshviewandroid.png)
 
 ### 属性列表
 
@@ -7,23 +10,23 @@ React view that supports a single scrollable child view (e.g. ScrollView). When 
         props...</a> <a class="hash-link" href="#view">#</a></h4></div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="colors"></a>colors <span
             class="propType">[string]</span> <a class="hash-link" href="#colors">#</a></h4>
-        <div><p>The colors (at least one) that will be used to draw the refresh indicator</p></div>
+        <div><p>指定颜色（至少一种），用于绘制刷新的指示图标</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="enabled"></a>enabled <span
             class="propType">bool</span> <a class="hash-link" href="#enabled">#</a></h4>
-        <div><p>Whether the pull to refresh functionality is enabled</p></div>
+        <div><p>是否开启下拉刷新的功能</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="progressbackgroundcolor"></a>progressBackgroundColor
         <span class="propType">string</span> <a class="hash-link" href="#progressbackgroundcolor">#</a></h4>
-        <div><p>The background color of the refresh indicator</p></div>
+        <div><p>刷新指示图标的背景色</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="refreshing"></a>refreshing <span class="propType">bool</span>
         <a class="hash-link" href="#refreshing">#</a></h4>
-        <div><p>Whether the view should be indicating an active refresh</p></div>
+        <div><p>视图是否应该显示刷新指示图标</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="size"></a>size <span class="propType">RefreshLayoutConsts.SIZE.DEFAULT</span>
         <a class="hash-link" href="#size">#</a></h4>
-        <div><p>Size of the refresh indicator, see PullToRefreshViewAndroid.SIZE</p></div>
+        <div><p>刷新指示图标的尺寸，请参阅PullToRefreshViewAndroid.SIZE</p></div>
     </div>
 </div>
 

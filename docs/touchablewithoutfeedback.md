@@ -1,4 +1,4 @@
-除非你有一个很好的理由，否则不要用这个组件。所有能够响应触屏操作的元素在触屏后都应该有一个视觉上的反馈。这也是为什么一个"web"应用总是显得不够"原生"的主要原因之一。
+除非你有一个很好的理由，否则不要用这个组件。所有能够响应触屏操作的元素在触屏后都应该有一个视觉上的反馈（然而本组件没有任何视觉反馈）。这也是为什么一个"web"应用总是显得不够"原生"的主要原因之一。
 
 ### 属性
 
@@ -55,8 +55,7 @@
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="pressretentionoffset"></a>pressRetentionOffset <span class="propType">{top: number, left: number, bottom: number, right: number}</span> <a class="hash-link" href="#pressretentionoffset">#</a></h4>
         <div>
-            <p>如果没有生效的ScrollView，这个属性决定了当手指移开多远距离之后，会不再激活按钮。被取消激活之后，如果手指移回范围内，按钮会被再次激活。只要ScrollView没有生效，你可以来回多次这样的操作。</p>
-            <p>确保你传入一个常量来减少内存消耗。</p>
+            <p>在当前视图不能滚动的前提下指定这个属性，可以决定当手指移开多远距离之后，会不再激活按钮。但如果手指再次移回范围内，按钮会被再次激活。只要视图不能滚动，你可以来回多次这样的操作。确保你传入一个常量来减少内存消耗。</p>
         </div>
     </div>
 </div>

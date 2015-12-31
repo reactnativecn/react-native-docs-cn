@@ -51,7 +51,7 @@ var icon = this.props.active ? require('./my-icon-active.png') : require('./my-i
 <Image source={icon} />
 ```
 
-**本特性从0.14开始生效**。如果你的工程是在0.13或者更早版本创建的，请注意：新的资源系统依靠修改打包脚本来实现，`react-native init`创建的新工程已经包含了这些修改：[Xcode](https://github.com/facebook/react-native/pull/3523)和[Gradle](https://github.com/facebook/react-native/commit/9dc036d2b99e6233297c55a3490bfc308e34e75f)。如果你在此之前生成你的工程，你可能需要自行添加对应的代码来支持新的图片资源系统。请参考文档[升级版本](/docs/upgrading.html)文档中的升级操作说明。
+**本特性从0.14开始生效**。请注意：新的资源系统依靠修改打包脚本来实现，`react-native init`创建的新工程已经包含了这些修改：[Xcode](https://github.com/facebook/react-native/pull/3523)和[Gradle](https://github.com/facebook/react-native/commit/9dc036d2b99e6233297c55a3490bfc308e34e75f)。如果你的工程是在0.13或者更早版本创建的，你可能需要自行添加对应的代码来支持新的图片资源系统。请参考文档[升级版本](/docs/upgrading.html)文档中的升级操作说明。
 
 ## 使用混合App的图片资源
 

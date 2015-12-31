@@ -1,6 +1,6 @@
 ### Chrome开发工具中的"React"选项无法使用
 目前[无法使用](https://github.com/facebook/react-devtools/issues/229)开发工具中的"React"选项来查看App的组件。这是由于脚本在开发工具插件中的运行方式改变了;它们现在在Web Worker内部运行，插件并不知道，因此无法很好的和React Native进行通讯。  
-即便如此，你仍然可以使用开发工具的Console和Sources选项，而且可以使用断点来调试JavaScript。
+即便如此，你仍然可以使用开发工具的Console和Sources选项，而且可以使用断点来调试JavaScript。为了能够使用Console功能，你必须确认在开发工具下拉菜单中选择入口文件为 ⚙debuggerWorker.js，（默认选择为&lt;top frame&gt;）。
 
 
 ### 缺失的模块和原生视图
@@ -15,20 +15,14 @@ ART
 Maps
 Modal
 Spinner(是一种下拉列表，并不是loading指示器，见http://developer.android.com/guide/topics/ui/controls/spinner.html)
-Swipe Refresh
-Webview
 ```
 
 
 #### 模块
 ```
-Alert
 App State
 Camera Roll
-Dialog
 Media
-Net Info
-Pasteboard
 PushNotificationIOS
 ```
 

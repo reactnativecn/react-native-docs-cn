@@ -1,6 +1,6 @@
 动画是现代用户体验中非常重要的一个部分，`Animated`库就是用来创造流畅、强大、并且易于构建和维护的动画。
 
-你唯一需要做的就是创建一个Animated.Value，把它绑定到组件的一个或多个样式属性上去，然后或者通过动画驱动它，譬如`Animated.timing`，或者通过`Animated.event`把它关联到一个手势上，譬如拖动或者滑动操作。除了样式，`Animated.value`还可以绑定到属性上，并且一样可以被插值。这里有一个简单的例子，一个容器视图会在加载的时候淡入显示：
+最简单的工作流程就是创建一个`Animated.Value`，把它绑定到组件的一个或多个样式属性上。然后可以通过动画驱动它，譬如`Animated.timing`，或者通过`Animated.event`把它关联到一个手势上，譬如拖动或者滑动操作。除了样式，`Animated.value`还可以绑定到props上，并且一样可以被插值。这里有一个简单的例子，一个容器视图会在加载的时候淡入显示：
 
 ```javascript
 class FadeInView extends React.Component {
@@ -27,13 +27,14 @@ class FadeInView extends React.Component {
  }
  ```
 
+
  注意只有声明为可动画化的组件才能被关联动画。`View`、`Text`，还有`Image`都是可动画化的。如果你想让自定义组件可动画化，可以用`createAnimatedComponent`。这些特殊的组件里面用了一些黑魔法，来把动画数值绑定到属性上，然后在每帧去执行原生更新，来避免每次render和同步过程的开销。他们还处理了在节点卸载时的清理工作以确保使用安全。
 
- 动画具备很强的可配置性。自定义或者预定义的过渡函数、延迟、时间、衰减比例、刚度等等，取决于动画类型的不同，你还可以配置更多的参数。
+ 动画具备很强的可配置性。自定义或者预定义的过渡函数、延迟、时间、衰减比例、刚度等等。取决于动画类型的不同，你还可以配置更多的参数。
 
- 一个`Animated.Value`可以驱动任意数量的属性，并且每个属性可以配置一个不同的插值函数。插值函数把一个输入的范围映射到输出的范围，通常我们用线性插值，不过你也可以使用其他的过渡函数。默认情况下，当输入超出范围时，它也会对应的进行转换，不过你也可以把输出约束到范围之内。
+ 一个`Animated.Value`可以驱动任意数量的属性，并且每个属性可以配置一个不同的插值函数。插值函数把一个输入的范围映射到输出的范围，通常我们用线性插值，不过你也可以使用其他的过渡函数。默认情况下，当输入超出范围时，它也会对应的进行转换，不过你也可以把输出约束到范围之内。 
 
- 举个例子，你可能希望你的`Animated.Value`从0变化到1时，把组件的位置从150px移动到0px，不透明度从0到1。这可以通过以下的方法修改`style`属性来实现：
+ 举个例子，你可能希望你的`Animated.Value`从0变化到1时，把组件的位置从150px移动到0px，不透明度从0到1。可以通过以下的方法修改`style`属性来实现：
 
  ```javascript
  style={{
@@ -47,13 +48,13 @@ class FadeInView extends React.Component {
  }}>
  ```
 
- 动画还可以被更复杂地组合，通过一些辅助函数例如`sequence`或者`parallel`（他们分别用于先后执行多个动画和同时执行多个动画），而且还可以通过把toValue设置为另一个Animated.Value来产生一个动作序列。
+ 动画还可以被更复杂地组合，通过一些辅助函数例如`sequence`或者`parallel`（它们分别用于先后执行多个动画和同时执行多个动画），而且还可以通过把toValue设置为另一个Animated.Value来产生一个动画序列。
 
- `Animated.ValueXY`则用来处理一些2D动画，譬如旋转。并且还有一些辅助功能譬如`setOffset`和`getLayout`来帮助实现一些常见的交互效果，譬如拖放操作(Drag and drop)。
+ `Animated.ValueXY`则用来处理一些2D动画，譬如滑动。并且还有一些辅助功能譬如`setOffset`和`getLayout`来帮助实现一些常见的交互效果，譬如拖放操作(Drag and drop)。
 
- 你可以在`AnimationExample.js`中找到一些更复杂的例子。你还可以看看Gratuitous Animation App，以及[动画指南文档](/docs/animations.html)。
+ 你可以在`AnimationExample.js`中找到一些更复杂的例子。你还可以看看Gratuitous Animation App，以及[动画指南文档](animations.html)。
 
-注意`Animated`模块被设计为充分可序列化的，这样动画可以以一种高性能的方式运行，而脱离JavaScript事件循环。这会导致API可能看起来比较难懂，所以你发现这与一个完全同步的动画相比稍微有一些奇怪的时候需要记住这一点。有时候`Animated.Value.addListener`可以帮助你了解一些相关限制，不过使用它的时候需要小心，因为将来的版本中它可能会牵扯到性能问题。
+注意`Animated`模块被设计为可完全序列化的，这样动画可以脱离JavaScript事件循环，以一种高性能的方式运行。这可能会导致API看起来比较难懂，与一个完全同步的动画系统相比稍微有一些奇怪。`Animated.Value.addListener`可以帮助你解决一些相关限制，不过使用它的时候需要小心，因为将来的版本中它可能会牵扯到性能问题。
 
 ### 方法
 
@@ -67,15 +68,19 @@ class FadeInView extends React.Component {
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="timing"></a><span class="propType">static </span>timing<span class="propType">(value: AnimatedValue | AnimatedValueXY, config: TimingAnimationConfig)</span> <a class="hash-link" href="#timing">#</a></h4>
 		<div>
-			<p>推送一个值按照一个过渡曲线而随时间变化。<code>Easing</code>模块定义了一大堆曲线，你也可以使用你自己的函数。</p>
+			<p>推动一个值按照一个过渡曲线而随时间变化。<code>Easing</code>模块定义了一大堆曲线，你也可以使用你自己的函数。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="spring"></a><span class="propType">static </span>spring<span class="propType">(value: AnimatedValue | AnimatedValueXY, config: SpringAnimationConfig)</span> <a class="hash-link" href="#spring">#</a></h4>
 		<div>
-			<p>产生一个基于Rebound和Origami实现的Spring动画。如果把它作为<code>toValue</code>传递，它会跟踪当前的速度状态，以确保动画连贯。</p>
+			<p>产生一个基于Rebound和Origami实现的Spring动画。它会在<code>toValue</code>值更新的同时跟踪当前的速度状态，以确保动画连贯。可以链式调用。</p>
 		</div>
 	</div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="add"></a><span class="propType">static </span>add<span class="propType">(a: Animated, b: Animated)</span> <a class="hash-link" href="#add">#</a></h4><div>
+	<p>将两个动画值相加计算，创建一个新的动画值。</p></div></div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="multiply"></a><span class="propType">static </span>multiply<span class="propType">(a: Animated, b: Animated)</span> <a class="hash-link" href="#multiply">#</a></h4><div>
+<p>将两个动画值相乘计算，创建一个新的动画值。</p></div></div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="delay"></a><span class="propType">static </span>delay<span class="propType">(time: number)</span> <a class="hash-link" href="#delay">#</a></h4>
 		<div>
@@ -85,7 +90,7 @@ class FadeInView extends React.Component {
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="sequence"></a><span class="propType">static </span>sequence<span class="propType">(animations: Array&lt;CompositeAnimation&gt;)</span> <a class="hash-link" href="#sequence">#</a></h4>
 		<div>
-			<p>按顺序执行一个动画数组里的动画，等待每一个完成，然后再执行下一个。如果当前的动画被中止，后面的动画则不会继续执行。</p>
+			<p>按顺序执行一个动画数组里的动画，等待一个完成后再执行下一个。如果当前的动画被中止，后面的动画则不会继续执行。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -106,12 +111,12 @@ class FadeInView extends React.Component {
 			<p>接受一个映射的数组，对应的解开每个值，然后调用所有对应的输出的<code>setValue</code>方法。例如：</p>
 			<pre><code class="lang-javascript"> onScroll={<span class="hljs-keyword">this</span>.AnimatedEvent(
    [{nativeEvent: {contentOffset: {x: <span class="hljs-keyword">this</span>._scrollX}}}]
-   {listener},          <span class="hljs-comment">// Optional async listener</span>
+   {listener},          <span class="hljs-comment">// 可选的异步监听函数</span>
  )
  ...
  onPanResponderMove: <span class="hljs-keyword">this</span>.AnimatedEvent([
-   <span class="hljs-literal">null</span>,                <span class="hljs-comment">// raw event arg ignored</span>
-   {dx: <span class="hljs-keyword">this</span>._panX},    <span class="hljs-comment">// gestureState arg</span>
+   <span class="hljs-literal">null</span>,                <span class="hljs-comment">// 忽略原始事件</span>
+   {dx: <span class="hljs-keyword">this</span>._panX},    <span class="hljs-comment">// 手势状态参数</span>
  ]),
 </code></pre>
 		</div>
@@ -143,39 +148,36 @@ class FadeInView extends React.Component {
 
 ## class AnimatedValue
 
-标准的用于驱动动画的值。一个`Animated.Value`可以用一种同步的方式驱动多个属性，但同时只能被一个行为所驱动。启用一个新的行为（譬如开始一个新的动画，或者运行setValue）会停止任何之前的动作。
+用于驱动动画的标准值。一个`Animated.Value`可以用一种同步的方式驱动多个属性，但同时只能被一个行为所驱动。启用一个新的行为（譬如开始一个新的动画，或者运行`setValue`）会停止任何之前的动作。
 
 ### 方法
 
 <div class="props">
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="constructor"></a>constructor<span class="propType">(value: number)</span> <a class="hash-link" href="#constructor">#</a></h4>
-
-	</
-	d
-	iv>
+	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="setvalue"></a>setValue<span class="propType">(value: number)</span> <a class="hash-link" href="#setvalue">#</a></h4>
 		<div>
-			<p>直接设置它的值。这个会停止掉任何正在进行的动画，然后更新所有绑定的属性。</p>
+			<p>直接设置它的值。这个会停止任何正在进行的动画，然后更新所有绑定的属性。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="setoffset"></a>setOffset<span class="propType">(offset: number)</span> <a class="hash-link" href="#setoffset">#</a></h4>
 		<div>
-			<p>设置一个相对值，不论接下来的值是由<code>setValue</code>，一个动画，还是<code>Animated.event</code>产生的，都会加上这个值。常用来在拖动操作一开始的时候用来记录一个修正值（譬如当前手指位置和View位置的插值）。</p>
+			<p>设置一个相对值，不论接下来的值是由<code>setValue</code>、一个动画，还是<code>Animated.event</code>产生的，都会加上这个值。常用来在拖动操作一开始的时候用来记录一个修正值（譬如当前手指位置和View位置）。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="flattenoffset"></a>flattenOffset<span class="propType">()</span> <a class="hash-link" href="#flattenoffset">#</a></h4>
 		<div>
-			<p>把当前的相对值合并到值里，并且将相对值设为0。最终输出的值不会变化。常用在拖动操作结束后调用。</p>
+			<p>把当前的相对值合并到值里，并且将相对值设为0。最终输出的值不会变化。常在拖动操作结束后调用。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="addlistener"></a>addListener<span class="propType">(callback: ValueListenerCallback)</span> <a class="hash-link" href="#addlistener">#</a></h4>
 		<div>
-			<p>添加一个监听器，这样你就可以监听动画的变更。这有时候很有用，因为你没办法同步的读取动画的当前值，因为有时候动画会在原生层次运行。</p>
+			<p>添加一个异步监听函数，这样你就可以监听动画值的变更。这有时候很有用，因为你没办法同步的读取动画的当前值，因为有时候动画会在原生层次运行。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -187,7 +189,7 @@ class FadeInView extends React.Component {
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="stopanimation"></a>stopAnimation<span class="propType">(callback?: ?(value: number) =&gt; void)</span> <a class="hash-link" href="#stopanimation">#</a></h4>
 		<div>
-			<p>停止任何正在运行的动画或跟踪。<code>callback</code>会被调用，参数是动画结束后的最终值，这个值可能会用于同步更新状态与动画位置。</p>
+			<p>停止任何正在运行的动画或跟踪值。<code>callback</code>会被调用，参数是动画结束后的最终值，这个值可能会用于同步更新状态与动画位置。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -199,7 +201,7 @@ class FadeInView extends React.Component {
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="animate"></a>animate<span class="propType">(animation: Animation, callback: EndCallback)</span> <a class="hash-link" href="#animate">#</a></h4>
 		<div>
-			<p>正常时仅供内部使用。不过有可能一个自定义的动画类会用到此方法。</p>
+			<p>一般仅供内部使用。不过有可能一个自定义的动画类会用到此方法。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -218,7 +220,7 @@ class FadeInView extends React.Component {
 
 ## class AnimatedValueXY
 
-用来驱动2D动画的2D值，譬如滑动操作等。API和正常的`Animated.Value`很接近，不过都复数化了。实际上包含两个普通的`Animated.Value`。
+用来驱动2D动画的2D值，譬如滑动操作等。API和普通的`Animated.Value`几乎一样，只不过是个复合结构。它实际上包含两个普通的`Animated.Value`。
 
 例子：
 

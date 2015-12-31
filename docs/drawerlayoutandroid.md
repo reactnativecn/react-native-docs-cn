@@ -1,4 +1,7 @@
-封装了平台`DrawerLayout`（仅限安卓平台）的React组件。抽屉（通常用于导航切换）使用`renderNavigationView`渲染，并且DrawerLayoutAndroid的直接子视图会成为主视图（用于放置你的内容）。导航视图一开始在屏幕上并不可见，不过可以从`drawerPosition`指定的窗口侧面拖拽出来，并且抽屉的宽度可以使用`drawerWidth`属性来指定。
+封装了平台`DrawerLayout`（仅限安卓平台）的React组件。抽屉（通常用于导航切换）是通过`renderNavigationView`方法渲染的，并且DrawerLayoutAndroid的直接子视图会成为主视图（用于放置你的内容）。导航视图一开始在屏幕上并不可见，不过可以从`drawerPosition`指定的窗口侧面拖拽出来，并且抽屉的宽度可以使用`drawerWidth`属性来指定。
+
+### 截图
+![](../img/components/drawerlayoutandroid.png)
 
 ### 例子
 
@@ -32,21 +35,23 @@ render: function() {
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="drawerposition"></a>drawerPosition <span class="propType">enum(DrawerConsts.DrawerPosition.Left, DrawerConsts.DrawerPosition.Right)</span> <a class="hash-link" href="#drawerposition">#</a></h4>
         <div>
-            <p>决定抽屉可以从屏幕的哪一边滑入。</p>
+            <p>指定抽屉可以从屏幕的哪一边滑入。</p>
         </div>
     </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="drawerwidth"></a>drawerWidth <span class="propType">number</span> <a class="hash-link" href="#drawerwidth">#</a></h4>
         <div>
-            <p>决定抽屉的宽度，也就是从屏幕边缘拖进的视图的宽度。</p>
+            <p>指定抽屉的宽度，也就是从屏幕边缘拖进的视图的宽度。</p>
         </div>
     </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="keyboarddismissmode"></a>keyboardDismissMode <span class="propType">enum('none', "on-drag")</span> <a class="hash-link" href="#keyboarddismissmode">#</a></h4>
         <div>
-            <p>决定在拖拽的过程中是否要隐藏软键盘。</p>
-            <p>   - 'none' (默认值)，拖拽不会隐藏软键盘。</p>
-            <p>   - 'on-drag' 当拖拽开始的时候隐藏软键盘。</p>
+            <p>指定在拖拽的过程中是否要隐藏软键盘。</p>
+            <ul>
+            <li><p><code>none</code> (默认值)，拖拽不会隐藏软键盘。</p></li>
+            <li><p><code>on-drag</code> 当拖拽开始的时候隐藏软键盘。</p></li>
+            </ul>
         </div>
     </div>
     <div class="prop">
@@ -71,15 +76,17 @@ render: function() {
         <h4 class="propTitle"><a class="anchor" name="ondrawerstatechanged"></a>onDrawerStateChanged <span class="propType">function</span> <a class="hash-link" href="#ondrawerstatechanged">#</a></h4>
         <div>
             <p>每当抽屉的状态变化时调用此回调函数。抽屉可以有3种状态：</p>
-            <p>  - idle（空闲），表示现在导航条上没有任何正在进行的交互。</p>
-            <p>  - dragging（拖拽中），表示用户正在对导航条进行交互。</p>
-            <p>  - settling（停靠中），表示用户刚刚结束对导航条的交互，导航条正在进行它的打开或者关闭动画。</p>
+            <ul>
+            <li><p><code>idle</code>（空闲），表示现在导航条上没有任何正在进行的交互。</p></li>
+            <li><p><code>dragging</code>（拖拽中），表示用户正在与导航条进行交互。</p></li>
+            <li><p><code>settling</code>（停靠中），表示用户刚刚结束与导航条的交互，导航条正在结束打开或者关闭的动画。</p></li>
+            </ul>
         </div>
     </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="rendernavigationview"></a>renderNavigationView <span class="propType">function</span> <a class="hash-link" href="#rendernavigationview">#</a></h4>
         <div>
-            <p>此属性用于渲染将要渲染在屏幕一边并且可以拖入的导航视图。</p>
+            <p>此方法用于渲染一个可以从屏幕一边拖入的导航视图。</p>
         </div>
     </div>
 </div>

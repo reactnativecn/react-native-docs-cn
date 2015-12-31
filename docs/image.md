@@ -1,4 +1,4 @@
-一个用于显示多种不同类型图片的React组件，包括网络图片、静态资源、临时的本地图片、以及本地磁盘上的图片（如相册）等。
+一个用于显示多种不同类型图片的React组件，包括网络图片、静态资源、临时的本地图片、以及本地磁盘上的图片（如相册）等。详细用法参阅[图片文档](images.html)。
 
 用法样例：
 
@@ -8,7 +8,7 @@ renderImages: function() {
     <View>
       <Image
         style={styles.icon}
-        source={require('image!myIcon')}
+        source={require('./icon.png')}
       />
       <Image
         style={styles.logo}
@@ -19,6 +19,9 @@ renderImages: function() {
 },
 ```
 
+### 截图
+![](../img/components/image.png)
+
 ### 属性
 
 <div class="props">
@@ -28,16 +31,39 @@ renderImages: function() {
             <p>当元素挂载或者布局改变的时候调用，参数为：<code>{nativeEvent: {layout: {x, y, width, height}}}</code>.</p>
         </div>
     </div>
+        <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="onload"></a>onLoad <span class="propType">function</span> <a class="hash-link" href="#onload">#</a></h4>
+        <div>
+            <p>加载成功完成时调用此回调函数。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="onloadend"></a>onLoadEnd <span class="propType">function</span> <a class="hash-link" href="#onloadend">#</a></h4>
+        <div>
+            <p>加载结束后，不论成功还是失败，调用此回调函数。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="onloadstart"></a>onLoadStart <span class="propType">function</span> <a class="hash-link" href="#onloadstart">#</a></h4>
+        <div>
+            <p>加载开始时调用。</p>
+        </div>
+    </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="resizemode"></a>resizeMode <span class="propType">enum('cover', 'contain', 'stretch')</span> <a class="hash-link" href="#resizemode">#</a></h4>
         <div>
             <p>决定当组件尺寸和图片尺寸不成比例的时候如何调整图片的大小。</p>
+            <ul>
+            <li><p><code>cover</code>: 在保持图片宽高比的前提下缩放图片，直到宽度和高度都大于等于容器视图的尺寸（如果容器有padding内衬的话，则相应减去）。__译注__：这样图片完全覆盖甚至超出容器，容器中不留任何空白。</p></li>
+			  <li><p><code>contain</code>: 在保持图片宽高比的前提下缩放图片，直到宽度和高度都小于等于容器视图的尺寸（如果容器有padding内衬的话，则相应减去）。__译注__：这样图片完全被包裹在容器中，容器中可能留有空白</p></li>
+			  <li><p><code>stretch</code>: 拉伸图片且不维持宽高比，直到宽高都刚好填满容器。</p></li>
+			  </ul>
         </div>
     </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="source"></a>source <span class="propType">{uri: string}, number</span> <a class="hash-link" href="#source">#</a></h4>
         <div>
-            <p><code>uri</code>是一个表示图片的资源标识的字符串，它可以是一个http地址，一个本地文件路径，或者静态图片资源的名字（应当被包装在<code>require('image!name')</code>函数之内）。</p>
+            <p><code>uri</code>是一个表示图片的资源标识的字符串，它可以是一个http地址或是一个本地文件路径（使用<code>require(相对路径)</code>来引用）。</p>
         </div>
     </div>
     <div class="prop">
@@ -84,7 +110,7 @@ renderImages: function() {
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="accessibilitylabel"></a><span class="platform">ios</span>accessibilityLabel <span class="propType">string</span> <a class="hash-link" href="#accessibilitylabel">#</a></h4>
         <div>
-            <p>当用户与图片交互时，屏幕朗读者（无障碍功能）会朗读的文字。</p>
+            <p>当用户与图片交互时，读屏器（无障碍功能）会朗读的文字。</p>
         </div>
     </div>
     <div class="prop">
@@ -96,37 +122,19 @@ renderImages: function() {
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="capinsets"></a><span class="platform">ios</span>capInsets <span class="propType">{top: number, left: number, bottom: number, right: number}</span> <a class="hash-link" href="#capinsets">#</a></h4>
         <div>
-            <p>当图片被缩放的时候，capInsets指定的角上的尺寸会被固定而不进行缩放，而中间和边上的部分则会被拉伸。这在制作一些可变大小的圆角按钮、阴影、以及其它资源的时候非常有用（译注：这就是常说的九宫格或者.9图）了解更多信息，可以参见<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets" target="_blank">苹果官方文档</a></p>
+            <p>当图片被缩放的时候，capInsets指定的角上的尺寸会被固定而不进行缩放，而中间和边上其他的部分则会被拉伸。这在制作一些可变大小的圆角按钮、阴影、以及其它资源的时候非常有用（译注：这就是常说的九宫格或者.9图。了解更多信息，可以参见<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets" target="_blank">苹果官方文档</a></p>
         </div>
     </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="defaultsource"></a><span class="platform">ios</span>defaultSource <span class="propType">{uri: string}</span> <a class="hash-link" href="#defaultsource">#</a></h4>
         <div>
-            <p>一个静态图片，当最终的图片正在下载的过程中时显示。</p>
+            <p>一个静态图片，当最终的图片正在下载的过程中时显示（loading背景图）。</p>
         </div>
     </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="onerror"></a><span class="platform">ios</span>onError <span class="propType">function</span> <a class="hash-link" href="#onerror">#</a></h4>
         <div>
             <p>当加载错误的时候调用此回调函数，参数为<code>{nativeEvent: {error}}</code></p>
-        </div>
-    </div>
-    <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="onload"></a><span class="platform">ios</span>onLoad <span class="propType">function</span> <a class="hash-link" href="#onload">#</a></h4>
-        <div>
-            <p>当加载成功完成的时候调用此回调函数。</p>
-        </div>
-    </div>
-    <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="onloadend"></a><span class="platform">ios</span>onLoadEnd <span class="propType">function</span> <a class="hash-link" href="#onloadend">#</a></h4>
-        <div>
-            <p>当加载结束，不论成功还是失败，调用此回调函数。</p>
-        </div>
-    </div>
-    <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="onloadstart"></a><span class="platform">ios</span>onLoadStart <span class="propType">function</span> <a class="hash-link" href="#onloadstart">#</a></h4>
-        <div>
-            <p>当加载过程开始的时候调用。</p>
         </div>
     </div>
     <div class="prop">

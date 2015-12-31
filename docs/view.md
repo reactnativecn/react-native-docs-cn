@@ -1,4 +1,4 @@
-作为创建UI时最常用的组件，`View`是一个支持Flexbox布局、样式、一些触摸处理、和一些无障碍功能的容器，并且它可以放到其它的视图里，也可以有任意多个任意类型的子视图。不论在什么平台上，`View`都会直接对应一个平台的原生视图，无论它是`UIView`、`<div>`还是`android.view.View`。下面的例子创建了一个`View`，包含了两个有颜色的方块和一个自定义的组件，并且设置了一个内边距：
+作为创建UI时最基础的组件，`View`是一个支持Flexbox布局、样式、一些触摸处理、和一些无障碍功能的容器，并且它可以放到其它的视图里，也可以有任意多个任意类型的子视图。不论在什么平台上，`View`都会直接对应一个平台的原生视图，无论它是`UIView`、`<div>`还是`android.view.View`。下面的例子创建了一个`View`，包含了两个有颜色的方块和一个自定义的组件，并且设置了一个内边距：
 
 ```javascript
 <View style={{flexDirection: 'row', height: 100, padding: 20}}>
@@ -8,15 +8,18 @@
 </View>
 ```
 
-`View`可以直接和`StyleSheet`使用，来使代码更清晰并且获得更高的性能。尽管内联样式也同样可以使用。
+`View`的设计初衷是和`StyleSheet`搭配使用，这样可以使代码更清晰并且获得更高的性能。尽管内联样式也同样可以使用。
 
-### Props
+### 截图
+![](../img/components/view.png)
+
+### 属性
 
 <div class="props">
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="accessibilitylabel"></a>accessibilityLabel <span class="propType">string</span> <a class="hash-link" href="#accessibilitylabel">#</a></h4>
 		<div>
-			<p>设置当用户与此元素交互时，“朗读者”（一个残疾人辅助功能）阅读的文字。默认情况下，这个文字会通过遍历所有的孩子并累加所有的文本标签来构建。</p>
+			<p>设置当用户与此元素交互时，“读屏器”（对视力障碍人士的辅助功能）阅读的文字。默认情况下，这个文字会通过遍历所有的子元素并累加所有的文本标签来构建。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -35,8 +38,8 @@
 		<h4 class="propTitle"><a class="anchor" name="onlayout"></a>onLayout <span class="propType">function</span> <a class="hash-link" href="#onlayout">#</a></h4>
 		<div>
 			<p>当组件挂载或者布局变化的时候调用，参数为：</p>
-			<p>  {nativeEvent: { layout: {x, y, width, height}}}.</p>
-			<p>这个事件会当布局计算完成后立即调用一次，不过收到此事件时新的布局可能还没有在屏幕上体现，尤其是一个布局动画正在进行中的时候。</p>
+			<p><code>{nativeEvent: { layout: {x, y, width, height}}}</code></p>
+			<p>这个事件会在布局计算完成后立即调用一次，不过收到此事件时新的布局可能还没有在屏幕上呈现，尤其是一个布局动画正在进行中的时候。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -90,7 +93,7 @@
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> all</span></span>; 
 }</span>
 </code></pre>
-			<p>而<code>box-only</code>则等价于/p>
+			<p>而<code>box-only</code>则等价于</p>
 			<pre><code class="lang-css"><span class="hljs-class">.box-none</span> <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> all</span></span>; 
 }</span> 
@@ -98,14 +101,14 @@
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> none</span></span>; 
 }</span>
 </code></pre>
-			<p>因为<code>pointerEvents</code>并不影响任何布局/表现，并且我们实现的与标准有一些差异，我们决定不在<code>style</code>里包含<code>pointerEvents</code>。在某些平台下，我们需要把它通过一个<code>className</code>来实现。它是否通过<code>style</code>传递是一个不同平台上的实现细节。</p>
+			<p>因为<code>pointerEvents</code>并不影响任何布局/表现，并且我们的实现与标准有一些差异，我们决定不在<code>style</code>里包含<code>pointerEvents</code>。在某些平台下，我们需要把它通过一个<code>className</code>来实现。它是否通过<code>style</code>传递是一个不同平台上的实现细节。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="removeclippedsubviews"></a>removeClippedSubviews <span class="propType">bool</span> <a class="hash-link" href="#removeclippedsubviews">#</a></h4>
 		<div>
 			<p>这是一个特殊的性能相关的属性，由RCTView导出。在制作滑动控件时，如果控件有很多不在屏幕内的子视图，会非常有用。</p>
-			<p>要让此属性生效，它应用于一个有很多超出范围的子视图的视图，并且子视图和容器视图（或它的某个祖先视图）都应该有样式<code>overflow: hidden</code>。</p>
+			<p>要让此属性生效，首先要求视图有很多超出范围的子视图，并且子视图和容器视图（或它的某个祖先视图）都应该有样式<code>overflow: hidden</code>。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -210,7 +213,7 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="accessibilitytraits"></a><span class="platform">ios</span>accessibilityTraits <span class="propType">AccessibilityTraits, [AccessibilityTraits]</span> <a class="hash-link" href="#accessibilitytraits">#</a></h4>
 		<div>
-			<p>为“阅读者”提供更多属性。除非在元素里指定，默认情况下不提供任何属性。</p>
+			<p>为读屏器提供更多属性。除非在元素里指定，默认情况下不提供任何属性。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -222,19 +225,21 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="importantforaccessibility"></a><span class="platform">android</span>importantForAccessibility <span class="propType">enum('auto', 'yes', 'no', 'no-hide-descendants')</span> <a class="hash-link" href="#importantforaccessibility">#</a></h4>
 		<div>
-			<p>控制一个视图在无障碍功能中有多重要：它是否产生一个辅助功能事件，以及他是否被请求屏幕内容的无障碍服务知晓。只对Android平台生效。了解更多信息，可以阅读<a href="http://developer.android.com/reference/android/R.attr.html#importantForAccessibility">http://developer.android.com/reference/android/R.attr.html#importantForAccessibility</a>。</p>
+			<p>控制一个视图在无障碍功能中有多重要：它是否产生一个辅助功能事件，以及它是否能被请求屏幕内容的无障碍服务知晓。只对Android平台生效。了解更多信息，可以阅读<a href="http://developer.android.com/reference/android/R.attr.html#importantForAccessibility">http://developer.android.com/reference/android/R.attr.html#importantForAccessibility</a>。</p>
 			<p> 可选的值: </p>
-			<p>   'auto' - 系统来决定这个视图对于辅助功能是否重要 - 默认(推荐)。 </p>
-			<p>   'yes' - 这个视图对于辅助功能而言重要。</p>
-			<p>   'no' - 这个视图对辅助功能不重要。</p>
-			<p>   'no-hide-descendants' - 这个视图，以及所有的后代视图，都对于辅助功能不重要。</p>
+			<ul>
+			<li><p><code>auto</code> - 系统来决定这个视图对于辅助功能是否重要 - 默认(推荐)。 </p></li>
+			<li><p><code>yes</code> - 这个视图对于辅助功能而言重要。</p></li>
+			<li><p><code>no</code> - 这个视图对辅助功能不重要。</p></li>
+			<li><p><code>no-hide-descendants</code> - 这个视图，以及所有的后代视图，都对于辅助功能不重要。</p></li>
+			</ul>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="needsoffscreenalphacompositing"></a><span class="platform">android</span>needsOffscreenAlphaCompositing <span class="propType">bool</span> <a class="hash-link" href="#needsoffscreenalphacompositing">#</a></h4>
 		<div>
-			<p>决定这个视图是否要先离屏渲染再进行半透明度处理，来确保颜色和混合效果正确。默认值(false)会在渲染组件和它的所有子节点的时候应用一个透明通道，而不会先离屏渲染整个组件再将它附加一个透明通道渲染到屏幕上。这当有你设置了半透明的视图中有较多元素重叠在一起的时候会很明显的不正常（会比正常显得更加不透明）</p>
-			<p>为了正确的透明表现而进行离屏渲染会带来极大的开销，而且对于非原生开发者来说很难调试。这就是为啥它被默认关闭。如果你需要在一个动画中启用这个属性，考虑与<code>renderToHardwareTextureAndroid</code>组合使用，如果视图的<strong>内容</strong>不会发生变化（即：它不需要每帧渲染一次）如果renderToHardwareTextureAndroid开启了，这个视图只会离屏渲染那一次，保存为一个硬件纹理，然后以正确的透明度绘制到屏幕上，这样不需要导致GPU切换渲染目标（GPU切换渲染目标会带来极大的开销）。</p>
+			<p>决定这个视图是否要先离屏渲染再进行半透明度处理，来确保颜色和混合效果正确。默认值(false)会在渲染组件和它的所有子节点的时候直接应用透明通道，而不会先离屏渲染整个组件再将它附加一个透明通道后渲染到屏幕上。有时候当你给视图设置了一个透明度，且其中有较多元素层叠在一起的时候，默认的设置就会导致看起来不太正常（会比正常显得更加不透明）。</p>
+			<p>为了正确的透明表现而进行离屏渲染会带来极大的开销，而且对于非原生开发者来说很难调试。这就是为啥它被默认关闭。如果你需要在一个动画中启用这个属性，考虑与<code>renderToHardwareTextureAndroid</code>组合使用，前提是视图的<strong>内容</strong>不会发生变化（即：它不需要每帧重绘一次）。如果开启了renderToHardwareTextureAndroid，则视图只会离屏渲染一次之后保存为一个硬件纹理，然后以正确的透明度绘制到屏幕上，这样就不会导致GPU频繁切换渲染目标（GPU切换渲染目标会带来极大的开销）。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -248,8 +253,8 @@
 		<h4 class="propTitle"><a class="anchor" name="shouldrasterizeios"></a><span class="platform">ios</span>shouldRasterizeIOS <span class="propType">bool</span> <a class="hash-link" href="#shouldrasterizeios">#</a></h4>
 		<div>
 			<p>决定这个视图是否需要在被混合之前绘制到一个位图上。</p>
-			<p>在iOS上，这对于不会修改组件的尺寸和孩子的动画和交互十分有用。举例来说，当我们移动一个静态视图的位置的时候，预渲染允许渲染器重用一个缓存了静态视图的位图，并快速的每帧进行混合。</p>
-			<p>预渲染会产生一个离屏的渲染过程，并且位图会消耗内存。所以在使用此属性的时候进行充分的测试和评估。</p>
+			<p>在iOS上，这对于不会修改组件的尺寸和孩子的动画和交互十分有用。举例来说，当我们移动一个静态视图的位置的时候，预渲染允许渲染器重用一个缓存了静态视图的位图，并快速合成。</p>
+			<p>预渲染会产生一个离屏的渲染过程，并且位图会消耗内存。所以使用此属性需要进行充分的测试和评估。</p>
 		</div>
 	</div>
 </div>

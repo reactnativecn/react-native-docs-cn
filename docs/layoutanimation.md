@@ -1,4 +1,4 @@
-当布局变化时，自动将视图运动到他们新的位置上。
+当布局变化时，自动将视图运动到它们新的位置上。
 
 
 一个常用的调用此API的办法是调用`LayoutAnimation.configureNext`，然后调用`setState`。
@@ -13,8 +13,8 @@
 			<p>@param config 表示动画相应的属性</p>
 			<ul>
 				<li><code>duration</code> 动画持续时间，单位是毫秒</li>
-				<li><code>create</code>, 配置创建新视图时的动画。(see <code>Anim</code> type)</li>
-				<li><code>update</code>, 配置被更新的视图的动画。(see <code>Anim</code> type)</li>
+				<li><code>create</code>, 配置创建新视图时的动画。(参阅 <code>Anim</code> 类型)</li>
+				<li><code>update</code>, 配置被更新的视图的动画。(参阅 <code>Anim</code> 类型)</li>
 			</ul>
 			<p>@param onAnimationDidEnd 当动画结束的时候被调用。只在iOS设备上支持。</p>
 			<p>@param onError 当动画残生错误的时候被调用。只在iOS设备上支持。</p>

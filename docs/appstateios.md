@@ -1,14 +1,14 @@
 `AppStateIOS`能告诉你应用当前是在前台还是在后台，并且能在状态变化的时候通知你。
 
-AppStateIOS通常在处理推送通知的时候用来决定内容和正确的表现。
+AppStateIOS通常在处理推送通知的时候用来决定内容和对应的行为。
 
 ### iOS App States
 
 * `active` - 应用正在前台运行
 * `background` - 应用正在后台运行。用户既可能在别的应用中，也可能在桌面。
-* `inactive` - 这是一个中间状态，并且现在不会在正常的React Native应用中出现。
+* `inactive` - 这是一个过渡状态，不会在正常的React Native应用中出现。
 
-了解跟多信息，可以阅读[Apple的文档](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)
+要了解更多信息，可以阅读[Apple的文档](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)。
 
 ### 基本用法
 
@@ -36,7 +36,7 @@ render: function() {
 },
 ```
 
-上面的这个例子会一直显示"Current state is: active"，这是因为应用只有在`active`状态下才能被用户看到。并且null状态只会在一开始的一瞬间出现。
+上面的这个例子只会显示"Current state is: active"，这是因为应用只有在`active`状态下才能被用户看到。并且null状态只会在一开始的一瞬间出现。
 
 ### 方法
 
@@ -44,13 +44,13 @@ render: function() {
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="addeventlistener"></a><span class="propType">static </span>addEventListener<span class="propType">(type: string, handler: Function)</span> <a class="hash-link" href="#addeventlistener">#</a></h4>
 		<div>
-			<p>添加一个监听器，用于监听应用状态的变化。type参数应填<code>`change`</code> 。</p>
+			<p>添加一个监听函数，用于监听应用状态的变化。type参数应填<code>`change`</code> 。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="removeeventlistener"></a><span class="propType">static </span>removeEventListener<span class="propType">(type: string, handler: Function)</span> <a class="hash-link" href="#removeeventlistener">#</a></h4>
 		<div>
-			<p>移除一个监听器。type参数应填<code>change</code>。</p>
+			<p>移除一个监听函数。type参数应填<code>change</code>。</p>
 		</div>
 	</div>
 </div>

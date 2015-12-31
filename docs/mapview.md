@@ -1,3 +1,6 @@
+### 截图
+![](../img/components/mapview.png)
+
 ### 属性
 
 <div class="props">
@@ -5,40 +8,44 @@
 		<h4 class="propTitle"><a class="anchor" name="view"></a><a href="view.html#props">View props...</a> <a class="hash-link" href="#view">#</a></h4>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="annotations"></a>annotations <span class="propType">[{latitude: number, longitude: number, animateDrop: bool, title: string, subtitle: string, hasLeftCallout: bool, hasRightCallout: bool, onLeftCalloutPress: function, onRightCalloutPress: function, id: string}]</span> <a class="hash-link" href="#annotations">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="annotations"></a><span class="platform">ios</span>annotations <span class="propType">[{latitude: number, longitude: number, animateDrop: bool, title: string, subtitle: string, hasLeftCallout: bool, hasRightCallout: bool, onLeftCalloutPress: function, onRightCalloutPress: function, id: string}]</span> <a class="hash-link" href="#annotations">#</a></h4>
 		<div>
 			<p>地图上的标注点，可以带有标题及副标题。</p>
 		</div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="legallabelinsets"></a>legalLabelInsets <span class="propType">{top: number, left: number, bottom: number, right: number}</span> <a class="hash-link" href="#legallabelinsets">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="legallabelinsets"></a><span class="platform">ios</span>legalLabelInsets <span class="propType">{top: number, left: number, bottom: number, right: number}</span> <a class="hash-link" href="#legallabelinsets">#</a></h4>
 		<div>
 			<p>地图上标签的合法范围。默认在地图底部左侧。参见<code>EdgeInsetsPropType.js</code>了解更多信息。</p>
 		</div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="maptype"></a>mapType <span class="propType">enum('standard', 'satellite', 'hybrid')</span> <a class="hash-link" href="#maptype">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="maptype"></a><span class="platform">ios</span>mapType <span class="propType">enum('standard', 'satellite', 'hybrid')</span> <a class="hash-link" href="#maptype">#</a></h4>
 		<div>
 			<p>要显示的地图类型。</p>
 			<ul>
-				<li>standard: 标准道路地图（默认）</li>
+				<li>standard: 标准道路地图（默认）。</li>
 				<li>satellite: 卫星视图。</li>
 				<li>hybrid: 卫星视图并附带道路和感兴趣的点标记。</li>
 			</ul>
 		</div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="maxdelta"></a>maxDelta <span class="propType">number</span> <a class="hash-link" href="#maxdelta">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="maxdelta"></a><span class="platform">ios</span>maxDelta <span class="propType">number</span> <a class="hash-link" href="#maxdelta">#</a></h4>
 		<div>
 			<p>可以被显示的最大区域尺寸。</p>
 		</div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="mindelta"></a>minDelta <span class="propType">number</span> <a class="hash-link" href="#mindelta">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="mindelta"></a><span class="platform">ios</span>minDelta <span class="propType">number</span> <a class="hash-link" href="#mindelta">#</a></h4>
 		<div>
 			<p>可以被显示的最小区域尺寸。</p>
 		</div>
 	</div>
+	<div class="prop">
+	<h4 class="propTitle"><a class="anchor" name="overlays"></a><span class="platform">ios</span>overlays <span class="propType">[{coordinates: [{latitude: number, longitude: number}], lineWidth: number, strokeColor: ColorPropType, fillColor: ColorPropType, id: string}]</span> <a class="hash-link" href="#overlays">#</a></h4>
+	<div><p>地图的覆盖层。</p></div><
+	/div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onannotationpress"></a>onAnnotationPress <span class="propType">function</span> <a class="hash-link" href="#onannotationpress">#</a></h4>
 		<div>
@@ -115,17 +122,19 @@
 	</div>
 </div>
 
-### 样例
+### 例子
 
 ```javascript
 'use strict';
 
 var React = require('react-native');
 var {
+  Image,
   MapView,
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } = React;
 
@@ -136,19 +145,30 @@ var regionText = {
   longitudeDelta: '0',
 };
 
+type MapRegion = {
+  latitude: number,
+  longitude: number,
+  latitudeDelta?: number,
+  longitudeDelta?: number,
+};
+
+type MapRegionInputState = {
+  region: MapRegion,
+};
+
 var MapRegionInput = React.createClass({
 
   propTypes: {
     region: React.PropTypes.shape({
       latitude: React.PropTypes.number.isRequired,
       longitude: React.PropTypes.number.isRequired,
-      latitudeDelta: React.PropTypes.number.isRequired,
-      longitudeDelta: React.PropTypes.number.isRequired,
+      latitudeDelta: React.PropTypes.number,
+      longitudeDelta: React.PropTypes.number,
     }),
     onChange: React.PropTypes.func.isRequired,
   },
 
-  getInitialState: function() {
+  getInitialState(): MapRegionInputState {
     return {
       region: {
         latitude: 0,
@@ -196,7 +216,9 @@ var MapRegionInput = React.createClass({
             {'Latitude delta'}
           </Text>
           <TextInput
-            value={'' + region.latitudeDelta}
+            value={
+              region.latitudeDelta == null ? '' : String(region.latitudeDelta)
+            }
             style={styles.textInput}
             onChange={this._onChangeLatitudeDelta}
             selectTextOnFocus={true}
@@ -207,7 +229,9 @@ var MapRegionInput = React.createClass({
             {'Longitude delta'}
           </Text>
           <TextInput
-            value={'' + region.longitudeDelta}
+            value={
+              region.longitudeDelta == null ? '' : String(region.longitudeDelta)
+            }
             style={styles.textInput}
             onChange={this._onChangeLongitudeDelta}
             selectTextOnFocus={true}
@@ -240,23 +264,47 @@ var MapRegionInput = React.createClass({
 
   _change: function() {
     this.setState({
-      latitude: parseFloat(regionText.latitude),
-      longitude: parseFloat(regionText.longitude),
-      latitudeDelta: parseFloat(regionText.latitudeDelta),
-      longitudeDelta: parseFloat(regionText.longitudeDelta),
+      region: {
+        latitude: parseFloat(regionText.latitude),
+        longitude: parseFloat(regionText.longitude),
+        latitudeDelta: parseFloat(regionText.latitudeDelta),
+        longitudeDelta: parseFloat(regionText.longitudeDelta),
+      },
     });
     this.props.onChange(this.state.region);
   },
 
 });
 
+type Annotations = Array<{
+  animateDrop?: boolean,
+  latitude: number,
+  longitude: number,
+  title?: string,
+  subtitle?: string,
+  hasLeftCallout?: boolean,
+  hasRightCallout?: boolean,
+  onLeftCalloutPress?: Function,
+  onRightCalloutPress?: Function,
+  tintColor?: number | string,
+  image?: any,
+  id?: string,
+  view?: ReactElement,
+  leftCalloutView?: ReactElement,
+  rightCalloutView?: ReactElement,
+  detailCalloutView?: ReactElement,
+}>;
+type MapViewExampleState = {
+  isFirstLoad: boolean,
+  mapRegion?: MapRegion,
+  mapRegionInput?: MapRegion,
+  annotations?: Annotations,
+};
+
 var MapViewExample = React.createClass({
 
-  getInitialState() {
+  getInitialState(): MapViewExampleState {
     return {
-      mapRegion: null,
-      mapRegionInput: null,
-      annotations: null,
       isFirstLoad: true,
     };
   },
@@ -268,18 +316,18 @@ var MapViewExample = React.createClass({
           style={styles.map}
           onRegionChange={this._onRegionChange}
           onRegionChangeComplete={this._onRegionChangeComplete}
-          region={this.state.mapRegion || undefined}
-          annotations={this.state.annotations || undefined}
+          region={this.state.mapRegion}
+          annotations={this.state.annotations}
         />
         <MapRegionInput
           onChange={this._onRegionInputChanged}
-          region={this.state.mapRegionInput || undefined}
+          region={this.state.mapRegionInput}
         />
       </View>
     );
   },
 
-  _getAnnotations(region) {
+  _getAnnotations(region): Annotations {
     return [{
       longitude: region.longitude,
       latitude: region.latitude,
@@ -309,6 +357,45 @@ var MapViewExample = React.createClass({
       mapRegionInput: region,
       annotations: this._getAnnotations(region),
     });
+  },
+
+});
+
+type AnnotationExampleState = {
+  isFirstLoad: boolean,
+  annotations?: Annotations,
+  mapRegion?: MapRegion,
+};
+var AnnotationExample = React.createClass({
+
+  getInitialState(): AnnotationExampleState {
+    return {
+      isFirstLoad: true,
+    };
+  },
+
+  render() {
+    if (this.state.isFirstLoad) {
+      var onRegionChangeComplete = (region) => {
+        this.setState({
+          isFirstLoad: false,
+          annotations: [{
+            longitude: region.longitude,
+            latitude: region.latitude,
+            ...this.props.annotation,
+          }],
+        });
+      };
+    }
+
+    return (
+      <MapView
+        style={styles.map}
+        onRegionChangeComplete={onRegionChangeComplete}
+        region={this.state.mapRegion}
+        annotations={this.state.annotations}
+      />
+    );
   },
 
 });
@@ -347,13 +434,93 @@ exports.description = 'Base component to display maps';
 exports.examples = [
   {
     title: 'Map',
-    render(): ReactElement { return <MapViewExample />; }
+    render() {
+      return <MapViewExample />;
+    }
   },
   {
     title: 'Map shows user location',
     render() {
-      return  <MapView style={styles.map} showsUserLocation={true} />;
+      return <MapView style={styles.map} showsUserLocation={true} />;
     }
-  }
+  },
+  {
+    title: 'Callout example',
+    render() {
+      return <AnnotationExample style={styles.map} annotation={{
+        title: 'More Info...',
+        rightCalloutView: (
+          <TouchableOpacity
+            onPress={() => {
+              alert('You Are Here');
+            }}>
+            <Image
+              style={{width:30, height:30}}
+              source={require('image!uie_thumb_selected')}
+            />
+          </TouchableOpacity>
+        ),
+      }}/>;
+    }
+  },
+  {
+    title: 'Custom pin color',
+    render() {
+      return <AnnotationExample style={styles.map} annotation={{
+        title: 'You Are Purple',
+        tintColor: MapView.PinColors.PURPLE,
+      }}/>;
+    }
+  },
+  {
+    title: 'Custom pin image',
+    render() {
+      return <AnnotationExample style={styles.map} annotation={{
+        title: 'Thumbs Up!',
+        image: require('image!uie_thumb_big'),
+      }}/>;
+    }
+  },
+  {
+    title: 'Custom pin view',
+    render() {
+      return <AnnotationExample style={styles.map} annotation={{
+        title: 'Thumbs Up!',
+        view: <View style={{
+          alignItems: 'center',
+        }}>
+          <Text style={{fontWeight: 'bold', color: '#f007'}}>
+            Thumbs Up!
+          </Text>
+          <Image
+            style={{width: 90, height: 65, resizeMode: 'cover'}}
+            source={require('image!uie_thumb_big')}
+          />
+        </View>,
+      }}/>;
+    }
+  },
+  {
+    title: 'Custom overlay',
+    render() {
+      return <MapView
+        style={styles.map}
+        region={{
+          latitude: 39.06,
+          longitude: -95.22,
+        }}
+        overlays={[{
+          coordinates:[
+            {latitude: 32.47, longitude: -107.85},
+            {latitude: 45.13, longitude: -94.48},
+            {latitude: 39.27, longitude: -83.25},
+            {latitude: 32.47, longitude: -107.85},
+          ],
+          strokeColor: '#f007',
+          lineWidth: 3,
+        }]}
+      />;
+    }
+  },
 ];
 ```

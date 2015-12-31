@@ -1,8 +1,8 @@
-ToolbarAndroid是一个包装了仅限Android平台的`工具栏(Toolbar)`[部件][0]的React组件。一个Toolbar可以显示一个徽标，一个导航图标（譬如汉堡形状的菜单按钮），一个标题&副标题，以及一个功能列表。标题和副标题会在中间显示，徽标和导航图标会在左侧显示，而功能列表则在右侧显示。
+ToolbarAndroid是一个包装了仅限Android平台的`工具栏(Toolbar)`[部件][0]的React组件。一个Toolbar可以显示一个徽标，一个导航图标（譬如汉堡形状的菜单按钮），一个标题与副标题，以及一个功能列表。标题和副标题会在中间显示，徽标和导航图标会在左侧显示，而功能列表则在右侧显示。
 
 如果工具栏只有一个子节点，它会在标题和功能列表之间显示。
 
-尽管Toolbar支持在徽标、导航和功能图标上使用远程图片，这也只应该在开发(DEV)模式下使用`require('./some_icon.png')`，这会被翻译成一个访问到packager的URL。在发行模式下，你永远都应该用图片资源来渲染这些图标。使用`require('./some_icon.png')`会自动帮你包装好，所以只要你不直接用`{uri:'http://...'}`，就没什么问题。
+尽管Toolbar支持在徽标、导航和功能图标上使用远程图片，这也只应该在开发(DEV)模式下使用。在发行（release）模式下，你永远都应该用图片资源来渲染这些图标。使用`require('./some_icon.png')`会自动帮你包装好，所以只要你不直接用`{uri:'http://...'}`，就没什么问题。
 
 [0]: https://developer.android.com/reference/android/support/v7/widget/Toolbar.html
 
@@ -25,6 +25,9 @@ onActionSelected: function(position) {
 }
 ```
 
+### 截图
+![](../img/components/toolbarandroid.png)
+
 ### 属性
 
 <div class="props">
@@ -36,11 +39,22 @@ onActionSelected: function(position) {
             <ul>
                 <li><code>title</code>: <strong>必须的</strong>, 功能的标题</li>
                 <li><code>icon</code>: 这个功能的图标，例如<code>require('./some_icon')</code></li>
-                <li><code>show</code>: 是直接作为ICON显示还是先隐藏，而在弹出菜单里显示：<code>always</code>总是显示，<code>ifRoom</code>如果放的下则显示，或者<code>never</code>从不显示。</li>
-                <li><code>showWithText</code>: boolean, 是否在图标旁边同时还显示文字</li>
+                <li><code>show</code>: 是直接作为icon显示还是先隐藏，而在弹出菜单里显示：<code>always</code>总是显示，<code>ifRoom</code>如果放的下则显示，或者<code>never</code>从不显示。</li>
+                <li><code>showWithText</code>: 值为布尔类型，指定是否在图标旁边同时还显示文字</li>
             </ul>
         </div>
     </div>
+    <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="contentinsetend"></a>contentInsetEnd <span class="propType">number</span> <a class="hash-link" href="#contentinsetend">#</a></h4>
+    <div>
+	    <p>设置Toolbar的右边缘和屏幕右边缘的距离。</p>
+	    <p>除了导航按钮和菜单以外，设置这一属性也会影响Toolbar的内容区域。它定义了Toolbar与屏幕边沿的最小边距，可以用来使Toolbar的内容和一些设计上的网格线对齐。</p>
+	</div>
+	</div>
+	<div class="prop">
+	<h4 class="propTitle"><a class="anchor" name="contentinsetstart"></a>contentInsetStart <span class="propType">number</span> <a class="hash-link" href="#contentinsetstart">#</a></h4>
+	<div><p>设置Toolbar的左边缘和屏幕左边缘的距离。</p><p>作用同上。</p></div>
+	</div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="logo"></a>logo <span class="propType">optionalImageSource</span> <a class="hash-link" href="#logo">#</a></h4>
         <div>
@@ -50,7 +64,7 @@ onActionSelected: function(position) {
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="navicon"></a>navIcon <span class="propType">optionalImageSource</span> <a class="hash-link" href="#navicon">#</a></h4>
         <div>
-            <p>设置导航器的ICON。</p>
+            <p>设置导航器的icon。</p>
         </div>
     </div>
     <div class="prop">
@@ -71,6 +85,16 @@ onActionSelected: function(position) {
             <p>设置功能列表的弹出菜单的图标。</p>
         </div>
     </div>
+    <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="rtl"></a>rtl <span class="propType">bool</span> <a class="hash-link" href="#rtl">#</a></h4>
+    <div>
+	    <p>设置toolbar的排列顺序为从右到左。除了将这一属性设为true以外，你还需要在AndroidManifest.xml中添加：</p>
+		<p>  android:supportsRtl="true"</p>
+		<p>以及在Main.Activity的<code>onCreate</code>方法中调用
+		<code>setLayoutDirection(LayoutDirection.RTL)</code>
+		</p>
+	</div>
+</div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="subtitle"></a>subtitle <span class="propType">string</span> <a class="hash-link" href="#subtitle">#</a></h4>
         <div>

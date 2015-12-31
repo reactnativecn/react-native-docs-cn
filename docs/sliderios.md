@@ -1,3 +1,6 @@
+### 截图
+![](../img/components/sliderios.png)
+
 ### 属性
 
 <div class="props">
@@ -11,6 +14,9 @@
 		</div>
 	</div>
 	<div class="prop">
+	<h4 class="propTitle"><a class="anchor" name="maximumtrackimage"></a>maximumTrackImage <span class="propType">Image.propTypes.source</span> <a class="hash-link" href="#maximumtrackimage">#</a></h4>
+	<div><p>指定一个滑块右侧轨道背景图。仅支持静态图片。图片最左边的像素会被平铺直至填满轨道。</p></div></div>
+	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="maximumtracktintcolor"></a>maximumTrackTintColor <span class="propType">string</span> <a class="hash-link" href="#maximumtracktintcolor">#</a></h4>
 		<div>
 			<p>滑块右侧轨道的颜色。默认为一个蓝色的渐变色。</p>
@@ -22,6 +28,10 @@
 			<p>滑块的最大值（当滑块滑到最右端时表示的值）。默认为1。</p>
 		</div>
 	</div>
+
+	<div class="prop">
+	<h4 class="propTitle"><a class="anchor" name="minimumtrackimage"></a>minimumTrackImage <span class="propType">Image.propTypes.source</span> <a class="hash-link" href="#minimumtrackimage">#</a></h4>
+	<div><p>指定一个滑块左侧轨道背景图。仅支持静态图片。图片最右边的像素会被平铺直至填满轨道。</p></div></div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="minimumtracktintcolor"></a>minimumTrackTintColor <span class="propType">string</span> <a class="hash-link" href="#minimumtracktintcolor">#</a></h4>
 		<div>
@@ -37,7 +47,7 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onslidingcomplete"></a>onSlidingComplete <span class="propType">function</span> <a class="hash-link" href="#onslidingcomplete">#</a></h4>
 		<div>
-			<p>当用户已经结束滑动的时候调用此回调。</p>
+			<p>用户结束滑动的时候调用此回调。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -49,16 +59,22 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="step"></a>step <span class="propType">number</span> <a class="hash-link" href="#step">#</a></h4>
 		<div>
-			<p>滑块的的最小步长。这个值应该在0到(maximumValue - minimumValue)之间。默认值为0。</p>
+			<p>滑块的最小步长。这个值应该在0到(maximumValue - minimumValue)之间。默认值为0。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="style"></a>style <span class="propType"><a href="view.html#style">View#style</a></span> <a class="hash-link" href="#style">#</a></h4>
 	</div>
 	<div class="prop">
+		<h4 class="propTitle"><a class="anchor" name="thumbimage"></a>thumbImage <span class="propType">Image.propTypes.source</span> <a class="hash-link" href="#thumbimage">#</a></h4>
+		<div>
+			<p>给滑块设置一张图片。只支持静态图片。</p>
+		</div>
+	</div>	
+	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="trackimage"></a>trackImage <span class="propType">Image.propTypes.source</span> <a class="hash-link" href="#trackimage">#</a></h4>
 		<div>
-			<p>给轨道设置一张图片。只支持在资源中引用的图片。</p>
+			<p>给轨道设置一张背景图。只支持静态图片。图片最中央的像素会被平铺直至填满轨道。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -143,6 +159,40 @@ exports.examples = [
     render(): ReactElement {
       return <SliderExample step={0.25} />;
     }
-  }
+  },
+  {
+    title: 'Custom min/max track tint color',
+    render(): ReactElement {
+      return (
+        <SliderExample
+          minimumTrackTintColor={'red'}
+          maximumTrackTintColor={'green'}
+        />
+      );
+    }
+  },
+  {
+    title: 'Custom thumb image',
+    render(): ReactElement {
+      return <SliderExample thumbImage={require('./uie_thumb_big.png')} />;
+    }
+  },
+  {
+    title: 'Custom track image',
+    render(): ReactElement {
+      return <SliderExample trackImage={require('./slider.png')} />;
+    }
+  },
+  {
+    title: 'Custom min/max track image',
+    render(): ReactElement {
+      return (
+        <SliderExample
+          minimumTrackImage={require('./slider-left.png')}
+          maximumTrackImage={require('./slider-right.png')}
+        />
+      );
+    }
+  },
 ];
 ```

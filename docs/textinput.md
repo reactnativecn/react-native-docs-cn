@@ -1,4 +1,4 @@
-TextInput是一个在应用中允许用户通过键盘输入文本的基本组件。本组件的属性提供了多种特性的配置，譬如自动完成、自动大小写、占位文字、以及多种不同的键盘类型（如纯数字键盘）等等。
+TextInput是一个允许用户在应用中通过键盘输入文本的基本组件。本组件的属性提供了多种特性的配置，譬如自动完成、自动大小写、占位文字，以及多种不同的键盘类型（如纯数字键盘）等等。
 
 最简单的用法就是丢一个`TextInput`到应用里，然后订阅它的`onChangeText`事件来读取用户的输入。它还有一些其它的事件，譬如`onSubmitEditing`和`onFocus`。一个简单的例子如下：
 
@@ -10,19 +10,10 @@ TextInput是一个在应用中允许用户通过键盘输入文本的基本组�
   />
 ```
 
-注意有些属性仅在`multiline`为真或者为假的时候有效
+注意有些属性仅在`multiline`为true或者为false的时候有效。
 
-```javascript
-  var onlyMultiline = {
-    onSelectionChange: true, // 开源版本还不支持。
-    onTextInput: true, // 开源版本还不支持。
-    children: true,
-  };
-
-  var notMultiline = {
-    onSubmitEditing: true,
-  };
-```
+### 截图
+![](../img/components/textinput.png)
 
 ### 属性
 
@@ -34,7 +25,7 @@ TextInput是一个在应用中允许用户通过键盘输入文本的基本组�
             <ul>
                 <li>characters: 所有的字符。</li>
                 <li>words: 每个单词的第一个字符。</li>
-                <li>sentences: 每句话的第一个字符（默认）</li>
+                <li>sentences: 每句话的第一个字符（默认）。</li>
                 <li>none: 不自动切换任何字符为大写。</li>
             </ul>
         </div>
@@ -42,7 +33,7 @@ TextInput是一个在应用中允许用户通过键盘输入文本的基本组�
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="autocorrect"></a>autoCorrect <span class="propType">bool</span> <a class="hash-link" href="#autocorrect">#</a></h4>
         <div>
-            <p>如果为false，会禁用掉拼写检查。默认值是true。</p>
+            <p>如果为false，会关闭拼写自动修正。默认值是true。</p>
         </div>
     </div>
     <div class="prop">
@@ -69,15 +60,17 @@ TextInput是一个在应用中允许用户通过键盘输入文本的基本组�
         <div>
             <p>决定弹出的何种软键盘的，譬如<code>numeric</code>（纯数字键盘）。</p>
             <p>这些值在所有平台都可用：</p>
-            <p> - default</p>
-            <p> - numeric</p>
-            <p> - email-address</p>
+            <ul>
+            <li>default</li>
+            <li>numeric</li>
+            <li>email-address</li>
+            </ul>
         </div>
     </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="maxlength"></a>maxLength <span class="propType">number</span> <a class="hash-link" href="#maxlength">#</a></h4>
         <div>
-            <p>限制文本框中最多的字符数。使用这个属性而不用JS逻辑实现这个功能可以避免闪烁的现象。</p>
+            <p>限制文本框中最多的字符数。使用这个属性而不用JS逻辑去实现，可以避免闪烁的现象。</p>
         </div>
     </div>
     <div class="prop">
@@ -125,7 +118,7 @@ TextInput是一个在应用中允许用户通过键盘输入文本的基本组�
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="onsubmitediting"></a>onSubmitEditing <span class="propType">function</span> <a class="hash-link" href="#onsubmitediting">#</a></h4>
         <div>
-            <p>此回调函数当软键盘的`确定`/`提交`按钮被按下的时候调用此函数。如果multiline={true}，此属性不可用。</p>
+            <p>此回调函数当软键盘的`确定`/`提交`按钮被按下的时候调用此函数。如果<code>multiline={true}</code>，此属性不可用。</p>
         </div>
     </div>
     <div class="prop">
@@ -162,7 +155,7 @@ TextInput是一个在应用中允许用户通过键盘输入文本的基本组�
         <h4 class="propTitle"><a class="anchor" name="value"></a>value <span class="propType">string</span> <a class="hash-link" href="#value">#</a></h4>
         <div>
             <p>文本框中的文字内容。</p>
-            <p>TextInput是一个受约束的(Controlled)的组件，意味着如果提供了value属性，原生值会被强制与value属性保持一致。在大部分情况下这都工作的很好，不过有些情况下会导致一些闪烁现象——一个常见的原因就是通过不改变value来阻止用户进行编辑。如果你希望阻止用户输入，可以考虑设置<code>editable={false}</code；如果你是希望限制输入的长度，可以考虑设置<code>maxLength</code>属性，这两个属性都不会导致闪烁。</p>
+            <p>TextInput是一个受约束的(Controlled)的组件，意味着如果提供了value属性，原生值会被强制与value属性保持一致。在大部分情况下这都工作的很好，不过有些情况下会导致一些闪烁现象——一个常见的原因就是通过不改变value来阻止用户进行编辑。如果你希望阻止用户输入，可以考虑设置<code>editable={false}</code>；如果你是希望限制输入的长度，可以考虑设置<code>maxLength</code>属性，这两个属性都不会导致闪烁。</p>
         </div>
     </div>
     <div class="prop">
@@ -180,19 +173,19 @@ TextInput是一个在应用中允许用户通过键盘输入文本的基本组�
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="cleartextonfocus"></a><span class="platform">ios</span>clearTextOnFocus <span class="propType">bool</span> <a class="hash-link" href="#cleartextonfocus">#</a></h4>
         <div>
-            <p>如果为真，每次开始输入的时候都会清除文本框的内容。</p>
+            <p>如果为true，每次开始输入的时候都会清除文本框的内容。</p>
         </div>
     </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="enablesreturnkeyautomatically"></a><span class="platform">ios</span>enablesReturnKeyAutomatically <span class="propType">bool</span> <a class="hash-link" href="#enablesreturnkeyautomatically">#</a></h4>
         <div>
-            <p>如果为真，键盘会在文本框内没有文字的时候禁用确认按钮。默认值为false。</p>
+            <p>如果为true，键盘会在文本框内没有文字的时候禁用确认按钮。默认值为false。</p>
         </div>
     </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="keyboardappearance"></a><span class="platform">ios</span>keyboardAppearance <span class="propType">enum('default', 'light', 'dark')</span> <a class="hash-link" href="#keyboardappearance">#</a></h4>
         <div>
-            <p>决定键盘的颜色。</p>
+            <p>指定键盘的颜色。</p>
         </div>
     </div>
     <div class="prop">
@@ -216,7 +209,7 @@ TextInput是一个在应用中允许用户通过键盘输入文本的基本组�
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="selecttextonfocus"></a><span class="platform">ios</span>selectTextOnFocus <span class="propType">bool</span> <a class="hash-link" href="#selecttextonfocus">#</a></h4>
         <div>
-            <p>如果为真，当获得焦点的时候，所有的文字都会被选中。</p>
+            <p>如果为true，当获得焦点的时候，所有的文字都会被选中。</p>
         </div>
     </div>
     <div class="prop">
@@ -240,7 +233,7 @@ TextInput是一个在应用中允许用户通过键盘输入文本的基本组�
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="underlinecolorandroid"></a><span class="platform">android</span>underlineColorAndroid <span class="propType">string</span> <a class="hash-link" href="#underlinecolorandroid">#</a></h4>
         <div>
-            <p>文本框的下划线颜色。</p>
+            <p>文本框的下划线颜色(译注：如果要去掉文本框的边框，请将此属性设为透明transparent)。</p>
         </div>
     </div>
 </div>

@@ -172,12 +172,12 @@
                     "mdlink": "mapview"
                 },
                 {
-                    "subject": "Navigator",
-                    "mdlink": "navigator"
-                },
-                {
                     "subject": "Modal",
                     "mdlink": "modal"
+                },
+                {
+                    "subject": "Navigator",
+                    "mdlink": "navigator"
                 },
                 {
                     "subject": "NavigatorIOS",
@@ -212,12 +212,8 @@
                     "mdlink": "sliderios"
                 },
                 {
-                    "subject": "SwitchAndroid",
-                    "mdlink": "switchandroid"
-                },
-                {
-                    "subject": "SwitchIOS",
-                    "mdlink": "switchios"
+                    "subject": "Switch",
+                    "mdlink": "switch"
                 },
                 {
                     "subject": "TabBarIOS",
@@ -277,6 +273,10 @@
                     "mdlink": "actionsheetios"
                 },
                 {
+                    "subject": "Alert",
+                    "mdlink": "alert"
+                },
+                {
                     "subject": "AlertIOS",
                     "mdlink": "alertios"
                 },
@@ -307,6 +307,10 @@
                 {
                     "subject": "Dimensions",
                     "mdlink": "dimensions"
+                },
+                {
+                    "subject": "IntentAndroid",
+                    "mdlink": "intentandroid"
                 },
                 {
                     "subject": "InteractionManager",

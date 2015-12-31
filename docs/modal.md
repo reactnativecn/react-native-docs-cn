@@ -1,8 +1,13 @@
 一个Modal组件用来覆盖包含React Native根视图的原生视图（如UIViewController，Activity）。
 
-在嵌入React Native的混合应用中可以使用Modal。Modal使得你应用中使用React Native编写的一部分可以显示覆盖整个视图结构的的内容。
+在嵌入React Native的混合应用中可以使用Modal。Modal可以使你应用中RN编写的那部分内容覆盖在原生视图上显示。
 
-在从根视图开始就使用React Native编写的应用中，你应该使用Navigator来代替Modal。通过一个最顶层的Navigator，你可以通过configureScene属性更加方便的控制如何将模态场景覆盖显示在你App其余的部分上，
+在从根视图开始就使用RN编写的应用中，你应该使用Navigator来代替Modal。通过一个最顶层的Navigator，你可以通过configureScene属性更加方便的控制如何将模态场景覆盖显示在你App其余的部分上。
+
+目前这个组件还只能在iOS上使用。
+
+### 截图
+![](../img/components/modal.png)
 
 ### 属性
 

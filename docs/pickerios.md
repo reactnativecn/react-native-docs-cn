@@ -1,6 +1,11 @@
+### 截图
+![](../img/components/pickerios.png)
+
 ### 属性
 
-<div class="props"><div class="prop"><h4 class="propTitle"><a class="anchor" name="view"></a><a href="view.html#props">View props...</a> <a class="hash-link" href="#view">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="onvaluechange"></a>onValueChange <span class="propType">function</span> <a class="hash-link" href="#onvaluechange">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="selectedvalue"></a>selectedValue <span class="propType">any</span> <a class="hash-link" href="#selectedvalue">#</a></h4></div></div>
+<div class="props"><div class="prop"><h4 class="propTitle"><a class="anchor" name="view"></a><a href="view.html#props">View props...</a> <a class="hash-link" href="#view">#</a></h4></div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="itemstyle"></a>itemStyle <span class="propType">itemStylePropType</span> <a class="hash-link" href="#itemstyle">#</a></h4></div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="onvaluechange"></a>onValueChange <span class="propType">function</span> <a class="hash-link" href="#onvaluechange">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="selectedvalue"></a>selectedValue <span class="propType">any</span> <a class="hash-link" href="#selectedvalue">#</a></h4></div></div>
 
 ### 样例
 

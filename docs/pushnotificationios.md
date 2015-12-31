@@ -1,8 +1,8 @@
-本模块帮助你处理应用的推送通知，包括权限控制以及应用图标上的未读消息数(Badge number)。
+本模块帮助你处理应用的推送通知，包括权限控制以及应用图标上的角标数（未读消息数）。
 
-要使用推送通知功能，首先[在苹果后台配置推送通知服务](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)并且准备好服务端的系统。设置的的过程可以参考[Parse的教程](https://parse.com/tutorials/ios-push-notifications)
+要使用推送通知功能，首先[在苹果后台配置推送通知服务](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)并且准备好服务端的系统。设置的过程可以参考[Parse的教程](https://parse.com/tutorials/ios-push-notifications)
 
-你需要在你的AppDelegate中启用推送通知的支持以及注册相应的事件。
+你需要在AppDelegate中启用推送通知的支持以及注册相应的事件。
 
 在`AppDelegate.m`开头：
 
@@ -58,13 +58,13 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="setapplicationiconbadgenumber"></a><span class="propType">static </span>setApplicationIconBadgeNumber<span class="propType">(number: number)</span> <a class="hash-link" href="#setapplicationiconbadgenumber">#</a></h4>
 		<div>
-			<p>设置要在手机主屏幕应用图标上显示的未读消息数目（Badge number）。</p>
+			<p>设置要在手机主屏幕应用图标上显示的角标数（未读消息数）。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="getapplicationiconbadgenumber"></a><span class="propType">static </span>getApplicationIconBadgeNumber<span class="propType">(callback: Function)</span> <a class="hash-link" href="#getapplicationiconbadgenumber">#</a></h4>
 		<div>
-			<p>获取目前在手机主屏幕应用图标上显示的未读消息数目（Badge number）。</p>
+			<p>获取目前在手机主屏幕应用图标上显示的角标数（未读消息数）。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -85,20 +85,20 @@
     sound?: boolean
   })</span> <a class="hash-link" href="#requestpermissions">#</a></h4>
   		<div>
-  			<p>向iOS系统请求通知权限，给用户展示一个对话框。默认情况下，它会请求所有的权限。不过你可以通过传递一个映射到permissions参数来请求指定的权限子集。可以请求的权限类型有：</p>
+  			<p>向iOS系统请求通知权限，给用户展示一个对话框。默认情况下，它会请求所有的权限。不过你可以通过传递一个映射(map)到permissions参数来请求指定的权限子集。可以请求的权限类型有：</p>
 			<ul>
 				<li><code>alert</code></li>
 				<li><code>badge</code></li>
 				<li><code>sound</code></li>
 			</ul>
-			<p>如果提供了一个映射作为参数，只有值为真值的权限才会被请求。</p>
+			<p>如果提供了一个映射(map)作为参数，只有值为真值的权限才会被请求。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="abandonpermissions"></a><span class="propType">static </span>abandonPermissions<span class="propType">()</span> <a class="hash-link" href="#abandonpermissions">#</a></h4>
 		<div>
-			<p>取消注册全部从苹果推送通知服务收到的远程消息。</p>
-			<p>你应该只会在极少的情况下需要调用此函数，譬如一个新版本的App要取消所有远程推送通知的支持。如果是用户希望关闭推送通知，他可以打开系统设置的推送通知一栏来做到。应用通过此方法取消注册后，应用可以随时重新注册。</p>
+			<p>注销所有从苹果推送通知服务收到的远程消息。</p>
+			<p>你应该只会在极少的情况下需要调用此函数，譬如一个新版本的App要取消所有远程推送通知的支持。如果是用户希望关闭推送通知，他可以打开系统设置的推送通知一栏来暂时屏蔽。应用通过此方法注销后，可以随时重新注册。</p>
 		</div>
 	</div>
 	<div class="prop">
@@ -114,13 +114,13 @@
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="removeeventlistener"></a><span class="propType">static </span>removeEventListener<span class="propType">(type: string, handler: Function)</span> <a class="hash-link" href="#removeeventlistener">#</a></h4>
-		<div><p>取消注册事件监听器。在<code>componentWillUnmount</code>中调用此函数以避免内存泄露。</p>
+		<div><p>移除注册事件监听器。在<code>componentWillUnmount</code>中调用此函数以避免内存泄露。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="popinitialnotification"></a><span class="propType">static </span>popInitialNotification<span class="propType">()</span> <a class="hash-link" href="#popinitialnotification">#</a></h4>
 		<div>
-			<p>如果用户通过点击推送通知来冷启动应用（即：之前应用不在运行状态），此函数会返回一个初始的通知</p>
+			<p>如果用户通过点击推送通知来冷启动应用（即：之前应用不在运行状态），此函数会返回一个初始的通知。</p>
 			<p>第一次调用<code>popInitialNotification</code>会返回初始的通知对象，或者返回<code>null</code>。后续的调用全部会返回null.</p>
 		</div>
 	</div>
@@ -150,7 +150,7 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="getbadgecount"></a>getBadgeCount<span class="propType">()</span> <a class="hash-link" href="#getbadgecount">#</a></h4>
 		<div>
-			<p>从<code>aps</code>对象中获取推送通知的未读消息数量（Badge number）。</p>
+			<p>从<code>aps</code>对象中获取推送通知的角标数（未读消息数）。</p>
 		</div>
 	</div>
 	<div class="prop">

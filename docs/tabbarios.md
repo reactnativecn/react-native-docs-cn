@@ -1,3 +1,6 @@
+### 截图
+![](../img/components/tabbarios.png)
+
 ### 属性
 
 <div class="props">
