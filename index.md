@@ -351,4 +351,4 @@ module.exports = MyCustomView;
     <a type="button" href="/docs/getting-started.html#content" class="btn btn-lg btn-primary btn-start">开始使用React Native</a>
 </div>
 
-友情链接：[Node.js中文网](http://nodejs.cn)  [前端乱炖](http://www.html-js.com/)  [汇智网](www.hubwiz.com)
+友情链接：[Node.js中文网](http://nodejs.cn)  [前端乱炖](http://www.html-js.com/)  [汇智网](http://www.hubwiz.com)
