@@ -11,7 +11,7 @@
 ```sh
 $ npm install
 ```
-注：有些朋友会在命令行中执行`react-native -v`，那个查看的是react-native-cli的版本，并不是react-native的版本。
+
 ## 2. 升级项目模板文件
 
 新版本的npm包通常还会包含一些动态生成的文件，这些文件是在运行`react-native init`创建新项目时生成的，比如iOS和Android的项目文件。为了使老项目的项目文件也能得到更新（不重新init），你需要在命令行中运行：
