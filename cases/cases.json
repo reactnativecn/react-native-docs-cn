@@ -52,7 +52,7 @@
 		"name": "P图社区",
 		"desc": "P图社区APP",
 		"ios": "",
-		"android": "cdn.52ptu.com/app/ptu.apk",
+		"android": "http://cdn.52ptu.com/app/ptu.apk",
 		"icon": "http://7u2qiz.com1.z0.glb.clouddn.com/ic_launcher.png"
 	}
 ]
