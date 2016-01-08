@@ -20,4 +20,4 @@ __注：本向导主要介绍安卓开发环境。要开发iOS应用，你依然
     cd MyAwesomeApp
     react-native start
 
-如果你碰到了`ERROR  Watcher took too long to load`的报错，请尝试将[这个文件](https://github.com/facebook/react-native/blob/0.17-stable/packager/react-packager/src/FileWatcher/index.js#L17)中的timeout值改得更大一些 (文件的具体路径是node_modules/react-native/packager/react-packager/src/FileWatcher/index.js)。
+如果你碰到了`ERROR  Watcher took too long to load`的报错，请尝试将[这个文件](https://github.com/facebook/react-native/blob/0.17-stable/packager/react-packager/src/FileWatcher/index.js#L17)中的MAX_WAIT_TIME值改得更大一些 (文件的具体路径是`node_modules\react-native\packager\react-packager\src\DependencyResolver\FileWatcher\index.js`或`node_modules/react-native/packager/react-packager/src/FileWatcher/index.js`)。

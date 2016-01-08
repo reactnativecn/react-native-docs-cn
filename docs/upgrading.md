@@ -1,5 +1,7 @@
 时刻将React Native更新到最新的版本，可以获得更多API、视图、开发者工具以及其他一些好东西（译注：官方开发任务繁重，人手紧缺，几乎不会对旧版本提供维护支持，所以即便更新可能带来一些兼容上的变更，但建议开发者还是尽一切可能第一时间更新）。由于一个完整的React Native项目是由Android项目、iOS项目和JavaScript项目组成的，且都打包在一个npm包中，所以升级可能会有一些麻烦。我们会尽量简化这一流程。以下是目前所需的升级步骤：
 
+__译注__：[更新日志点这里查看](http://bbs.reactnative.cn/category/1)
+
 ## 1. 更新`react-native`的node依赖包
 
 请去下面的网址查看`react-native`的npm包的最新版本，或使用`npm info react-native`命令查看。
