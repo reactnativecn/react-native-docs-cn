@@ -5,7 +5,6 @@
 		"ios": "https://itunes.apple.com/us/app/yu-duo-duo-guo-nei-du-jia/id1025292262?mt=8",
 		"android": "http://www.yddapp.com/download?s=android",
 		"icon": "http://a1.mzstatic.com/us/r30/Purple69/v4/84/93/3e/84933e71-9a24-e2bf-2b7a-a508523f417e/icon175x175.jpeg"
-
 	},
 	{
 		"name": "MockingBot（墨刀）",
@@ -13,7 +12,6 @@
 		"ios": "https://itunes.apple.com/cn/app/mockingbot/id1050565468?mt=8",
 		"android": "",
 		"icon": "https://s3.cn-north-1.amazonaws.com.cn/modao/downloads/images/MockingBot175.png"
-
 	},
 	{
 		"name": "同行网",
@@ -21,7 +19,6 @@
 		"ios": "https://itunes.apple.com/cn/app/tong-xing-wang/id914254459?mt=8",
 		"android": "http://download.tonghangwang.com.cn/App/android/2.2.2.apk",
 		"icon": "http://a3.mzstatic.com/us/r30/Purple1/v4/7d/52/a7/7d52a71f-9532-82a5-b92f-87076624fdb2/icon175x175.png"
-
 	},
 	{
 		"name": "约约",
@@ -29,7 +26,6 @@
 		"ios": "https://itunes.apple.com/cn/app/yue-yue-zui-gao-xiao-shi-jian/id935185009?mt=8",
 		"android": "",
 		"icon": "http://a5.mzstatic.com/us/r30/Purple6/v4/1a/92/48/1a9248e7-b911-c1b4-5567-f37e600a7962/icon175x175.jpeg"
-
 	},
 	{
 		"name": "篝火",
@@ -37,7 +33,6 @@
 		"ios": "https://itunes.apple.com/us/app/gou-huo/id1001476888?ls=1&mt=8",
 		"android": "",
 		"icon": "http://a2.mzstatic.com/us/r30/Purple5/v4/42/50/5a/42505a8d-3c7a-e49a-16e3-422315f24cf1/icon175x175.png"
-
 	},
 	{
 		"name": "天才段子手",
@@ -45,7 +40,6 @@
 		"ios": "https://itunes.apple.com/us/app/tian-cai-duan-zi-shou-shen/id992312701?l=zh&ls=1&mt=8",
 		"android": "http://android.myapp.com/myapp/detail.htm?apkname=com.geniusJokeWriter.app",
 		"icon": "http://a3.mzstatic.com/us/r30/Purple69/v4/1b/6f/c6/1b6fc6b1-6723-e430-e206-b4a53b2e1afd/icon175x175.png"
-
 	},
 	{
 		"name": "烘培帮",
@@ -53,6 +47,12 @@
 		"ios": "https://itunes.apple.com/cn/app/hong-bei-bang-hai-liang-hong/id1007812319?mt=8",
 		"android": "",
 		"icon": "http://a1.mzstatic.com/us/r30/Purple69/v4/79/85/ba/7985ba1d-a807-7c34-98f1-e9e2ed5d2cb5/icon175x175.jpeg"
-
+	},
+	{
+		"name": "P图社区",
+		"desc": "P图社区APP",
+		"ios": "",
+		"android": "http://cdn.52ptu.com/app/ptu.apk",
+		"icon": "http://7u2qiz.com1.z0.glb.clouddn.com/ic_launcher.png"
 	}
 ]
