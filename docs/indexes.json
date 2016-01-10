@@ -200,6 +200,10 @@
                     "mdlink": "pulltorefreshviewandroid"
                 },
                 {
+                    "subject": "RefreshControl",
+                    "mdlink": "refreshcontrol"
+                },
+                {
                     "subject": "ScrollView",
                     "mdlink": "scrollview"
                 },

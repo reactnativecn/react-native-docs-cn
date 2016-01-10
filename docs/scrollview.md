@@ -56,6 +56,9 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 			<p>在滚动的过程中，每帧最多调用一次此回调函数。调用的频率可以用<code>scrollEventThrottle</code>属性来控制。</p>
 		</div>
 	</div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="refreshcontrol"></a>refreshControl <span class="propType">element</span> <a class="hash-link" href="#refreshcontrol">#</a></h4>
+	<div><p>指定<a href="refreshcontrol.html">RefreshControl</a>组件，用于为ScrollView提供下拉刷新功能。</p></div>
+	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="removeclippedsubviews"></a>removeClippedSubviews <span class="propType">bool</span> <a class="hash-link" href="#removeclippedsubviews">#</a></h4>
 		<div>
