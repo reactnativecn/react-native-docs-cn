@@ -6,33 +6,33 @@
         <a class="hash-link" href="#onrefresh">#</a></h4>
         <div><p>在视图开始刷新时调用。</p></div>
     </div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="refreshing"></a>refreshing <span class="propType">bool</span>
-        <a class="hash-link" href="#refreshing">#</a></h4>
-        <div><p>视图是否应该在刷新时显示指示器。</p></div>
-    </div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="colors"></a><span class="platform">android</span>colors
-        <span class="propType">[ColorPropType]</span> <a class="hash-link" href="#colors">#</a></h4>
-        <div><p>指定至少一种颜色用来绘制刷新指示器。</p></div>
-    </div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="enabled"></a><span class="platform">android</span>enabled
-        <span class="propType">bool</span> <a class="hash-link" href="#enabled">#</a></h4>
-        <div><p>指定是否要开启刷新指示器。</p></div>
-    </div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="progressbackgroundcolor"></a><span class="platform">android</span>progressBackgroundColor
-        <span class="propType">ColorPropType</span> <a class="hash-link" href="#progressbackgroundcolor">#</a></h4>
-        <div><p>指定刷新指示器的背景色。</p></div>
-    </div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="size"></a><span class="platform">android</span>size
-        <span class="propType">RefreshLayoutConsts.SIZE.DEFAULT</span> <a class="hash-link" href="#size">#</a></h4>
-        <div><p>指定刷新指示器的大小，具体数值可参阅RefreshControl.SIZE.</p></div>
-    </div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="tintcolor"></a><span class="platform">ios</span>tintColor
-        <span class="propType">ColorPropType</span> <a class="hash-link" href="#tintcolor">#</a></h4>
-        <div><p>指定刷新指示器的颜色。</p></div>
-    </div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="title"></a><span class="platform">ios</span>title
-        <span class="propType">string</span> <a class="hash-link" href="#title">#</a></h4>
-        <div><p>指定刷新指示器下显示的文字。</p></div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="refreshing"></a>refreshing <span class="propType">bool</span>
+<a class="hash-link" href="#refreshing">#</a></h4>
+<div><p>视图是否应该在刷新时显示指示器。</p></div>
+</div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="colors"></a><span class="platform">android</span>colors
+<span class="propType">[ColorPropType]</span> <a class="hash-link" href="#colors">#</a></h4>
+<div><p>指定至少一种颜色用来绘制刷新指示器。</p></div>
+</div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="enabled"></a><span class="platform">android</span>enabled
+<span class="propType">bool</span> <a class="hash-link" href="#enabled">#</a></h4>
+<div><p>指定是否要开启刷新指示器。</p></div>
+</div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="progressbackgroundcolor"></a><span class="platform">android</span>progressBackgroundColor
+<span class="propType">ColorPropType</span> <a class="hash-link" href="#progressbackgroundcolor">#</a></h4>
+<div><p>指定刷新指示器的背景色。</p></div>
+</div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="size"></a><span class="platform">android</span>size
+<span class="propType">RefreshLayoutConsts.SIZE.DEFAULT</span> <a class="hash-link" href="#size">#</a></h4>
+<div><p>指定刷新指示器的大小，具体数值可参阅RefreshControl.SIZE.</p></div>
+</div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="tintcolor"></a><span class="platform">ios</span>tintColor
+<span class="propType">ColorPropType</span> <a class="hash-link" href="#tintcolor">#</a></h4>
+<div><p>指定刷新指示器的颜色。</p></div>
+</div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="title"></a><span class="platform">ios</span>title
+<span class="propType">string</span> <a class="hash-link" href="#title">#</a></h4>
+<div><p>指定刷新指示器下显示的文字。</p></div>
 </div>
 
 ### 例子
