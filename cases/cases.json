@@ -1,5 +1,12 @@
 [
 	{
+		"name": "手赚助手",
+		"desc": "手机赚钱app",
+		"ios": "http://www.shouzhuanzhushou.com.cn",
+		"android": "http://www.shouzhuanzhushou.com.cn",
+		"icon": "http://www.shouzhuanzhushou.com.cn:8081/res/img/shouzhuan-175.png"
+	},
+	{
 		"name": "鱼多多",
 		"desc": "钓鱼",
 		"ios": "https://itunes.apple.com/us/app/yu-duo-duo-guo-nei-du-jia/id1025292262?mt=8",
