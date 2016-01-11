@@ -3,9 +3,9 @@
 ### 属性
 
 <div class="prop"><h4 class="propTitle"><a class="anchor" name="onrefresh"></a>onRefresh <span class="propType">function</span>
-        <a class="hash-link" href="#onrefresh">#</a></h4>
-        <div><p>在视图开始刷新时调用。</p></div>
-    </div>
+<a class="hash-link" href="#onrefresh">#</a></h4>
+<div><p>在视图开始刷新时调用。</p></div>
+</div>
 <div class="prop"><h4 class="propTitle"><a class="anchor" name="refreshing"></a>refreshing <span class="propType">bool</span>
 <a class="hash-link" href="#refreshing">#</a></h4>
 <div><p>视图是否应该在刷新时显示指示器。</p></div>
