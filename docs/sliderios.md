@@ -28,7 +28,6 @@
 			<p>滑块的最大值（当滑块滑到最右端时表示的值）。默认为1。</p>
 		</div>
 	</div>
-
 	<div class="prop">
 	<h4 class="propTitle"><a class="anchor" name="minimumtrackimage"></a>minimumTrackImage <span class="propType">Image.propTypes.source</span> <a class="hash-link" href="#minimumtrackimage">#</a></h4>
 	<div><p>指定一个滑块左侧轨道背景图。仅支持静态图片。图片最右边的像素会被平铺直至填满轨道。</p></div></div>

@@ -1,11 +1,11 @@
 这一组件用在ScrollView内部，为其添加下拉刷新的功能。当ScrollView处于竖直方向的起点位置（scrollY: 0），此时下拉会触发一个`onRefresh`事件。
 
 ### 属性
-
+<div class="props">
 <div class="prop"><h4 class="propTitle"><a class="anchor" name="onrefresh"></a>onRefresh <span class="propType">function</span>
-        <a class="hash-link" href="#onrefresh">#</a></h4>
-        <div><p>在视图开始刷新时调用。</p></div>
-    </div>
+<a class="hash-link" href="#onrefresh">#</a></h4>
+<div><p>在视图开始刷新时调用。</p></div>
+</div>
 <div class="prop"><h4 class="propTitle"><a class="anchor" name="refreshing"></a>refreshing <span class="propType">bool</span>
 <a class="hash-link" href="#refreshing">#</a></h4>
 <div><p>视图是否应该在刷新时显示指示器。</p></div>
@@ -33,6 +33,7 @@
 <div class="prop"><h4 class="propTitle"><a class="anchor" name="title"></a><span class="platform">ios</span>title
 <span class="propType">string</span> <a class="hash-link" href="#title">#</a></h4>
 <div><p>指定刷新指示器下显示的文字。</p></div>
+</div>
 </div>
 
 ### 例子
