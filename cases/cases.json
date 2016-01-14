@@ -61,5 +61,12 @@
 		"ios": "",
 		"android": "http://cdn.52ptu.com/app/ptu.apk",
 		"icon": "http://7u2qiz.com1.z0.glb.clouddn.com/ic_launcher.png"
+	},
+	{
+		"name": "你造么",
+		"desc": "你造么，专注制造业移动端协同管理",
+		"ios": "https://itunes.apple.com/us/app/ni-zao-me/id1025294933?l=zh&ls=1&mt=8",
+		"android": "",
+		"icon": "http://7xk1ez.com2.z0.glb.qiniucdn.com/logo-mobile-0114logo_welcom.png"
 	}
 ]
