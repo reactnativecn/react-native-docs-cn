@@ -69,4 +69,12 @@
 		"android": "",
 		"icon": "http://7xk1ez.com2.z0.glb.qiniucdn.com/logo-mobile-0114logo_welcom.png"
 	}
+	,
+	{
+		"name": "专业囚徒健身",
+		"desc": "失传的技艺",
+		"ios": "",
+		"android": "http://dd.myapp.com/16891/57D18E237AB9BD450BCAF73228FEBF23.apk?fsname=com.prisonerfitness_1.0_1.apk",
+		"icon": "http://7xpb7b.media1.z0.glb.clouddn.com/512.png"
+	}
 ]
