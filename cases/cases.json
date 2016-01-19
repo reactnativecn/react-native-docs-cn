@@ -76,5 +76,12 @@
 		"ios": "",
 		"android": "http://dd.myapp.com/16891/57D18E237AB9BD450BCAF73228FEBF23.apk?fsname=com.prisonerfitness_1.0_1.apk",
 		"icon": "http://7xpb7b.media1.z0.glb.clouddn.com/512.png"
+	},
+	{
+		"name": "澳新优选",
+		"desc": "澳洲海淘平台",
+		"ios": "",
+		"android": "http://img.axmall.com.au/client/axmall_v1.2.apk",
+		"icon": "http://img.axmall.com.au/2/956461437200352.gif"
 	}
 ]
