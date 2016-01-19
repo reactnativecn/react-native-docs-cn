@@ -35,6 +35,7 @@
 			<p>details参数是一个对象，包含：</p>
 			<ul>
 				<li><code>alertBody</code> : 要在通知提示中显示的消息。</li>
+				<li><code>soundName</code> : 通知触发时播放的声音名字（可选）。</li>
 			</ul>
 		</div>
 	</div>
@@ -46,6 +47,7 @@
 			<ul>
 				<li><code>fireDate</code> : 系统发送这个提示的日期和时间。</li>
 				<li><code>alertBody</code> : 要在通知提示中显示的消息。</li>
+				<li><code>soundName</code> : 通知触发时播放的声音名字（可选）。</li>
 			</ul>
 		</div>
 	</div>
