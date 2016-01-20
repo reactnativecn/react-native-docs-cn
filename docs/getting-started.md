@@ -61,7 +61,7 @@ _注：_: 如果你打算在真实设备而非模拟器上运行，参见[在设
 
 恭喜！现在你已经成功运行并修改了你的第一个React Native应用！
 
-_如果你在以上过程中遇到了任何问题，可以看看[疑难杂症](/docs/troubleshooting.html#content)。_
+_如果你在以上过程中遇到了任何问题，可以看看论坛里总结的[常见问题](http://bbs.reactnative.cn/topic/130)。_
 
 ## 为已有的React Native工程添加Android支持
 
