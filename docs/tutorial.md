@@ -42,7 +42,9 @@ npm config set disturl https://npm.taobao.org/dist
 
 ### 模拟数据
 
-在我们真正从Rotten Tomatoes(_译注：一个国外的电影社区_)抓取数据之前，我们先制造一些模拟数据来练一练手。在Facebook我们通常在JS文件的开头，紧跟着require语句之后声明一个常量，不过这不重要，你可以把它放在`index.ios.js`和`index.android.js`的随便什么位置：
+__译注__：本文的示例代码改用了ES6语法，可能和其他文档写法不一致。但React Native从0.18之后，新建项目默认已经采用了ES6语法，故我们推荐不熟悉ES6与ES5区别的朋友先读读[这篇文章](http://bbs.reactnative.cn/topic/15)，另外还可以看看[阮一峰老师的书](http://es6.ruanyifeng.com/)。
+
+在我们真正从Rotten Tomatoes(_译注：一个国外的电影社区_)抓取数据之前，我们先制造一些模拟数据来练一练手。在Facebook我们通常在JS文件的开头，紧跟着import语句之后声明一个常量，不过这不重要，你可以把它放在`index.ios.js`和`index.android.js`的任意位置：
 
 ```javascript
 var MOCKED_MOVIES_DATA = [
@@ -52,22 +54,22 @@ var MOCKED_MOVIES_DATA = [
 
 ### 展现一个电影
 
-我们接下来要展现一个电影，绘制它的标题、年份、以及缩略图(_译注：这个过程我们通常会叫做“渲染/render”，后面我们都会用“渲染”这个词_)。渲染缩略图需要用到Image组件，所以把Image添加到对React的require列表中。
+我们接下来要展现一个电影，绘制它的标题、年份、以及缩略图(_译注：这个过程我们通常会叫做“渲染/render”，后面我们都会用“渲染”这个词_)。渲染缩略图需要用到Image组件，所以把Image添加到对React的import列表中。
 
 ```javascript
-var {
+import React, {
   AppRegistry,
   Image,
   StyleSheet,
   Text,
   View,
-} = React;
+} from 'react-native';
 ```
 
 然后修改一下render函数，这样我们可以把上面创建的模拟数据渲染出来。
 
 ```javascript
-  render: function() {
+  render() {
     var movie = MOCKED_MOVIES_DATA[0];
     return (
       <View style={styles.container}>
@@ -204,25 +206,26 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
 首先在应用中创建一个初始的null状态，这样可以通过`this.state.movies == null`来判断我们的数据是不是已经被抓取到了。我们在服务器响应返回的时候执行`this.setState({movies: moviesData})`来改变这个状态。把下面这段代码放到我们的React类的render函数之前：
 
 ```javascript
-  getInitialState: function() {
-    return {
-      movies: null,
+  constructor(props) {
+    super(props);   //这一句不能省略，照抄即可
+    this.state = {
+      movies: null,  //这里放你自己定义的state变量及初始值
     };
-  },
+  }
 ```
 
-组件加载完毕之后，就可以向服务器请求数据。`componentDidMount`是React组件的一个方法，它会在组件刚加载完成的时候调用一次，以后不再会被调用。
+组件加载完毕之后，就可以向服务器请求数据。`componentDidMount`是React组件的一个生命周期方法，它会在组件刚加载完成的时候调用一次，以后不再会被调用。React中的各种生命周期方法请[参阅此文档](http://facebook.github.io/react/docs/component-specs.html)。
 
 ```javascript
-  componentDidMount: function() {
+  componentDidMount() {
     this.fetchData();
-  },
+  }
 ```
 
 现在我们来为组件添加`fetchData`函数。你所需要做的就是在Promise调用链结束后执行`this.setState({movies:data})`。在React的工作机制下，`setState`实际上会触发一次重新渲染的流程，此时render函数被触发，发现this.state.movies不再是`null`。注意我们在Promise调用链的最后调用了`done()` —— 这样可以抛出异常而不是简单忽略。
 
 ```javascript
-  fetchData: function() {
+  fetchData() {
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
@@ -231,23 +234,23 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
         });
       })
       .done();
-  },
+  }
 ```
 
 现在我们来修改render函数。在电影数据加载完毕之前，先渲染一个“加载中”的视图；而如果电影数据已经加载完毕了，则渲染第一个电影数据。
 
 
 ```javascript
-  render: function() {
+  render() {
     if (!this.state.movies) {
       return this.renderLoadingView();
     }
 
     var movie = this.state.movies[0];
     return this.renderMovie(movie);
-  },
+  }
 
-  renderLoadingView: function() {
+  renderLoadingView() {
     return (
       <View style={styles.container}>
         <Text>
@@ -255,9 +258,9 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
         </Text>
       </View>
     );
-  },
+  }
 
-  renderMovie: function(movie) {
+  renderMovie(movie) {
     return (
       <View style={styles.container}>
         <Image
@@ -270,7 +273,7 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
         </View>
       </View>
     );
-  },
+  }
 ```
 
 现在再按一次`⌘+R`或者`Reload JS`，你会首先看到“正在加载电影数据……”，然后在响应数据到达之后，看到第一个电影的信息。
@@ -288,20 +291,20 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
 首先要做的事情：在文件最开头，从React中引入`ListView`。
 
 ```javascript
-var {
+import React, {
   AppRegistry,
   Image,
   ListView,
   StyleSheet,
   Text,
   View,
-} = React;
+} from 'react-native';
 ```
 
 现在来修改render函数。当我们已经有了数据之后，渲染一个包含多个电影信息的ListView，而不仅仅是单个的电影。
 
 ```javascript
-  render: function() {
+  render() {
     if (!this.state.loaded) {
       return this.renderLoadingView();
     }
@@ -313,28 +316,29 @@ var {
         style={styles.listView}
       />
     );
-  },
+  }
 ```
 
 `dataSource`接口用来在ListView的整个更新过程中判断哪些数据行发生了变化。
 
-你会注意到我们现在用到了`this.state`中的`dataSource`。下一步就是在`getInitialState`生成的初始状态中添加一个空白的`dataSource`。另外，我们现在要把数据存储在`dataSource`中了，所以不再另外用`this.state.movies`来保存数据。我们可以在state里用一个布尔型的属性(`this.state.loaded`)来判断数据加载是否已经完成了。
+你会注意到我们现在用到了`this.state`中的`dataSource`。下一步就是在`constructor`生成的初始状态中添加一个空白的`dataSource`。另外，我们现在要把数据存储在`dataSource`中了，所以不再另外用`this.state.movies`来保存数据。我们可以在state里用一个布尔型的属性(`this.state.loaded`)来判断数据加载是否已经完成了。
 
 ```javascript
-  getInitialState: function() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
       loaded: false,
     };
-  },
+  }
 ```
 
 同时我们也要修改`fetchData`方法来把数据更新到dataSource里：
 
 ```javascript
-  fetchData: function() {
+  fetchData() {
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
@@ -344,7 +348,7 @@ var {
         });
       })
       .done();
-  },
+  }
 ```
 
 最后，我们再在`styles`对象里给`ListView`添加一些样式。
@@ -371,17 +375,16 @@ var {
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-'use strict';
 
-var React = require('react-native');
-var {
+import React, {
   AppRegistry,
+  Component,
   Image,
   ListView,
   StyleSheet,
   Text,
   View,
-} = React;
+} from 'react-native';
 
 var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
 var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
@@ -389,21 +392,22 @@ var PAGE_SIZE = 25;
 var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
 var REQUEST_URL = API_URL + PARAMS;
 
-var AwesomeProject = React.createClass({
-  getInitialState: function() {
-    return {
+class AwesomeProject extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
       loaded: false,
     };
-  },
+  }
 
-  componentDidMount: function() {
+  componentDidMount() {
     this.fetchData();
-  },
+  }
 
-  fetchData: function() {
+  fetchData() {
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
@@ -413,9 +417,9 @@ var AwesomeProject = React.createClass({
         });
       })
       .done();
-  },
+  }
 
-  render: function() {
+  render() {
     if (!this.state.loaded) {
       return this.renderLoadingView();
     }
@@ -427,9 +431,9 @@ var AwesomeProject = React.createClass({
         style={styles.listView}
       />
     );
-  },
+  }
 
-  renderLoadingView: function() {
+  renderLoadingView() {
     return (
       <View style={styles.container}>
         <Text>
@@ -437,9 +441,9 @@ var AwesomeProject = React.createClass({
         </Text>
       </View>
     );
-  },
+  }
 
-  renderMovie: function(movie) {
+  renderMovie(movie) {
     return (
       <View style={styles.container}>
         <Image
@@ -452,8 +456,8 @@ var AwesomeProject = React.createClass({
         </View>
       </View>
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   container: {
