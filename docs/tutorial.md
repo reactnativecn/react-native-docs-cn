@@ -59,6 +59,7 @@ var MOCKED_MOVIES_DATA = [
 ```javascript
 import React, {
   AppRegistry,
+  Component,
   Image,
   StyleSheet,
   Text,
@@ -293,6 +294,7 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
 ```javascript
 import React, {
   AppRegistry,
+  Component,
   Image,
   ListView,
   StyleSheet,
