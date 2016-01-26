@@ -96,7 +96,7 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 ```js
 // ImageView.js
 
-var { requireNativeComponent } = require('react-native');
+var { requireNativeComponent, PropTypes } = require('react-native');
 
 var iface = {
   name: 'ImageView',
@@ -114,7 +114,29 @@ module.exports = requireNativeComponent('RCTImageView', iface);
 
 注意，如果你还需要一个JavaScript组件来做一些除了指定`name`和`propTypes`以外的事情，譬如事件处理，你可以把原生组件用一个普通React组件封装。在这种情况下，`reactNativeComponent`的第二个参数变为用于封装的组件。这个在后文的`MyCustomView`例子里面用到。
 
-_译注_：和原生模块不同，原生视图的前缀RCT不会被自动去掉。
+_译注1_：和原生模块不同，原生视图的前缀RCT不会被自动去掉。
+
+_译注2_: 如果出现类似`'ImageView' has no propType for native prop 'RCTImageView.renderToHardwareTextureAndroid' of native type 'boolean'`的错误，原因是`SimpleViewManager`的基类`BaseViewManager`中使用`@ReactProp`注解定义了一些属性。
+```js
+//解决方案1:在iface中添加相关属性
+var iface = {
+  name: 'ImageView',
+  propTypes: {
+    'renderToHardwareTextureAndroid': PropTypes.bool,
+    ...
+    src: PropTypes.string,
+    borderRadius: PropTypes.number,
+    resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch']),
+  },
+};
+```
+```js
+//解决方案2:在requireNativeComponent中给相关属性添加默认值
+module.exports = requireNativeComponent('RCTImageView', iface, {nativeOnly:{
+  'renderToHardwareTextureAndroid': true,
+   ...
+}});
+```
 
 # 事件
 
