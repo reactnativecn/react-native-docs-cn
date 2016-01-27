@@ -15,7 +15,7 @@ var image = getImage({
 ```
 __译注__: 这段代码的意思是，如果你要在屏幕上摆放一个宽200高100的图片，那么首先要准备多个分辨率尺寸的图。`PixelRatio.getPixelSizeForLayoutSize(200)`方法会根据当前设备的pixelratio返回对应值，比如当前设备的pixelratio为2，则返回 200 * 2 = 400，最后生成的参数为{ width: 400, height: 200 }，然后开发者自己实现getImage方法，根据这一参数，返回最符合此尺寸的图片地址。
 
-###方法
+### 方法
 
 <div class="props">
     <div class="prop">
