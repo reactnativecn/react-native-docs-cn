@@ -16,29 +16,12 @@ _译注_：从XCode 7起，在自己的设备上调试App不再需要开发者�
 
 ## 使用离线包
 
-你可以把所有的JavaScript代码打包到App内部。这样可以脱离开发服务器运行，并最终提交到AppStore进行发布。
+当你在真机上运行app时，所有的JavaScript代码和图片都会自动打包到App内部。这样可以脱离开发服务器运行，并最终提交到AppStore进行发布。
 
 1. 打开`AwesomeApp/ios/AwesomeApp/AppDelegate.m`
-2. 参考"OPTION 2"的注释中的说明:
-    * 取消注释`jsCodeLocation = [[NSBundle mainBundle] ...`这一行。
-    * 在命令行中来到工程根目录下，运行`react-native bundle --platform ios --dev false --entry-file index.ios.js --bundle-output iOS/main.jsbundle`命令。
-
-bundle脚本支持一系列参数：
-
-* `--dev` - 默认为`true`的布尔值。在`--dev true`的情况下会打开一系列开发警告，并且限制性能上的优化。在发布之前，推荐设置`--dev false`。此外，对于发布版本还要确保把原生的编译配置设为`Release`，这样才能关闭“摇一摇”菜单。
-* `--minify` - 使用UglifyJS压缩和混淆js代码。
-
-注意从0.14开始`react-native bundle`的命令行参数有所变化。最主要的变化有：
-
-* 现在`entry-file <path>`接受一个路径(一般是当前目录下的index.ios.js)而不是url。
-* 现在必须指明打包所面向的平台`--platform <ios|android>`.
-* 参数`--out`已经改名为`--bundle-output`，用来指定输出文件的文件夹（一般是iOS目录下的main.jsbundle）。
-* Source Map现在不会默认生成了，如果需要Source Map，需要指定`--sourcemap-output <path>`
+2. 取消注释`jsCodeLocation = [[NSBundle mainBundle] ...`这一行。
+3. 根据你的app选择的scheme的不同，会生成不同的离线包（Debug会生成带有警告的开发模式的包，Release则会生成压缩优化过的包）。
 
 ## 禁用应用内的开发者菜单
 
 当我们发布应用之前，你应该把应用的“Schema”设置为`Release`，来禁用开发者菜单。文档[调试](debugging.html#debugging-react-native-apps)讲述了一些详细的操作方式。
-
-## 疑难解答 ##
-
-有时候你的工程已经打开了一段时间，而`main.jsbundle`有可能还没有被包含到Xcode工程里。要添加它，右键点击你的工程文件夹然后选择"Add Files to ..."，然后选择你刚刚生成的`main.jsbundle`文件。
