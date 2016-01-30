@@ -55,8 +55,8 @@ __译注__：本文档的说明较为简略，使用上有一定的难度。论�
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="configurescene"></a>configureScene <span class="propType">function</span> <a class="hash-link" href="#configurescene">#</a></h4>
     <div>
-      <p>可选的函数，用来配置场景动画和手势。会带有一个路由参数调用，然后它应当返回一个场景配置对象</p>
-      <pre class="markdown-highlight"><code class="language-javascript hljs">(route) =&gt; Navigator.SceneConfigs.FloatFromRight</code></pre>
+      <p>可选的函数，用来配置场景动画和手势。会带有两个参数调用，一个是当前的路由，一个是当前的路由栈。然后它应当返回一个场景配置对象</p>
+      <pre class="markdown-highlight"><code class="language-javascript hljs">(route, routeStack) =&gt; Navigator.SceneConfigs.FloatFromRight</code></pre>
     </div>
   </div>
   <div class="prop">

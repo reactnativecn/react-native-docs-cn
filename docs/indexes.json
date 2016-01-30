@@ -384,6 +384,10 @@
                 {
                     "subject": "定时器",
                     "mdlink": "timers"
+                },
+                {
+                    "subject": "颜色",
+                    "mdlink": "colors"
                 }
             ]
         }
