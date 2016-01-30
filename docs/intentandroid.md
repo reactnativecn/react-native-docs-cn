@@ -13,7 +13,24 @@ componentDidMount() {
 }
 ```
 注：要了解更多如何支持深度链接的说明，请参阅[Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters)。
+下面是一个添加深度链接的例子，编辑`android/app/src/main/AndroidManifest.xml`文件：
 
+```
+  <intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+
+    <!-- 以下设置用于接受一个以http://www.facebook.com/react 开头的url-->
+    <data android:scheme="http"
+       android:host="www.facebook.com"
+       android:pathPrefix="/react" />
+    <!-- 注意：pathPrefix中的"/"符号是必须的-->
+
+    <!-- 以下设置用于接受以"facebook://react 开头的url-->
+    <!-- <data android:scheme="facebook" android:host="react" /> -->
+  </intent-filter>
+ ```
 #### 打开外部链接 
 
 要启动链接对应的活动（网址、邮件或是联系人等），直接调用以下方法即可：  

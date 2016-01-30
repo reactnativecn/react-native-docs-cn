@@ -43,3 +43,15 @@ var styles = StyleSheet.create({
 	<div class="prop"><h4 class="propTitle"><a class="anchor" name="create"></a><span class="propType">static </span>create<span class="propType">(obj: {[key: string]: any})</span> <a class="hash-link" href="#create">#</a></h4></div>
 </div>
 
+### 属性
+
+<div class="props">
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="hairlinewidth"></a>hairlineWidth<span class="propType">: CallExpression</span> <a class="hash-link" href="#hairlinewidth">#</a></h4><div>
+	<p>这一常量定义了当前平台上的最细的宽度。可以用作边框或是两个元素间的分隔线。例如：</p>
+	<div class="prism language-javascript">  <span class="token punctuation">{</span>
+    borderBottomColor<span class="token punctuation">:</span> <span class="token string">'#bbb'</span><span class="token punctuation">,</span>
+    borderBottomWidth<span class="token punctuation">:</span> StyleSheet<span class="token punctuation">.</span>hairlineWidth
+  <span class="token punctuation">}</span></div>
+  <p>这一常量始终是一个整数的像素值（线看起来会像头发丝一样细），并会尽量符合当前平台最细的线的标准。然而，你不能把它“视为一个常量”，因为不同的平台和不同的屏幕像素密度会导致不同的结果。</p></div></div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="flatten"></a>flatten<span class="propType">: CallExpression</span> <a class="hash-link" href="#flatten">#</a></h4></div></div>
+

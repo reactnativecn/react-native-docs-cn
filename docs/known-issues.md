@@ -33,7 +33,7 @@ PushNotificationIOS
 ### 平台一致性
 以下是一些本该（或将要）设计得更通用的API或组件：
 
-- `<AndroidViewPager>`(即将开源)和`<ScrollView pagingEnabled={true}>`功能类似。我们或许希望统一成`<ViewPager>`。
+- `<ViewPagerAndroid>`和`<ScrollView pagingEnabled={true}>`功能类似。我们或许希望统一成`<ViewPager>`。
 
 - `alert()`需要支持Android（等待Dialogs模块开源）
 

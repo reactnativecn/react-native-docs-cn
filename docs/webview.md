@@ -25,7 +25,7 @@
 		</div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="javascriptenabledandroid"></a><span class="platform">android</span>javaScriptEnabledAndroid <span class="propType">bool</span> <a class="hash-link" href="#javascriptenabledandroid">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="javascriptenabled"></a><span class="platform">android</span>javaScriptEnabled <span class="propType">bool</span> <a class="hash-link" href="#javascriptenabled">#</a></h4>
 		<div>
 			<p>仅限Android平台。iOS平台JavaScript是默认开启的。</p>
 		</div>

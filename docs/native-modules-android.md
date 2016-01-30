@@ -100,20 +100,14 @@ class AnExampleReactPackage implements ReactPackage {
   }
 ```
 
-这个Package需要在它创建之后提供给**ReactInstanceManager**。你需要在`mReactInstanceManager = ReactInstanceManager.builder()`调用链中，增加一条`.addPackage(new YourPackageName())`
-
-阅读下面的代码并且添加addPackage那行到你的应用的`MainActivity.java`文件。这个文件在你的React Native工程的`android`文件夹下，路径为`android/app/src/main/java/com/your-app-name/MainActivity.java`。
+这个package需要在`MainActivity.java`文件的`getPackages`方法中提供。这个文件位于你的react-native应用文件夹的android目录中。具体路径是: `android/app/src/main/java/com/your-app-name/MainActivity.java`.
 
 ```java
-mReactInstanceManager = ReactInstanceManager.builder()
-  .setApplication(getApplication())
-  .setBundleAssetName("AnExampleApp.android.bundle")
-  .setJSMainModuleName("Examples/AnExampleApp/AnExampleApp.android")
-  .addPackage(new MainReactPackage())
-  .addPackage(new AnExampleReactPackage())  // <-- 添加这一行，类名替换成你的Package类的名字.
-  .setUseDeveloperSupport(true)
-  .setInitialLifecycleState(LifecycleState.RESUMED)
-  .build();
+protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+            new MainReactPackage(),
+            new AnExampleReactPackage()); // <-- 添加这一行，类名替换成你的Package类的名字.
+}
 ```
 
 为了让你的功能从JavaScript端访问起来更为方便，通常我们都会把原生模块封装成一个JavaScript模块。这不是必须的，但省下了每次都从`NativeModules`中获取对应模块的步骤。这个JS文件也可以用于添加一些其他JavaScript端实现的功能。

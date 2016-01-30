@@ -174,7 +174,7 @@ __译注__：这一部分涉及到较新的js语法和特性，不熟悉的读�
 
 ```objective-c
 RCT_REMAP_METHOD(findEvents,
-                 resolver:(RCTPromiseResolveBlock)resolve,
+                 resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject))
 {
   NSArray *events = ...
@@ -367,7 +367,7 @@ class CalendarManager: NSObject {
 
 @interface RCT_EXTERN_MODULE(CalendarManager, NSObject)
 
-RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(NSNumber *)date)
+RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(nonnull NSNumber *)date)
 
 @end
 ```
