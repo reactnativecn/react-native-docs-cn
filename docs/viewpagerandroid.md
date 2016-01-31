@@ -65,6 +65,17 @@ var styles = {
 		</div>
 	</div>
 	<div class="prop">
+	<h4 class="propTitle"><a class="anchor" name="onpagescrollstatechanged"></a>onPageScrollStateChanged <span class="propType">function</span> <a class="hash-link" href="#onpagescrollstatechanged">#</a></h4>
+	<div>
+	<p>页面滑动状态变化时调用此回调函数。页面滑动状态可能为以下三种之一：
+	<ul>
+		<li><p><code>idle</code> 空闲，意味着当前没有交互。</p></li>
+		<li><p><code>dragging</code> 拖动中，意味着当前页面正在被拖动。</p></li>
+		<li><p><code>settling</code> 处理中，意味着当前页面发生过交互，且正在结束开头或收尾的动画。</p></li>
+  </ul>
+  </p></div>
+  </div>
+	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onpageselected"></a>onPageSelected <span class="propType">function</span> <a class="hash-link" href="#onpageselected">#</a></h4>
 		<div>
 			<p>这个回调会在页面切换完成后（当用户在页面间滑动）调用。</p>
