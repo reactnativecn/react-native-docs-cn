@@ -1,6 +1,6 @@
 ## 序言
 
-本教程希望让您快速熟悉使用React Native来编写iOS和Android App的技巧。如果你希望知道React Native是什么以及为什么Facebook打造了它，可以读读[这篇博文](http://react-native.cn/bbs/post/41)
+本教程希望让您快速熟悉使用React Native来编写iOS和Android App的技巧。如果你希望知道React Native是什么以及为什么Facebook打造了它，可以读读[这篇博文](http://bbs.reactnative.cn/topic/14)
 
 我们这里假设你已经有了使用React编写Web应用程序的经验。如果还没有，建议你可以先从[React官网](http://facebook.github.io/react/)开始学习。
 
