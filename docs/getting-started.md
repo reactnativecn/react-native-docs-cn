@@ -22,7 +22,7 @@ _译注：如果您选择从第三方网站/镜像下载Xcode，请务必从正�
 
 _注：_ 现在[Windows和Linux也在实验性的支持](/docs/linux-windows-support.html#content)Android开发。
 
-_译注：_ Windows用户可以参考[这个帖子](/bbs/post/7)来搭建环境。
+_译注：_ Windows用户可以参考[这个帖子](http://bbs.reactnative.cn/topic/10)来搭建环境。
 
 
 ## 快速开始
