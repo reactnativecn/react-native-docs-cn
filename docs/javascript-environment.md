@@ -12,7 +12,7 @@
 React Native从0.5.0版本开始已经内置[Babel转换器](https://babeljs.io)。你可以查看[Babel的文档](http://babeljs.io/docs/advanced/transformers/)来了解有关它可以转换的语法的详情。
 
 这里可以看到目前React Native默认开启的[语法转换特性](https://github.com/facebook/react-native/blob/master/packager/transformer.js#L21)。  
-注：若想学习相关语法，译者推荐阮一峰老师的[《ECMAScript 6入门》](http://es6.ruanyifeng.com/)以及论坛的[讨论帖](http://react-native.cn/bbs/post/42)。
+注：若想学习相关语法，译者推荐阮一峰老师的[《ECMAScript 6入门》](http://es6.ruanyifeng.com/)以及论坛的[讨论帖](http://bbs.reactnative.cn/topic/15)。
 
 ES5
 
