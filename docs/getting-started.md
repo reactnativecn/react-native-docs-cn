@@ -39,7 +39,7 @@ npm config set disturl https://npm.taobao.org/dist
 ```
 
 另，执行init时切记不要在前面加上sudo（否则新项目的目录所有者会变为root而不是当前用户，导致一系列权限问题，请使用chown修复）。  
-本站论坛区提供了[完整的绿色纯净新项目包](http://react-native.cn/bbs/post/35)。完整打包全部iOS和Android的第三方依赖，只要环境配置正确，无需科学上网漫长等待，解压即可直接运行。
+本站论坛区提供了[完整的绿色纯净新项目包](http://bbs.reactnative.cn/topic/11)。完整打包全部iOS和Android的第三方依赖，只要环境配置正确，无需科学上网漫长等待，解压即可直接运行。
 
 **运行iOS应用**
 
