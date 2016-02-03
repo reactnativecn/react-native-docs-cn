@@ -1,3 +1,5 @@
+注：`IntentAndroid`现已过时，请使用跨平台的[`Linking`](linking.html)组件。  
+
 `IntentAndroid`提供了一个通用接口来调用外部链接。
 
 ### 基本用法

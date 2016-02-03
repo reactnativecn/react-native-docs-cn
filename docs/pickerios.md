@@ -7,7 +7,7 @@
 <div class="prop"><h4 class="propTitle"><a class="anchor" name="itemstyle"></a>itemStyle <span class="propType">itemStylePropType</span> <a class="hash-link" href="#itemstyle">#</a></h4></div>
 <div class="prop"><h4 class="propTitle"><a class="anchor" name="onvaluechange"></a>onValueChange <span class="propType">function</span> <a class="hash-link" href="#onvaluechange">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="selectedvalue"></a>selectedValue <span class="propType">any</span> <a class="hash-link" href="#selectedvalue">#</a></h4></div></div>
 
-### 样例
+### 例子
 
 ```javascript
 'use strict';

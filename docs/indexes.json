@@ -184,6 +184,10 @@
                     "mdlink": "navigatorios"
                 },
                 {
+                    "subject": "Picker",
+                    "mdlink": "picker"
+                },
+                {
                     "subject": "PickerIOS",
                     "mdlink": "pickerios"
                 },
@@ -214,6 +218,10 @@
                 {
                     "subject": "SliderIOS",
                     "mdlink": "sliderios"
+                },
+                {
+                    "subject": "StatusBar",
+                    "mdlink": "statusbar"
                 },
                 {
                     "subject": "Switch",
@@ -293,6 +301,10 @@
                     "mdlink": "appregistry"
                 },
                 {
+                    "subject": "AppState",
+                    "mdlink": "appstate"
+                },
+                {
                     "subject": "AppStateIOS",
                     "mdlink": "appstateios"
                 },
@@ -323,6 +335,10 @@
                 {
                     "subject": "LayoutAnimation",
                     "mdlink": "layoutanimation"
+                },
+                {
+                    "subject": "Linking",
+                    "mdlink": "linking"
                 },
                 {
                     "subject": "LinkingIOS",

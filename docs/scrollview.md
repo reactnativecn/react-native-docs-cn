@@ -312,7 +312,7 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 	</div>
 </div>
 
-### 样例
+### 例子
 
 ```javascript
 'use strict';

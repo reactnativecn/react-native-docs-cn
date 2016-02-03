@@ -1,3 +1,5 @@
+注：`LinkingIOS `现已过时，请使用跨平台的[`Linking`](linking.html)组件。 
+
 `LinkingIOS`提供了一个通用的接口来与传入和传出的App链接进行交互。
 
 ### 基本用法
