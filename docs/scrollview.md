@@ -244,12 +244,7 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 	</div>
 	<div class="prop">
 	<h4 class="propTitle"><a class="anchor" name="onrefreshstart"></a><span class="platform">ios</span>onRefreshStart <span class="propType">function</span> <a class="hash-link" href="#onrefreshstart">#</a></h4>
-	<div><p>如设置了此属性，则会显示一个UIRefreshControl。参数为一个函数，用来在合适的时候执行，以停止UIRefreshControl的动画</p>
-<pre>
-<div class="prism language-javascript"><span class="token punctuation">(</span>endRefreshing<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-     <span class="token function">endRefreshing<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></div></div></div>
-</pre>
+<div class="deprecated"><div class="deprecatedTitle"><span>已过期</span></div><div class="deprecatedMessage"><div><p>请使用<code>refreshControl</code> 属性代替。</p></div></div></div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onscrollanimationend"></a><span class="platform">ios</span>onScrollAnimationEnd <span class="propType">function</span> <a class="hash-link" href="#onscrollanimationend">#</a></h4>
 		<div>
