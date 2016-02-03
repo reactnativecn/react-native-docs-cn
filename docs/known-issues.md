@@ -14,12 +14,12 @@ React Native的Android版本是一个非常初始的版本，因此并不是所�
 Maps
 Modal
 Spinner(是一种下拉列表，并不是loading指示器，见http://developer.android.com/guide/topics/ui/controls/spinner.html)
+Slider（也叫SeekBar））
 ```
 
 
 #### 模块
 ```
-App State
 Camera Roll
 Media
 PushNotificationIOS
@@ -35,10 +35,6 @@ PushNotificationIOS
 
 - `<ViewPagerAndroid>`和`<ScrollView pagingEnabled={true}>`功能类似。我们或许希望统一成`<ViewPager>`。
 
-- `alert()`需要支持Android（等待Dialogs模块开源）
-
-- 将`LinkingIOS`和`IntentAndroid`合并也是有可能的。
-
 - `ActivityIndicator`可以跨平台地渲染一个原生的加载（loading）指示器（目前在iOS上使用`ActivityIndicatorIOS`，而在Android上使用`ProgressBarAndroid`）
 
 - `ProgressBar`可以跨平台渲染一个水平的进度条（目前只在iOS上支持，使用`ProgressViewIOS `） 
@@ -46,7 +42,7 @@ PushNotificationIOS
 
 ### 使用第三方的原生模块
 
-[https://react.parts/native](https://react.parts/native)上有很多非常优秀的第三方模块。  
+[JS.coach](https://js.coach/react-native)上有很多非常优秀的第三方模块。  
 在你的项目中集成这些模块应该并不困难，这里有一个[实际应用的例子](https://github.com/apptailor/react-native-google-signin)。
 
 ### overflow样式在Android默认为hidden而且无法更改
