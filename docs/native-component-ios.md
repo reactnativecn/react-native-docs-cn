@@ -291,7 +291,7 @@ MapView.propTypes = {
 ```javascript
 // DatePickerIOS.ios.js
 
-var RCTDatePickerIOSConsts = require('react-native').NativeModules.UIManager.RCTDatePicker.Constants;
+var RCTDatePickerIOSConsts = require('react-native').UIManager.RCTDatePicker.Constants;
 ...
   render: function() {
     return (
