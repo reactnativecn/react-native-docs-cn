@@ -25,40 +25,36 @@
 <div class="props">
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="animated"></a>animated <span
             class="propType">bool</span> <a class="hash-link" href="#animated">#</a></h4>
-        <div><p>If the transition between status bar property changes should be animated.
-            Supported for backgroundColor, barStyle and hidden.</p></div>
+        <div><p>指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="hidden"></a>hidden <span
             class="propType">bool</span> <a class="hash-link" href="#hidden">#</a></h4>
-        <div><p>If the status bar is hidden.</p></div>
+        <div><p>是否隐藏状态栏。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="backgroundcolor"></a><span
             class="platform">android</span>backgroundColor <span class="propType"><a href="colors.html">color</a></span>
         <a class="hash-link" href="#backgroundcolor">#</a></h4>
-        <div><p>The background color of the status bar.</p></div>
+        <div><p>状态栏的背景色。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="translucent"></a><span
             class="platform">android</span>translucent <span class="propType">bool</span> <a class="hash-link"
                                                                                              href="#translucent">#</a>
     </h4>
-        <div><p>If the status bar is translucent.
-            When translucent is set to true, the app will draw under the status bar.
-            This is useful when using a semi transparent status bar color.</p></div>
+        <div><p>指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="barstyle"></a><span class="platform">ios</span>barStyle
         <span class="propType">enum('default', 'light-content')</span> <a class="hash-link" href="#barstyle">#</a></h4>
-        <div><p>Sets the color of the status bar text.</p></div>
+        <div><p>设置状态栏文本的颜色。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="networkactivityindicatorvisible"></a><span
             class="platform">ios</span>networkActivityIndicatorVisible <span class="propType">bool</span> <a
             class="hash-link" href="#networkactivityindicatorvisible">#</a></h4>
-        <div><p>If the network activity indicator should be visible.</p></div>
+        <div><p>指定是否显示网络活动提示符。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="showhidetransition"></a><span
             class="platform">ios</span>showHideTransition <span class="propType">enum('fade', 'slide')</span> <a
             class="hash-link" href="#showhidetransition">#</a></h4>
-        <div><p>The transition effect when showing and hiding the status bar using the <code>hidden</code>
-            prop. Defaults to 'fade'.</p></div>
+        <div><p>通过<code>hidden</code>属性来显示或隐藏状态栏时所使用的动画效果。默认值为'fade'。</p></div>
     </div>
 </div>
 
