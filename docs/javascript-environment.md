@@ -11,7 +11,7 @@
 
 React Native从0.5.0版本开始已经内置[Babel转换器](https://babeljs.io)。你可以查看[Babel的文档](http://babeljs.io/docs/advanced/transformers/)来了解有关它可以转换的语法的详情。
 
-这里可以看到目前React Native默认开启的[语法转换特性](https://github.com/facebook/react-native/blob/master/packager/transformer.js#L21)。  
+这里可以看到目前React Native默认开启的[语法转换特性](https://github.com/facebook/react-native/blob/master/babel-preset/configs/main.js#L16)。  
 注：若想学习相关语法，译者推荐阮一峰老师的[《ECMAScript 6入门》](http://es6.ruanyifeng.com/)以及论坛的[讨论帖](http://bbs.reactnative.cn/topic/15)。
 
 ES5
@@ -26,6 +26,7 @@ ES6
 * [类Classes](http://babeljs.io/docs/learn-es2015/#classes): `class C extends React.Component { render() { return <View />; } }`
 * [常量Constants](https://babeljs.io/docs/learn-es2015/#let-const): `const answer = 42;`
 * [解构Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring): `var {isActive, style} = this.props;`
+* [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): `for (var num of [1, 2, 3]) {}`
 * [模块Modules](http://babeljs.io/docs/learn-es2015/#modules): `import React, { Component } from 'react-native';`
 * [动态属性键Computed Properties](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var key = 'abc'; var obj = {[key]: 10};`
 * 对象方法的简写Object Consise Method: `var obj = { method() { return 10; } };`
@@ -38,3 +39,37 @@ ES7
 * [对象的扩展运算Object Spread](https://github.com/sebmarkbage/ecmascript-rest-spread): `var extended = { ...obj, a: 10 };`
 * [参数列表末尾允许放置逗号Function Trailing Comma](https://github.com/jeffmo/es-trailing-function-commas): `function f(a, b, c,) { }`
 * [Async函数](https://github.com/tc39/ecmascript-asyncawait): `async function doStuffAsync() { const foo = await doOtherStuffAsync(); }`;
+
+其他特性
+
+* [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html): `<View style={{color: 'red'}} />`
+* [Flow](http://flowtype.org/): `function foo(x: ?number): string {}`
+
+## 接口兼容（Polyfills）
+
+许多标准功能也都在支持的JavaScript运行环境上做了兼容支持。
+
+浏览器
+
+* [console.{log, warn, error, info, trace, table}](https://developer.chrome.com/devtools/docs/console-api)
+* [CommonJS require](https://nodejs.org/docs/latest/api/modules.html)
+* [XMLHttpRequest, fetch](/react-native/docs/network.html#content)
+* [{set, clear}{Timeout, Interval, Immediate}, {request, cancel}AnimationFrame](/react-native/docs/timers.html#content)
+* [navigator.geolocation](/react-native/docs/geolocation.html#content)
+ 
+ES6
+
+* [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+* String.prototype.{[startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith), [endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith), [repeat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeats), [includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)}
+* [Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+* Array.prototype.{[find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find), [findIndex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)}
+
+ES7
+
+* Object.{[entries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries), [values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)}
+
+其他特性
+
+* `__DEV__`
+
+
