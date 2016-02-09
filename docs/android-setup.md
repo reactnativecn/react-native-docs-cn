@@ -1,4 +1,4 @@
-本指南主要介绍在Android模拟器上运行React Native Android应用所必须的准备步骤。我们在此并不讨论诸如IDE之类的开发者工具。
+本指南主要介绍在Android模拟器上运行React Native Android应用所必须的准备步骤。
 
 ### 安装Git
 
@@ -60,7 +60,7 @@ React Native Android使用的构建系统是[gradle](https://docs.gradle.org)。
 
 Genymotion是一个第三方模拟器，它比Google官方的模拟器更易设置且性能更好。但是，它只针对个人用户免费。如果你想使用Google模拟器，请往下看。
 
-1. 下载并安装[Genymotion](https://www.genymotion.com/)
+1. 下载并安装[Genymotion](https://www.genymotion.com/)。
 2. 打开Genymotion。如果你尚未安装VirtualBox，它有可能会提示你安装。
 3. 创建一个模拟器并启动。
 4. 按下`⌘+M`可以打开开发者菜单（在安装并启动了React Native应用之后）。
@@ -79,4 +79,8 @@ Genymotion是一个第三方模拟器，它比Google官方的模拟器更易设�
     ![创建虚拟设备对话框](../img/CreateAVD.png)
     2. 选中新创建的虚拟设备，并点击`Start...`  
 
-__译注__：对于Windows用户而言，Intel x86 Emulator Accelerator和HyperV（系统内置的虚拟机功能）不能同时启用。所以要么选择关闭HyperV（控制面板-程序-启动和关闭Windows功能，取消选择HyperV并点确定），要么选择Genymotion或Bluestacks作为模拟器。
+__译注__：对于Windows用户而言，Intel x86 Emulator Accelerator和HyperV（系统内置的虚拟机功能）不能同时启用。所以要么选择关闭HyperV（控制面板-程序-启动和关闭Windows功能，取消选择HyperV并点确定），要么选择Genymotion、Bluestacks或Visual Studio Emulator for Android作为模拟器。
+
+### 在Android Studio中编辑Java代码
+
+对于JavaScript代码，你可以使用任何编辑器来编辑。如果你想在Android Studio中编辑原生Java代码的话，请在Android Studio的欢迎屏幕上选择"Import project"，然后选择你的项目目录中的`android`文件夹即可。
