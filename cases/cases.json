@@ -58,8 +58,8 @@
 	{
 		"name": "P图社区",
 		"desc": "P图社区APP",
-		"ios": "",
-		"android": "http://cdn.52ptu.com/app/ptu.apk",
+		"ios": "https://itunes.apple.com/cn/app/p-tu-she-qu-xiang-su-hua-pi/id1077221097?l=en&mt=8",
+		"android": "http://52ptu.com/",
 		"icon": "http://7u2qiz.com1.z0.glb.clouddn.com/ic_launcher.png"
 	},
 	{
