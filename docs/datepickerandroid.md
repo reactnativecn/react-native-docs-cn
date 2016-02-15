@@ -23,33 +23,28 @@ try {
             class="propType">static </span>open<span class="propType">(options: Object)</span> <a class="hash-link"
                                                                                                   href="#open">#</a>
     </h4>
-        <div><p>Opens the standard Android date picker dialog.</p>
-            <p>The available keys for the <code>options</code> object are:
-                <em> <code>date</code> (<code>Date</code> object or timestamp in milliseconds) - date to show by default
-                </em> <code>minDate</code> (<code>Date</code> or timestamp in milliseconds) - minimum date that can be
-                selected
-                * <code>maxDate</code> (<code>Date</code> object or timestamp in milliseconds) - minimum date that can
-                be selected</p>
-            <p>Returns a Promise which will be invoked an object containing <code>action</code>, <code>year</code>,
+        <div><p>打开一个标准的Android日期选择器的对话框。</p>
+            <p>可选的<code>options</code>对象的key值如下：
+            <ul>
+                <li><code>date</code> (<code>Date</code>对象或毫秒时间戳) - 默认显示的日期</li>
+                <li><code>minDate</code> (<code>Date</code>对象或毫秒时间戳) - 可选的最小日期</li>
+                <li><code>maxDate</code> (<code>Date</code>对象或毫秒时间戳) - 可选的最大日期</li>
+            </p>
+            <p>在用户选好日期后返回一个Promise，回调参数为一个对象，其中包含有<code>action</code>, <code>year</code>,
                 <code>month</code> (0-11),
-                <code>day</code> if the user picked a date. If the user dismissed the dialog, the Promise will
-                still be resolved with action being <code>DatePickerAndroid.dismissedAction</code> and all the other
-                keys
-                being undefined. <strong>Always</strong> check whether the <code>action</code> before reading the
-                values.</p>
-            <p>Note the native date picker dialog has some UI glitches on Android 4 and lower
-                when using the <code>minDate</code> and <code>maxDate</code> options.</p></div>
+                <code>day</code>。如果用户取消了对话框，Promise仍然会执行，返回的action为<code>DatePickerAndroid.dismissedAction</code>，其他几项参数则为undefined。所以请在使用其他值之前<strong>务必</strong>先检查<code>action</code>的值。</p>
+    </div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="datesetaction"></a><span
             class="propType">static </span>dateSetAction<span class="propType">()</span> <a class="hash-link"
                                                                                             href="#datesetaction">#</a>
     </h4>
-        <div><p>A date has been selected.</p></div>
+        <div><p>已选中一个日期。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="dismissedaction"></a><span
             class="propType">static </span>dismissedAction<span class="propType">()</span> <a class="hash-link"
                                                                                               href="#dismissedaction">#</a>
     </h4>
-        <div><p>The dialog has been dismissed.</p></div>
+        <div><p>取消对话框。</p></div>
     </div>
 </div>
