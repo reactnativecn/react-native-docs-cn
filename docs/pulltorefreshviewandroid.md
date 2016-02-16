@@ -34,74 +34,117 @@
 ```javascript
 'use strict';
 
-var React = require('react-native');
-var {
-  SliderIOS,
-  Text,
+const React = require('react-native');
+const {
+  ScrollView,
   StyleSheet,
+  PullToRefreshViewAndroid,
+  Text,
+  TouchableWithoutFeedback,
   View,
 } = React;
 
-var SliderExample = React.createClass({
+const styles = StyleSheet.create({
+  row: {
+    borderColor: 'grey',
+    borderWidth: 1,
+    padding: 20,
+    backgroundColor: '#3a5795',
+    margin: 5,
+  },
+  text: {
+    alignSelf: 'center',
+    color: '#fff',
+
+  },
+  layout: {
+    flex: 1,
+  },
+  scrollview: {
+    flex: 1,
+  },
+});
+
+const Row = React.createClass({
+  _onClick: function() {
+    this.props.onClick(this.props.data);
+  },
+  render: function() {
+    return (
+     <TouchableWithoutFeedback onPress={this._onClick} >
+        <View style={styles.row}>
+          <Text style={styles.text}>
+            {this.props.data.text + ' (' + this.props.data.clicks + ' clicks)'}
+          </Text>
+        </View>
+    </TouchableWithoutFeedback>
+    );
+  },
+});
+const PullToRefreshViewAndroidExample = React.createClass({
+  statics: {
+    title: '<PullToRefreshViewAndroid>',
+    description: 'Container that adds pull-to-refresh support to its child view.'
+  },
+
   getInitialState() {
     return {
-      value: 0,
+      isRefreshing: false,
+      loaded: 0,
+      rowData: Array.from(new Array(20)).map(
+        (val, i) => ({text: 'Initial row' + i, clicks: 0})
+      ),
     };
   },
 
+  _onClick(row) {
+    row.clicks++;
+    this.setState({
+      rowData: this.state.rowData,
+    });
+  },
+
   render() {
+    const rows = this.state.rowData.map((row, ii) => {
+      return <Row key={ii} data={row} onClick={this._onClick}/>;
+    });
     return (
-      <View>
-        <Text style={styles.text} >
-          {this.state.value}
-        </Text>
-        <SliderIOS
-          {...this.props}
-          onValueChange={(value) => this.setState({value: value})} />
-      </View>
+      <PullToRefreshViewAndroid
+        style={styles.layout}
+        refreshing={this.state.isRefreshing}
+        onRefresh={this._onRefresh}
+        colors={['#ff0000', '#00ff00', '#0000ff']}
+        progressBackgroundColor={'#ffff00'}
+        >
+        <ScrollView style={styles.scrollview}>
+          {rows}
+        </ScrollView>
+      </PullToRefreshViewAndroid>
     );
-  }
+  },
+
+  _onRefresh() {
+    this.setState({isRefreshing: true});
+    setTimeout(() => {
+      // prepend 10 items
+      const rowData = Array.from(new Array(10))
+      .map((val, i) => ({
+        text: 'Loaded row' + (+this.state.loaded + i),
+        clicks: 0,
+      }))
+      .concat(this.state.rowData);
+
+      this.setState({
+        loaded: this.state.loaded + 10,
+        isRefreshing: false,
+        rowData: rowData,
+      });
+    }, 5000);
+  },
+
 });
 
-var styles = StyleSheet.create({
-  slider: {
-    height: 10,
-    margin: 10,
-  },
-  text: {
-    fontSize: 14,
-    textAlign: 'center',
-    fontWeight: '500',
-    margin: 10,
-  },
-});
 
-exports.title = '<SliderIOS>';
-exports.displayName = 'SliderExample';
-exports.description = 'Slider input for numeric values';
-exports.examples = [
-  {
-    title: 'Default settings',
-    render(): ReactElement {
-      return <SliderExample />;
-    }
-  },
-  {
-    title: 'minimumValue: -1, maximumValue: 2',
-    render(): ReactElement {
-      return (
-        <SliderExample
-          minimumValue={-1}
-          maximumValue={2}
-        />
-      );
-    }
-  },
-  {
-    title: 'step: 0.25',
-    render(): ReactElement {
-      return <SliderExample step={0.25} />;
-    }
-  }
-];
+module.exports = PullToRefreshViewAndroidExample;
+
 ```
