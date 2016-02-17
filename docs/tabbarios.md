@@ -32,6 +32,8 @@ __译注__：本组件，以及一切带IOS或Android后缀的组件，都不能
 	</div>
 </div>
 
+##更多属性可以查看TabBarIOS的源代码，在node_modules/react-native/Libraries/Components目录里面
+
 ### 例子
 
 ```javascript
