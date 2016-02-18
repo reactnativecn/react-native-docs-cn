@@ -98,18 +98,11 @@ Proguard是一个Java字节码混淆压缩工具，它可以移除掉React Nativ
 
 _**重要**：启用Proguard之后，你必须再次全面地测试你的应用。Proguard有时候需要为你引入的每个原生库做一些额外的配置。参见`app/proguard-rules.pro`文件。_
 
-要启用Proguard，设置`minifyEnabled`选项为`true`：
+要启用Proguard，编辑`android/app/build.gradle`文件：
 
 ```
-...
-android {
-    ...
-    buildTypes {
-        release {
-            ...
-            minifyEnabled true
-        }
-    }
-}
-...
+/**
+ * Run Proguard to shrink the Java bytecode in release builds.
+ */
+def enableProguardInReleaseBuilds = true
 ```
