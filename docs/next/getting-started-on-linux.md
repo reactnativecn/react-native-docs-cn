@@ -1,23 +1,10 @@
----
-id: getting-started-linux
-title: Getting Started on Linux
-layout: docs
-category: Quick Start
-permalink: docs/getting-started-on-linux.html
-next: android-setup
----
+### 准备工作
 
-This guide is essentially a beginner-friendly version of the [Getting Started](/react-native/docs/getting-started.html) page for React Native on Linux.
+本指南以Ubuntu Linux 14.04 LTS为例。
 
-### Prerequisites
+在阅读本指南之前，你至少应该安装过了Android SDK，并且运行了一个用Java写的"Hello World"的Android应用。具体可以参阅[安卓环境配置](android-setup.html)。
 
-For the purposes of this guide, we assume that you're working on Ubuntu Linux 14.04 LTS.
-
-Before following this guide, you should have installed the Android SDK and run a successful Java-based "Hello World" app for Android.
-
-See [Android Setup](/react-native/docs/android-setup.html) for details.
-
-#### Installing NodeJS
+#### 安装NodeJS
 
 The first thing you need to do is to install NodeJS, a popular Javascript implementation.
 
@@ -31,7 +18,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 __NOTE__: The above instructions are for Ubuntu. If you're on a different distro,  please follow the instructions on the [NodeJS website](https://nodejs.org/en/download/).
 
-#### Installing Watchman
+#### 安装Watchman
 
 [watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. You need to install it for better performance and avoid a node file-watching bug.
 
@@ -47,7 +34,7 @@ make
 sudo make install
 ```
 
-#### Installing Flow
+#### 安装Flow
 
 Flow is a static type checker for JavaScript. To install it, paste the following in the terminal:
 
@@ -55,7 +42,7 @@ Flow is a static type checker for JavaScript. To install it, paste the following
 sudo npm install -g flow-bin
 ```
 
-## Setting up an Android Device
+## 配置一个Android设备
 
 Let's set up an Android device to run our starter project. 
 

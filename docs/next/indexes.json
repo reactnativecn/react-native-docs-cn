@@ -8,6 +8,10 @@
                     "mdlink": "getting-started"
                 },
                 {
+                    "subject": "在Linux上使用React Native",
+                    "mdlink": "getting-started-on-linux"
+                },
+                {
                     "subject": "安卓环境配置",
                     "mdlink": "android-setup"
                 },
