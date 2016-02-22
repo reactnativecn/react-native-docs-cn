@@ -9,7 +9,7 @@
 
 在你的App里的`build.gradle`文件中，添加React Native依赖：
 
-    compile 'com.facebook.react:react-native:0.17.+'
+    compile 'com.facebook.react:react-native:0.20.+'
 
 你可以在[Maven中央库](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.facebook.react%22%20AND%20a%3A%22react-native%22) [国内镜像](http://maven.oschina.net/index.html#nexus-search;quick~React native) 查询到React Native库的最新版本。然后，在你的`AndroidManifest.xml`里增加Internet访问权限：
 
