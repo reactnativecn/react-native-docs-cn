@@ -20,7 +20,7 @@ renderImages: function() {
 ```
 
 ### 截图
-![](../img/components/image.png)
+![](img/components/image.png)
 
 ### 属性
 

@@ -6,9 +6,9 @@ NavigatorIOS包装了UIKit的导航功能，可以使用左划功能来返回到
 
 
 ### 截图
-![](../img/components/navigatorios1.png)
+![](img/components/navigatorios1.png)
 
-![](../img/components/navigatorios2.png)
+![](img/components/navigatorios2.png)
 
 ### 路由
 

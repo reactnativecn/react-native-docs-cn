@@ -54,7 +54,7 @@ React Native Android使用的构建系统是[gradle](https://docs.gradle.org)。
     * Android Support Repository
 3. 点击"Install Packages"
  (__译注__：国内用户推荐使用[腾讯Bugly的镜像](http://android-mirror.bugly.qq.com:8080/include/usage.html)来加速下载) 
-![SDK Manager窗口](../img/AndroidSDK1.png) ![SDK Manager 窗口](../img/AndroidSDK2.png)
+![SDK Manager窗口](img/AndroidSDK1.png) ![SDK Manager 窗口](img/AndroidSDK2.png)
 
 ### 安装Genymotion
 
@@ -76,7 +76,7 @@ Genymotion是一个第三方模拟器，它比Google官方的模拟器更易设�
 5. 创建Android虚拟设备(AVD):
     1. 运行`android avd`并且点击**Create...**
     （__译注__：在Windows系统下，android.bat在Android SDK的`tools`文件夹下，请注意设置PATH环境变量以便于使用）
-    ![创建虚拟设备对话框](../img/CreateAVD.png)
+    ![创建虚拟设备对话框](img/CreateAVD.png)
     2. 选中新创建的虚拟设备，并点击`Start...`  
 
 __译注__：对于Windows用户而言，Intel x86 Emulator Accelerator和HyperV（系统内置的虚拟机功能）不能同时启用。所以要么选择关闭HyperV（控制面板-程序-启动和关闭Windows功能，取消选择HyperV并点确定），要么选择Genymotion、Bluestacks或Visual Studio Emulator for Android作为模拟器。

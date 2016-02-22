@@ -13,7 +13,7 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
 注意有些属性仅在`multiline`为true或者为false的时候有效。
 
 ### 截图
-![](../img/components/textinput.png)
+![](img/components/textinput.png)
 
 ### 属性
 

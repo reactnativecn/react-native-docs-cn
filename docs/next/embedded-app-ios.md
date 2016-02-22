@@ -85,7 +85,7 @@ React.AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
 
 你需要添加一个容器视图来容纳React Native组件。它可以是你应用里任何的`UIView`。
 
-![Container view example](../img/EmbeddedAppContainerViewExample.png)
+![Container view example](img/EmbeddedAppContainerViewExample.png)
 
 不过，为了让代码更整洁，我们可以派生一个`UIView`，取名`ReactView`。打开你的`Yourproject.xcworkspace`来创建一个新的`ReactView`类（你也可以取任何你想要的名字！）
 
@@ -152,7 +152,7 @@ _译注_：这一部分的官方文档都有一些过时。翻译组在翻译&�
 
 现在编译和运行你的应用。你应该可以看到你的React Native应用在`ReactView`内运行。
 
-![Example](../img/EmbeddedAppExample.png)
+![Example](img/EmbeddedAppExample.png)
 
 在模拟器下也可以实现热加载（需要在Build Settings -> Preprocessor Macros中设置DEBUG=1）。现在你已经拥有了一个React组件，它在Objective-C中完全表现为一个`UIView`的子类。
 

@@ -1,7 +1,7 @@
 `CameraRoll`模块提供了访问本地相册的功能。
 
 ### 截图
-![cameraroll](../img/api/cameraroll.png)
+![cameraroll](img/api/cameraroll.png)
 
 ### 方法
 

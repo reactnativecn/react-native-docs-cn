@@ -1,5 +1,5 @@
 ### 截图
-![](../img/components/sliderios.png)
+![](img/components/sliderios.png)
 
 ### 属性
 

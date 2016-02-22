@@ -26,7 +26,7 @@ var styles = StyleSheet.create({
 ```
 
 ### 截图
-![](../img/components/text.png)
+![](img/components/text.png)
 
 ### 属性
 

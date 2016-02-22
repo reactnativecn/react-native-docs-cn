@@ -7,7 +7,7 @@ Modal组件可以用来覆盖包含React Native根视图的原生视图（如UIV
 目前这个组件还只能在iOS上使用。
 
 ### 截图
-![](../img/components/modal.png)
+![](img/components/modal.png)
 
 ### 属性
 

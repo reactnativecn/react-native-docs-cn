@@ -321,10 +321,6 @@
                     "mdlink": "cameraroll"
                 },
                 {
-                    "subject": "DatePickerAndroid",
-                    "mdlink": "datepickerandroid"
-                },
-                {
                     "subject": "Dimensions",
                     "mdlink": "dimensions"
                 },
@@ -375,10 +371,6 @@
                 {
                     "subject": "StyleSheet",
                     "mdlink": "stylesheet"
-                },
-                {
-                    "subject": "TimePickerAndroid",
-                    "mdlink": "timepickerandroid"
                 },
                 {
                     "subject": "ToastAndroid",

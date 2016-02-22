@@ -4,7 +4,7 @@
 2. int duration: 提示信息持续显示的时间。可以是`ToastAndroid.SHORT`或者`ToastAndroid.LONG`。
 
 ### 截图
-![toastandroid](../img/api/toastandroid.png)
+![toastandroid](img/api/toastandroid.png)
 
 ### 方法
 

@@ -1,9 +1,9 @@
 跨平台通用的可以在两个状态中切换的组件。
 
 ### 截图
-![](../img/components/switchandroid.png)
+![](img/components/switchandroid.png)
 
-![](../img/components/switchios.png)
+![](img/components/switchios.png)
 
 ### 属性
 

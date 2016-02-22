@@ -1,5 +1,5 @@
 ### 截图
-![](../img/components/mapview.png)
+![](img/components/mapview.png)
 
 ### 属性
 

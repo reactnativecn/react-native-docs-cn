@@ -164,7 +164,7 @@ React.AppRegistry.registerComponent('MyAwesomeApp', () => MyAwesomeApp);
 
 现在来构建和运行你的Android应用（譬如`./gradlew installDebug`）。一旦启动了React Native制作的Activity，它应该会从开发服务器加载代码并显示：
 
-![Screenshot](../img/EmbeddedAppAndroid.png)
+![Screenshot](img/EmbeddedAppAndroid.png)
 
 ## 在多个Activity/Fragment之间共享一个ReactInstance
 

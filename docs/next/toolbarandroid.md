@@ -26,7 +26,7 @@ onActionSelected: function(position) {
 ```
 
 ### 截图
-![](../img/components/toolbarandroid.png)
+![](img/components/toolbarandroid.png)
 
 ### 属性
 

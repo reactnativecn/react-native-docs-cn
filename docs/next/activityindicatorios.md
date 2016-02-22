@@ -1,5 +1,5 @@
 ### 截图
-![activityindicatorios](../img/components/activityindicatorios.png)
+![activityindicatorios](img/components/activityindicatorios.png)
 
 ### 属性
 

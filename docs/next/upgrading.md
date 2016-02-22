@@ -40,17 +40,17 @@ Xcode项目格式是相当复杂的，所以有些时候需要手工更新和合
 
 打开Xcode，在项目的Build Phases中添加新的运行脚本：
 
-![](../img/Upgrading1.png)
+![](img/Upgrading1.png)
 
 将脚本路径设置到
 ```sh
 ../node_modules/react-native/packager/react-native-xcode.sh
 ```
 
-![](../img/Upgrading2.png)
+![](img/Upgrading2.png)
 
 删除现有的main.jsbundle（Xcode会使用上面这个脚本自动生成新的bundle）
 
-![](../img/Upgrading3.png)
+![](img/Upgrading3.png)
 
 如果你是通过nvm安装的Node，那么可能会碰到"react-native: command not found"的错误。请参考[issues/3974](https://github.com/facebook/react-native/issues/3974)中提供的临时方案，以及[pull/4015](https://github.com/facebook/react-native/pull/4015)中提供的补丁。

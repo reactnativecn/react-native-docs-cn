@@ -32,7 +32,7 @@ var styles = {
 ```
 
 ### 截图
-![](../img/components/viewpager.png)
+![](img/components/viewpager.png)
 
 ### 属性
 
