@@ -402,6 +402,10 @@
                     "mdlink": "flexbox"
                 },
                 {
+                    "subject": "ShadowPropTypesIOS",
+                    "mdlink": "shadowproptypesios"
+                },
+                {
                     "subject": "定位",
                     "mdlink": "geolocation"
                 },
