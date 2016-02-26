@@ -204,10 +204,6 @@
                     "mdlink": "progressviewios"
                 },
                 {
-                    "subject": "PullToRefreshViewAndroid",
-                    "mdlink": "pulltorefreshviewandroid"
-                },
-                {
                     "subject": "RefreshControl",
                     "mdlink": "refreshcontrol"
                 },
