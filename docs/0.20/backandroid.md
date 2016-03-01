@@ -11,7 +11,7 @@ BackAndroid.addEventListener('hardwareBackPress', function() {
      return false;
 });
 ```
-__译注__：以上的`this.onMainScreen()`和`this.goBack()`两个方法都只是伪方法，需要你自己去具体实现！
+__译注__：以上的`this.onMainScreen()`和`this.goBack()`两个方法都只是伪方法，需要你自己去实现！具体可以参考这篇[博文](http://bbs.reactnative.cn/topic/480)
 
 ### 方法
 
