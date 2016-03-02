@@ -52,7 +52,7 @@ var styles = StyleSheet.create({
 ```javascript
 var {Platform} = React;
 
-if(Platform.Version === '5.0'){
+if(Platform.Version === 21){
   console.log('Running on Lollipop!');
 }
 ```
