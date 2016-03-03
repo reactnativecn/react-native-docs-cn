@@ -90,5 +90,12 @@
 		"ios": "",
 		"android": "https://app.4c.cn/apks/app-chanp-release.apk",
 		"icon": "https://app.4c.cn/appicon@100.png"
+	},
+	{
+		"name": "云订货",
+		"desc": "云订货-让订货更简单",
+		"ios": "https://itunes.apple.com/cn/app/yun-ding-huo-rang-ding-huo/id1042554148?mt=8",
+		"android": "http://d2papp.api.qianmi.com/",
+		"icon": "http://pic.ofcard.com//yunxiao/point/demo/img/logo1.png"
 	}
 ]
