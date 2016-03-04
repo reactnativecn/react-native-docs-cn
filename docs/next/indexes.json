@@ -387,6 +387,10 @@
                 {
                     "subject": "VibrationIOS",
                     "mdlink": "vibrationios"
+                },
+                {
+                    "subject": "Vibration",
+                    "mdlink": "vibration"
                 }
             ]
         },
