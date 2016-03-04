@@ -1,19 +1,21 @@
-注意：`VibrationIOS`已经过期。请使用[`Vibration`](vibration.html)代替。  
-本模块导出函数`VibrationIOS.vibrate()`用于控制设备震动。在iOS设备上，调用这个函数会触发一个一秒钟的震动。震动触发是异步的，也就是说这个函数会立即返回而非等待震动结束。
+本模块导出函数`Vibration.vibrate()`用于控制设备震动。震动触发是异步的，也就是说这个函数会立即返回而非等待震动结束。
 
 在不支持震动的设备上（如iOS模拟器），调用此方法没有任何效果。
+
+注意对于android来说需要在`AndroidManifest.xml`中添加`<uses-permission android:name="android.permission.VIBRATE"/>`权限。
 
 震动模式设置现在还不支持。
 
 ### 方法
 
 <div class="props">
-	<div class="prop"><h4 class="propTitle"><a class="anchor" name="vibrate"></a><span class="propType">static </span>vibrate<span class="propType">()</span> <a class="hash-link" href="#vibrate">#</a></h4></div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="vibrate"></a><span class="propType">static </span>vibrate<span class="propType">(duration: number)</span> <a class="hash-link" href="docs/vibration.html#vibrate">#</a></h4></div>
 </div>
 
 ### 例子
 
-```javascript
+```javascript  
+
 'use strict';
 
 var React = require('react-native');
@@ -22,19 +24,19 @@ var {
   View,
   Text,
   TouchableHighlight,
-  VibrationIOS
+  Vibration,
 } = React;
 
 exports.framework = 'React';
-exports.title = 'VibrationIOS';
-exports.description = 'Vibration API for iOS';
+exports.title = 'Vibration';
+exports.description = 'Vibration API';
 exports.examples = [{
-  title: 'VibrationIOS.vibrate()',
+  title: 'Vibration.vibrate()',
   render() {
     return (
       <TouchableHighlight
         style={styles.wrapper}
-        onPress={() => VibrationIOS.vibrate()}>
+        onPress={() => Vibration.vibrate()}>
         <View style={styles.button}>
           <Text>Vibrate</Text>
         </View>
@@ -53,4 +55,5 @@ var styles = StyleSheet.create({
     padding: 10,
   },
 });
+
 ```
