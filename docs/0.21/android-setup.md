@@ -49,7 +49,7 @@ React Native Android使用的构建系统是[gradle](https://docs.gradle.org)。
 
 1. 打开Android SDK Manager(**Mac**用户在终端下输入`android`)。
 2. 选中以下项目：
-    * Android SDK Build-tools version 23.0.1
+    * Android SDK Build-tools version 23.0.1（这个必须版本严格匹配23.0.1）
     * Android 6.0 (API 23)
     * Local Maven repository for Support Libraries(之前叫做Android Support Repository)
 3. 点击"Install Packages"
