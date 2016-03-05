@@ -68,13 +68,13 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="showshorizontalscrollindicator"></a>showsHorizontalScrollIndicator <span class="propType">bool</span> <a class="hash-link" href="#showshorizontalscrollindicator">#</a></h4>
 		<div>
-			<p>当此属性为true的时候，显示一个垂直方向的滚动条。</p>
+			<p>当此属性为true的时候，显示一个水平方向的滚动条。</p>
 		</div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="showsverticalscrollindicator"></a>showsVerticalScrollIndicator <span class="propType">bool</span> <a class="hash-link" href="#showsverticalscrollindicator">#</a></h4>
 		<div>
-			<p>当此属性为true的时候，显示一个水平方向的滚动条。</p>
+			<p>当此属性为true的时候，显示一个垂直方向的滚动条。</p>
 		</div>
 	</div>
 	<div class="prop">
