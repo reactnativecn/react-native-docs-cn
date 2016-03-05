@@ -51,7 +51,7 @@ React Native Android使用的构建系统是[gradle](https://docs.gradle.org)。
 2. 选中以下项目：
     * Android SDK Build-tools version 23.0.1
     * Android 6.0 (API 23)
-    * Android Support Repository
+    * Local Maven repository for Support Libraries(之前叫做Android Support Repository)
 3. 点击"Install Packages"
  (__译注__：国内用户推荐使用[腾讯Bugly的镜像](http://android-mirror.bugly.qq.com:8080/include/usage.html)来加速下载) 
 ![SDK Manager窗口](img/AndroidSDK1.png) ![SDK Manager 窗口](img/AndroidSDK2.png)
