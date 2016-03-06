@@ -7,6 +7,12 @@
 
 <div class="props">
 	<div class="prop">
+	<h4 class="propTitle"><a class="anchor" name="allowsinlinemediaplayback"></a><span class="platform">ios</span>allowsInlineMediaPlayback <span class="propType">bool</span> <a class="hash-link" href="#allowsinlinemediaplayback">#</a></h4>
+	<div><p>指定HTML5视频是在网页当前位置播放还是使用原生的全屏播放器播放。
+	默认值为<code>false</code>。</p>
+	<p><strong>注意</strong> : 要让视频在网页中播放，不光要将这个属性设为true，HTML中的视频元素本身也需要包含<code>webkit-playsinline</code>属性。</p></div>
+	</div>
+	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="automaticallyadjustcontentinsets"></a>automaticallyAdjustContentInsets <span class="propType">bool</span> <a class="hash-link" href="#automaticallyadjustcontentinsets">#</a></h4>
 	</div>
 	<div class="prop">
@@ -15,8 +21,24 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="contentinset"></a>contentInset <span class="propType">{top: number, left: number, bottom: number, right: number}</span> <a class="hash-link" href="#contentinset">#</a></h4>
 	</div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="decelerationrate"></a><span class="platform">ios</span>decelerationRate
+    <span class="propType">ScrollView.propTypes.decelerationRate</span> <a class="hash-link" href="#decelerationrate">#</a></h4>
+    <div><p>指定一个浮点数，用于设置在用户停止触摸之后，此视图应以多快的速度停止滚动。也可以指定预设的字符串值，如<code>"normal"</code>和<code>"fast"</code>，分别对应<code>UIScrollViewDecelerationRateNormal</code> 和<code>UIScrollViewDecelerationRateFast</code>。
+    <ul>
+        <li>Normal（正常速度）: 0.998</li>
+        <li>Fast（较快速度）: 0.9 (iOS WebView的默认值)</li>
+        </ul>
+        </p></div>
+</div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="domstorageenabled"></a><span
+        class="platform">android</span>domStorageEnabled <span class="propType">bool</span> <a class="hash-link"
+                                                                                               href="#domstorageenabled">#</a>
+</h4>
+    <div><p>仅限Android平台。指定是否开启DOM本地存储。</p></div>
+</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="html"></a>html <span class="propType">string</span> <a class="hash-link" href="#html">#</a></h4>
+		<div class="deprecated"><div class="deprecatedTitle"><span>已过期</span></div><div class="deprecatedMessage"><div><p>请使用<code>source</code> 属性代替。</p></div></div></div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="injectedjavascript"></a>injectedJavaScript <span class="propType">string</span> <a class="hash-link" href="#injectedjavascript">#</a></h4>
@@ -24,6 +46,22 @@
 			<p>设置在网页加载之前注入的一段JS代码。</p>
 		</div>
 	</div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="onerror"></a>onError <span
+        class="propType">function</span> <a class="hash-link" href="#onerror">#</a></h4>
+    <div><p>加载失败时调用。</p></div>
+</div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="onload"></a>onLoad <span
+	        class="propType">function</span> <a class="hash-link" href="#onload">#</a></h4>
+	    <div><p>加载成功时调用。</p></div>
+	</div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="onloadend"></a>onLoadEnd <span
+        class="propType">function</span> <a class="hash-link" href="#onloadend">#</a></h4>
+    <div><p>加载结束时（无论成功或失败）调用。</p></div>
+</div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="onloadstart"></a>onLoadStart <span class="propType">function</span>
+    <a class="hash-link" href="#onloadstart">#</a></h4>
+    <div><p>加载开始时调用。</p></div>
+</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="javascriptenabled"></a><span class="platform">android</span>javaScriptEnabled <span class="propType">bool</span> <a class="hash-link" href="#javascriptenabled">#</a></h4>
 		<div>
@@ -47,6 +85,10 @@
 	<h4 class="propTitle"><a class="anchor" name="renderloading"></a>renderLoading <span class="propType">function</span> <a class="hash-link" href="#renderloading">#</a></h4>
 	<div><p>设置一个函数，返回一个加载指示器。</p></div>
 	</div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="source"></a>source <span class="propType">{uri: string, method: string, headers: object, body: string}, {html: string, baseUrl: string}, number</span>
+    <a class="hash-link" href="#source">#</a></h4>
+    <div><p>在WebView中载入一段静态的html代码或是一个url（还可以附带一些header选项）。</p></div>
+</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="scalespagetofit"></a><span class="platform">ios</span>scalesPageToFit <span class="propType">bool</span> <a class="hash-link" href="#scalespagetofit">#</a></h4>
 		<div>
@@ -64,12 +106,7 @@
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="url"></a>url <span class="propType">string</span> <a class="hash-link" href="#url">#</a></h4>
-	</div>
-	<div class="prop">
-	<h4 class="propTitle"><a class="anchor" name="allowsinlinemediaplayback"></a><span class="platform">ios</span>allowsInlineMediaPlayback <span class="propType">bool</span> <a class="hash-link" href="#allowsinlinemediaplayback">#</a></h4>
-	<div><p>指定HTML5视频是在网页当前位置播放还是使用原生的全屏播放器播放。
-	默认值为<code>false</code>。</p>
-	<p><strong>注意</strong> : 要让视频在网页中播放，不光要将这个属性设为true，HTML中的视频元素本身也需要包含<code>webkit-playsinline</code>属性。</p></div>
+		<div class="deprecated"><div class="deprecatedTitle"><span>已过期</span></div><div class="deprecatedMessage"><div><p>请使用<code>source</code> 属性代替。</p></div></div></div>
 	</div>
 </div>
 
@@ -82,6 +119,7 @@ var {
   StyleSheet,
   Text,
   TextInput,
+  TouchableWithoutFeedback,
   TouchableOpacity,
   View,
   WebView
@@ -111,7 +149,11 @@ var WebViewExample = React.createClass({
   inputText: '',
 
   handleTextInputChange: function(event) {
-    this.inputText = event.nativeEvent.text;
+    var url = event.nativeEvent.text;
+    if (!/^[a-zA-Z-_]+:/.test(url)) {
+      url = 'http://' + url;
+    }
+    this.inputText = url;
   },
 
   render: function() {
@@ -155,8 +197,10 @@ var WebViewExample = React.createClass({
           ref={WEBVIEW_REF}
           automaticallyAdjustContentInsets={false}
           style={styles.webView}
-          url={this.state.url}
-          javaScriptEnabledAndroid={true}
+          source={{uri: this.state.url}}
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
+          decelerationRate="normal"
           onNavigationStateChange={this.onNavigationStateChange}
           onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
           startInLoadingState={true}
@@ -215,6 +259,60 @@ var WebViewExample = React.createClass({
   },
 
 });
+
+var Button = React.createClass({
+  _handlePress: function() {
+    if (this.props.enabled !== false && this.props.onPress) {
+      this.props.onPress();
+    }
+  },
+  render: function() {
+    return (
+      <TouchableWithoutFeedback onPress={this._handlePress}>
+        <View style={[styles.button, this.props.enabled ? {} : styles.buttonDisabled]}>
+          <Text style={styles.buttonText}>{this.props.text}</Text>
+        </View>
+      </TouchableWithoutFeedback>
+    );
+  }
+});
+
+var ScaledWebView = React.createClass({
+
+  getInitialState: function() {
+    return {
+      scalingEnabled: true,
+    }
+  },
+
+  render: function() {
+    return (
+      <View>
+        <WebView
+          style={{
+            backgroundColor: BGWASH,
+            height: 200,
+          }}
+          source={{uri: 'https://facebook.github.io/react/'}}
+          scalesPageToFit={this.state.scalingEnabled}
+        />
+        <View style={styles.buttons}>
+        { this.state.scalingEnabled ?
+          <Button
+            text="Scaling:ON"
+            enabled={true}
+            onPress={() => this.setState({scalingEnabled: false})}
+          /> :
+          <Button
+            text="Scaling:OFF"
+            enabled={true}
+            onPress={() => this.setState({scalingEnabled: true})}
+          /> }
+        </View>
+      </View>
+    );
+  },
+})
 
 var styles = StyleSheet.create({
   container: {
@@ -285,15 +383,111 @@ var styles = StyleSheet.create({
     width: 20,
     marginRight: 6,
   },
+  buttons: {
+    flexDirection: 'row',
+    height: 30,
+    backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  button: {
+    flex: 0.5,
+    width: 0,
+    margin: 5,
+    borderColor: 'gray',
+    borderWidth: 1,
+    backgroundColor: 'gray',
+  },
 });
+
+const HTML = `
+<!DOCTYPE html>\n
+<html>
+  <head>
+    <title>Hello Static World</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=320, user-scalable=no">
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+        font: 62.5% arial, sans-serif;
+        background: #ccc;
+      }
+      h1 {
+        padding: 45px;
+        margin: 0;
+        text-align: center;
+        color: #33f;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello Static World</h1>
+  </body>
+</html>
+`;
 
 exports.displayName = (undefined: ?string);
 exports.title = '<WebView>';
 exports.description = 'Base component to display web content';
 exports.examples = [
   {
-    title: 'WebView',
+    title: 'Simple Browser',
     render(): ReactElement { return <WebViewExample />; }
+  },
+  {
+    title: 'Scale Page to Fit',
+    render(): ReactElement { return <ScaledWebView/>; }
+  },
+  {
+    title: 'Bundled HTML',
+    render(): ReactElement {
+      return (
+        <WebView
+          style={{
+            backgroundColor: BGWASH,
+            height: 100,
+          }}
+          source={require('./helloworld.html')}
+          scalesPageToFit={true}
+        />
+      );
+    }
+  },
+  {
+    title: 'Static HTML',
+    render(): ReactElement {
+      return (
+        <WebView
+          style={{
+            backgroundColor: BGWASH,
+            height: 100,
+          }}
+          source={{html: HTML}}
+          scalesPageToFit={true}
+        />
+      );
+    }
+  },
+  {
+    title: 'POST Test',
+    render(): ReactElement {
+      return (
+        <WebView
+          style={{
+            backgroundColor: BGWASH,
+            height: 100,
+          }}
+          source={{
+            uri: 'http://www.posttestserver.com/post.php',
+            method: 'POST',
+            body: 'foo=bar&bar=foo'
+          }}
+          scalesPageToFit={false}
+        />
+      );
+    }
   }
 ];
 ```
