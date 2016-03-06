@@ -17,7 +17,7 @@
 
 ### 主线程 (也即UI线程) 帧率
 
-很多人会注意到，`NavigatorIOS`的性能要比Navigator好的多。原因就是它的切换动画是完全在主线程上执行的，因此不会被JavaScript线程上的掉帧所影响。（[阅读关于为何你仍然需要使用Navigator](/docs/navigator-comparison.html)）
+很多人会注意到，`NavigatorIOS`的性能要比Navigator好的多。原因就是它的切换动画是完全在主线程上执行的，因此不会被JavaScript线程上的掉帧所影响。（[阅读关于为何你仍然需要使用Navigator](navigator-comparison.html)）
 
 同样，当JavaScript线程卡住的时候，你仍然可以欢快的上下滚动ScrollView，因为ScrollView运行在主线程之上（尽管滚动事件会被分发到JS线程，但是接收这些事件对于滚动这个动作来说并不必要）。
 
@@ -120,7 +120,6 @@ class ExpensiveScene extends React.Component {
 
 注意：  
   
- - `LayoutAnimation`只在iOS上可用。  
  - `LayoutAnimation`只工作在“一次性”的动画上（"静态"动画） -- 如果动画可能会被中途取消，你还是需要使用`Animated`。
 
 ### 在屏幕上移动视图（滚动，切换，旋转）时，UI线程掉帧
