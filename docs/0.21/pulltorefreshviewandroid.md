@@ -1,4 +1,4 @@
-注：此组件将在下个版本被弃用，请使用[RefreshControl](refreshcontrol.html)代替
+注：此组件将在下个版本被弃用，请使用[RefreshControl](refreshcontrol.html)代替。  
 本组件是一个视图，可以放置单个可滚动子视图（比如ScrollView）。当子视图的竖直方向偏移（scrollY）为0时，将其下拉可以触发一个onRefresh事件。
 
 ### 截图
