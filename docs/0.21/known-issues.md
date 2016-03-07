@@ -5,20 +5,25 @@
 
 ### 缺失的模块和原生视图
 
-React Native的Android版本的开发工作晚于iOS版本。因此并不是所有的IOS视图都在Android上实现了。
+React Native的Android版本是一个非常初始的版本，因此并不是所有的IOS视图都在Android上实现了。我们非常期望社区能回馈一些模块和视图的代码。此外，并不是所有的iOS和Android原生视图都有100%等价的实现，因此有时候需要使用“对应版本”的组件。比如说在Android上使用ProgressBar替代iOS中的ActivityIndicator。
 
+我们暂定计划开发的视图和模块包括：
 #### 视图
 
-- Maps —— 我们推荐使用Leland Richardson的[react-native-maps](https://github.com/lelandrichardson/react-native-maps)，它比我们内部实现的map功能更完善。
-- Modal
-- Slider（也叫SeekBar））
+```
+Maps
+Modal
+Spinner(是一种下拉列表，并不是loading指示器，见http://developer.android.com/guide/topics/ui/controls/spinner.html)
+Slider（也叫SeekBar））
+```
 
 
 #### 模块
-
-- Media
-- PushNotificationIOS
-
+```
+Camera Roll
+Media
+PushNotificationIOS
+```
 
 
 ### 某些属性仅仅支持单个平台
@@ -80,4 +85,4 @@ npm config set disturl https://npm.taobao.org/dist
 
 ### 文本框的边界（border）
 
-文本框默认的边界在视图的底部。这个边界有一个内衬（padding），这个padding由系统提供的背景图片所设定，并且无法改变。解决这个问题有两个方案，一是可以不指定高度，这样系统会自动处理，在恰当的位置显示边界；或者干脆通过设定underlineColor为透明来隐藏边界。
+文本框默认的边界在视图的底部。这个边界有一个内衬（padding），这个padding由系统提供的背景图片所设定，并且无法改变。解决这个问题有两个方案，一是可以不指定高度，这样系统会自动处理，在恰当的位置显示边界；或者干脆通过设定[underlineColorAndroid](textinput.html#underlinecolorandroid)为透明来隐藏边界。

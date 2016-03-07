@@ -85,4 +85,4 @@ npm config set disturl https://npm.taobao.org/dist
 
 ### 文本框的边界（border）
 
-文本框默认的边界在视图的底部。这个边界有一个内衬（padding），这个padding由系统提供的背景图片所设定，并且无法改变。解决这个问题有两个方案，一是可以不指定高度，这样系统会自动处理，在恰当的位置显示边界；或者干脆通过设定underlineColor为透明来隐藏边界。
+文本框默认的边界在视图的底部。这个边界有一个内衬（padding），这个padding由系统提供的背景图片所设定，并且无法改变。解决这个问题有两个方案，一是可以不指定高度，这样系统会自动处理，在恰当的位置显示边界；或者干脆通过设定[underlineColorAndroid](textinput.html#underlinecolorandroid)为透明来隐藏边界。
