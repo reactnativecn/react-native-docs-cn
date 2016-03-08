@@ -139,6 +139,12 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
             <p>如果为true，文本框会遮住之前输入的文字，这样类似密码之类的敏感文字可以更加安全。默认值为false。</p>
         </div>
     </div>
+	<div class="prop">
+		<h4 class="propTitle"><a class="anchor" name="selectioncolor"></a>selectionColor <span class="propType">string</span> <a class="hash-link" href="#selectioncolor">#</a></h4>
+		<div>
+			<p>设置输入框高亮时的颜色（在iOS上还包括光标）</p>
+		</div>
+	</div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="style"></a>style <span class="propType"><a href="text.html#style">Text#style</a></span> <a class="hash-link" href="#style">#</a></h4>
         <div>
