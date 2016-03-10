@@ -29,6 +29,22 @@ render: function() {
 ### 属性
 
 <div class="props">
+	<div class="prop">
+	    <h4 class="propTitle"><a class="anchor" name="drawerlockmode"></a>drawerLockMode <span
+	        class="propType">enum('unlocked', 'locked-closed', 'locked-open')</span> 
+	        <a class="hash-link" href="#drawerlockmode">#</a>
+	    </h4>
+	    <div>
+	        <p>设置抽屉的锁定模式。有三种状态：
+			<ul>
+	        <li><code>unlocked</code> (默认值)，意味着此时抽屉可以响应打开和关闭的手势操作。
+	        <li><code>locked-losed</code>，意味着此时抽屉将保持关闭，不可用手势打开。
+	        <li><code>locked-open</code>，意味着此时抽屉将保持打开，不可用手势关闭。
+	        </ul>
+	        无论抽屉处于那种状态，都仍然可以调用<code>openDrawer</code>/<code>closeDrawer</code>这两个方法打开和关闭。
+	        </p>
+	    </div>
+	</div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="view"></a><a href="view.html#props">View props...</a> <a class="hash-link" href="#view">#</a></h4>
     </div>

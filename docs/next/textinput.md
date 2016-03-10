@@ -43,6 +43,12 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
         </div>
     </div>
     <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="bluronsubmit"></a>blurOnSubmit <span class="propType">bool</span> <a class="hash-link" href="#bluronsubmit">#</a></h4>
+        <div>
+            <p>如果为true，文本框会在提交的时候失焦。对于单行输入框默认值为true，多行则为false。注意：对于多行输入框来说，如果将blurOnSubmit设为true，则在按下回车键时就会失去焦点同时触发onSubmitEditing事件，而不会换行。</p>
+        </div>
+    </div>
+    <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="defaultvalue"></a>defaultValue <span class="propType">string</span> <a class="hash-link" href="#defaultvalue">#</a></h4>
         <div>
             <p>提供一个文本框中的初始值。当用户开始输入的时候，值就可以改变。</p>
@@ -162,12 +168,6 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
         <div>
             <p>文本框中的文字内容。</p>
             <p>TextInput是一个受约束的(Controlled)的组件，意味着如果提供了value属性，原生值会被强制与value属性保持一致。在大部分情况下这都工作的很好，不过有些情况下会导致一些闪烁现象——一个常见的原因就是通过不改变value来阻止用户进行编辑。如果你希望阻止用户输入，可以考虑设置<code>editable={false}</code>；如果你是希望限制输入的长度，可以考虑设置<code>maxLength</code>属性，这两个属性都不会导致闪烁。</p>
-        </div>
-    </div>
-    <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="bluronsubmit"></a><span class="platform">ios</span>blurOnSubmit <span class="propType">bool</span> <a class="hash-link" href="#bluronsubmit">#</a></h4>
-        <div>
-            <p>如果为true，文本框会在提交的时候失焦。默认值为true。</p>
         </div>
     </div>
     <div class="prop">

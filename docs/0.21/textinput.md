@@ -167,7 +167,7 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="bluronsubmit"></a><span class="platform">ios</span>blurOnSubmit <span class="propType">bool</span> <a class="hash-link" href="#bluronsubmit">#</a></h4>
         <div>
-            <p>如果为true，文本框会在提交的时候失焦。默认值为true。</p>
+            <p>如果为true，文本框会在提交的时候失焦。对于单行输入框默认值为true，多行则为false。注意：对于多行输入框来说，如果将blurOnSubmit设为true，则在按下回车键时就会失去焦点同时触发onSubmitEditing事件，而不会换行。</p>
         </div>
     </div>
     <div class="prop">

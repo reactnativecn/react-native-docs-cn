@@ -90,7 +90,7 @@
     <div><p>在WebView中载入一段静态的html代码或是一个url（还可以附带一些header选项）。</p></div>
 </div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="scalespagetofit"></a><span class="platform">ios</span>scalesPageToFit <span class="propType">bool</span> <a class="hash-link" href="#scalespagetofit">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="scalespagetofit"></a>scalesPageToFit <span class="propType">bool</span> <a class="hash-link" href="#scalespagetofit">#</a></h4>
 		<div>
 			<p>设置是否要把网页缩放到适应视图的大小，以及是否允许用户改变缩放比例。</p>
 		</div>
