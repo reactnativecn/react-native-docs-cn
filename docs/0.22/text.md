@@ -32,7 +32,7 @@ var styles = StyleSheet.create({
 
 <div class="props">
   <div class="prop">
-    <h4 class="propTitle"><a class="anchor" name="allowfontscaling"></a>allowFontScaling <span class="propType">bool</span> <a class="hash-link" href="#allowfontscaling">#</a></h4>
+    <h4 class="propTitle"><a class="anchor" name="allowfontscaling"></a><span class="platform">ios</span>allowFontScaling <span class="propType">bool</span> <a class="hash-link" href="#allowfontscaling">#</a></h4>
     <div>
       <p>控制字体是否要根据iOS的“文本大小”辅助选项来进行缩放。</p>
     </div>
@@ -76,6 +76,9 @@ var styles = StyleSheet.create({
     </div>
     <div class="prop">
       <h6 class="propTitle">fontWeight <span class="propType">enum("normal", 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')</span></h6>
+	    <div>
+	      <p>指定字体的粗细。大多数字体都支持'normal'和'bold'值。并非所有字体都支持所有的数字值。如果某个值不支持，则会自动选择最接近的值。</p>
+	    </div>
     </div>
     <div class="prop">
       <h6 class="propTitle">letterSpacing <span class="propType">number</span></h6>
@@ -85,18 +88,27 @@ var styles = StyleSheet.create({
     </div>
     <div class="prop">
       <h6 class="propTitle">textAlign <span class="propType">enum("auto", 'left', 'right', 'center', 'justify')</span></h6>
+	    <div>
+	      <p>指定文本的对齐方式。其中'justify'值仅iOS支持。</p>
+	    </div>
     </div>
     <div class="prop">
-      <h6 class="propTitle">textDecorationLine <span class="propType">enum("none", 'underline', 'line-through', 'underline line-through')</span></h6>
+      <h6 class="propTitle"><span class="platform">android</span>textAlignVertical <span class="propType">enumenum('auto', 'top', 'bottom', 'center')</span></h6>
     </div>
     <div class="prop">
-      <h6 class="propTitle">textDecorationStyle <span class="propType">enum("solid", 'double', 'dotted', 'dashed')</span></h6>
+      <h6 class="propTitle"><span class="platform">ios</span>letterSpacing <span class="propType">number</span></h6>
     </div>
     <div class="prop">
-      <h6 class="propTitle">textDecorationColor <span class="propType">string</span></h6>
+      <h6 class="propTitle"><span class="platform">ios</span>textDecorationColor <span class="propType">string</span></h6>
     </div>
     <div class="prop">
-      <h6 class="propTitle">writingDirection <span class="propType">enum("auto", 'ltr', 'rtl')</span></h6></div>
+      <h6 class="propTitle"><span class="platform">ios</span>textDecorationLine <span class="propType">enum("none", 'underline', 'line-through', 'underline line-through')</span></h6>
+    </div>
+    <div class="prop">
+      <h6 class="propTitle"><span class="platform">ios</span>textDecorationStyle <span class="propType">enum("solid", 'double', 'dotted', 'dashed')</span></h6>
+    </div>
+    <div class="prop">
+      <h6 class="propTitle"><span class="platform">ios</span>writingDirection <span class="propType">enum("auto", 'ltr', 'rtl')</span></h6></div>
     </div>
   </div>
   <div class="prop">
