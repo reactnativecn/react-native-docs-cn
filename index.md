@@ -24,11 +24,14 @@ Facebook已经在多项产品中使用了React Native，并且将持续地投入
 ```javascript
 // iOS
 
-var React = require('react-native');
-var { TabBarIOS, NavigatorIOS } = React;
+import React, { 
+  Component,
+  TabBarIOS, 
+  NavigatorIOS 
+} from 'react-native';
 
-var App = React.createClass({
-  render: function() {
+class App extends Component {
+  render() {
     return (
       <TabBarIOS>
         <TabBarIOS.Item title="React Native" selected={true}>
@@ -36,26 +39,30 @@ var App = React.createClass({
         </TabBarIOS.Item>
       </TabBarIOS>
     );
-  },
-});
+  }
+}
 ```
 
 ```javascript
 // Android
 
-var React = require('react-native');
-var { DrawerLayoutAndroid, ProgressBarAndroid } = React;
+import React, { 
+  Component,
+  DrawerLayoutAndroid, 
+  ProgressBarAndroid, 
+  Text 
+} from 'react-native';
 
-var App = React.createClass({
-  render: function() {
+class App extends Component {
+  render() {
     return (
       <DrawerLayoutAndroid
         renderNavigationView={() => <Text>React Native</Text>}>
         <ProgressBarAndroid />
       </DrawerLayoutAndroid>
     );
-  },
-});
+  }
+}
 ```
 
 ## 异步执行##
@@ -73,11 +80,15 @@ React Native实现了一个强大的触摸事件处理系统，可以在复杂�
 ```javascript
 // iOS & Android
 
-var React = require('react-native');
-var { ScrollView, TouchableHighlight, Text } = React;
+import React, { 
+  Component,
+  ScrollView,
+  TouchableHighlight,
+  Text
+} from 'react-native';
 
-var TouchDemo = React.createClass({
-  render: function() {
+class TouchDemo extends Component {
+  render() {
     return (
       <ScrollView>
         <TouchableHighlight onPress={() => console.log('pressed')}>
@@ -85,8 +96,8 @@ var TouchDemo = React.createClass({
         </TouchableHighlight>
       </ScrollView>
     );
-  },
-});
+  }
+}
 ```  
 ## 弹性盒(Flexbox)和样式 ##
 
@@ -95,11 +106,16 @@ var TouchDemo = React.createClass({
 ```javascript
 // iOS & Android
 
-var React = require('react-native');
-var { Image, StyleSheet, Text, View } = React;
+var React, {
+  Component,
+  Image, 
+  StyleSheet, 
+  Text, 
+  View 
+} from 'react-native';
 
-var ReactNative = React.createClass({
-  render: function() {
+class ReactNative extends Component {
+  render() {
     return (
       <View style={styles.row}>
         <Image
@@ -116,8 +132,8 @@ var ReactNative = React.createClass({
         </View>
       </View>
     );
-  },
-});
+  }
+}
 var styles = StyleSheet.create({
   row: { flexDirection: 'row', margin: 40 },
   image: { width: 40, height: 40, marginRight: 10 },
@@ -132,29 +148,32 @@ var styles = StyleSheet.create({
 React Native致力于改进视图代码的编写方式。除此之外，我们还吸纳了web生态系统中的通用标准，并在必要的时候为这些API提供兼容层。如此一来，npm上的许多库就可以在React Native中直接使用。这样的兼容层有XMLHttpRequest, window.requestAnimationFrame, navigator.geolocation等。我们还在努力增加更多的API，并且十分欢迎开源社区进行贡献。  
 
 ```javascript
-// iOS (Android的地理定位也即将支持)
+// iOS & Android
 
-var React = require('react-native');
-var { Text } = React;
+import React, { 
+  Component,
+  Text 
+} from 'react-native';
 
-var GeoInfo = React.createClass({
-  getInitialState: function() {
-    return { position: 'unknown' };
+class GeoInfo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { position: 'unknown' };
   },
-  componentDidMount: function() {
+  componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => this.setState({position}),
       (error) => console.error(error)
     );
-  },
-  render: function() {
+  }
+  render() {
     return (
       <Text>
         Position: {JSON.stringify(this.state.position)}
       </Text>
     );
-  },
-});
+  }
+}
 ```
 
 ## 扩展性 ##
@@ -188,24 +207,28 @@ RCT_EXPORT_METHOD(processString:(NSString *)input callback:(RCTResponseSenderBlo
 ```javascript
 // JavaScript
 
-var React = require('react-native');
-var { NativeModules, Text } = React;
+import React, {
+  Component,
+  NativeModules,
+  Text
+} from 'react-native';
 
-var Message = React.createClass({
-  getInitialState() {
-    return { text: 'Goodbye World.' };
-  },
+class Message extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: 'Goodbye World.' };
+  }
   componentDidMount() {
     NativeModules.MyCustomModule.processString(this.state.text, (text) => {
       this.setState({text});
     });
-  },
-  render: function() {
+  }
+  render() {
     return (
       <Text>{this.state.text}</Text>
     );
   }
-});
+}
 ```
 
 ### 创建iOS View ###
@@ -236,20 +259,21 @@ RCT_EXPORT_VIEW_PROPERTY(myCustomProperty, NSString);
 ```javascript
 // JavaScript
 
-var React = require('react-native');
-var { requireNativeComponent } = React;
+import React, { 
+  Component,
+  requireNativeComponent
+} from 'react-native';
 
-class MyCustomView extends React.Component {
+var NativeMyCustomView = requireNativeComponent('MyCustomView', MyCustomView);
+
+export default class MyCustomView extends Component {
+  static propTypes = {
+    myCustomProperty: React.PropTypes.oneOf(['a', 'b']),
+  };
   render() {
     return <NativeMyCustomView {...this.props} />;
   }
 }
-MyCustomView.propTypes = {
-  myCustomProperty: React.PropTypes.oneOf(['a', 'b']),
-};
-
-var NativeMyCustomView = requireNativeComponent('MyCustomView', MyCustomView);
-module.exports = MyCustomView;
 ```
 
 ### 创建Android模块 ###
@@ -274,23 +298,27 @@ public class MyCustomModule extends ReactContextBaseJavaModule {
 ```javascript
 // JavaScript
 
-var React = require('react-native');
-var { NativeModules, Text } = React;
-var Message = React.createClass({
-  getInitialState() {
-    return { text: 'Goodbye World.' };
+import React, {
+  Component,
+  NativeModules,
+  Text
+} from 'react-native';
+class Message extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: 'Goodbye World.' };
   },
   componentDidMount() {
     NativeModules.MyCustomModule.processString(this.state.text, (text) => {
       this.setState({text});
     });
-  },
-  render: function() {
+  }
+  render() {
     return (
       <Text>{this.state.text}</Text>
     );
   }
-});
+}
 ```
 
 ### 创建Android View ###
@@ -301,15 +329,9 @@ var Message = React.createClass({
 // Java
 
 public class MyCustomViewManager extends SimpleViewManager<MyCustomView> {
-
-  private static final String REACT_CLASS = "MyCustomView";
-
-  @UIProp(UIProp.Type.STRING)
-  public static final String PROP_MY_CUSTOM_PROPERTY = "myCustomProperty";
-
   @Override
   public String getName() {
-    return REACT_CLASS;
+    return "MyCustomView";
   }
 
   @Override
@@ -317,13 +339,9 @@ public class MyCustomViewManager extends SimpleViewManager<MyCustomView> {
     return new MyCustomView(reactContext);
   }
 
-  @Override
-  public void updateView(MyCustomView view, CatalystStylesDiffMap props) {
-    super.updateView(view, props);
-
-    if (props.hasKey(PROP_MY_CUSTOM_PROPERTY)) {
-      view.setMyCustomProperty(props.getString(PROP_MY_CUSTOM_PROPERTY));
-    }
+  @ReactProp(name = "myCustomProperty")
+  public void setMyCustomProperty(MyCustomView view, String value) {
+    view.setMyCustomProperty(value);
   }
 }
 ```  
@@ -331,20 +349,21 @@ public class MyCustomViewManager extends SimpleViewManager<MyCustomView> {
 ```javascript
 // JavaScript
 
-var React = require('react-native');
-var { requireNativeComponent } = React;
+import React, {
+  Component,
+  requireNativeComponent 
+} from 'react-native';
 
-class MyCustomView extends React.Component {
+var NativeMyCustomView = requireNativeComponent('MyCustomView', MyCustomView);
+
+export default class MyCustomView extends Component {
+  static propTypes = {
+    myCustomProperty: React.PropTypes.oneOf(['a', 'b']),
+  };
   render() {
     return <NativeMyCustomView {...this.props} />;
   }
 }
-MyCustomView.propTypes = {
-  myCustomProperty: React.PropTypes.oneOf(['a', 'b']),
-};
-
-var NativeMyCustomView = requireNativeComponent('MyCustomView', MyCustomView);
-module.exports = MyCustomView;
 ```
 
 <div class="buttons-unit">
