@@ -323,7 +323,7 @@ class Message extends Component {
 
 ### 创建Android View ###
 
-创建自定义的Android View，首先定义一个继承自SimpleViewManager的类，并实现createViewInstance和getName方法，然后使用@UIProp标注导出属性，最后用一个Javascript文件连接并进行包装。  
+创建自定义的Android View，首先定义一个继承自SimpleViewManager的类，并实现createViewInstance和getName方法，然后使用@ReactProp标注导出属性，最后用一个Javascript文件连接并进行包装。  
   
 ```java
 // Java
