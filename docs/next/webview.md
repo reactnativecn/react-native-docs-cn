@@ -46,10 +46,16 @@
 			<p>设置在网页加载之前注入的一段JS代码。</p>
 		</div>
 	</div>
+	<div class="prop">
+	<h4 class="propTitle"><a class="anchor" name="mediaplaybackrequiresuseraction"></a>mediaPlaybackRequiresUserAction <span class="propType">bool</span> <a class="hash-link" href="#mediaplaybackrequiresuseraction">#</a></h4>
+	<div>
+		<p>设置页面中的HTML5音视频是否需要在用户点击后再开始播放。默认值为<code>false</code>.</p>
+	</div>
+	</div>
 	<div class="prop"><h4 class="propTitle"><a class="anchor" name="onerror"></a>onError <span
         class="propType">function</span> <a class="hash-link" href="#onerror">#</a></h4>
     <div><p>加载失败时调用。</p></div>
-</div>
+	</div>
 	<div class="prop"><h4 class="propTitle"><a class="anchor" name="onload"></a>onLoad <span
 	        class="propType">function</span> <a class="hash-link" href="#onload">#</a></h4>
 	    <div><p>加载成功时调用。</p></div>
@@ -57,11 +63,11 @@
 	<div class="prop"><h4 class="propTitle"><a class="anchor" name="onloadend"></a>onLoadEnd <span
         class="propType">function</span> <a class="hash-link" href="#onloadend">#</a></h4>
     <div><p>加载结束时（无论成功或失败）调用。</p></div>
-</div>
-<div class="prop"><h4 class="propTitle"><a class="anchor" name="onloadstart"></a>onLoadStart <span class="propType">function</span>
-    <a class="hash-link" href="#onloadstart">#</a></h4>
-    <div><p>加载开始时调用。</p></div>
-</div>
+	</div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="onloadstart"></a>onLoadStart <span class="propType">function</span>
+	    <a class="hash-link" href="#onloadstart">#</a></h4>
+	    <div><p>加载开始时调用。</p></div>
+	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="javascriptenabled"></a><span class="platform">android</span>javaScriptEnabled <span class="propType">bool</span> <a class="hash-link" href="#javascriptenabled">#</a></h4>
 		<div>
@@ -87,8 +93,8 @@
 	</div>
 	<div class="prop"><h4 class="propTitle"><a class="anchor" name="source"></a>source <span class="propType">{uri: string, method: string, headers: object, body: string}, {html: string, baseUrl: string}, number</span>
     <a class="hash-link" href="#source">#</a></h4>
-    <div><p>在WebView中载入一段静态的html代码或是一个url（还可以附带一些header选项）。</p></div>
-</div>
+	    <div><p>在WebView中载入一段静态的html代码或是一个url（还可以附带一些header选项）。</p></div>
+	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="scalespagetofit"></a>scalesPageToFit <span class="propType">bool</span> <a class="hash-link" href="#scalespagetofit">#</a></h4>
 		<div>
