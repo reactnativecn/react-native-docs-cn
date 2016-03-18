@@ -120,6 +120,13 @@ renderImages: function() {
         </div>
     </div>
     <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="blurradius"></a><span class="platform">ios</span>blurRadius <span class="propType">number</span> <a class="hash-link" href="#blurradius">#</a>
+    </h4>
+    <div>
+    <p>blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。</p>
+    </div>
+    </div>
+    <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="capinsets"></a><span class="platform">ios</span>capInsets <span class="propType">{top: number, left: number, bottom: number, right: number}</span> <a class="hash-link" href="#capinsets">#</a></h4>
         <div>
             <p>当图片被缩放的时候，capInsets指定的角上的尺寸会被固定而不进行缩放，而中间和边上其他的部分则会被拉伸。这在制作一些可变大小的圆角按钮、阴影、以及其它资源的时候非常有用（译注：这就是常说的九宫格或者.9图。了解更多信息，可以参见<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets" target="_blank">苹果官方文档</a></p>
