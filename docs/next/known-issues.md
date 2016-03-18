@@ -12,7 +12,6 @@ React Native的Android版本是一个非常初始的版本，因此并不是所�
 
 ```
 Maps
-Modal
 Spinner(是一种下拉列表，并不是loading指示器，见http://developer.android.com/guide/topics/ui/controls/spinner.html)
 Slider（也叫SeekBar））
 ```
