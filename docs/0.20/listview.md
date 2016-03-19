@@ -3,14 +3,14 @@ ListView - 一个核心组件，用于高效地显示一个可以垂直滚动的
 最简单的例子：
 
 ```javascript
-getInitialState: function() {
+constructor(props) {
+  super(props);
   var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-  return {
+  this.state = {
     dataSource: ds.cloneWithRows(['row 1', 'row 2']),
   };
 },
-
-render: function() {
+render() {
   return (
     <ListView
       dataSource={this.state.dataSource}
