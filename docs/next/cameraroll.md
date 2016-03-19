@@ -10,7 +10,6 @@
 		<h4 class="propTitle"><a class="anchor" name="saveimagewithtag"></a><span class="propType">static </span>saveImageWithTag<span class="propType">(tag, successCallback, errorCallback)</span> <a class="hash-link" href="#saveimagewithtag">#</a></h4>
 		<div>
 			<p>保存一个图片到相册。</p>
-			<p>CameraRoll API目前还未实现安卓版本。</p>
 			<p>@param {string} tag 在安卓上，本参数是一个本地URI，例如<code>"file:///sdcard/img.png"</code>.</p>
 			<p>在iOS设备上可能是以下之一：</p>
 			<ul>
