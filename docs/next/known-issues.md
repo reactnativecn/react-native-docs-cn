@@ -9,17 +9,13 @@
 
 #### 视图
 
-```
-Maps —— 我们推荐使用Leland Richardson的[react-native-maps](https://github.com/lelandrichardson/react-native-maps)，它比我们内部实现的map功能更完善。
-Android Slider（也叫SeekBar））
-```
+- Maps —— 我们推荐使用Leland Richardson的[react-native-maps](https://github.com/lelandrichardson/react-native-maps)，它比我们内部实现的map功能更完善。  
+- Android Slider（也叫SeekBar））  
 
 
-#### 模块
-```
-Media
-Android推送通知
-```
+#### 模块  
+- Media  
+- Android推送通知  
 
 
 ### 某些属性仅仅支持单个平台
