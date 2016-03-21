@@ -8,19 +8,14 @@
 React Native的Android版本的开发工作晚于iOS版本。因此并不是所有的IOS视图都在Android上实现了。
 
 #### 视图
-
-```
-Maps —— 我们推荐使用Leland Richardson的[react-native-maps](https://github.com/lelandrichardson/react-native-maps)，它比我们内部实现的map功能更完善。
-Modal
-Slider（也叫SeekBar））
-```
+- Maps —— 我们推荐使用Leland Richardson的[react-native-maps](https://github.com/lelandrichardson/react-native-maps)，它比我们内部实现的map功能更完善。
+- Modal
+- Slider（也叫SeekBar））
 
 
 #### 模块
-```
-Media
-PushNotificationIOS
-```
+- Media
+- PushNotificationIOS
 
 
 ### 某些属性仅仅支持单个平台
