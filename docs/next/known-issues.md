@@ -3,25 +3,22 @@
 即便如此，你仍然可以使用开发工具的Console和Sources选项，而且可以使用断点来调试JavaScript。为了能够使用Console功能，你必须确认在开发工具下拉菜单中选择入口文件为 ⚙debuggerWorker.js，（默认选择为&lt;top frame&gt;）。
 
 
-### 缺失的模块和原生视图
+### 缺失的Android模块和视图
 
-React Native的Android版本是一个非常初始的版本，因此并不是所有的IOS视图都在Android上实现了。我们非常期望社区能回馈一些模块和视图的代码。此外，并不是所有的iOS和Android原生视图都有100%等价的实现，因此有时候需要使用“对应版本”的组件。比如说在Android上使用ProgressBar替代iOS中的ActivityIndicator。
+虽热React Native的Android版本的开发工作晚于iOS版本，但目前大多数视图都在Android上实现了，除了下面几个例外：
 
-我们暂定计划开发的视图和模块包括：
 #### 视图
 
 ```
 Maps
-Spinner(是一种下拉列表，并不是loading指示器，见http://developer.android.com/guide/topics/ui/controls/spinner.html)
-Slider（也叫SeekBar））
+Android Slider（也叫SeekBar））
 ```
 
 
 #### 模块
 ```
-Camera Roll
 Media
-PushNotificationIOS
+Android推送通知
 ```
 
 
