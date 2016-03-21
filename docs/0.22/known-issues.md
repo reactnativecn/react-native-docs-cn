@@ -5,22 +5,19 @@
 
 ### 缺失的模块和原生视图
 
-React Native的Android版本是一个非常初始的版本，因此并不是所有的IOS视图都在Android上实现了。我们非常期望社区能回馈一些模块和视图的代码。此外，并不是所有的iOS和Android原生视图都有100%等价的实现，因此有时候需要使用“对应版本”的组件。比如说在Android上使用ProgressBar替代iOS中的ActivityIndicator。
+React Native的Android版本的开发工作晚于iOS版本。因此并不是所有的IOS视图都在Android上实现了。
 
-我们暂定计划开发的视图和模块包括：
 #### 视图
 
 ```
-Maps
+Maps —— 我们推荐使用Leland Richardson的[react-native-maps](https://github.com/lelandrichardson/react-native-maps)，它比我们内部实现的map功能更完善。
 Modal
-Spinner(是一种下拉列表，并不是loading指示器，见http://developer.android.com/guide/topics/ui/controls/spinner.html)
 Slider（也叫SeekBar））
 ```
 
 
 #### 模块
 ```
-Camera Roll
 Media
 PushNotificationIOS
 ```
