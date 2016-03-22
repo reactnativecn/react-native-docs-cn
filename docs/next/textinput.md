@@ -225,18 +225,6 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
         </div>
     </div>
     <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="textalign"></a><span class="platform">android</span>textAlign <span class="propType">enum('start', 'center', 'end')</span> <a class="hash-link" href="#textalign">#</a></h4>
-        <div>
-            <p>设置开始输入的时候光标会处在什么位置。</p>
-        </div>
-    </div>
-    <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="textalignvertical"></a><span class="platform">android</span>textAlignVertical <span class="propType">enum('top', 'center', 'bottom')</span> <a class="hash-link" href="#textalignvertical">#</a></h4>
-        <div>
-            <p>控制文本框中的文字垂直方向上的对齐方式。</p>
-        </div>
-    </div>
-    <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="underlinecolorandroid"></a><span class="platform">android</span>underlineColorAndroid <span class="propType">string</span> <a class="hash-link" href="#underlinecolorandroid">#</a></h4>
         <div>
             <p>文本框的下划线颜色(译注：如果要去掉文本框的边框，请将此属性设为透明transparent)。</p>

@@ -321,6 +321,10 @@
                     "mdlink": "cameraroll"
                 },
                 {
+                    "subject": "Clipboard",
+                    "mdlink": "clipboard"
+                },
+                {
                     "subject": "DatePickerAndroid",
                     "mdlink": "datepickerandroid"
                 },

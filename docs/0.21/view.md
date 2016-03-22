@@ -84,16 +84,21 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="pointerevents"></a>pointerEvents <span class="propType">enum('box-none', 'none', 'box-only', 'auto')</span> <a class="hash-link" href="#pointerevents">#</a></h4>
 		<div>
-			<p>用于控制点击事件是否可以穿透。</p>
-			<p>值为<code>auto</code>或<code>none</code>的时候，表现与<code>CSS</code>的基本一致。<code>box-none</code> 则类似于你有一个这样的<code>CSS</code> class:</p>
-			<pre><code class="lang-css"><span class="hljs-class">.box-none</span> <span class="hljs-rules">{
+			<p>用于控制当前视图是否可以作为触控事件的目标。</p>
+			<ul>
+				<li><code>auto</auto>：视图可以作为触控事件的目标。</li>
+				<li><code>none</auto>：视图不能作为触控事件的目标。</li>
+				<li><code>box-none</auto>：视图自身不能作为触控事件的目标，但其子视图可以。类似于你在<code>CSS</code> 中这样设置:</li>
+			<pre>
+<code class="lang-css"><span class="hljs-class">.box-none</span> <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> none</span></span>; 
 }</span> 
 <span class="hljs-class">.box-none</span> * <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> all</span></span>; 
 }</span>
 </code></pre>
-			<p>而<code>box-only</code>则等价于</p>
+				<li><code>box-only</auto>：视图自身可以作为触控事件的目标，但其子视图不能。类似于你在<code>CSS</code> 中这样设置:</li>
+			</ul>
 			<pre><code class="lang-css"><span class="hljs-class">.box-none</span> <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> all</span></span>; 
 }</span> 
@@ -101,7 +106,6 @@
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> none</span></span>; 
 }</span>
 </code></pre>
-			<p>因为<code>pointerEvents</code>并不影响任何布局/表现，并且我们的实现与标准有一些差异，我们决定不在<code>style</code>里包含<code>pointerEvents</code>。在某些平台下，我们需要把它通过一个<code>className</code>来实现。它是否通过<code>style</code>传递是一个不同平台上的实现细节。</p>
 		</div>
 	</div>
 	<div class="prop">

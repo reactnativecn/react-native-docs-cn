@@ -107,6 +107,7 @@ React.AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
 @end
 ```
 
+__注意__：对于Swift应用来说不需要这一步。  
 这里我出于简化目的禁用了**AutoLayout**。在实际生产环境中，通常你都应该打开AutoLayout并且设置相应的约束。
 
 ## 往容器视图里添加RCTRootView
@@ -136,6 +137,34 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 rootView.frame = self.bounds;
 ```
 
+### Swift应用
+
+在ReactView.swift文件中添加下列代码：  
+
+```swift
+import UIKit
+import React
+
+class ReactView: UIView {
+
+  let rootView: RCTRootView = RCTRootView(bundleURL: NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios"),
+    moduleName: "SimpleApp", initialProperties: nil, launchOptions: nil)
+    
+  override func layoutSubviews() {
+    super.layoutSubviews()
+
+    loadReact()
+  }
+  
+  func loadReact () {
+        addSubview(rootView)
+        rootView.frame = self.bounds
+  }
+}
+```
+
+然后确保你的视图被添加到了ViewContainer或是story board文件中。
+
 ## 启动开发服务器。
 
 _译注_：这一部分的官方文档都有一些过时。翻译组在翻译&审校完其它部分的文档后，如果官方文档还没有更新，会帮助校正官方文档的同时翻译中文文档。
@@ -147,6 +176,28 @@ _译注_：这一部分的官方文档都有一些过时。翻译组在翻译&�
 ```
 
 这条命令会启动一个React Native开发服务器，用于构建我们的bundle文件。`--root`选项用来标明你的React Native应用所在的根目录。在我们这里是`ReactComponents`目录，里面有一个`index.ios.js`文件。开发服务器启动后会打包出`index.ios.bundle`文件来，并可以通过`http://localhost:8081/index.ios.bundle`来访问。
+
+## 更新App Transport Security
+
+在iOS 9以上的系统中，除非明确指明，否则应用无法通过http协议连接到localhost主机。可以参考[这篇帖子](http://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http)了解一些解决方案。
+
+我们建议你在`Info.plist`文件中将`localhost`列为App Transport Security的例外：
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>localhost</key>
+        <dict>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+        </dict>
+    </dict>
+</dict>
+```
+
+如果不这样做，在尝试通过http连接到服务器时，会遭遇这个错误 - `Could not connect to development server.`
 
 ## 编译和运行
 
