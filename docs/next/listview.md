@@ -9,7 +9,7 @@ constructor(props) {
   this.state = {
     dataSource: ds.cloneWithRows(['row 1', 'row 2']),
   };
-},
+}
 render() {
   return (
     <ListView
@@ -17,7 +17,7 @@ render() {
       renderRow={(rowData) => <Text>{rowData}</Text>}
     />
   );
-},
+}
 ```
 
 ListView还支持一些高级特性，譬如给每段/组(section)数据添加一个带有粘性的头部（类似iPhone的通讯录，其首字母会在滑动过程中吸附在屏幕上方）；在列表头部和尾部增加单独的内容；在到达列表尾部的时候调用回调函数(`onEndReached`)，还有在视野内可见的数据变化时调用回调函数(`onChangeVisibleRows`)，以及一些性能方面的优化。
