@@ -4,8 +4,6 @@ Modal组件可以用来覆盖包含React Native根视图的原生视图（如UIV
 
 在从根视图开始就使用RN编写的应用中，你应该使用Navigator来代替Modal。通过一个最顶层的Navigator，你可以通过configureScene属性更加方便的控制如何将模态场景覆盖显示在你App其余的部分上。
 
-目前这个组件还只能在iOS上使用。
-
 ### 截图
 ![](img/components/modal.png)
 
