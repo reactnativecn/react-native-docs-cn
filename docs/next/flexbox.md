@@ -44,10 +44,6 @@
         <a class="hash-link" href="#margintop">#</a></h4></div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="marginvertical"></a>marginVertical <span
             class="propType">number</span> <a class="hash-link" href="#marginvertical">#</a></h4></div>
-            <div class="prop"><h4 class="propTitle"><a class="anchor" name="maxheight"></a>maxHeight <span class="propType">number</span> <a class="hash-link" href="#maxheight">#</a></h4></div>
-            <div class="prop"><h4 class="propTitle"><a class="anchor" name="maxwidth"></a>maxWidth <span class="propType">number</span> <a class="hash-link" href="#maxwidth">#</a></h4></div>
-            <div class="prop"><h4 class="propTitle"><a class="anchor" name="minheight"></a>minHeight <span class="propType">number</span> <a class="hash-link" href="#minheight">#</a></h4></div>
-            <div class="prop"><h4 class="propTitle"><a class="anchor" name="minwidth"></a>minWidth <span class="propType">number</span> <a class="hash-link" href="#minwidth">#</a></h4></div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="padding"></a>padding <span
             class="propType">number</span> <a class="hash-link" href="#padding">#</a></h4></div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="paddingbottom"></a>paddingBottom <span
