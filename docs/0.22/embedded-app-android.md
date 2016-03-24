@@ -9,7 +9,7 @@
 
 在你的App里的`build.gradle`文件中，添加React Native依赖：
 
-    compile 'com.facebook.react:react-native:0.17.+'
+    compile 'com.facebook.react:react-native:0.20.+'
 
 你可以在[Maven中央库](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.facebook.react%22%20AND%20a%3A%22react-native%22) [国内镜像](http://maven.oschina.net/index.html#nexus-search;quick~React native) 查询到React Native库的最新版本。然后，在你的`AndroidManifest.xml`里增加Internet访问权限：
 
@@ -118,7 +118,7 @@ $ curl -o .flowconfig https://raw.githubusercontent.com/facebook/react-native/ma
 上面的代码会创建一个node模块，然后`react-native`作为npm依赖添加。现在打开新创建的`package.json`文件然后在`scripts`字段下添加如下内容：
 
 ```javascript
-"start": "node_modules/react-native/packager/packager.sh"
+"start": "node node_modules/react-native/local-cli/cli.js start"
 ```
 
 复制并粘贴下面的这段代码到你工程根目录下的`index.android.js`——这是一个简单的React Native应用：
