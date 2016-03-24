@@ -1,39 +1,40 @@
-`AppStateIOS`能告诉你应用当前是在前台还是在后台，并且能在状态变化的时候通知你。
+`AppState`（此组件能用于Android）能告诉你应用当前是在前台还是在后台，并且能在状态变化的时候通知你。
 
-AppStateIOS通常在处理推送通知的时候用来决定内容和对应的行为。
+AppState通常在处理推送通知的时候用来决定内容和对应的行为。
 
-### iOS App States
+### App States
 
 * `active` - 应用正在前台运行
 * `background` - 应用正在后台运行。用户既可能在别的应用中，也可能在桌面。
-* `inactive` - 这是一个过渡状态，发生在前后台切换时期，比如（双击HOME键）进入多任务窗口或是此时有来电。
+* `inactive` - 这是一个过渡状态，不会在正常的React Native应用中出现。
 
 要了解更多信息，可以阅读[Apple的文档](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)。
 
 ### 基本用法
 
-要获取当前的状态，你可以使用`AppStateIOS.currentState`，这个变量会一直保持更新。不过在启动的过程中，`currentState`可能为null，直到`AppStateIOS`从原生代码得到通知为止。
+要获取当前的状态，你可以使用`AppState.currentState`，这个变量会一直保持更新。不过在启动的过程中，`currentState`可能为null，直到`AppState`从原生代码得到通知为止。
 
 ```javascript
-getInitialState: function() {
-  return {
-    currentAppState: AppStateIOS.currentState,
+constructor(props) {
+  super(props);
+  this.state = {
+    currentAppState: AppState.currentState,
   };
-},
-componentDidMount: function() {
-  AppStateIOS.addEventListener('change', this._handleAppStateChange);
-},
-componentWillUnmount: function() {
-  AppStateIOS.removeEventListener('change', this._handleAppStateChange);
-},
-_handleAppStateChange: function(currentAppState) {
+}
+componentDidMount() {
+  AppState.addEventListener('change', this._handleAppStateChange);
+}
+componentWillUnmount() {
+  AppState.removeEventListener('change', this._handleAppStateChange);
+}
+_handleAppStateChange(currentAppState) {
   this.setState({ currentAppState, });
-},
-render: function() {
+}
+render() {
   return (
     <Text>Current state is: {this.state.currentAppState}</Text>
   );
-},
+}
 ```
 
 上面的这个例子只会显示"Current state is: active"，这是因为应用只有在`active`状态下才能被用户看到。并且null状态只会在一开始的一瞬间出现。
@@ -70,7 +71,7 @@ render: function() {
 
 var React = require('react-native');
 var {
-  AppStateIOS,
+  AppState,
   Text,
   View
 } = React;
@@ -78,21 +79,15 @@ var {
 var AppStateSubscription = React.createClass({
   getInitialState() {
     return {
-      appState: AppStateIOS.currentState,
+      appState: AppState.currentState,
       previousAppStates: [],
-      memoryWarnings: 0,
     };
   },
   componentDidMount: function() {
-    AppStateIOS.addEventListener('change', this._handleAppStateChange);
-    AppStateIOS.addEventListener('memoryWarning', this._handleMemoryWarning);
+    AppState.addEventListener('change', this._handleAppStateChange);
   },
   componentWillUnmount: function() {
-    AppStateIOS.removeEventListener('change', this._handleAppStateChange);
-    AppStateIOS.removeEventListener('memoryWarning', this._handleMemoryWarning);
-  },
-  _handleMemoryWarning: function() {
-    this.setState({memoryWarnings: this.state.memoryWarnings + 1});
+    AppState.removeEventListener('change', this._handleAppStateChange);
   },
   _handleAppStateChange: function(appState) {
     var previousAppStates = this.state.previousAppStates.slice();
@@ -103,13 +98,6 @@ var AppStateSubscription = React.createClass({
     });
   },
   render() {
-    if (this.props.showMemoryWarnings) {
-      return (
-        <View>
-          <Text>{this.state.memoryWarnings}</Text>
-        </View>
-      );
-    }
     if (this.props.showCurrentOnly) {
       return (
         <View>
@@ -125,27 +113,22 @@ var AppStateSubscription = React.createClass({
   }
 });
 
-exports.title = 'AppStateIOS';
-exports.description = 'iOS app background status';
+exports.title = 'AppState';
+exports.description = 'app background status';
 exports.examples = [
   {
-    title: 'AppStateIOS.currentState',
+    title: 'AppState.currentState',
     description: 'Can be null on app initialization',
-    render() { return <Text>{AppStateIOS.currentState}</Text>; }
+    render() { return <Text>{AppState.currentState}</Text>; }
   },
   {
-    title: 'Subscribed AppStateIOS:',
+    title: 'Subscribed AppState:',
     description: 'This changes according to the current state, so you can only ever see it rendered as "active"',
     render(): ReactElement { return <AppStateSubscription showCurrentOnly={true} />; }
   },
   {
     title: 'Previous states:',
     render(): ReactElement { return <AppStateSubscription showCurrentOnly={false} />; }
-  },
-  {
-    title: 'Memory Warnings',
-    description: 'In the simulator, hit Shift+Command+M to simulate a memory warning.',
-    render(): ReactElement { return <AppStateSubscription showMemoryWarnings={true} />; }
   },
 ];
 ```
