@@ -2,7 +2,11 @@
 
 要使用推送通知功能，首先[在苹果后台配置推送通知服务](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)并且准备好服务端的系统。设置的过程可以参考[Parse的教程](https://parse.com/tutorials/ios-push-notifications)
 
-你需要在AppDelegate中启用推送通知的支持以及注册相应的事件。
+首先请[手动链接](linking-libraries-ios.html)PushNotificationIOS的库：  
+- 在`Header Search Paths`中添加: `$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS`  
+- 将搜索选项设为`recursive`
+
+然后你需要在AppDelegate中启用推送通知的支持以及注册相应的事件。
 
 在`AppDelegate.m`开头：
 
@@ -10,18 +14,28 @@
 #import "RCTPushNotificationManager.h"
 ```
 
-然后在你的AppDelegate实现中添加如下的代码：
+然后在AppDelegate实现中添加如下的代码：
 
 ```objective-c
-  // Required for the register event.
+   // Required to register for notifications
+   - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+   {
+    [RCTPushNotificationManager didRegisterUserNotificationSettings:notificationSettings];
+   }
+   // Required for the register event.
    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
    {
-    [RCTPushNotificationManager application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+    [RCTPushNotificationManager didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
    }
    // Required for the notification event.
    - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)notification
    {
-    [RCTPushNotificationManager application:application didReceiveRemoteNotification:notification];
+    [RCTPushNotificationManager didReceiveRemoteNotification:notification];
+   }
+   // Required for the localNotification event.
+   - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+   {
+    [RCTPushNotificationManager didReceiveLocalNotification:notification];
    }
 ```
 
@@ -35,7 +49,10 @@
 			<p>details参数是一个对象，包含：</p>
 			<ul>
 				<li><code>alertBody</code> : 要在通知提示中显示的消息。</li>
+				<li><code>alertAction</code> : 在交互式通知提示下显示的"action"。默认为"view"。</li>
 				<li><code>soundName</code> : 通知触发时播放的声音名字（可选）。</li>
+				<li><code>category </code> : 可选的通知类型，但对于交互式通知为必填。</li>
+				<li><code>userInfo </code> : 提供一个可选的object，可以在其中提供额外的数据。</li>
 			</ul>
 		</div>
 	</div>
@@ -47,7 +64,10 @@
 			<ul>
 				<li><code>fireDate</code> : 系统发送这个提示的日期和时间。</li>
 				<li><code>alertBody</code> : 要在通知提示中显示的消息。</li>
+				<li><code>alertAction</code> : 在交互式通知提示下显示的"action"。默认为"view"。</li>
 				<li><code>soundName</code> : 通知触发时播放的声音名字（可选）。</li>
+				<li><code>category </code> : 可选的通知类型，但对于交互式通知为必填。</li>
+				<li><code>userInfo </code> : 提供一个可选的object，可以在其中提供额外的数据。</li>
 			</ul>
 		</div>
 	</div>
@@ -237,6 +257,8 @@ class NotificationExample extends React.Component {
 }
 
 class NotificationPermissionExample extends React.Component {
+  state: any;
+
   constructor(props) {
     super(props);
     this.state = {permissions: null};
@@ -279,7 +301,7 @@ exports.description = 'Apple PushNotification and badge value';
 exports.examples = [
 {
   title: 'Badge Number',
-  render(): React.Component {
+  render(): ReactElement {
     PushNotificationIOS.requestPermissions();
 
     return (
@@ -298,13 +320,13 @@ exports.examples = [
 },
 {
   title: 'Push Notifications',
-  render(): React.Component {
+  render(): ReactElement {
     return <NotificationExample />;
   }
 },
 {
   title: 'Notifications Permissions',
-  render(): React.Component {
+  render(): ReactElement {
     return <NotificationPermissionExample />;
   }
 }];
