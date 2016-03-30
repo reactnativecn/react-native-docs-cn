@@ -2,7 +2,7 @@
 
 你需要开启USB调试才能在你的设备上安装你的APP。首先，确定[你已经打开设备的USB调试开关](https://www.baidu.com/s?wd=%E5%AE%89%E5%8D%93%E6%89%93%E5%BC%80usb%E8%B0%83%E8%AF%95)
 
-确保你的设备已经**成功连接**。可以输入`adb device`来查看:
+确保你的设备已经**成功连接**。可以输入`adb devices`来查看:
 
     $ adb devices
     List of devices attached
