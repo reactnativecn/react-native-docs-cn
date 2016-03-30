@@ -53,5 +53,51 @@ var styles = StyleSheet.create({
     borderBottomWidth<span class="token punctuation">:</span> StyleSheet<span class="token punctuation">.</span>hairlineWidth
   <span class="token punctuation">}</span></div>
   <p>这一常量始终是一个整数的像素值（线看起来会像头发丝一样细），并会尽量符合当前平台最细的线的标准。然而，你不能把它“视为一个常量”，因为不同的平台和不同的屏幕像素密度会导致不同的结果。</p></div></div>
-<div class="prop"><h4 class="propTitle"><a class="anchor" name="flatten"></a>flatten<span class="propType">: CallExpression</span> <a class="hash-link" href="#flatten">#</a></h4></div></div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="flatten"></a>flatten<span class="propType">: CallExpression</span>
+            <a class="hash-link" href="stylesheet.html#flatten">#</a></h4>
+            <div><p>Flattens an array of style objects, into one aggregated style object.
+                Alternatively, this method can be used to lookup IDs, returned by
+                StyleSheet.register.</p>
+                <blockquote><p><strong>NOTE</strong>: Exercise caution as abusing this can tax you in terms of
+                    optimizations.</p>
+                    <p>IDs enable optimizations through the bridge and memory in general. Refering
+                        to style objects directly will deprive you of these optimizations.</p></blockquote>
+                <p>Example:</p>
+                <div class="prism language-javascript"><span class="token keyword">var</span> styles <span
+                        class="token operator">=</span> StyleSheet<span class="token punctuation">.</span><span
+                        class="token function">create<span class="token punctuation">(</span></span><span
+                        class="token punctuation">{</span>
+                    listItem<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    flex<span class="token punctuation">:</span> <span class="token number">1</span><span
+                            class="token punctuation">,</span>
+                    fontSize<span class="token punctuation">:</span> <span class="token number">16</span><span
+                            class="token punctuation">,</span>
+                    color<span class="token punctuation">:</span> <span class="token string">'white'</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    selectedListItem<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    color<span class="token punctuation">:</span> <span class="token string">'green'</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                            class="token punctuation">;</span>
+
+                    StyleSheet<span class="token punctuation">.</span><span class="token function">flatten<span
+                            class="token punctuation">(</span></span><span class="token punctuation">[</span>styles<span
+                            class="token punctuation">.</span>listItem<span class="token punctuation">,</span>
+                    styles<span class="token punctuation">.</span>selectedListItem<span
+                            class="token punctuation">])</span><span class="token comment" spellcheck="true">
+// returns { flex: 1, fontSize: 16, color: 'green' }</span></div>
+                <p>Alternative use:</p>
+                <div class="prism language-javascript">StyleSheet<span class="token punctuation">.</span><span
+                        class="token function">flatten<span class="token punctuation">(</span></span>styles<span
+                        class="token punctuation">.</span>listItem<span class="token punctuation">)</span><span
+                        class="token punctuation">;</span><span class="token comment" spellcheck="true">
+// return { flex: 1, fontSize: 16, color: 'white' }
+</span><span class="token comment" spellcheck="true">// Simply styles.listItem would return its ID (number)</span></div>
+                <p>This method internally uses <code>StyleSheetRegistry.getStyleByID(style)</code>
+                    to resolve style objects represented by IDs. Thus, an array of style
+                    objects (instances of StyleSheet.create), are individually resolved to,
+                    their respective objects, merged as one and then returned. This also explains
+                    the alternative use.</p></div>
+        </div>
+</div>
 
