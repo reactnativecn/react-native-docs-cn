@@ -1,308 +1,498 @@
-<hr>
-<p>React Native使你能够在Javascript和<a href="http://facebook.github.io/react/">React</a>的基础上获得完全一致的开发体验，构建世界一流的原生APP。</p>
+
+<!doctype html>
+
+      <html data-reactid=".1fj50kojg1s" data-react-checksum="1129533631"><head data-reactid=".1fj50kojg1s.0"><title data-reactid=".1fj50kojg1s.0.0:$0">react native - react native 中文网</title><meta charset="utf-8" data-rdm="true" data-reactid=".1fj50kojg1s.0.0:$1"/><meta property="keywords" content="react native,react native中文网,
+        react native ios,react native android,react native教程" data-rdm="true" data-reactid=".1fj50kojg1s.0.0:$2"/><meta property="og:site_name" content="React Native 中文网" data-rdm="true" data-reactid=".1fj50kojg1s.0.0:$3"/><meta property="og:image" content="https://reactnative.cn/assets/img/opengraph.png" data-rdm="true" data-reactid=".1fj50kojg1s.0.0:$4"/><meta property="og:locale" content="zh_CN" data-rdm="true" data-reactid=".1fj50kojg1s.0.0:$5"/><meta property="og:title" content="React Native 中文网" data-rdm="true" data-reactid=".1fj50kojg1s.0.0:$6"/><meta property="og:description" content="React Native中文网是中国最大的React Native开发者交流学习平台,
+        致力于打造React Native开发。在这里能轻松找到代码实例,项目案例,并有专人提供最新文档翻译。" data-rdm="true" data-reactid=".1fj50kojg1s.0.0:$7"/><meta name="keywords" content="react native,react native中文网,
+        react native ios,react native android,react native教程" data-rdm="true" data-reactid=".1fj50kojg1s.0.0:$8"/><meta name="description" content="React Native中文网是中国最大的React Native开发者交流学习平台,
+        致力于打造React Native开发。在这里能轻松找到代码实例,项目案例,并有专人提供最新文档翻译。" data-rdm="true" data-reactid=".1fj50kojg1s.0.0:$9"/><link rel="shortcut icon" href="/favicon.ico" data-reactid=".1fj50kojg1s.0.1"/><meta http-equiv="X-UA-Compatible" content="IE=Edge" data-reactid=".1fj50kojg1s.0.2"/><meta name="viewport" content="width=device-width, initial-scale=1" data-reactid=".1fj50kojg1s.0.3"/><link href="/scripts/main-a039bf89eea284bee251.css" media="screen, projection" rel="stylesheet" data-reactid=".1fj50kojg1s.0.4:$0"/></head><body data-reactid=".1fj50kojg1s.1"><div id="content" data-reactid=".1fj50kojg1s.1.0"><div data-reactid=".dejt4occ1s" data-react-checksum="-1647440281"><noscript data-reactid=".dejt4occ1s.0"></noscript><div data-reactid=".dejt4occ1s.1"><nav class="nav-main navbar navbar-default" data-reactid=".dejt4occ1s.1.0"><div class="container" data-reactid=".dejt4occ1s.1.0.0"><div class="navbar-header" data-reactid=".dejt4occ1s.1.0.0.0"><a class="nav-home navbar-brand" href="/" data-reactid=".dejt4occ1s.1.0.0.0.0"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAA6CAQAAACuLEfPAAAGqklEQVR4AaXZeXBV5RnH8ZOgCYgYLFowCpa2Wm0ZrRiLCrUtOijVtjpgrbUuVenouLVWRduJrda9Y1qrlQFsBY1bhFIXGJTFBQSKYJFN1EARhsgSSchClpt7P51hMnfOXQ7XHH/nr/s8z/vON+d93+d5zpugkAzzdytttUqNCQYJFH5Oca8l6jRZ50FHFoov4Ha9hLA6PePb+x0xznKZqvc98SGcD0jYqRNA0pOOyBs/3GIAbFMrAXYbEheiRB2o0l/gQKd4SD2gwcVZ0Qe4UwKw2jUG7rMONB+8EBfiUjAnw9bXrfYAqh2Utg+0CFDr/IwR/W1Hl8HxIGrA93Psg7o9rHRU9zJsBUn3Kc2J/xO4Jh7EdjQpzuu7Qgv41LeMsgfU+W7EWYHn4kAcDN6J9J9gM2jQCv6jPCKyVAIr40AcD+aIjviy9wAs0Fd0ZB12xYE4CcwQiH7GSoKOArljDdrjQFSAp0RHHKMewCaHF4DoiAPxVfB8pH+Aj8Bb3geLlUbGfoi9cSBKJLEscrO9Ddbrb4jtBd5aKz6Jd0S3YXuEbzLYaei+XyO0gd/mjT0CvBsPYinok8czHrQ5NW25GHQ6OU/0SPBiPIjnwbAc+9EawHXKDDLUVwx0iL+Cj/SNSP9/jAfx+1C6LXac8W72sBpNICVbKVCn2gOud266j3gAXBgPYiRY7nFLtYqjXeZ5SC0o7zlEb+d4TFJ+pWyxylILzTbDTHO8YZn37RSlvSpVKPr8ECNM1SxTW7zsLpdbC+4TBf8KmGOCKgvtlqlNKh1VGOJcSwGQBFN8qdt7DajVJxJiiBakjEz/nitTCU85PhriBIsBtHjaz1SA1ek+ogGMEUQ/bgFrHNid8j5DmxNdb6EUIGmyAbkQxe7SBfjAr/Trtq8IHdNnwLMFWuMDrAK3hrrUmm7fUPdrBNT7cSZEX3MBG12Y0cbcnN4Dw6XQYGBGCatUbZpfZ5SvU6XQuG8RZ4IfhbyHqNQCuDcNoY83QdI9OUWoXBL/U2RuVmLuZaJ2APUuCo16CjzsUB3Y5cCcWV8F/KUbwiTQaHTe17sA3AG26p22V8nWZaGc2o5294BHI/ZOClwhCHwH7FURscYXgEZwVdo6SlK2GpRnIbaAYREzTwB7lAWeBDdGbrRiGwEb9EpbZ8mnP4S6jUbA3OhNrBrcEFiHTr2jQ90IGB+ybZVPr4Qifgc4K3pmJ4PqwGY0CqIfPwCpjA/bevk0LyPtQcoQhbq3WYHXwKiCJZ3JIdsy+TQpFLEEUBU9s5vAA4HLwHuRCzJYAikkHBteojw6I+tTOolm/SNmHqoeDAuUWgv+HdGoPggWgZpQlsh9F1ND3vVgPpgYUWU2gOf25QknagWL8lS4Xnag07F2IaUi9HesFNZL+qV9V4LljpPCx3kQzlQHapV1p22j7QWfuTKr5o8BLwn8BizIqBK326BLh3ddGrIfZCsYLfA2OC1jzsM8LgVqDQ4XsBG2AFY4LwQyDVwkUOoTcEnW31QUsYCvCQSuztqwA9ypETBfdx0K870IYI3rHCrQ2x60dN9DjAM7uruLqGeYTnT65r5fZdqwW4nASFO0Alrcpjh/U3O2dQDazfYEqE77XwZPRCMosgjcl3XAZ9sIoMvTmZdpuZOMs0KmFrrNWIMFhmhGyhmREFeBTfo42AhXe8QHwmo1ydc+X6N7ksfskK1G/7UebHe5C4w12umGqzDKWc4z3k1awTqbpWSqy5uu1K9nLX+RsSDpi6oNHB/vu+MX4CEVfqnKPHU9AGrynuluMcYR7geXxoOYktPW9lJuuEdAm8f82aOmmuwRD5okAW5zjIMz5jkH/C0exBvg0MiStlxJKEGtjeyivg5ejwdRi6a8njKbMg5vkRlgbd4yWCqFLfEg2rEm8gq9DdwduqlsiWzktsW9LjoczI70/1QKXO7nIOUnkbFLQL+eQwwHU0VHTAQJHWBidKTZoLznECPAdIXPD0wTFIQ4PO495r/2O/kYXSDpwv3GvQXKeg5xdKGD5XxtABIuiY70MZrjbMxiHfgwMqlXSoFXPQ9S7lEccUvehdXxjugKMCiP50jzADVKFPsH4HVH5r18hinxIO4Ft+d8+t+gAaRUpvuq2yXBbhNy3sdMMC4exLGSaPKN0E3W1TYAPvXDrIZoB2CVi/TK+pbdpiQeRGA6aFDlWnd4UTOAZw3IiT7MCwB2+KcbTDBVAlwriAvRz1q5esfpkSPOtFKuXvhi/xc9xDSdAHab7rQCI4qcbZY2AM3uVrz/Mf8HAPN89ITf1FIAAAAASUVORK5CYII=" data-reactid=".dejt4occ1s.1.0.0.0.0.0"/><span data-reactid=".dejt4occ1s.1.0.0.0.0.1">React Native</span></a><li class="nav-version dropdown" data-reactid=".dejt4occ1s.1.0.0.0.1"><a id="nav_version" class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" href="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=10"><span data-reactid=".dejt4occ1s.1.0.0.0.1.$/=10.0">0.22</span><span data-reactid=".dejt4occ1s.1.0.0.0.1.$/=10.1"><span data-reactid=".dejt4occ1s.1.0.0.0.1.$/=10.1.0"> </span><span class="caret" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=10.1.1"></span></span></a><ul class="dropdown-menu" role="menu" aria-labelledby="nav_version" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11"><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$/=10"><a role="menuitem" tabindex="-1" href="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$/=10.0">更新日志</a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$0/=11=2$0"><a role="menuitem" tabindex="-1" href="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$0/=11=2$0.0">0.20</a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$1/=11=2$1"><a role="menuitem" tabindex="-1" href="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$1/=11=2$1.0">0.21</a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$2/=11=2$2"><a role="menuitem" tabindex="-1" href="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$2/=11=2$2.0">0.22(当前版本)</a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$3/=11=2$3"><a role="menuitem" tabindex="-1" href="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$3/=11=2$3.0">0.23</a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$4/=11=2$4"><a role="menuitem" tabindex="-1" href="" data-reactid=".dejt4occ1s.1.0.0.0.1.$/=11.$4/=11=2$4.0">未来版本</a></li></ul></li><button type="button" class="navbar-toggle" data-reactid=".dejt4occ1s.1.0.0.0.2"><span class="sr-only" data-reactid=".dejt4occ1s.1.0.0.0.2.$0">Toggle navigation</span><span class="icon-bar" data-reactid=".dejt4occ1s.1.0.0.0.2.$1"></span><span class="icon-bar" data-reactid=".dejt4occ1s.1.0.0.0.2.$2"></span><span class="icon-bar" data-reactid=".dejt4occ1s.1.0.0.0.2.$3"></span></button></div><div class="navbar-collapse collapse" data-reactid=".dejt4occ1s.1.0.0.1"><ul class="nav navbar-nav" data-reactid=".dejt4occ1s.1.0.0.1.0"><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.1.0.$docs/=1$docs"><a href="/docs/" data-reactid=".dejt4occ1s.1.0.0.1.0.$docs/=1$docs.0"><span data-reactid=".dejt4occ1s.1.0.0.1.0.$docs/=1$docs.0.0">文档</span></a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.1.0.$cases/=1$cases"><a href="/cases.html" data-reactid=".dejt4occ1s.1.0.0.1.0.$cases/=1$cases.0"><span data-reactid=".dejt4occ1s.1.0.0.1.0.$cases/=1$cases.0.0">案例</span></a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.1.0.$blog/=1$blog"><a href="/blog.html" data-reactid=".dejt4occ1s.1.0.0.1.0.$blog/=1$blog.0"><span data-reactid=".dejt4occ1s.1.0.0.1.0.$blog/=1$blog.0.0">博客</span></a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.1.0.$videos/=1$videos"><a href="/videos.html" data-reactid=".dejt4occ1s.1.0.0.1.0.$videos/=1$videos.0"><span data-reactid=".dejt4occ1s.1.0.0.1.0.$videos/=1$videos.0.0">视频</span></a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.1.0.$bbs/=1$bbs"><a href="http://bbs.reactnative.cn/" target="_self" data-reactid=".dejt4occ1s.1.0.0.1.0.$bbs/=1$bbs.0"><span data-reactid=".dejt4occ1s.1.0.0.1.0.$bbs/=1$bbs.0.0">讨论</span><div class="hotSign" data-reactid=".dejt4occ1s.1.0.0.1.0.$bbs/=1$bbs.0.1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAMCAIAAADzpzofAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACWSURBVDhPrY4xDoMwEASvh4oqNS+wKP1THpU6XfpUlJSw2Md6I+RIAU5T7C3nEfZqmxvZdHMIc4zX2XVpWdKMg/Hzv7huwt+FUHRpPUHRAery+oPapes+fY8lH+nggSeZY4kGBlB0QL8xM9RKxXXvRwd4pJmhViqb7mlu1CNmhlqpQOU6wCPNOegcy/wEfOmu47rbMFsBYRTU59bxEc0AAAAASUVORK5CYII=" data-reactid=".dejt4occ1s.1.0.0.1.0.$bbs/=1$bbs.0.1.0"/></div></a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.1.0.$gztechparty/=1$gztechparty"><a href="http://bbs.reactnative.cn/topic/634" target="_blank" data-reactid=".dejt4occ1s.1.0.0.1.0.$gztechparty/=1$gztechparty.0"><span data-reactid=".dejt4occ1s.1.0.0.1.0.$gztechparty/=1$gztechparty.0.0">广州Techparty</span><div class="hotSign" data-reactid=".dejt4occ1s.1.0.0.1.0.$gztechparty/=1$gztechparty.0.1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAMCAIAAADzpzofAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACWSURBVDhPrY4xDoMwEASvh4oqNS+wKP1THpU6XfpUlJSw2Md6I+RIAU5T7C3nEfZqmxvZdHMIc4zX2XVpWdKMg/Hzv7huwt+FUHRpPUHRAery+oPapes+fY8lH+nggSeZY4kGBlB0QL8xM9RKxXXvRwd4pJmhViqb7mlu1CNmhlqpQOU6wCPNOegcy/wEfOmu47rbMFsBYRTU59bxEc0AAAAASUVORK5CYII=" data-reactid=".dejt4occ1s.1.0.0.1.0.$gztechparty/=1$gztechparty.0.1.0"/></div></a></li><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.1.0.$about/=1$about"><a href="/about.html" data-reactid=".dejt4occ1s.1.0.0.1.0.$about/=1$about.0"><span data-reactid=".dejt4occ1s.1.0.0.1.0.$about/=1$about.0.0">关于</span></a></li></ul><ul class="nav navbar-nav navbar-right" data-reactid=".dejt4occ1s.1.0.0.1.1"><li role="presentation" class="" data-reactid=".dejt4occ1s.1.0.0.1.1.$github/=1$github"><a href="https://github.com/facebook/react-native" target="_self" data-reactid=".dejt4occ1s.1.0.0.1.1.$github/=1$github.0"><span data-reactid=".dejt4occ1s.1.0.0.1.1.$github/=1$github.0.0">GitHub</span></a></li></ul></div></div></nav><div class="navbar-placeholder" data-reactid=".dejt4occ1s.1.1"></div></div><div data-reactid=".dejt4occ1s.2"><noscript data-reactid=".dejt4occ1s.2.0"></noscript><div class="hero" data-reactid=".dejt4occ1s.2.1"><div class="wrap" data-reactid=".dejt4occ1s.2.1.0"><div class="text" data-reactid=".dejt4occ1s.2.1.0.0"><h1 data-reactid=".dejt4occ1s.2.1.0.0.0">React Native 中文网</h1></div><div class="minitext" data-reactid=".dejt4occ1s.2.1.0.1"><p data-reactid=".dejt4occ1s.2.1.0.1.0">最专业的翻译，最及时的资讯，最火爆的社区</p><p data-reactid=".dejt4occ1s.2.1.0.1.1">使用前沿的JAVASCRIPT为IOS、ANDROID编写跨平台原生APP</p></div></div></div><section class="content" data-reactid=".dejt4occ1s.2.2"><div class="container" data-reactid=".dejt4occ1s.2.2.0"><a class="anchor" name="content" data-reactid=".dejt4occ1s.2.2.0.0"></a><div class="markdown" data-reactid=".dejt4occ1s.2.2.0.1"><hr>
+<p>React Native使你能够在Javascript和<a href="http://facebook.github.io/react/" target="_blank">React</a>的基础上获得完全一致的开发体验，构建世界一流的原生APP。</p>
 <p>React Native着力于提高多平台开发的开发效率 —— 仅需学习一次，编写任何平台。(Learn once, write anywhere)</p>
 <p>Facebook已经在多项产品中使用了React Native，并且将持续地投入建设React Native。</p>
 <hr>
-<div class="buttons-unit"><br>    <a type="button" href="/docs/getting-started.html#content" class="btn btn-lg btn-primary btn-start">开始使用React Native</a><br></div>
+<div class="buttons-unit">
+    <a type="button" href="/docs/getting-started.html#content" class="btn btn-lg btn-primary btn-start">开始使用React Native</a>
+</div>
 
-<h2 id="-">原生组件</h2>
-<p>使用React Native，你可以使用标准的平台组件，例如iOS的UITabBar或安卓的Drawer。<br>这使你的app获得平台一致的视觉效果和体验，并且获得最佳的性能和流畅性。<br>使用对应的React component，就可以轻松地把这些原生组件整合到你的React Native应用中，<br>例如TabBarIOS和DrawerLayoutAndroid。</p>
-<pre><code class="lang-javascript">// iOS
+<h2><a class="anchor" name="%E5%8E%9F%E7%94%9F%E7%BB%84%E4%BB%B6"></a>
+    原生组件<a class="hash-link" href="#%E5%8E%9F%E7%94%9F%E7%BB%84%E4%BB%B6">#</a>
+    </h2>
+<p>使用React Native，你可以使用标准的平台组件，例如iOS的UITabBar或安卓的Drawer。
+这使你的app获得平台一致的视觉效果和体验，并且获得最佳的性能和流畅性。
+使用对应的React component，就可以轻松地把这些原生组件整合到你的React Native应用中，
+例如TabBarIOS和DrawerLayoutAndroid。</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// iOS</span>
 
-import React, { 
+<span class="hljs-keyword">import</span> React, { 
   Component,
   TabBarIOS, 
   NavigatorIOS 
-} from &#39;react-native&#39;;
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
-class App extends Component {
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   render() {
-    return (
+    <span class="hljs-keyword">return</span> (
       &lt;TabBarIOS&gt;
-        &lt;TabBarIOS.Item title=&quot;React Native&quot; selected={true}&gt;
-          &lt;NavigatorIOS initialRoute={{ title: &#39;React Native&#39; }} /&gt;
+        &lt;TabBarIOS.Item title="React Native" selected={true}&gt;
+          &lt;NavigatorIOS initialRoute={{ title: 'React Native' }} /&gt;
         &lt;/TabBarIOS.Item&gt;
       &lt;/TabBarIOS&gt;
     );
   }
 }
 </code></pre>
-<pre><code class="lang-javascript">// Android
+<pre><code class="lang-javascript"><span class="hljs-comment">// Android</span>
 
-import React, { 
+<span class="hljs-keyword">import</span> React, { 
   Component,
   DrawerLayoutAndroid, 
   ProgressBarAndroid, 
   Text 
-} from &#39;react-native&#39;;
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
-class App extends Component {
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   render() {
-    return (
-      &lt;DrawerLayoutAndroid
-        renderNavigationView={() =&gt; &lt;Text&gt;React Native&lt;/Text&gt;}&gt;
-        &lt;ProgressBarAndroid /&gt;
-      &lt;/DrawerLayoutAndroid&gt;
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">DrawerLayoutAndroid</span>
+        <span class="hljs-attr">renderNavigationView</span>=<span class="hljs-string">{()</span> =&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>React Native<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>}&gt;
+        <span class="hljs-tag">&lt;<span class="hljs-name">ProgressBarAndroid</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">DrawerLayoutAndroid</span>&gt;</span>
     );
   }
-}
+}</span>
 </code></pre>
-<h2 id="-">异步执行</h2>
+<h2><a class="anchor" name="%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C"></a>
+    异步执行<a class="hash-link" href="#%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C">#</a>
+    </h2>
 <p>在Javascript代码和原生平台之间的所有操作都是异步执行的，并且原生模块还可以根据需要创建新的线程。这意味着你可以在主线程解码图片，然后在后台将它保存到磁盘，或者在不阻塞UI的情况下计算文字大小和界面布局等等。所以React Native开发的app天然具备流畅和反应灵敏的优势。Javascript和原生代码之间的通讯是完全可序列化的，这使得我们可以借助Chrome开发者工具去调试应用，而不论应用运行在模拟器还是真机上。</p>
 <p>参见<a href="/docs/debugging.html#content">调试</a></p>
-<p><img src="./img/chrome_breakpoint.png" alt=""></p>
-<h2 id="-">触摸事件处理</h2>
+<p><img class="img-responsive" src="/static/img/chrome_breakpoint.png" alt=""></p>
+<h2><a class="anchor" name="%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"></a>
+    触摸事件处理<a class="hash-link" href="#%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86">#</a>
+    </h2>
 <p>React Native实现了一个强大的触摸事件处理系统，可以在复杂的View层次关系下正确地处理触摸事件。同时还提供了高度封装的组件如TouchableHighlight等，可以直接嵌入到ScrollView或者其它的元素中，无需额外配置。</p>
-<pre><code class="lang-javascript">// iOS &amp; Android
+<pre><code class="lang-javascript"><span class="hljs-comment">// iOS &amp; Android</span>
 
-import React, { 
+<span class="hljs-keyword">import</span> React, { 
   Component,
   ScrollView,
   TouchableHighlight,
   Text
-} from &#39;react-native&#39;;
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
-class TouchDemo extends Component {
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TouchDemo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   render() {
-    return (
-      &lt;ScrollView&gt;
-        &lt;TouchableHighlight onPress={() =&gt; console.log(&#39;pressed&#39;)}&gt;
-          &lt;Text&gt;Proper Touch Handling&lt;/Text&gt;
-        &lt;/TouchableHighlight&gt;
-      &lt;/ScrollView&gt;
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ScrollView</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TouchableHighlight</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> console.log('pressed')}&gt;
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>Proper Touch Handling<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableHighlight</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ScrollView</span>&gt;</span></span>
     );
   }
 }
 </code></pre>
-<h2 id="-flexbox-">弹性盒(Flexbox)和样式</h2>
+<h2><a class="anchor" name="%E5%BC%B9%E6%80%A7%E7%9B%92-flexbox-%E5%92%8C%E6%A0%B7%E5%BC%8F"></a>
+    弹性盒(Flexbox)和样式<a class="hash-link" href="#%E5%BC%B9%E6%80%A7%E7%9B%92-flexbox-%E5%92%8C%E6%A0%B7%E5%BC%8F">#</a>
+    </h2>
 <p>控制view的布局应当简单易行，这就是为什么React Native从web中借鉴了Flexbox模型。Flexbox让大多数常见的UI布局构建变得简单（譬如带有外衬margin和内衬padding，且堆叠在一起的多个矩形）。React Native还支持多种常见的web样式，例如fontWeight等。抽象样式表提供了一个高性能的机制来声明所有的样式和布局，并且可以直接应用到你的组件中。  </p>
-<pre><code class="lang-javascript">// iOS &amp; Android
+<pre><code class="lang-javascript"><span class="hljs-comment">// iOS &amp; Android</span>
 
-var React, {
+<span class="hljs-keyword">var</span> React, {
   Component,
   Image, 
   StyleSheet, 
   Text, 
   View 
-} from &#39;react-native&#39;;
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
-class ReactNative extends Component {
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReactNative</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   render() {
-    return (
-      &lt;View style={styles.row}&gt;
-        &lt;Image
-          source={{uri: &#39;http://facebook.github.io/react/img/logo_og.png&#39;}}
-          style={styles.image}
-        /&gt;
-        &lt;View style={styles.text}&gt;
-          &lt;Text style={styles.title}&gt;
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.row}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+          <span class="hljs-attr">source</span>=<span class="hljs-string">{{uri:</span> '<span class="hljs-attr">http:</span>//<span class="hljs-attr">facebook.github.io</span>/<span class="hljs-attr">react</span>/<span class="hljs-attr">img</span>/<span class="hljs-attr">logo_og.png</span>'}}
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.image}</span>
+        /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.text}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.title}</span>&gt;</span>
             React Native
-          &lt;/Text&gt;
-          &lt;Text style={styles.subtitle}&gt;
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.subtitle}</span>&gt;</span>
             Build high quality mobile apps using React
-          &lt;/Text&gt;
-        &lt;/View&gt;
-      &lt;/View&gt;
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
     );
   }
 }
 var styles = StyleSheet.create({
-  row: { flexDirection: &#39;row&#39;, margin: 40 },
+  row: { flexDirection: 'row', margin: 40 },
   image: { width: 40, height: 40, marginRight: 10 },
-  text: { flex: 1, justifyContent: &#39;center&#39;},
-  title: { fontSize: 11, fontWeight: &#39;bold&#39; },
+  text: { flex: 1, justifyContent: 'center'},
+  title: { fontSize: 11, fontWeight: 'bold' },
   subtitle: { fontSize: 10 },
-});
+});</span>
 </code></pre>
-<h2 id="-">兼容通用标准</h2>
+<h2><a class="anchor" name="%E5%85%BC%E5%AE%B9%E9%80%9A%E7%94%A8%E6%A0%87%E5%87%86"></a>
+    兼容通用标准<a class="hash-link" href="#%E5%85%BC%E5%AE%B9%E9%80%9A%E7%94%A8%E6%A0%87%E5%87%86">#</a>
+    </h2>
 <p>React Native致力于改进视图代码的编写方式。除此之外，我们还吸纳了web生态系统中的通用标准，并在必要的时候为这些API提供兼容层。如此一来，npm上的许多库就可以在React Native中直接使用。这样的兼容层有XMLHttpRequest, window.requestAnimationFrame, navigator.geolocation等。我们还在努力增加更多的API，并且十分欢迎开源社区进行贡献。  </p>
-<pre><code class="lang-javascript">// iOS &amp; Android
+<pre><code class="lang-javascript"><span class="hljs-comment">// iOS &amp; Android</span>
 
-import React, { 
+<span class="hljs-keyword">import</span> React, { 
   Component,
   Text 
-} from &#39;react-native&#39;;
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
-class GeoInfo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { position: &#39;unknown&#39; };
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GeoInfo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = { position: <span class="hljs-string">'unknown'</span> };
   },
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
-      (position) =&gt; this.setState({position}),
-      (error) =&gt; console.error(error)
+      (position) =&gt; <span class="hljs-keyword">this</span>.setState({position}),
+      (error) =&gt; <span class="hljs-built_in">console</span>.error(error)
     );
   }
   render() {
-    return (
-      &lt;Text&gt;
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
         Position: {JSON.stringify(this.state.position)}
-      &lt;/Text&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
     );
   }
 }
 </code></pre>
-<h2 id="-">扩展性</h2>
+<h2><a class="anchor" name="%E6%89%A9%E5%B1%95%E6%80%A7"></a>
+    扩展性<a class="hash-link" href="#%E6%89%A9%E5%B1%95%E6%80%A7">#</a>
+    </h2>
 <p>使用React Native，无需编写一行原生代码即可创造一款不错的app。尽管如此，使用自定义的原生视图和模块来扩展React Native也非常容易 —— 这意味着你现有的所有工作都可以被复用，你喜欢的各种原生库都可以被导入。  </p>
-<h3 id="-ios-">创建iOS模块</h3>
+<h3><a class="anchor" name="%E5%88%9B%E5%BB%BAios%E6%A8%A1%E5%9D%97"></a>
+    创建iOS模块<a class="hash-link" href="#%E5%88%9B%E5%BB%BAios%E6%A8%A1%E5%9D%97">#</a>
+    </h3>
 <p>想要创建一个iOS模块，只需要创建一个接口，实现RCTBridgeModule协议，然后把你想在Javascript中使用的任何方法用RCT_EXPORT_METHOD包装。最后，再用RCT_EXPORT_MODULE导出整个模块即可。</p>
-<pre><code class="lang-objc">// Objective-C
+<pre><code class="lang-objc"><span class="hljs-comment">// Objective-C</span>
 
-#import &quot;RCTBridgeModule.h&quot;
+<span class="hljs-meta">#import <span class="hljs-meta-string">"RCTBridgeModule.h"</span></span>
 
-@interface MyCustomModule : NSObject &lt;RCTBridgeModule&gt;
-@end
+<span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">MyCustomModule</span> : <span class="hljs-title">NSObject</span> &lt;<span class="hljs-title">RCTBridgeModule</span>&gt;</span>
+<span class="hljs-keyword">@end</span>
 
-@implementation MyCustomModule
+<span class="hljs-class"><span class="hljs-keyword">@implementation</span> <span class="hljs-title">MyCustomModule</span></span>
 
 RCT_EXPORT_MODULE();
 
-// Available as NativeModules.MyCustomModule.processString
-RCT_EXPORT_METHOD(processString:(NSString *)input callback:(RCTResponseSenderBlock)callback)
+<span class="hljs-comment">// Available as NativeModules.MyCustomModule.processString</span>
+RCT_EXPORT_METHOD(processString:(<span class="hljs-built_in">NSString</span> *)input callback:(RCTResponseSenderBlock)callback)
 {
-  callback(@[[input stringByReplacingOccurrencesOfString:@&quot;Goodbye&quot; withString:@&quot;Hello&quot;]]);
+  callback(@[[input stringByReplacingOccurrencesOfString:<span class="hljs-string">@"Goodbye"</span> withString:<span class="hljs-string">@"Hello"</span>]]);
 }
-@end
+<span class="hljs-keyword">@end</span>
 </code></pre>
-<pre><code class="lang-javascript">// JavaScript
+<pre><code class="lang-javascript"><span class="hljs-comment">// JavaScript</span>
 
-import React, {
+<span class="hljs-keyword">import</span> React, {
   Component,
   NativeModules,
   Text
-} from &#39;react-native&#39;;
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
-class Message extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: &#39;Goodbye World.&#39; };
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = { text: <span class="hljs-string">'Goodbye World.'</span> };
   }
   componentDidMount() {
-    NativeModules.MyCustomModule.processString(this.state.text, (text) =&gt; {
-      this.setState({text});
+    NativeModules.MyCustomModule.processString(<span class="hljs-keyword">this</span>.state.text, (text) =&gt; {
+      <span class="hljs-keyword">this</span>.setState({text});
     });
   }
   render() {
-    return (
-      &lt;Text&gt;{this.state.text}&lt;/Text&gt;
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>{this.state.text}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
     );
   }
 }
 </code></pre>
-<h3 id="-ios-view">创建iOS View</h3>
+<h3><a class="anchor" name="%E5%88%9B%E5%BB%BAios-view"></a>
+    创建iOS View<a class="hash-link" href="#%E5%88%9B%E5%BB%BAios-view">#</a>
+    </h3>
 <p>若想自定义iOS View，可以这样来做：首先继承RCTViewManager类，然后实现一个-(UIView *)view方法，并且使用RCT_EXPORT_VIEW_PROPERTY宏导出属性。最后用一个Javascript文件连接并进行包装。  </p>
-<pre><code class="lang-objc">// Objective-C
+<pre><code class="lang-objc"><span class="hljs-comment">// Objective-C</span>
 
-#import &quot;RCTViewManager.h&quot;
+<span class="hljs-meta">#import <span class="hljs-meta-string">"RCTViewManager.h"</span></span>
 
-@interface MyCustomViewManager : RCTViewManager
-@end
+<span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">MyCustomViewManager</span> : <span class="hljs-title">RCTViewManager</span></span>
+<span class="hljs-keyword">@end</span>
 
-@implementation MyCustomViewManager
+<span class="hljs-class"><span class="hljs-keyword">@implementation</span> <span class="hljs-title">MyCustomViewManager</span></span>
 
 RCT_EXPORT_MODULE()
 
-- (UIView *)view
+- (<span class="hljs-built_in">UIView</span> *)view
 {
-  return [[MyCustomView alloc] init];
+  <span class="hljs-keyword">return</span> [[MyCustomView alloc] init];
 }
 
-RCT_EXPORT_VIEW_PROPERTY(myCustomProperty, NSString);
-@end
+RCT_EXPORT_VIEW_PROPERTY(myCustomProperty, <span class="hljs-built_in">NSString</span>);
+<span class="hljs-keyword">@end</span>
 </code></pre>
-<pre><code class="lang-javascript">// JavaScript
+<pre><code class="lang-javascript"><span class="hljs-comment">// JavaScript</span>
 
-import React, { 
+<span class="hljs-keyword">import</span> React, { 
   Component,
   requireNativeComponent
-} from &#39;react-native&#39;;
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
-var NativeMyCustomView = requireNativeComponent(&#39;MyCustomView&#39;, MyCustomView);
+<span class="hljs-keyword">var</span> NativeMyCustomView = requireNativeComponent(<span class="hljs-string">'MyCustomView'</span>, MyCustomView);
 
-export default class MyCustomView extends Component {
-  static propTypes = {
-    myCustomProperty: React.PropTypes.oneOf([&#39;a&#39;, &#39;b&#39;]),
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCustomView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">static</span> propTypes = {
+    myCustomProperty: React.PropTypes.oneOf([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>]),
   };
   render() {
-    return &lt;NativeMyCustomView {...this.props} /&gt;;
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">NativeMyCustomView</span> {<span class="hljs-attr">...this.props</span>} /&gt;</span>;
   }
-}
+}</span>
 </code></pre>
-<h3 id="-android-">创建Android模块</h3>
+<h3><a class="anchor" name="%E5%88%9B%E5%BB%BAandroid%E6%A8%A1%E5%9D%97"></a>
+    创建Android模块<a class="hash-link" href="#%E5%88%9B%E5%BB%BAandroid%E6%A8%A1%E5%9D%97">#</a>
+    </h3>
 <p>同样的，Android也支持自定义扩展。仅仅是方法略有差异。</p>
 <p>创建一个基础的安卓模块，需要先创建一个继承自ReactContentBaseJavaModule的类，然后使用@ReactMethod标注(Annotation)来标记那些你希望通过Javascript来访问的方法。最后，需要在ReactPackage中注册这个模块。   </p>
-<pre><code class="lang-java">// Java
+<pre><code class="lang-java"><span class="hljs-comment">// Java</span>
 
-public class MyCustomModule extends ReactContextBaseJavaModule {
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCustomModule</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactContextBaseJavaModule</span> </span>{
 
-// Available as NativeModules.MyCustomModule.processString
-  @ReactMethod
-  public void processString(String input, Callback callback) {
-    callback.invoke(input.replace(&quot;Goodbye&quot;, &quot;Hello&quot;));
+<span class="hljs-comment">// Available as NativeModules.MyCustomModule.processString</span>
+  <span class="hljs-meta">@ReactMethod</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">processString</span><span class="hljs-params">(String input, Callback callback)</span> </span>{
+    callback.invoke(input.replace(<span class="hljs-string">"Goodbye"</span>, <span class="hljs-string">"Hello"</span>));
   }
 }
 </code></pre>
-<pre><code class="lang-javascript">// JavaScript
+<pre><code class="lang-javascript"><span class="hljs-comment">// JavaScript</span>
 
-import React, {
+<span class="hljs-keyword">import</span> React, {
   Component,
   NativeModules,
   Text
-} from &#39;react-native&#39;;
-class Message extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: &#39;Goodbye World.&#39; };
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = { text: <span class="hljs-string">'Goodbye World.'</span> };
   },
   componentDidMount() {
-    NativeModules.MyCustomModule.processString(this.state.text, (text) =&gt; {
-      this.setState({text});
+    NativeModules.MyCustomModule.processString(<span class="hljs-keyword">this</span>.state.text, (text) =&gt; {
+      <span class="hljs-keyword">this</span>.setState({text});
     });
   }
   render() {
-    return (
-      &lt;Text&gt;{this.state.text}&lt;/Text&gt;
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>{this.state.text}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
     );
   }
 }
 </code></pre>
-<h3 id="-android-view">创建Android View</h3>
+<h3><a class="anchor" name="%E5%88%9B%E5%BB%BAandroid-view"></a>
+    创建Android View<a class="hash-link" href="#%E5%88%9B%E5%BB%BAandroid-view">#</a>
+    </h3>
 <p>创建自定义的Android View，首先定义一个继承自SimpleViewManager的类，并实现createViewInstance和getName方法，然后使用@ReactProp标注导出属性，最后用一个Javascript文件连接并进行包装。  </p>
-<pre><code class="lang-java">// Java
+<pre><code class="lang-java"><span class="hljs-comment">// Java</span>
 
-public class MyCustomViewManager extends SimpleViewManager&lt;MyCustomView&gt; {
-  @Override
-  public String getName() {
-    return &quot;MyCustomView&quot;;
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCustomViewManager</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SimpleViewManager</span>&lt;<span class="hljs-title">MyCustomView</span>&gt; </span>{
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"MyCustomView"</span>;
   }
 
-  @Override
-  protected MyCustomView createViewInstance(ThemedReactContext reactContext) {
-    return new MyCustomView(reactContext);
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> MyCustomView <span class="hljs-title">createViewInstance</span><span class="hljs-params">(ThemedReactContext reactContext)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyCustomView(reactContext);
   }
 
-  @ReactProp(name = &quot;myCustomProperty&quot;)
-  public void setMyCustomProperty(MyCustomView view, String value) {
+  <span class="hljs-meta">@ReactProp</span>(name = <span class="hljs-string">"myCustomProperty"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setMyCustomProperty</span><span class="hljs-params">(MyCustomView view, String value)</span> </span>{
     view.setMyCustomProperty(value);
   }
 }
 </code></pre>
-<pre><code class="lang-javascript">// JavaScript
+<pre><code class="lang-javascript"><span class="hljs-comment">// JavaScript</span>
 
-import React, {
+<span class="hljs-keyword">import</span> React, {
   Component,
   requireNativeComponent 
-} from &#39;react-native&#39;;
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
-var NativeMyCustomView = requireNativeComponent(&#39;MyCustomView&#39;, MyCustomView);
+<span class="hljs-keyword">var</span> NativeMyCustomView = requireNativeComponent(<span class="hljs-string">'MyCustomView'</span>, MyCustomView);
 
-export default class MyCustomView extends Component {
-  static propTypes = {
-    myCustomProperty: React.PropTypes.oneOf([&#39;a&#39;, &#39;b&#39;]),
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCustomView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">static</span> propTypes = {
+    myCustomProperty: React.PropTypes.oneOf([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>]),
   };
   render() {
-    return &lt;NativeMyCustomView {...this.props} /&gt;;
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">NativeMyCustomView</span> {<span class="hljs-attr">...this.props</span>} /&gt;</span>;
   }
-}
+}</span>
 </code></pre>
+</div><div class="news" data-reactid=".dejt4occ1s.2.2.0.2"><div class="news-list" data-reactid=".dejt4occ1s.2.2.0.2.0"><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.0.$659"><a class="news-title" href="/post/659" data-reactid=".dejt4occ1s.2.2.0.2.0.$659.0">React Native 0.23.0-rc版发布</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.0.$659.1">2016-03-24</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.0.$562"><a class="news-title" href="/post/562" data-reactid=".dejt4occ1s.2.2.0.2.0.$562.0">React Native 0.22 正式版发布</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.0.$562.1">2016-03-10</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.0.$422"><a class="news-title" href="/post/422" data-reactid=".dejt4occ1s.2.2.0.2.0.$422.0">React Native 0.21 正式版发布</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.0.$422.1">2016-02-22</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.0.$348"><a class="news-title" href="/post/348" data-reactid=".dejt4occ1s.2.2.0.2.0.$348.0">React Native 0.20 正式版发布</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.0.$348.1">2016-02-07</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.0.$243"><a class="news-title" href="/post/243" data-reactid=".dejt4occ1s.2.2.0.2.0.$243.0">React Native 0.18正式版发布</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.0.$243.1">2016-01-19</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.0.$278"><a class="news-title" href="/post/278" data-reactid=".dejt4occ1s.2.2.0.2.0.$278.0">React Native 0.19正式版发布</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.0.$278.1">2016-01-23</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.0.$108"><a class="news-title" href="/post/108" data-reactid=".dejt4occ1s.2.2.0.2.0.$108.0">React Native 0.17正式版发布</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.0.$108.1">2015-12-16</span></div></div><div class="news-list" data-reactid=".dejt4occ1s.2.2.0.2.1"><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.1.$10"><a class="news-title" href="/post/10" data-reactid=".dejt4occ1s.2.2.0.2.1.$10.0">在Windows下搭建React Native Android开发环境</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.1.$10.1">2015-11-20</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.1.$11"><a class="news-title" href="/post/11" data-reactid=".dejt4occ1s.2.2.0.2.1.$11.0">React Native中文网官方发布完整新项目包（无需init）</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.1.$11.1">2015-11-20</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.1.$15"><a class="news-title" href="/post/15" data-reactid=".dejt4occ1s.2.2.0.2.1.$15.0">React&#x2F;React Native 的ES5 ES6写法对照表</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.1.$15.1">2015-11-20</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.1.$20"><a class="news-title" href="/post/20" data-reactid=".dejt4occ1s.2.2.0.2.1.$20.0">新手理解Navigator的教程</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.1.$20.1">2015-11-20</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.1.$634"><a class="news-title" href="/post/634" data-reactid=".dejt4occ1s.2.2.0.2.1.$634.0">Techparty-广州-2016年3月ReactNative专场沙龙【直播】</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.1.$634.1">2016-03-21</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.1.$509"><a class="news-title" href="/post/509" data-reactid=".dejt4occ1s.2.2.0.2.1.$509.0">2016年3月19日 ReactNative实战经验分享会（上海）</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.1.$509.1">2016-03-04</span></div><div class="news-list-item" data-reactid=".dejt4occ1s.2.2.0.2.1.$18"><a class="news-title" href="/post/18" data-reactid=".dejt4occ1s.2.2.0.2.1.$18.0">干货：如何在React Native中设计主题机制</a><span class="date" data-reactid=".dejt4occ1s.2.2.0.2.1.$18.1">2015-11-20</span></div></div></div><div class="buttons-unit" data-reactid=".dejt4occ1s.2.2.0.3"><a type="button" href="/docs/getting-started.html" class="btn btn-lg btn-primary btn-start" data-reactid=".dejt4occ1s.2.2.0.3.0">开始使用React Native</a></div><div class="friend-links" data-reactid=".dejt4occ1s.2.2.0.4"><span data-reactid=".dejt4occ1s.2.2.0.4.0">友情链接：</span><a href="http://nodejs.cn/" data-reactid=".dejt4occ1s.2.2.0.4.1:$0">Node.js中文网</a><a class="" href="friendlink.html" data-reactid=".dejt4occ1s.2.2.0.4.2">更多</a></div></div></section></div><footer class="wrap" data-reactid=".dejt4occ1s.3"><div class="container" data-reactid=".dejt4occ1s.3.0"><div class="right" data-reactid=".dejt4occ1s.3.0.0"><p data-reactid=".dejt4occ1s.3.0.0.0">React Native中文网.</p><p data-reactid=".dejt4occ1s.3.0.0.1">© 2016 杭州欧石南网络科技有限公司</p><p class="gray" data-reactid=".dejt4occ1s.3.0.0.2">浙ICP备15023664号-3</p></div></div></footer></div></div><script data-reactid=".1fj50kojg1s.1.1">window.__data={"fetchData":null,"content":"\n\n---------\n\nReact Native使你能够在Javascript和[React](http:\u002F\u002Ffacebook.github.io\u002Freact\u002F)的基础上获得完全一致的开发体验，构建世界一流的原生APP。\n\nReact Native着力于提高多平台开发的开发效率 —— 仅需学习一次，编写任何平台。(Learn once, write anywhere)\n\nFacebook已经在多项产品中使用了React Native，并且将持续地投入建设React Native。\n\n---------\n\n\u003Cdiv class=\"buttons-unit\"\u003E\n    \u003Ca type=\"button\" href=\"\u002Fdocs\u002Fgetting-started.html#content\" class=\"btn btn-lg btn-primary btn-start\"\u003E开始使用React Native\u003C\u002Fa\u003E\n\u003C\u002Fdiv\u003E\n\n## 原生组件 ##\n\n使用React Native，你可以使用标准的平台组件，例如iOS的UITabBar或安卓的Drawer。\n这使你的app获得平台一致的视觉效果和体验，并且获得最佳的性能和流畅性。\n使用对应的React component，就可以轻松地把这些原生组件整合到你的React Native应用中，\n例如TabBarIOS和DrawerLayoutAndroid。\n\n```javascript\n\u002F\u002F iOS\n\nimport React, { \n  Component,\n  TabBarIOS, \n  NavigatorIOS \n} from 'react-native';\n\nclass App extends Component {\n  render() {\n    return (\n      \u003CTabBarIOS\u003E\n        \u003CTabBarIOS.Item title=\"React Native\" selected={true}\u003E\n          \u003CNavigatorIOS initialRoute={{ title: 'React Native' }} \u002F\u003E\n        \u003C\u002FTabBarIOS.Item\u003E\n      \u003C\u002FTabBarIOS\u003E\n    );\n  }\n}\n```\n\n```javascript\n\u002F\u002F Android\n\nimport React, { \n  Component,\n  DrawerLayoutAndroid, \n  ProgressBarAndroid, \n  Text \n} from 'react-native';\n\nclass App extends Component {\n  render() {\n    return (\n      \u003CDrawerLayoutAndroid\n        renderNavigationView={() =\u003E \u003CText\u003EReact Native\u003C\u002FText\u003E}\u003E\n        \u003CProgressBarAndroid \u002F\u003E\n      \u003C\u002FDrawerLayoutAndroid\u003E\n    );\n  }\n}\n```\n\n## 异步执行##\n\n在Javascript代码和原生平台之间的所有操作都是异步执行的，并且原生模块还可以根据需要创建新的线程。这意味着你可以在主线程解码图片，然后在后台将它保存到磁盘，或者在不阻塞UI的情况下计算文字大小和界面布局等等。所以React Native开发的app天然具备流畅和反应灵敏的优势。Javascript和原生代码之间的通讯是完全可序列化的，这使得我们可以借助Chrome开发者工具去调试应用，而不论应用运行在模拟器还是真机上。\n\n参见[调试](\u002Fdocs\u002Fdebugging.html#content)\n\n![](.\u002Fimg\u002Fchrome_breakpoint.png)\n\n## 触摸事件处理 ##\n\nReact Native实现了一个强大的触摸事件处理系统，可以在复杂的View层次关系下正确地处理触摸事件。同时还提供了高度封装的组件如TouchableHighlight等，可以直接嵌入到ScrollView或者其它的元素中，无需额外配置。\n\n```javascript\n\u002F\u002F iOS & Android\n\nimport React, { \n  Component,\n  ScrollView,\n  TouchableHighlight,\n  Text\n} from 'react-native';\n\nclass TouchDemo extends Component {\n  render() {\n    return (\n      \u003CScrollView\u003E\n        \u003CTouchableHighlight onPress={() =\u003E console.log('pressed')}\u003E\n          \u003CText\u003EProper Touch Handling\u003C\u002FText\u003E\n        \u003C\u002FTouchableHighlight\u003E\n      \u003C\u002FScrollView\u003E\n    );\n  }\n}\n```  \n## 弹性盒(Flexbox)和样式 ##\n\n控制view的布局应当简单易行，这就是为什么React Native从web中借鉴了Flexbox模型。Flexbox让大多数常见的UI布局构建变得简单（譬如带有外衬margin和内衬padding，且堆叠在一起的多个矩形）。React Native还支持多种常见的web样式，例如fontWeight等。抽象样式表提供了一个高性能的机制来声明所有的样式和布局，并且可以直接应用到你的组件中。  \n\n```javascript\n\u002F\u002F iOS & Android\n\nvar React, {\n  Component,\n  Image, \n  StyleSheet, \n  Text, \n  View \n} from 'react-native';\n\nclass ReactNative extends Component {\n  render() {\n    return (\n      \u003CView style={styles.row}\u003E\n        \u003CImage\n          source={{uri: 'http:\u002F\u002Ffacebook.github.io\u002Freact\u002Fimg\u002Flogo_og.png'}}\n          style={styles.image}\n        \u002F\u003E\n        \u003CView style={styles.text}\u003E\n          \u003CText style={styles.title}\u003E\n            React Native\n          \u003C\u002FText\u003E\n          \u003CText style={styles.subtitle}\u003E\n            Build high quality mobile apps using React\n          \u003C\u002FText\u003E\n        \u003C\u002FView\u003E\n      \u003C\u002FView\u003E\n    );\n  }\n}\nvar styles = StyleSheet.create({\n  row: { flexDirection: 'row', margin: 40 },\n  image: { width: 40, height: 40, marginRight: 10 },\n  text: { flex: 1, justifyContent: 'center'},\n  title: { fontSize: 11, fontWeight: 'bold' },\n  subtitle: { fontSize: 10 },\n});\n```\n\n## 兼容通用标准 ##\n\nReact Native致力于改进视图代码的编写方式。除此之外，我们还吸纳了web生态系统中的通用标准，并在必要的时候为这些API提供兼容层。如此一来，npm上的许多库就可以在React Native中直接使用。这样的兼容层有XMLHttpRequest, window.requestAnimationFrame, navigator.geolocation等。我们还在努力增加更多的API，并且十分欢迎开源社区进行贡献。  \n\n```javascript\n\u002F\u002F iOS & Android\n\nimport React, { \n  Component,\n  Text \n} from 'react-native';\n\nclass GeoInfo extends Component {\n  constructor(props) {\n    super(props);\n    this.state = { position: 'unknown' };\n  },\n  componentDidMount() {\n    navigator.geolocation.getCurrentPosition(\n      (position) =\u003E this.setState({position}),\n      (error) =\u003E console.error(error)\n    );\n  }\n  render() {\n    return (\n      \u003CText\u003E\n        Position: {JSON.stringify(this.state.position)}\n      \u003C\u002FText\u003E\n    );\n  }\n}\n```\n\n## 扩展性 ##\n\n使用React Native，无需编写一行原生代码即可创造一款不错的app。尽管如此，使用自定义的原生视图和模块来扩展React Native也非常容易 —— 这意味着你现有的所有工作都可以被复用，你喜欢的各种原生库都可以被导入。  \n\n### 创建iOS模块 ###\n\n想要创建一个iOS模块，只需要创建一个接口，实现RCTBridgeModule协议，然后把你想在Javascript中使用的任何方法用RCT_EXPORT_METHOD包装。最后，再用RCT_EXPORT_MODULE导出整个模块即可。\n  \n```objc\n\u002F\u002F Objective-C\n\n#import \"RCTBridgeModule.h\"\n\n@interface MyCustomModule : NSObject \u003CRCTBridgeModule\u003E\n@end\n\n@implementation MyCustomModule\n\nRCT_EXPORT_MODULE();\n\n\u002F\u002F Available as NativeModules.MyCustomModule.processString\nRCT_EXPORT_METHOD(processString:(NSString *)input callback:(RCTResponseSenderBlock)callback)\n{\n  callback(@[[input stringByReplacingOccurrencesOfString:@\"Goodbye\" withString:@\"Hello\"]]);\n}\n@end\n```\n\n```javascript\n\u002F\u002F JavaScript\n\nimport React, {\n  Component,\n  NativeModules,\n  Text\n} from 'react-native';\n\nclass Message extends Component {\n  constructor(props) {\n    super(props);\n    this.state = { text: 'Goodbye World.' };\n  }\n  componentDidMount() {\n    NativeModules.MyCustomModule.processString(this.state.text, (text) =\u003E {\n      this.setState({text});\n    });\n  }\n  render() {\n    return (\n      \u003CText\u003E{this.state.text}\u003C\u002FText\u003E\n    );\n  }\n}\n```\n\n### 创建iOS View ###\n\n若想自定义iOS View，可以这样来做：首先继承RCTViewManager类，然后实现一个-(UIView *)view方法，并且使用RCT_EXPORT_VIEW_PROPERTY宏导出属性。最后用一个Javascript文件连接并进行包装。  \n\n```objc\n\u002F\u002F Objective-C\n\n#import \"RCTViewManager.h\"\n\n@interface MyCustomViewManager : RCTViewManager\n@end\n\n@implementation MyCustomViewManager\n\nRCT_EXPORT_MODULE()\n\n- (UIView *)view\n{\n  return [[MyCustomView alloc] init];\n}\n\nRCT_EXPORT_VIEW_PROPERTY(myCustomProperty, NSString);\n@end\n```\n\n```javascript\n\u002F\u002F JavaScript\n\nimport React, { \n  Component,\n  requireNativeComponent\n} from 'react-native';\n\nvar NativeMyCustomView = requireNativeComponent('MyCustomView', MyCustomView);\n\nexport default class MyCustomView extends Component {\n  static propTypes = {\n    myCustomProperty: React.PropTypes.oneOf(['a', 'b']),\n  };\n  render() {\n    return \u003CNativeMyCustomView {...this.props} \u002F\u003E;\n  }\n}\n```\n\n### 创建Android模块 ###\n\n同样的，Android也支持自定义扩展。仅仅是方法略有差异。\n\n创建一个基础的安卓模块，需要先创建一个继承自ReactContentBaseJavaModule的类，然后使用@ReactMethod标注(Annotation)来标记那些你希望通过Javascript来访问的方法。最后，需要在ReactPackage中注册这个模块。   \n\n```java\n\u002F\u002F Java\n\npublic class MyCustomModule extends ReactContextBaseJavaModule {\n\n\u002F\u002F Available as NativeModules.MyCustomModule.processString\n  @ReactMethod\n  public void processString(String input, Callback callback) {\n    callback.invoke(input.replace(\"Goodbye\", \"Hello\"));\n  }\n}\n```\n\n```javascript\n\u002F\u002F JavaScript\n\nimport React, {\n  Component,\n  NativeModules,\n  Text\n} from 'react-native';\nclass Message extends Component {\n  constructor(props) {\n    super(props);\n    this.state = { text: 'Goodbye World.' };\n  },\n  componentDidMount() {\n    NativeModules.MyCustomModule.processString(this.state.text, (text) =\u003E {\n      this.setState({text});\n    });\n  }\n  render() {\n    return (\n      \u003CText\u003E{this.state.text}\u003C\u002FText\u003E\n    );\n  }\n}\n```\n\n### 创建Android View ###\n\n创建自定义的Android View，首先定义一个继承自SimpleViewManager的类，并实现createViewInstance和getName方法，然后使用@ReactProp标注导出属性，最后用一个Javascript文件连接并进行包装。  \n  \n```java\n\u002F\u002F Java\n\npublic class MyCustomViewManager extends SimpleViewManager\u003CMyCustomView\u003E {\n  @Override\n  public String getName() {\n    return \"MyCustomView\";\n  }\n\n  @Override\n  protected MyCustomView createViewInstance(ThemedReactContext reactContext) {\n    return new MyCustomView(reactContext);\n  }\n\n  @ReactProp(name = \"myCustomProperty\")\n  public void setMyCustomProperty(MyCustomView view, String value) {\n    view.setMyCustomProperty(value);\n  }\n}\n```  \n\n```javascript\n\u002F\u002F JavaScript\n\nimport React, {\n  Component,\n  requireNativeComponent \n} from 'react-native';\n\nvar NativeMyCustomView = requireNativeComponent('MyCustomView', MyCustomView);\n\nexport default class MyCustomView extends Component {\n  static propTypes = {\n    myCustomProperty: React.PropTypes.oneOf(['a', 'b']),\n  };\n  render() {\n    return \u003CNativeMyCustomView {...this.props} \u002F\u003E;\n  }\n}\n```\n","cases":null,"blogBasicList":{"cid":3,"name":"Blogs","description":"React Native中文网博客","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","parentCid":0,"topic_count":24,"post_count":239,"disabled":false,"order":6,"link":"","numRecentReplies":1,"class":"col-md-3 col-xs-6","imageClass":"cover","descriptionParsed":"\u003Cp\u003EReact Native中文网博客\u003C\u002Fp\u003E\n","undefined":"on","totalPostCount":239,"totalTopicCount":24,"unread-class":"unread","children":[],"topics":[{"tid":10,"uid":1,"cid":3,"mainPid":"21","title":"在Windows下搭建React Native Android开发环境","slug":"10\u002F在windows下搭建react-native-android开发环境","timestamp":1447994819192,"lastposttime":1458461087275,"postcount":19,"viewcount":23227,"locked":false,"deleted":false,"pinned":true,"teaserPid":"2527","titleRaw":"在Windows下搭建React Native Android开发环境","timestampISO":"2015-11-20T04:46:59.192Z","lastposttimeISO":"2016-03-20T08:04:47.275Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"teaser":{"pid":2527,"uid":1,"tid":10,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Fwangjun491280\"\u003E@wangjun491280\u003C\u002Fa\u003E 要进入你创建出来的项目目录才能执行react-native start\u003C\u002Fp\u003E\n","timestamp":1458461087275,"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"timestampISO":"2016-03-20T08:04:47.275Z","index":19},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":0},{"tid":11,"uid":1,"cid":3,"mainPid":"22","title":"React Native中文网官方发布完整新项目包（无需init）","slug":"11\u002Freact-native中文网官方发布完整新项目包-无需init","timestamp":1447994979086,"lastposttime":1458011649063,"postcount":46,"viewcount":23172,"locked":false,"deleted":false,"pinned":true,"teaserPid":"2345","titleRaw":"React Native中文网官方发布完整新项目包（无需init）","timestampISO":"2015-11-20T04:49:39.086Z","lastposttimeISO":"2016-03-15T03:14:09.063Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"teaser":{"pid":2345,"uid":3,"tid":11,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Fssmorebaby\"\u003E@ssmorebaby\u003C\u002Fa\u003E 你 没 装 全。看 文 档。\u003C\u002Fp\u003E\n","timestamp":1458011649063,"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"timestampISO":"2016-03-15T03:14:09.063Z","index":46},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":1},{"tid":15,"uid":1,"cid":3,"mainPid":"26","title":"React&#x2F;React Native 的ES5 ES6写法对照表","slug":"15\u002Freact-react-native-的es5-es6写法对照表","timestamp":1447995127977,"lastposttime":1457361951013,"postcount":13,"viewcount":18757,"locked":false,"deleted":false,"pinned":true,"teaserPid":"2075","titleRaw":"React\u002FReact Native 的ES5 ES6写法对照表","timestampISO":"2015-11-20T04:52:07.977Z","lastposttimeISO":"2016-03-07T14:45:51.013Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"teaser":{"pid":2075,"uid":1077,"tid":15,"content":"\u003Cp\u003E:+1:  :+1:  :+1:  :+1:  :+1:  :+1:  :+1:\u003C\u002Fp\u003E\n","timestamp":1457361951013,"user":{"username":"wesley","userslug":"wesley","picture":"","uid":1077,"icon:text":"W","icon:bgColor":"#1b5e20"},"timestampISO":"2016-03-07T14:45:51.013Z","index":13},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":2},{"tid":20,"uid":7,"cid":"3","mainPid":"31","title":"新手理解Navigator的教程","slug":"20\u002F新手理解navigator的教程","timestamp":1447999961840,"lastposttime":1458714848208,"postcount":56,"viewcount":21920,"locked":false,"deleted":false,"pinned":true,"teaserPid":"2657","titleRaw":"新手理解Navigator的教程","timestampISO":"2015-11-20T06:12:41.840Z","lastposttimeISO":"2016-03-23T06:34:08.208Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"mozillo","userslug":"mozillo","picture":"\u002Fuploads\u002Fprofile\u002F7-profileimg.png","fullname":"","signature":"","reputation":4,"postcount":19,"banned":0,"status":"offline","uid":7,"icon:text":"M","icon:bgColor":"#3f51b5"},"teaser":{"pid":2657,"uid":7,"tid":20,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Fhissummer\"\u003E@hissummer\u003C\u002Fa\u003E 加 alignItems justifyContent 居个中好了\u003C\u002Fp\u003E\n","timestamp":1458714848208,"user":{"username":"mozillo","userslug":"mozillo","picture":"\u002Fuploads\u002Fprofile\u002F7-profileimg.png","uid":7,"icon:text":"M","icon:bgColor":"#3f51b5"},"timestampISO":"2016-03-23T06:34:08.208Z","index":56},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":3},{"tid":634,"uid":62,"cid":"3","mainPid":"2555","title":"Techparty-广州-2016年3月ReactNative专场沙龙【直播】","slug":"634\u002Ftechparty-广州-2016年3月reactnative专场沙龙-直播","timestamp":1458538185847,"lastposttime":1459180787720,"postcount":5,"viewcount":2754,"locked":false,"deleted":false,"pinned":false,"teaserPid":"2825","titleRaw":"Techparty-广州-2016年3月ReactNative专场沙龙【直播】","timestampISO":"2016-03-21T05:29:45.847Z","lastposttimeISO":"2016-03-28T15:59:47.720Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"techbin","userslug":"techbin","picture":"","fullname":"","signature":"","reputation":0,"postcount":2,"banned":0,"status":"online","uid":62,"icon:text":"T","icon:bgColor":"#2196f3"},"teaser":{"pid":2825,"uid":62,"tid":634,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Fnickolas\"\u003E@nickolas\u003C\u002Fa\u003E 没有bug的话应该是4月底\u003C\u002Fp\u003E\n","timestamp":1459180787720,"user":{"username":"techbin","userslug":"techbin","picture":"","uid":62,"icon:text":"T","icon:bgColor":"#2196f3"},"timestampISO":"2016-03-28T15:59:47.720Z","index":5},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":4},{"tid":509,"uid":1,"cid":3,"mainPid":"1961","title":"2016年3月19日 ReactNative实战经验分享会（上海）","slug":"509\u002F2016年3月19日-reactnative实战经验分享会-上海","timestamp":1457060456216,"lastposttime":1459129076891,"postcount":21,"viewcount":7780,"locked":false,"deleted":false,"pinned":false,"teaserPid":"2790","titleRaw":"2016年3月19日 ReactNative实战经验分享会（上海）","timestampISO":"2016-03-04T03:00:56.216Z","lastposttimeISO":"2016-03-28T01:37:56.891Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"teaser":{"pid":2790,"uid":133,"tid":509,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002F鸿杰\"\u003E@鸿杰\u003C\u002Fa\u003E 了解了，谢谢~ 我就是需要了解一个大致比例~\u003C\u002Fp\u003E\n","timestamp":1459129076891,"user":{"username":"天空之诚","userslug":"天空之诚","picture":"","uid":133,"icon:text":"天","icon:bgColor":"#795548"},"timestampISO":"2016-03-28T01:37:56.891Z","index":21},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":5},{"tid":18,"uid":1,"cid":3,"mainPid":"29","title":"干货：如何在React Native中设计主题机制","slug":"18\u002F干货-如何在react-native中设计主题机制","timestamp":1447995343468,"lastposttime":1458878503626,"postcount":3,"viewcount":4345,"locked":false,"deleted":false,"pinned":false,"teaserPid":"2744","titleRaw":"干货：如何在React Native中设计主题机制","timestampISO":"2015-11-20T04:55:43.468Z","lastposttimeISO":"2016-03-25T04:01:43.626Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"teaser":{"pid":2744,"uid":1,"tid":18,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002F天空之诚\"\u003E@天空之诚\u003C\u002Fa\u003E 这个貌似在RN中还不可用，不知道webpack是否支持。用于解决加载部分的问题应该是可以的，不过和上文提到的内容关系不大吧。\u003C\u002Fp\u003E\n","timestamp":1458878503626,"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"timestampISO":"2016-03-25T04:01:43.626Z","index":3},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":6},{"tid":651,"uid":1,"cid":3,"mainPid":"2631","title":"React Native for Android应用名及图标修改","slug":"651\u002Freact-native-for-android应用名及图标修改","timestamp":1458657790014,"lastposttime":1458804122193,"postcount":4,"viewcount":1618,"locked":false,"deleted":false,"pinned":false,"teaserPid":"2701","titleRaw":"React Native for Android应用名及图标修改","timestampISO":"2016-03-22T14:43:10.014Z","lastposttimeISO":"2016-03-24T07:22:02.193Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"teaser":{"pid":2701,"uid":133,"tid":651,"content":"\u003Cp\u003E及时~ 不过我是一开始就自己全文检索后重构了App ID了~\u003Cbr \u002F\u003E\n\u003Ca href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Ftopic\u002F381\u002F%E5%B7%B2%E8%A7%A3%E5%86%B3-%E9%87%8D%E5%91%BD%E5%90%8Dmyproject%E9%A1%B9%E7%9B%AE%E9%9C%80%E5%81%9A%E5%93%AA%E4%BA%9B%E4%BF%AE%E6%94%B9\"\u003Ehttp:\u002F\u002Fbbs.reactnative.cn\u002Ftopic\u002F381\u002F已解决-重命名myproject项目需做哪些修改\u003C\u002Fa\u003E\u003Cbr \u002F\u003E\n昨天又刚替换了Logo和签名~\u003C\u002Fp\u003E\n","timestamp":1458804122193,"user":{"username":"天空之诚","userslug":"天空之诚","picture":"","uid":133,"icon:text":"天","icon:bgColor":"#795548"},"timestampISO":"2016-03-24T07:22:02.193Z","index":4},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":7},{"tid":658,"uid":1,"cid":3,"mainPid":2699,"title":"React Native下如何拨打电话","slug":"658\u002Freact-native下如何拨打电话","timestamp":1458800906857,"lastposttime":1458800906865,"postcount":1,"viewcount":1162,"locked":false,"deleted":false,"pinned":false,"titleRaw":"React Native下如何拨打电话","timestampISO":"2016-03-24T06:28:26.857Z","lastposttimeISO":"2016-03-24T06:28:26.865Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"tags":[],"isOwner":false,"unread":true,"unreplied":true,"index":8},{"tid":627,"uid":1,"cid":3,"mainPid":"2504","title":"错误捕捉与处理","slug":"627\u002F错误捕捉与处理","timestamp":1458393198471,"lastposttime":1458393198481,"postcount":1,"viewcount":1934,"locked":false,"deleted":false,"pinned":false,"titleRaw":"错误捕捉与处理","timestampISO":"2016-03-19T13:13:18.471Z","lastposttimeISO":"2016-03-19T13:13:18.481Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"tags":[],"isOwner":false,"unread":true,"unreplied":true,"index":9},{"tid":618,"uid":1,"cid":3,"mainPid":"2467","title":"[转]QQ空间研发团队：ReactNative For Android 项目实战总结","slug":"618\u002F转-qq空间研发团队-reactnative-for-android-项目实战总结","timestamp":1458285107936,"lastposttime":1458285107944,"postcount":1,"viewcount":2189,"locked":false,"deleted":false,"pinned":false,"titleRaw":"[转]QQ空间研发团队：ReactNative For Android 项目实战总结","timestampISO":"2016-03-18T07:11:47.936Z","lastposttimeISO":"2016-03-18T07:11:47.944Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"tags":[],"isOwner":false,"unread":true,"unreplied":true,"index":10},{"tid":608,"uid":1,"cid":3,"mainPid":"2446","title":"对组件的引用（refs）","slug":"608\u002F对组件的引用-refs","timestamp":1458200461512,"lastposttime":1458200461519,"postcount":1,"viewcount":2643,"locked":false,"deleted":false,"pinned":false,"titleRaw":"对组件的引用（refs）","timestampISO":"2016-03-17T07:41:01.512Z","lastposttimeISO":"2016-03-17T07:41:01.519Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"tags":[],"isOwner":false,"unread":true,"unreplied":true,"index":11},{"tid":539,"uid":1001,"cid":"3","mainPid":"2107","title":"在webstom里面配置运行RN的方案，效果堪比xcode","slug":"539\u002F在webstom里面配置运行rn的方案-效果堪比xcode","timestamp":1457491047139,"lastposttime":1458022842902,"postcount":16,"viewcount":3334,"locked":false,"deleted":false,"pinned":false,"teaserPid":"2352","titleRaw":"在webstom里面配置运行RN的方案，效果堪比xcode","timestampISO":"2016-03-09T02:37:27.139Z","lastposttimeISO":"2016-03-15T06:20:42.902Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"long","userslug":"long","picture":"","fullname":"","signature":"","reputation":0,"postcount":37,"banned":0,"status":"online","uid":1001,"icon:text":"L","icon:bgColor":"#795548"},"teaser":{"pid":2352,"uid":1001,"tid":539,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Flong\"\u003E@long\u003C\u002Fa\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E\u003Ca href=\"https:\u002F\u002Fgithub.com\u002Fharde1\u002FReactNative_webstrom\" target=\"_blank\" rel=\"nofollow\"\u003Ehttps:\u002F\u002Fgithub.com\u002Fharde1\u002FReactNative_webstrom\u003C\u002Fa\u003E\u003C\u002Fp\u003E\n","timestamp":1458022842902,"user":{"username":"long","userslug":"long","picture":"","uid":1001,"icon:text":"L","icon:bgColor":"#795548"},"timestampISO":"2016-03-15T06:20:42.902Z","index":16},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":12},{"tid":495,"uid":1,"cid":3,"mainPid":"1911","title":"React Native中应用react-router处理路由","slug":"495\u002Freact-native中应用react-router处理路由","timestamp":1456938026181,"lastposttime":1457865375922,"postcount":4,"viewcount":4007,"locked":false,"deleted":false,"pinned":false,"teaserPid":"2281","titleRaw":"React Native中应用react-router处理路由","timestampISO":"2016-03-02T17:00:26.181Z","lastposttimeISO":"2016-03-13T10:36:15.922Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"teaser":{"pid":2281,"uid":1119,"tid":495,"content":"\u003Cp\u003E能有全一点的code 嘛。  省略很多，新手理解困难:joy:\u003C\u002Fp\u003E\n","timestamp":1457865375922,"user":{"username":"GaryDeng","userslug":"garydeng","picture":"","uid":1119,"icon:text":"G","icon:bgColor":"#e91e63"},"timestampISO":"2016-03-13T10:36:15.922Z","index":4},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":13},{"tid":306,"uid":331,"cid":"3","mainPid":"1268","title":"在React Native中使用ART","slug":"306\u002F在react-native中使用art","timestamp":1453959645871,"lastposttime":1457682360399,"postcount":7,"viewcount":4702,"locked":false,"deleted":false,"pinned":false,"teaserPid":"2218","titleRaw":"在React Native中使用ART","timestampISO":"2016-01-28T05:40:45.871Z","lastposttimeISO":"2016-03-11T07:46:00.399Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"magicismight","userslug":"magicismight","picture":"","fullname":"","signature":"","reputation":4,"postcount":11,"banned":0,"status":"online","uid":331,"icon:text":"M","icon:bgColor":"#e65100"},"teaser":{"pid":2218,"uid":492,"tid":306,"content":"\u003Cp\u003E太棒了，这样图标就好处理多了。\u003C\u002Fp\u003E\n","timestamp":1457682360399,"user":{"username":"chronos","userslug":"chronos","picture":"","uid":492,"icon:text":"C","icon:bgColor":"#33691e"},"timestampISO":"2016-03-11T07:46:00.399Z","index":7},"tags":[{"value":"art","color":"","bgColor":"","score":1},{"value":"svg","color":"","bgColor":"","score":1}],"isOwner":false,"unread":true,"unreplied":false,"index":14},{"tid":516,"uid":3,"cid":3,"mainPid":"1988","title":"[视频教程]ReactNative环境搭建超详细视频教程","slug":"516\u002F视频教程-reactnative环境搭建超详细视频教程","timestamp":1457103331955,"lastposttime":1457614714920,"postcount":3,"viewcount":3706,"locked":false,"deleted":false,"pinned":false,"teaserPid":"2193","titleRaw":"[视频教程]ReactNative环境搭建超详细视频教程","timestampISO":"2016-03-04T14:55:31.955Z","lastposttimeISO":"2016-03-10T12:58:34.920Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"teaser":{"pid":2193,"uid":222,"tid":516,"content":"\u003Cp\u003E赞！！！！！！！！！！\u003C\u002Fp\u003E\n","timestamp":1457614714920,"user":{"username":"Harvey","userslug":"harvey","picture":"","uid":222,"icon:text":"H","icon:bgColor":"#1b5e20"},"timestampISO":"2016-03-10T12:58:34.920Z","index":3},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":15},{"tid":480,"uid":1,"cid":3,"mainPid":"1871","title":"安卓Back键的处理·基本+高级篇","slug":"480\u002F安卓back键的处理-基本-高级篇","timestamp":1456802908811,"lastposttime":1456990578579,"postcount":5,"viewcount":4499,"locked":false,"deleted":false,"pinned":false,"teaserPid":"1927","titleRaw":"安卓Back键的处理·基本+高级篇","timestampISO":"2016-03-01T03:28:28.811Z","lastposttimeISO":"2016-03-03T07:36:18.579Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"teaser":{"pid":1927,"uid":20,"tid":480,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Ftdzl2003\"\u003E@tdzl2003\u003C\u002Fa\u003E 好吧，发现执行handle时，this.setState执行不了，打印出来的this是undefined，不知道是不是我这么写的问题……\u003C\u002Fp\u003E\n","timestamp":1456990578579,"user":{"username":"绯色流火","userslug":"绯色流火","picture":"","uid":20,"icon:text":"绯","icon:bgColor":"#ff5722"},"timestampISO":"2016-03-03T07:36:18.579Z","index":5},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":16},{"tid":321,"uid":1,"cid":3,"mainPid":"1319","title":"2016年1月30日 React Native 实战经验分享会（广州）","slug":"321\u002F2016年1月30日-react-native-实战经验分享会-广州","timestamp":1454120803172,"lastposttime":1456478707619,"postcount":12,"viewcount":7809,"locked":false,"deleted":false,"pinned":false,"teaserPid":"1806","titleRaw":"2016年1月30日 React Native 实战经验分享会（广州）","timestampISO":"2016-01-30T02:26:43.172Z","lastposttimeISO":"2016-02-26T09:25:07.619Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"teaser":{"pid":1806,"uid":972,"tid":321,"content":"\u003Cp\u003E下次有這樣子的聚會，我們務必參加！\u003C\u002Fp\u003E\n","timestamp":1456478707619,"user":{"username":"敖风","userslug":"敖风","picture":"","uid":972,"icon:text":"敖","icon:bgColor":"#9c27b0"},"timestampISO":"2016-02-26T09:25:07.619Z","index":12},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":17},{"tid":26,"uid":7,"cid":"3","mainPid":"53","title":"用RN( ListView + Navigator ) + Redux来开发一个ToDoList","slug":"26\u002F用rn-listview-navigator-redux来开发一个todolist","timestamp":1448139075485,"lastposttime":1454566399753,"postcount":3,"viewcount":6272,"locked":false,"deleted":false,"pinned":false,"teaserPid":"1414","titleRaw":"用RN( ListView + Navigator ) + Redux来开发一个ToDoList","timestampISO":"2015-11-21T20:51:15.485Z","lastposttimeISO":"2016-02-04T06:13:19.753Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"mozillo","userslug":"mozillo","picture":"\u002Fuploads\u002Fprofile\u002F7-profileimg.png","fullname":"","signature":"","reputation":4,"postcount":19,"banned":0,"status":"offline","uid":7,"icon:text":"M","icon:bgColor":"#3f51b5"},"teaser":{"pid":1414,"uid":599,"tid":26,"content":"\u003Cp\u003E关于 BaseApp.js里面\u003Cbr \u002F\u003E\n@connect(state =&gt; ({\u003Cbr \u002F\u003E\nstate: state\u003Cbr \u002F\u003E\n}))\u003Cbr \u002F\u003E\n好像运行出错!\u003C\u002Fp\u003E\n\u003Cp\u003E可以改写成\u003Cbr \u002F\u003E\nclass BaseApp extends{\u003Cbr \u002F\u003E\n.....\u003Cbr \u002F\u003E\n}\u003Cbr \u002F\u003E\nfunction selector(state) {\u003Cbr \u002F\u003E\nreturn {\u003Cbr \u002F\u003E\nstate: state\u003Cbr \u002F\u003E\n}\u003Cbr \u002F\u003E\n}\u003Cbr \u002F\u003E\nexport default connect(selector)(BaseApp);\u003C\u002Fp\u003E\n","timestamp":1454566399753,"user":{"username":"milo","userslug":"milo","picture":"","uid":599,"icon:text":"M","icon:bgColor":"#607d8b"},"timestampISO":"2016-02-04T06:13:19.753Z","index":3},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":18},{"tid":320,"uid":1,"cid":3,"mainPid":"1315","title":"2016年1月9日 React Native实战经验分享会（北京）分享记录","slug":"320\u002F2016年1月9日-react-native实战经验分享会-北京-分享记录","timestamp":1454062732302,"lastposttime":1454063030832,"postcount":2,"viewcount":4270,"locked":false,"deleted":false,"pinned":false,"teaserPid":"1316","titleRaw":"2016年1月9日 React Native实战经验分享会（北京）分享记录","timestampISO":"2016-01-29T10:18:52.302Z","lastposttimeISO":"2016-01-29T10:23:50.832Z","category":{"cid":3,"name":"Blogs","icon":"fa-newspaper-o","bgColor":"#86ba4b","color":"#fff","slug":"3\u002Fblogs","disabled":false},"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","fullname":"","signature":"","reputation":5,"postcount":187,"banned":0,"status":"online","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"teaser":{"pid":1316,"uid":1,"tid":320,"content":"\u003Cp\u003E明天(2016年1月30日)我们的\u003Ca href=\"http:\u002F\u002F68xg.com\u002Freactnative\u002Factivity\u002F\" target=\"_blank\" rel=\"nofollow\"\u003E广州分享会\u003C\u002Fa\u003E将在广州天河区羊城创意产业园举办，届时我们将会进行\u003Ca href=\"http:\u002F\u002Fwww.zhanqi.tv\u002F11125\" target=\"_blank\" rel=\"nofollow\"\u003E现场直播\u003C\u002Fa\u003E，欢迎线上围观：）\u003C\u002Fp\u003E\n","timestamp":1454063030832,"user":{"username":"tdzl2003","userslug":"tdzl2003","picture":"\u002Fuploads\u002Fprofile\u002F1-profileimg.png","uid":1,"icon:text":"T","icon:bgColor":"#607d8b"},"timestampISO":"2016-01-29T10:23:50.832Z","index":2},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":19}],"nextStart":20,"isIgnored":false,"breadcrumbs":[{"text":"[[global:home]]","url":"\u002F"},{"text":"Blogs","url":"\u002Fcategory\u002F3\u002Fblogs"}],"privileges":{"cid":"3","uid":0,"topics:create":false,"editable":false,"view_deleted":false,"read":true,"isAdminOrMod":false},"showSelect":false,"feeds:disableRSS":false,"rssFeedUrl":"\u002Fcategory\u002F3.rss","title":"Blogs","pagination":{"rel":[{"rel":"next","href":"http:\u002F\u002Fbbs.reactnative.cn\u002Fcategory\u002F3\u002Fblogs?page=2"}],"pages":[{"page":1,"active":true,"qs":"page=1"},{"page":2,"active":false,"qs":"page=2"}],"currentPage":1,"pageCount":2,"prev":{"page":1,"active":false,"qs":"page=1"},"next":{"page":2,"active":true,"qs":"page=2"}},"loggedIn":false,"relative_path":"","template":{"name":"category","category":true},"bodyClass":"page-category page-category-3"},"blogDetailedList":null,"newsBasicList":{"cid":1,"name":"公告","description":"有关本社区、以及React Native的最新公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","parentCid":0,"topic_count":11,"post_count":51,"disabled":false,"order":1,"link":"","numRecentReplies":1,"class":"col-md-3 col-xs-6","imageClass":"cover","descriptionParsed":"\u003Cp\u003E有关本社区、以及React Native的最新公告\u003C\u002Fp\u003E\n","undefined":"on","totalPostCount":51,"totalTopicCount":11,"unread-class":"unread","children":[],"topics":[{"tid":659,"uid":3,"cid":1,"mainPid":"2700","title":"React Native 0.23.0-rc版发布","slug":"659\u002Freact-native-0-23-0-rc版发布","timestamp":1458801640161,"lastposttime":1459243900979,"postcount":3,"viewcount":619,"locked":false,"deleted":false,"pinned":false,"teaserPid":"2852","titleRaw":"React Native 0.23.0-rc版发布","timestampISO":"2016-03-24T06:40:40.161Z","lastposttimeISO":"2016-03-29T09:31:40.979Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"teaser":{"pid":2852,"uid":1165,"tid":659,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Fscott\"\u003E@scott\u003C\u002Fa\u003E 越快越好啊，希望那些诡异的 bug 能抓紧解决掉\u003C\u002Fp\u003E\n","timestamp":1459243900979,"user":{"username":"郁也风","userslug":"郁也风","picture":"","uid":1165,"icon:text":"郁","icon:bgColor":"#9c27b0"},"timestampISO":"2016-03-29T09:31:40.979Z","index":3},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":0},{"tid":562,"uid":1149,"cid":"1","mainPid":"2196","title":"React Native 0.22 正式版发布","slug":"562\u002Freact-native-0-22-正式版发布","timestamp":1457620822761,"lastposttime":1459218413395,"postcount":15,"viewcount":1777,"locked":false,"deleted":false,"pinned":false,"teaserPid":"2831","titleRaw":"React Native 0.22 正式版发布","timestampISO":"2016-03-10T14:40:22.761Z","lastposttimeISO":"2016-03-29T02:26:53.395Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"frank_gray","userslug":"frank_gray","picture":"","fullname":"","signature":"","reputation":0,"postcount":1,"banned":0,"status":"online","uid":1149,"icon:text":"F","icon:bgColor":"#e65100"},"teaser":{"pid":2831,"uid":3,"tid":562,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Fpcqpcq\"\u003E@pcqpcq\u003C\u002Fa\u003E 是的，感谢\u003C\u002Fp\u003E\n","timestamp":1459218413395,"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"timestampISO":"2016-03-29T02:26:53.395Z","index":15},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":1},{"tid":422,"uid":3,"cid":1,"mainPid":"1657","title":"React Native 0.21 正式版发布","slug":"422\u002Freact-native-0-21-正式版发布","timestamp":1456118630477,"lastposttime":1456118630486,"postcount":1,"viewcount":1628,"locked":false,"deleted":false,"pinned":false,"titleRaw":"React Native 0.21 正式版发布","timestampISO":"2016-02-22T05:23:50.477Z","lastposttimeISO":"2016-02-22T05:23:50.486Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"tags":[],"isOwner":false,"unread":true,"unreplied":true,"index":2},{"tid":348,"uid":3,"cid":1,"mainPid":"1444","title":"React Native 0.20 正式版发布","slug":"348\u002Freact-native-0-20-正式版发布","timestamp":1454809785122,"lastposttime":1454865468577,"postcount":2,"viewcount":1758,"locked":false,"deleted":false,"pinned":false,"teaserPid":"1453","titleRaw":"React Native 0.20 正式版发布","timestampISO":"2016-02-07T01:49:45.122Z","lastposttimeISO":"2016-02-07T17:17:48.577Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"teaser":{"pid":1453,"uid":619,"tid":348,"content":"\u003Cp\u003E等着最新的文档出来。\u003C\u002Fp\u003E\n","timestamp":1454865468577,"user":{"username":"战旗美如画","userslug":"战旗美如画","picture":"","uid":619,"icon:text":"战","icon:bgColor":"#e65100"},"timestampISO":"2016-02-07T17:17:48.577Z","index":2},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":3},{"tid":243,"uid":3,"cid":1,"mainPid":"994","title":"React Native 0.18正式版发布","slug":"243\u002Freact-native-0-18正式版发布","timestamp":1453163884222,"lastposttime":1454294077374,"postcount":4,"viewcount":1373,"locked":false,"deleted":false,"pinned":false,"teaserPid":"1357","titleRaw":"React Native 0.18正式版发布","timestampISO":"2016-01-19T00:38:04.222Z","lastposttimeISO":"2016-02-01T02:34:37.374Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"teaser":{"pid":1357,"uid":671,"tid":243,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Fzhangzhang\"\u003E@zhangzhang\u003C\u002Fa\u003E 说：\u003C\u002Fp\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003E运行包，怎么总是这样，难道是0.18的bug\u003Cimg src=\"\u002Fuploads\u002Ffiles\u002F1453698912947-upload-9eb0fe4d-9d74-4576-a2d6-f3fc3a507388\" alt=\"0_1453698883230_upload-9eb0fe4d-9d74-4576-a2d6-f3fc3a507388\" class=\"img-responsive img-markdown\" \u002F\u003E\u003C\u002Fp\u003E\n\u003C\u002Fblockquote\u003E\n\u003Cp\u003E我也遇到这个问题了\u003C\u002Fp\u003E\n","timestamp":1454294077374,"user":{"username":"watchman","userslug":"watchman","picture":"","uid":671,"icon:text":"W","icon:bgColor":"#ff5722"},"timestampISO":"2016-02-01T02:34:37.374Z","index":4},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":4},{"tid":278,"uid":3,"cid":1,"mainPid":"1148","title":"React Native 0.19正式版发布","slug":"278\u002Freact-native-0-19正式版发布","timestamp":1453523233762,"lastposttime":1453523233770,"postcount":1,"viewcount":1219,"locked":false,"deleted":false,"pinned":false,"titleRaw":"React Native 0.19正式版发布","timestampISO":"2016-01-23T04:27:13.762Z","lastposttimeISO":"2016-01-23T04:27:13.770Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"tags":[],"isOwner":false,"unread":true,"unreplied":true,"index":5},{"tid":108,"uid":3,"cid":1,"mainPid":"312","title":"React Native 0.17正式版发布","slug":"108\u002Freact-native-0-17正式版发布","timestamp":1450229800429,"lastposttime":1453270382334,"postcount":12,"viewcount":3001,"locked":false,"deleted":false,"pinned":false,"teaserPid":"1059","titleRaw":"React Native 0.17正式版发布","timestampISO":"2015-12-16T01:36:40.429Z","lastposttimeISO":"2016-01-20T06:13:02.334Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"teaser":{"pid":1059,"uid":504,"tid":108,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Fsunnylqm\"\u003E@sunnylqm\u003C\u002Fa\u003E 重启packager果然可以。谢啦\u003C\u002Fp\u003E\n","timestamp":1453270382334,"user":{"username":"zhangzhang","userslug":"zhangzhang","picture":"","uid":504,"icon:text":"Z","icon:bgColor":"#33691e"},"timestampISO":"2016-01-20T06:13:02.334Z","index":12},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":6},{"tid":169,"uid":3,"cid":1,"mainPid":"547","title":"React Native 0.18.0-rc版发布","slug":"169\u002Freact-native-0-18-0-rc版发布","timestamp":1452041311022,"lastposttime":1452213898582,"postcount":8,"viewcount":1643,"locked":false,"deleted":false,"pinned":false,"teaserPid":"651","titleRaw":"React Native 0.18.0-rc版发布","timestampISO":"2016-01-06T00:48:31.022Z","lastposttimeISO":"2016-01-08T00:44:58.582Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"teaser":{"pid":651,"uid":3,"tid":169,"content":"\u003Cp\u003E\u003Ca class=\"plugin-mentions-a\" href=\"http:\u002F\u002Fbbs.reactnative.cn\u002Fuser\u002Fa497823463\"\u003E@a497823463\u003C\u002Fa\u003E 0.1.9已修复\u003C\u002Fp\u003E\n","timestamp":1452213898582,"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"timestampISO":"2016-01-08T00:44:58.582Z","index":8},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":7},{"tid":63,"uid":3,"cid":1,"mainPid":"170","title":"React Native 0.16正式版发布","slug":"63\u002Freact-native-0-16正式版发布","timestamp":1449286592559,"lastposttime":1449286592571,"postcount":1,"viewcount":695,"locked":false,"deleted":false,"pinned":false,"titleRaw":"React Native 0.16正式版发布","timestampISO":"2015-12-05T03:36:32.559Z","lastposttimeISO":"2015-12-05T03:36:32.571Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"tags":[],"isOwner":false,"unread":true,"unreplied":true,"index":8},{"tid":51,"uid":3,"cid":1,"mainPid":"129","title":"React Native 0.16.0-rc版发布","slug":"51\u002Freact-native-0-16-0-rc版发布","timestamp":1448680083868,"lastposttime":1448682394910,"postcount":2,"viewcount":966,"locked":false,"deleted":false,"pinned":false,"teaserPid":"131","titleRaw":"React Native 0.16.0-rc版发布","timestampISO":"2015-11-28T03:08:03.868Z","lastposttimeISO":"2015-11-28T03:46:34.910Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"teaser":{"pid":131,"uid":54,"tid":51,"content":"\u003Cp\u003E这个版本的升级都是干货啊\u003C\u002Fp\u003E\n","timestamp":1448682394910,"user":{"username":"binggg","userslug":"binggg","picture":"","uid":54,"icon:text":"B","icon:bgColor":"#009688"},"timestampISO":"2015-11-28T03:46:34.910Z","index":2},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":9},{"tid":32,"uid":3,"cid":1,"mainPid":"68","title":"React Native 0.15正式版发布","slug":"32\u002Freact-native-0-15正式版发布","timestamp":1448347238587,"lastposttime":1448525007944,"postcount":2,"viewcount":1092,"locked":false,"deleted":false,"pinned":false,"teaserPid":"107","titleRaw":"React Native 0.15正式版发布","timestampISO":"2015-11-24T06:40:38.587Z","lastposttimeISO":"2015-11-26T08:03:27.944Z","category":{"cid":1,"name":"公告","icon":"fa-bullhorn","bgColor":"#fda34b","color":"#fff","slug":"1\u002F公告","disabled":false},"user":{"username":"sunnylqm","userslug":"sunnylqm","picture":"\u002Fuploads\u002Fprofile\u002F3-profileimg.png","fullname":"","signature":"","reputation":9,"postcount":446,"banned":0,"status":"online","uid":3,"icon:text":"S","icon:bgColor":"#1b5e20"},"teaser":{"pid":107,"uid":12,"tid":32,"content":"\u003Cp\u003E好快，我刚进门的时候还是0.13，结果第二天就0.14了，现在0.14还没弄懂马上就0.15了\u003C\u002Fp\u003E\n","timestamp":1448525007944,"user":{"username":"拒绝的右边","userslug":"拒绝的右边","picture":"","uid":12,"icon:text":"拒","icon:bgColor":"#e91e63"},"timestampISO":"2015-11-26T08:03:27.944Z","index":2},"tags":[],"isOwner":false,"unread":true,"unreplied":false,"index":10}],"nextStart":20,"isIgnored":false,"breadcrumbs":[{"text":"[[global:home]]","url":"\u002F"},{"text":"公告","url":"\u002Fcategory\u002F1\u002F公告"}],"privileges":{"cid":"1","uid":0,"topics:create":false,"editable":false,"view_deleted":false,"read":true,"isAdminOrMod":false},"showSelect":false,"feeds:disableRSS":false,"rssFeedUrl":"\u002Fcategory\u002F1.rss","title":"公告","pagination":{"prev":{"page":1,"active":false},"next":{"page":1,"active":false},"rel":[],"pages":[],"currentPage":1,"pageCount":1},"loggedIn":false,"relative_path":"","template":{"name":"category","category":true},"bodyClass":"page-category page-category-1"},"post":null,"videos":null,"links":{"index":[{"text":"Node.js中文网","href":"http:\u002F\u002Fnodejs.cn\u002F"}],"more":[{"text":"前端乱炖","href":"http:\u002F\u002Fwww.html-js.com"},{"text":"汇智网","href":"http:\u002F\u002Fwww.hubwiz.com"},{"text":"成都眼——第四城官方APP","href":"https:\u002F\u002Fapp.4c.cn\u002F"}]},"docIndex":null,"router":{"routes":[{"path":"\u002F","component":function Site() {
+    (0, _classCallCheck3.default)(this, Site);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Site).apply(this, arguments));
+  },"indexRoute":{"component":function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.store = props.store || context.store;
+
+        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + _this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + _this.constructor.displayName + '".'));
+
+        var storeState = _this.store.getState();
+        _this.state = { storeState: storeState };
+        _this.clearCache();
+        return _this;
+      }},"childRoutes":[{"path":"cases.html","component":function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.store = props.store || context.store;
+
+        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + _this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + _this.constructor.displayName + '".'));
+
+        var storeState = _this.store.getState();
+        _this.state = { storeState: storeState };
+        _this.clearCache();
+        return _this;
+      }},{"path":"blog.html","component":function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.store = props.store || context.store;
+
+        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + _this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + _this.constructor.displayName + '".'));
+
+        var storeState = _this.store.getState();
+        _this.state = { storeState: storeState };
+        _this.clearCache();
+        return _this;
+      }},{"path":"videos.html","component":function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.store = props.store || context.store;
+
+        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + _this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + _this.constructor.displayName + '".'));
+
+        var storeState = _this.store.getState();
+        _this.state = { storeState: storeState };
+        _this.clearCache();
+        return _this;
+      }},{"path":"about.html","component":function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.store = props.store || context.store;
+
+        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + _this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + _this.constructor.displayName + '".'));
+
+        var storeState = _this.store.getState();
+        _this.state = { storeState: storeState };
+        _this.clearCache();
+        return _this;
+      }},{"path":"friendlink.html","component":function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.store = props.store || context.store;
+
+        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + _this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + _this.constructor.displayName + '".'));
+
+        var storeState = _this.store.getState();
+        _this.state = { storeState: storeState };
+        _this.clearCache();
+        return _this;
+      }},{"path":"post\u002F:tid","component":function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.store = props.store || context.store;
+
+        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + _this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + _this.constructor.displayName + '".'));
+
+        var storeState = _this.store.getState();
+        _this.state = { storeState: storeState };
+        _this.clearCache();
+        return _this;
+      }},{"path":"bbs","indexRoute":{"redirect":"http:\u002F\u002Fbbs.reactnative.cn\u002F"},"childRoutes":[{"path":"post\u002F:postId","getRedirect":function redirectFunc(_ref) {
+  var postId = _ref.postId;
+  return _bbsRedirect2.default.redirects[postId] || 'http://bbs.reactnative.cn/';
+}}]},{"path":"docs","redirect":"\u002Fdocs\u002F0.22\u002Fgetting-started.html"},{"path":"docs","component":function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.store = props.store || context.store;
+
+        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + _this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + _this.constructor.displayName + '".'));
+
+        var storeState = _this.store.getState();
+        _this.state = { storeState: storeState };
+        _this.clearCache();
+        return _this;
+      },"childRoutes":[{"path":":docid","onEnter":function docRedirect(nextState, replace) {
+  var params = nextState.params;
+
+  if (params.docid && params.docid.indexOf('.html') !== -1) {
+    replace('/docs/' + _versions2.default.current + '/' + params.docid);
+  } else {
+    replace('/docs/' + params.docid + '/getting-started.html');
+  }
+}},{"path":":version\u002F:docid","component":function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.store = props.store || context.store;
+
+        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + _this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + _this.constructor.displayName + '".'));
+
+        var storeState = _this.store.getState();
+        _this.state = { storeState: storeState };
+        _this.clearCache();
+        return _this;
+      }}]},{"path":"*","component":function NotFound() {
+    (0, _classCallCheck3.default)(this, NotFound);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(NotFound).apply(this, arguments));
+  },"status":404}]},{"component":function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.store = props.store || context.store;
+
+        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + _this.constructor.displayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + _this.constructor.displayName + '".'));
+
+        var storeState = _this.store.getState();
+        _this.state = { storeState: storeState };
+        _this.clearCache();
+        return _this;
+      }}],"params":{},"location":{"pathname":"\u002F","search":"","hash":"","state":null,"action":"POP","key":"1c7b2v","query":{},"$searchBase":{"search":"","searchBase":""}}}};</script><script src="/scripts/main-a039bf89eea284bee251.js" data-reactid=".1fj50kojg1s.1.2"></script></body></html>
