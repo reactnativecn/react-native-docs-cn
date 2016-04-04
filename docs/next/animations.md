@@ -47,7 +47,7 @@ class Playground extends React.Component {
 这三种动画类型可以用来创建几乎任何你需要的动画曲线，因为它们每一个都可以被自定义：
 
 * `spring`: 基础的单次弹跳物理模型，符合[Origami设计标准](https://facebook.github.io/origami/)
-  * `friction`: 阻力，默认为7.
+  * `friction`: 摩擦力，默认为7.
   * `tension`: 张力，默认40。
 * `decay`: 以一个初始速度开始并且逐渐减慢停止。
   * `velocity`: 起始速度，必填参数。
