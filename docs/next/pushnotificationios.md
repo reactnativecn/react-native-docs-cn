@@ -92,10 +92,11 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="addeventlistener"></a><span class="propType">static </span>addEventListener<span class="propType">(type: string, handler: Function)</span> <a class="hash-link" href="#addeventlistener">#</a></h4>
 		<div>
-			<p>添加一个监听器，监听推送的通知事件，不论应用在前台还是在后台运行</p>
+			<p>添加一个监听器，监听远程或本地推送的通知事件，不论应用在前台还是在后台运行</p>
 			<p>事件类型有：</p>
 			<ul>
 				<li><code>notification</code> : 当收到来自远程的推送通知时调用handler函数，第一个参数是一个<code>PushNotificationIOS</code>实例。</li>
+				<li><code>localNotification</code> : 当收到来自本地的推送通知时调用handler函数，第一个参数是一个<code>PushNotificationIOS</code>实例。</li>
 				<li><code>register</code>: 当用户注册远程通知的时候调用handler函数。参数是一个十六进制的字符串，表示了设备标识(deviceToken)。</li>
 			</ul>
 		</div>
