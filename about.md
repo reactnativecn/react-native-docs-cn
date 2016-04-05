@@ -4,8 +4,6 @@
 
 [晴明](http://github.com/sunnylqm)
 
-[深圳金马](http://68xg.com/)
-
 React Native及相关标识版权由©Facebook Inc.所有。本网站并非隶属于Facebook。
 
 ## 需要帮助？ ##
