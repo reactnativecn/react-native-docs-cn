@@ -57,6 +57,19 @@ __译注__：本文档的说明较为简略，使用上有一定的难度。论�
     <div>
       <p>可选的函数，用来配置场景动画和手势。会带有两个参数调用，一个是当前的路由，一个是当前的路由栈。然后它应当返回一个场景配置对象</p>
       <pre class="markdown-highlight"><code class="language-javascript hljs">(route, routeStack) =&gt; Navigator.SceneConfigs.FloatFromRight</code></pre>
+	<p可用的场景动画有：</p>
+	<ul>
+		<li>Navigator.SceneConfigs.PushFromRight (默认)</li>
+		<li>Navigator.SceneConfigs.FloatFromRight</li>
+		<li>Navigator.SceneConfigs.FloatFromLeft</li>
+		<li>Navigator.SceneConfigs.FloatFromBottom</li>
+		<li>Navigator.SceneConfigs.FloatFromBottomAndroid</li>
+		<li>Navigator.SceneConfigs.FadeAndroid</li>
+		<li>Navigator.SceneConfigs.HorizontalSwipeJump</li>
+		<li>Navigator.SceneConfigs.HorizontalSwipeJumpFromRight</li>
+		<li>Navigator.SceneConfigs.VerticalUpSwipeJump</li>
+		<li>Navigator.SceneConfigs.VerticalDownSwipeJump</li>
+	</ul>
     </div>
   </div>
   <div class="prop">
