@@ -24,7 +24,7 @@
 		<h4 class="propTitle"><a class="anchor" name="getphotos"></a><span class="propType">static </span>getPhotos<span class="propType">(params: object)</span> <a class="hash-link" href="#getphotos">#</a></h4>
 		<div>
 			<p>返回一个带有图片标识符对象的Promise。返回的对象的结构参见<a href="https://github.com/facebook/react-native/blob/0.23-stable/Libraries/CameraRoll/CameraRoll.js#L83" target="_blank"><code>getPhotosReturnChecker</code></a>。</p>
-			<p> @param {object} 要求的参数结构参见<a href=""https://github.com/facebook/react-native/blob/0.23-stable/Libraries/CameraRoll/CameraRoll.js#L45" target="_blank"><code>getPhotosParamChecker</code></a>. </p>
+			<p> @param {object} 要求的参数结构参见<a href="https://github.com/facebook/react-native/blob/0.23-stable/Libraries/CameraRoll/CameraRoll.js#L45" target="_blank"><code>getPhotosParamChecker</code></a>. </p>
 			<p> 返回一个Promise，操作成功时返回符合<a href="https://github.com/facebook/react-native/blob/0.23-stable/Libraries/CameraRoll/CameraRoll.js#L83" target="_blank"><code>getPhotosReturnChecker</code></a>结构的对象。</p>
 		</div>
 	</div>
