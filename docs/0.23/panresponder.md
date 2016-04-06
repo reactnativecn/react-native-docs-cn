@@ -124,8 +124,6 @@ var {
 } = React;
 
 var CIRCLE_SIZE = 80;
-var CIRCLE_COLOR = 'blue';
-var CIRCLE_HIGHLIGHT_COLOR = 'green';
 
 var PanResponderExample = React.createClass({
 
@@ -154,13 +152,14 @@ var PanResponderExample = React.createClass({
     this._circleStyles = {
       style: {
         left: this._previousLeft,
-        top: this._previousTop
+        top: this._previousTop,
+        backgroundColor: 'green',
       }
     };
   },
 
   componentDidMount: function() {
-    this._updatePosition();
+    this._updateNativeStyles();
   },
 
   render: function() {
@@ -179,22 +178,16 @@ var PanResponderExample = React.createClass({
   },
 
   _highlight: function() {
-    this.circle && this.circle.setNativeProps({
-      style: {
-        backgroundColor: processColor(CIRCLE_HIGHLIGHT_COLOR)
-      }
-    });
+    this._circleStyles.style.backgroundColor = 'blue';
+    this._updateNativeStyles();
   },
 
   _unHighlight: function() {
-    this.circle && this.circle.setNativeProps({
-      style: {
-        backgroundColor: processColor(CIRCLE_COLOR)
-      }
-    });
+    this._circleStyles.style.backgroundColor = 'green';
+    this._updateNativeStyles();
   },
 
-  _updatePosition: function() {
+  _updateNativeStyles: function() {
     this.circle && this.circle.setNativeProps(this._circleStyles);
   },
 
@@ -214,7 +207,7 @@ var PanResponderExample = React.createClass({
   _handlePanResponderMove: function(e: Object, gestureState: Object) {
     this._circleStyles.style.left = this._previousLeft + gestureState.dx;
     this._circleStyles.style.top = this._previousTop + gestureState.dy;
-    this._updatePosition();
+    this._updateNativeStyles();
   },
   _handlePanResponderEnd: function(e: Object, gestureState: Object) {
     this._unHighlight();
@@ -228,7 +221,6 @@ var styles = StyleSheet.create({
     width: CIRCLE_SIZE,
     height: CIRCLE_SIZE,
     borderRadius: CIRCLE_SIZE / 2,
-    backgroundColor: CIRCLE_COLOR,
     position: 'absolute',
     left: 0,
     top: 0,
