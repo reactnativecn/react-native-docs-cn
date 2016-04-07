@@ -5,7 +5,7 @@
 > 时避免渲染组件结构和同步太多视图变化所带来的的大量开销。`setNativeProps`
 > 是一个“简单粗暴”的方法，它直接在底层（DOM、UIView等）而不是React组件中
 > 记录state，这样会使代码逻辑难以理清。所以在使用这个方法之前，请尽量先尝试
-> 用`setState`和[shouldComponentUpdate](react-native/docs/direct-manipulation.html#setnativeprops-shouldcomponentupdate)方法来解决
+> 用`setState`和[shouldComponentUpdate](http://facebook.github.io/react/docs/advanced-performance.html#shouldcomponentupdate-in-action)方法来解决
 > 问题。
 
 ## setNativeProps与TouchableOpacity
