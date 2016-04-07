@@ -216,6 +216,10 @@
                     "mdlink": "segmentedcontrolios"
                 },
                 {
+                    "subject": "Slider",
+                    "mdlink": "slider"
+                },
+                {
                     "subject": "SliderIOS",
                     "mdlink": "sliderios"
                 },
