@@ -1,3 +1,5 @@
+注：`SliderIOS `现已过时，请使用跨平台的[`Slider`](slider.html)组件。 
+
 ### 截图
 ![](img/components/sliderios.png)
 
