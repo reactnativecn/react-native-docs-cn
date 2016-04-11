@@ -41,7 +41,7 @@ var styles = StyleSheet.create({
 
 <div class="props">
 	<div class="prop"><h4 class="propTitle"><a class="anchor" name="create"></a><span class="propType">static </span>create<span class="propType">(obj: {[key: string]: any})</span> <a class="hash-link" href="#create">#</a></h4></div>
-	<div class="prop"><h4 class="propTitle"><a class="anchor" name="flatten"></a><span class="propType">static </span>create<span class="propType">(styleObj: StyleObject)</span> <a class="hash-link" href="#flatten">#</a></h4></div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="flatten"></a><span class="propType">static </span>flatten<span class="propType">(styleObj: StyleObject)</span> <a class="hash-link" href="#flatten">#</a></h4></div>
 	<p>用于将一个或多个样式，展开成原始的对象形式。</p>
 </div>
 
