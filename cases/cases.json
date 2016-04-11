@@ -104,5 +104,12 @@
 		"ios": "https://itunes.apple.com/cn/app/hun-ge-rang-jie-hun-geng-jian/id1062457289?mt=8",
 		"android": "http://7xsmao.com2.z0.glb.qiniucdn.com/app-release.apk",
 		"icon": "http://a1.mzstatic.com/us/r30/Purple49/v4/d2/fc/4b/d2fc4bfb-34c8-8b78-1126-6e81fc95a520/icon175x175.png"
+	},
+	{
+		"name": "趣住啊",
+		"desc": "趣住啊-一家有趣的民宿，酒店预定旅行平台。出境游短租神器",
+		"ios": "https://itunes.apple.com/cn/app/id1047180157",
+		"android": "",
+		"icon": "http://a3.mzstatic.com/us/r30/Purple69/v4/37/25/86/3725864d-f577-8a7a-4d8d-e5657bcc062b/icon175x175.png"
 	}
 ]
