@@ -102,7 +102,7 @@ var styles = StyleSheet.create({
       <h6 class="propTitle"><span class="platform">ios</span>textDecorationColor <span class="propType">string</span></h6>
     </div>
     <div class="prop">
-      <h6 class="propTitle"><span class="platform">ios</span>textDecorationLine <span class="propType">enum("none", 'underline', 'line-through', 'underline line-through')</span></h6>
+      <h6 class="propTitle">textDecorationLine <span class="propType">enum("none", 'underline', 'line-through', 'underline line-through')</span></h6>
     </div>
     <div class="prop">
       <h6 class="propTitle"><span class="platform">ios</span>textDecorationStyle <span class="propType">enum("solid", 'double', 'dotted', 'dashed')</span></h6>
