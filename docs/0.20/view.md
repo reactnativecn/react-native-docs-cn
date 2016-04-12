@@ -86,9 +86,9 @@
 		<div>
 			<p>用于控制当前视图是否可以作为触控事件的目标。</p>
 			<ul>
-				<li><code>auto</auto>：视图可以作为触控事件的目标。</li>
-				<li><code>none</auto>：视图不能作为触控事件的目标。</li>
-				<li><code>box-none</auto>：视图自身不能作为触控事件的目标，但其子视图可以。类似于你在<code>CSS</code> 中这样设置:</li>
+				<li><code>auto</code>：视图可以作为触控事件的目标。</li>
+				<li><code>none</code>：视图不能作为触控事件的目标。</li>
+				<li><code>box-none</code>：视图自身不能作为触控事件的目标，但其子视图可以。类似于你在<code>CSS</code> 中这样设置:</li>
 			<pre>
 <code class="lang-css"><span class="hljs-class">.box-none</span> <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> none</span></span>; 
@@ -97,9 +97,10 @@
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> all</span></span>; 
 }</span>
 </code></pre>
-				<li><code>box-only</auto>：视图自身可以作为触控事件的目标，但其子视图不能。类似于你在<code>CSS</code> 中这样设置:</li>
+				<li><code>box-only</code>：视图自身可以作为触控事件的目标，但其子视图不能。类似于你在<code>CSS</code> 中这样设置:</li>
 			</ul>
-			<pre><code class="lang-css"><span class="hljs-class">.box-none</span> <span class="hljs-rules">{
+			<pre><code class="lang-css">
+<span class="hljs-class">.box-none</span> <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> all</span></span>; 
 }</span> 
 <span class="hljs-class">.box-none</span> * <span class="hljs-rules">{
