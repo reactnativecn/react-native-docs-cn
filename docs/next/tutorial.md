@@ -6,7 +6,7 @@
 
 ## 准备工作
 
-React Native需要一些基础的配置工作，你可以参考[开始使用React Native](/docs/getting-started.html)来进行。
+React Native需要一些基础的配置工作，你可以参考[开始使用React Native](getting-started.html)来进行。
 
 在所有依赖的软件都已经安装完毕后，只需要输入两条命令就可以创建一个React Native工程。
 
@@ -58,8 +58,10 @@ var MOCKED_MOVIES_DATA = [
 
 ```javascript
 import React, {
-  AppRegistry,
   Component,
+} from 'react';
+import {
+  AppRegistry,
   Image,
   StyleSheet,
   Text,
@@ -293,8 +295,10 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
 
 ```javascript
 import React, {
-  AppRegistry,
   Component,
+} from 'react';
+import {
+  AppRegistry,
   Image,
   ListView,
   StyleSheet,
@@ -379,8 +383,10 @@ import React, {
  */
 
 import React, {
-  AppRegistry,
   Component,
+} from 'react';
+import {
+  AppRegistry,
   Image,
   ListView,
   StyleSheet,
