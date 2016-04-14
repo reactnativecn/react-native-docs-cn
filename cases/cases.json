@@ -111,5 +111,12 @@
 		"ios": "https://itunes.apple.com/cn/app/id1047180157",
 		"android": "",
 		"icon": "http://a3.mzstatic.com/us/r30/Purple69/v4/37/25/86/3725864d-f577-8a7a-4d8d-e5657bcc062b/icon175x175.png"
+	},
+	{
+		"name": "干货分享",
+		"desc": "程序员的神器,你懂得",
+		"github": "https://github.com/zhongjie-chen/rn_rank",
+		"android": "http://apk.gfan.com/Product/App1099977.html",
+		"icon": "https://github.com/zhongjie-chen/rn_rank/blob/master/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
 	}
 ]
