@@ -175,7 +175,7 @@ __译注__：这一部分涉及到较新的js语法和特性，不熟悉的读�
 ```objective-c
 RCT_REMAP_METHOD(findEvents,
                  resolver:(RCTPromiseResolveBlock)resolve
-                 rejecter:(RCTPromiseRejectBlock)reject))
+                 rejecter:(RCTPromiseRejectBlock)reject)
 {
   NSArray *events = ...
   if (events) {
