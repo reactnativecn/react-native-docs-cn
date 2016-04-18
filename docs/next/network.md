@@ -109,6 +109,33 @@ request.open('GET', 'https://mywebsite.com/endpoint.php');
 request.send();
 ```
 
+也可以这样用：  
+
+```javascript
+var request = new XMLHttpRequest();
+
+function onLoad() {
+    console.log(request.status);
+    console.log(request.responseText);
+};
+
+function onTimeout() {
+    console.log('Timeout');
+    console.log(request.responseText);
+};
+
+function onError() {
+    console.log('General network error');
+    console.log(request.responseText);
+};
+
+request.onload = onLoad;
+request.ontimeout = onTimeout;
+request.onerror = onError;
+request.open('GET', 'https://mywebsite.com/endpoint.php');
+request.send();
+```  
+
 要查阅完整的API描述，请参阅[MDN文档](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)。
 
-作为开发者来说，你通常不应该直接使用XMLHttpRequest，因为它的API用起来非常冗长。不过这一API的实现完全兼容浏览器，因而你可以使用很多npm上已有的第三方库，例如[Parse]( https://parse.com/products/javascript)，[frisbee](https://github.com/niftylettuce/frisbee)或是[axios](https://github.com/mzabriskie/axios)。
+作为开发者来说，你通常不应该直接使用XMLHttpRequest，因为它的API用起来非常冗长。不过这一API的实现完全兼容浏览器，因而你可以使用很多npm上已有的第三方库，例如[frisbee](https://github.com/niftylettuce/frisbee)或是[axios](https://github.com/mzabriskie/axios)。(不过我们还是推荐你使用fetch)
