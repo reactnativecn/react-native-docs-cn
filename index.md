@@ -24,8 +24,10 @@ Facebook已经在多项产品中使用了React Native，并且将持续地投入
 ```javascript
 // iOS
 
-import React, { 
+import React, {
   Component,
+} from 'react';
+import {
   TabBarIOS, 
   NavigatorIOS 
 } from 'react-native';
@@ -46,8 +48,10 @@ class App extends Component {
 ```javascript
 // Android
 
-import React, { 
+import React, {
   Component,
+} from 'react';
+import {
   DrawerLayoutAndroid, 
   ProgressBarAndroid, 
   Text 
@@ -80,8 +84,10 @@ React Native实现了一个强大的触摸事件处理系统，可以在复杂�
 ```javascript
 // iOS & Android
 
-import React, { 
+import React, {
   Component,
+} from 'react';
+import {
   ScrollView,
   TouchableHighlight,
   Text
@@ -106,8 +112,10 @@ class TouchDemo extends Component {
 ```javascript
 // iOS & Android
 
-var React, {
+import React, {
   Component,
+} from 'react';
+import {
   Image, 
   StyleSheet, 
   Text, 
@@ -150,8 +158,10 @@ React Native致力于改进视图代码的编写方式。除此之外，我们�
 ```javascript
 // iOS & Android
 
-import React, { 
+import React, {
   Component,
+} from 'react';
+import {
   Text 
 } from 'react-native';
 
@@ -209,6 +219,8 @@ RCT_EXPORT_METHOD(processString:(NSString *)input callback:(RCTResponseSenderBlo
 
 import React, {
   Component,
+} from 'react';
+import {
   NativeModules,
   Text
 } from 'react-native';
@@ -300,6 +312,8 @@ public class MyCustomModule extends ReactContextBaseJavaModule {
 
 import React, {
   Component,
+} from 'react';
+import {
   NativeModules,
   Text
 } from 'react-native';

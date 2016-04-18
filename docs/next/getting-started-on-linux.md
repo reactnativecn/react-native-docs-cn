@@ -25,6 +25,7 @@ __注__：上面的命令是针对Ubuntu的。如果你使用的是其他的发�
 将下面的命令粘贴到终端中，以通过源代码来编译并安装watchman：
 
 ```sh
+sudo apt-get install -y automake python-dev
 git clone https://github.com/facebook/watchman.git
 cd watchman
 git checkout v4.1.0  # the latest stable release
@@ -33,6 +34,7 @@ git checkout v4.1.0  # the latest stable release
 make
 sudo make install
 ```
+__注__：上面的```apt-get install```命令是针对Ubuntu/Debian的。如果你使用的是其他的发行版本，则可能需要使用不同的包安装命令。
 
 #### 安装Flow
 

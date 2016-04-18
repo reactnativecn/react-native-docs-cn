@@ -47,7 +47,7 @@ class Playground extends React.Component {
 这三种动画类型可以用来创建几乎任何你需要的动画曲线，因为它们每一个都可以被自定义：
 
 * `spring`: 基础的单次弹跳物理模型，符合[Origami设计标准](https://facebook.github.io/origami/)
-  * `friction`: 阻力，默认为7.
+  * `friction`: 摩擦力，默认为7.
   * `tension`: 张力，默认40。
 * `decay`: 以一个初始速度开始并且逐渐减慢停止。
   * `velocity`: 起始速度，必填参数。
@@ -227,14 +227,15 @@ var App = React.createClass({
 这个库并未随React Native一起发布——要在你的工程中使用它，则需要先在你的工程目录下执行`npm i react-tween-state --save`来安装。
 
 ```javascript
-var tweenState = require('react-tween-state');
+import tweenState from 'react-tween-state';
+import reactMixin from 'react-mixin'; // https://github.com/brigand/react-mixin
 
-var App = React.createClass({
-  mixins: [tweenState.Mixin],
-
-  getInitialState() {
-    return { opacity: 1 }
-  },
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { opacity: 1 };
+    this._animateOpacity = this._animateOpacity.bind(this);
+  }
 
   _animateOpacity() {
     this.tweenState('opacity', {
@@ -242,7 +243,7 @@ var App = React.createClass({
       duration: 1000,
       endValue: this.state.opacity === 0.2 ? 1 : 0.2,
     });
-  },
+  }
 
   render() {
     return (
@@ -254,8 +255,10 @@ var App = React.createClass({
         </TouchableWithoutFeedback>
       </View>
     )
-  },
-});
+  }
+}
+
+reactMixin.onClass(App, tweenState.Mixin);
 ```
 [运行这个例子](https://rnplay.org/apps/4FUQ-A)
 

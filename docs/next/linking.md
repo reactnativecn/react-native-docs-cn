@@ -19,6 +19,8 @@ componentDidMount() {
 对于iOS来说，如果要在App启动后也监听传入的App链接，那么需要在`AppDelegate.m`中增加以下代码：
 
 ```objective-c
+#import "RCTLinkingManager.h"
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
    sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
  {
