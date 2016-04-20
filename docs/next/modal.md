@@ -9,7 +9,7 @@ Modal组件可以用来覆盖包含React Native根视图的原生视图（如UIV
 
 ### 属性
 
-<div class="props"><div class="prop"><h4 class="propTitle"><a class="anchor" name="animated"></a>animated <span class="propType">bool</span> <a class="hash-link" href="#animated">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="ondismiss"></a>onDismiss <span class="propType">function</span> <a class="hash-link" href="#ondismiss">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="transparent"></a>transparent <span class="propType">bool</span> <a class="hash-link" href="#transparent">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="visible"></a>visible <span class="propType">bool</span> <a class="hash-link" href="#visible">#</a></h4></div></div>
+<div class="props"><div class="prop"><h4 class="propTitle"><a class="anchor" name="animated"></a>animated <span class="propType">bool</span> <a class="hash-link" href="#animated">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="onRequestClose"></a>onRequestClose <span class="propType">Platform.OS === 'android' ? PropTypes.func.isRequired : PropTypes.func</span> <a class="hash-link" href="#onRequestClose">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="onShow"></a>onShow <span class="propType">function</span> <a class="hash-link" href="#onShow">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="transparent"></a>transparent <span class="propType">bool</span> <a class="hash-link" href="#transparent">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="visible"></a>visible <span class="propType">bool</span> <a class="hash-link" href="#visible">#</a></h4></div></div>
 
 ### 例子
 
@@ -20,7 +20,7 @@ var React = require('react-native');
 var {
   Modal,
   StyleSheet,
-  SwitchIOS,
+  Switch,
   Text,
   TouchableHighlight,
   View,
@@ -97,7 +97,9 @@ var ModalExample = React.createClass({
         <Modal
           animated={this.state.animated}
           transparent={this.state.transparent}
-          visible={this.state.modalVisible}>
+          visible={this.state.modalVisible}
+          onRequestClose={() => {this._setModalVisible(false)}}
+          >
           <View style={[styles.container, modalBackgroundStyle]}>
             <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
               <Text>This modal was presented {this.state.animated ? 'with' : 'without'} animation.</Text>
@@ -112,12 +114,12 @@ var ModalExample = React.createClass({
 
         <View style={styles.row}>
           <Text style={styles.rowTitle}>Animated</Text>
-          <SwitchIOS value={this.state.animated} onValueChange={this._toggleAnimated} />
+          <Switch value={this.state.animated} onValueChange={this._toggleAnimated} />
         </View>
 
         <View style={styles.row}>
           <Text style={styles.rowTitle}>Transparent</Text>
-          <SwitchIOS value={this.state.transparent} onValueChange={this._toggleTransparent} />
+          <Switch value={this.state.transparent} onValueChange={this._toggleTransparent} />
         </View>
 
         <Button onPress={this._setModalVisible.bind(this, true)}>
