@@ -38,7 +38,7 @@ npm config set disturl https://npm.taobao.org/dist
 
 ### Hello World
 
-`react-native init`命令会创建一个指定名字的应用，我们刚才输入的命令就创建了一个名为AwesomePrjoect的应用。这是一个简单的Hello World应用。对于iOS版本，你可以编辑`index.ios.js`来做一些改动，然后在模拟器中按⌘+R来看到修改的结果。对Android版本，你可以编辑`index.android.js`来做一些改动，然后在摇一摇菜单中点击“Reload JS”来看到修改的结果。
+`react-native init`命令会创建一个指定名字的应用，我们刚才输入的命令就创建了一个名为AwesomeProject的应用。这是一个简单的Hello World应用。对于iOS版本，你可以编辑`index.ios.js`来做一些改动，然后在模拟器中按⌘+R来看到修改的结果。对Android版本，你可以编辑`index.android.js`来做一些改动，然后在摇一摇菜单中点击“Reload JS”来看到修改的结果。
 
 ### 模拟数据
 
