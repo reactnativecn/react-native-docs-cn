@@ -43,7 +43,7 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 			<li><p><code>interactive</code> 软键盘伴随拖拽操作同步地消失，并且如果往上滑动会恢复键盘。安卓设备上不支持这个选项，会表现的和<code>none</code>一样。</p></li>
 			</ul>
 		</div>
-	</div>
+	</div>b
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="keyboardshouldpersisttaps"></a>keyboardShouldPersistTaps <span class="propType">bool</span> <a class="hash-link" href="#keyboardshouldpersisttaps">#</a></h4>
 		<div>
@@ -82,6 +82,9 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 		<div class="compactProps">
 			<div class="prop">
 				<h6 class="propTitle"><a href="flexbox.html#proptypes">Flexbox...</a></h6>
+			</div>
+			<div class="prop">
+				<h6 class="propTitle"><a href="shadowproptypesios。html#style">ShadowPropTypesIOS#style...</a></h6>
 			</div>
 			<div class="prop">
 				<h6 class="propTitle"><a href="transforms.html#proptypes">Transforms...</a></h6>
@@ -159,6 +162,17 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 				<h6 class="propTitle">shadowRadius <span class="propType">number</span></h6>
 			</div>
 		</div>
+	</div>
+	<div class="prop">
+	    <h4 class="propTitle">
+	        <a class="anchor" name="endfillcolor"></a>
+	        <span class="platform">android</span>endFillColor
+	        <span class="propType"><a href="colors.html">color</a></span> 
+	        <a class="hash-link" href="#endfillcolor">#</a>
+	    </h4>
+	    <div>
+	        <p>有时候滚动视图会占据比实际内容更多的空间。这种情况下可以使用此属性，指定以某种颜色来填充多余的空间，以避免设置背景和创建不必要的绘制开销。一般情况下并不需要这种高级优化技巧。</p>
+	    </div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="alwaysbouncehorizontal"></a><span class="platform">ios</span>alwaysBounceHorizontal <span class="propType">bool</span> <a class="hash-link" href="#alwaysbouncehorizontal">#</a></h4>

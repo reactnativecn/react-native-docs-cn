@@ -72,7 +72,7 @@
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="pressretentionoffset"></a>pressRetentionOffset <span class="propType">{top: number, left: number, bottom: number, right: number}</span> <a class="hash-link" href="#pressretentionoffset">#</a></h4>
         <div>
-            <p>在当前视图不能滚动的前提下指定这个属性，可以决定当手指移开多远距离之后，会不再激活按钮。但如果手指再次移回范围内，按钮会被再次激活。只要视图不能滚动，你可以来回多次这样的操作。确保你传入一个常量来减少内存消耗。</p>
+            <p>在当前视图不能滚动的前提下指定这个属性，可以决定当手指移开多远距离之后，会不再激活按钮。但如果手指再次移回范围内，按钮会被再次激活。只要视图不能滚动，你可以来回多次这样的操作。确保你传入一个常量来减少内存分配。</p>
         </div>
     </div>
 </div>

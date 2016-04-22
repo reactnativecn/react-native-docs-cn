@@ -122,6 +122,9 @@
 			<h6 class="propTitle"><a href="flexbox.html#proptypes">Flexbox...</a></h6>
 		</div>
 		<div class="prop">
+			<h6 class="propTitle"><a href="shadowproptypesios。html#style">ShadowPropTypesIOS#style...</a></h6>
+		</div>
+		<div class="prop">
 			<h6 class="propTitle"><a href="transforms.html#proptypes">Transforms...</a></h6>
 		</div>
 		<div class="prop">
@@ -185,16 +188,14 @@
 			<h6 class="propTitle">overflow <span class="propType">enum('visible', 'hidden')</span></h6>
 		</div>
 		<div class="prop">
-			<h6 class="propTitle">shadowColor <span class="propType">string</span></h6>
+		<h6 class="propTitle">
+		<span class="platform">android</span>
+		elevation <span class="propType">number</span> 		<div>
+		<p>(限Android)使用Android原生的
+<a href="https://developer.android.com/training/material/shadows-clipping.html#Elevation" target="_blank">elevation API</a>来设置视图的高度（elevation）。这样可以为视图添加一个投影，并且会影响视图层叠的顺序。此属性仅支持Android5.0及以上版本。
+</p>
 		</div>
-		<div class="prop">
-			<h6 class="propTitle">shadowOffset <span class="propType">{width: number, height: number}</span></h6>
-		</div>
-		<div class="prop">
-			<h6 class="propTitle">shadowOpacity <span class="propType">number</span></h6>
-		</div>
-		<div class="prop">
-			<h6 class="propTitle">shadowRadius <span class="propType">number</span></h6></div>
+		</h6>
 		</div>
 	</div>
 	<div class="prop">

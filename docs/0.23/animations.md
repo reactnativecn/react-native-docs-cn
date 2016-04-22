@@ -227,14 +227,15 @@ var App = React.createClass({
 这个库并未随React Native一起发布——要在你的工程中使用它，则需要先在你的工程目录下执行`npm i react-tween-state --save`来安装。
 
 ```javascript
-var tweenState = require('react-tween-state');
+import tweenState from 'react-tween-state';
+import reactMixin from 'react-mixin'; // https://github.com/brigand/react-mixin
 
-var App = React.createClass({
-  mixins: [tweenState.Mixin],
-
-  getInitialState() {
-    return { opacity: 1 }
-  },
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { opacity: 1 };
+    this._animateOpacity = this._animateOpacity.bind(this);
+  }
 
   _animateOpacity() {
     this.tweenState('opacity', {
@@ -242,7 +243,7 @@ var App = React.createClass({
       duration: 1000,
       endValue: this.state.opacity === 0.2 ? 1 : 0.2,
     });
-  },
+  }
 
   render() {
     return (
@@ -254,8 +255,10 @@ var App = React.createClass({
         </TouchableWithoutFeedback>
       </View>
     )
-  },
-});
+  }
+}
+
+reactMixin.onClass(App, tweenState.Mixin);
 ```
 [运行这个例子](https://rnplay.org/apps/4FUQ-A)
 

@@ -10,7 +10,13 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
   />
 ```
 
-注意有些属性仅在`multiline`为true或者为false的时候有效。
+注意有些属性仅在`multiline`为true或者为false的时候有效。此外，当`multiline=false`时，为元素的某一个边添加边框样式（例如：`borderBottomColor`，`borderLeftWidth`等）将不会生效。为了能够实现效果你可以使用一个`View`来包裹`TextInput`：
+
+``` javascript
+<View style={{ borderBottomColor: '#000000', borderBottomWidth: 1, }}>
+   <TextInput {...props} />
+ </View>
+```
 
 ### 截图
 ![](img/components/textinput.png)
@@ -145,22 +151,22 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
             <p>如果为true，文本框会遮住之前输入的文字，这样类似密码之类的敏感文字可以更加安全。默认值为false。</p>
         </div>
     </div>
-	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="selectioncolor"></a>selectionColor <span class="propType">string</span> <a class="hash-link" href="#selectioncolor">#</a></h4>
-		<div>
-			<p>设置输入框高亮时的颜色（在iOS上还包括光标）</p>
-		</div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="selectTextOnFocus"></a>selectTextOnFocus <span class="propType">bool</span> <a class="hash-link" href="#selectTextOnFocus">#</a></h4>
+        <div>
+            <p>如果为true，当获得焦点的时候，所有的文字都会被选中。</p>
+        </div>
+    </div>
+    <div class="prop">
+	<h4 class="propTitle"><a class="anchor" name="selectioncolor"></a>selectionColor <span class="propType">string</span> <a class="hash-link" href="#selectioncolor">#</a></h4>
+	<div>
+	    <p>设置输入框高亮时的颜色（在iOS上还包括光标）</p>
+	</div>
 	</div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="style"></a>style <span class="propType"><a href="text.html#style">Text#style</a></span> <a class="hash-link" href="#style">#</a></h4>
         <div>
             <p>Styles</p>
-        </div>
-    </div>
-    <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="testid"></a>testID <span class="propType">string</span> <a class="hash-link" href="#testid">#</a></h4>
-        <div>
-            <p>用来在端到端测试中定位这个视图。</p>
         </div>
     </div>
     <div class="prop">
@@ -195,12 +201,6 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
         </div>
     </div>
     <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="numberoflines"></a><span class="platform">android</span>numberOfLines <span class="propType">number</span> <a class="hash-link" href="#numberoflines">#</a></h4>
-        <div>
-            <p>设置输入框的行数。当multiline设置为true时使用它，可以占据对应的行数。</p>
-        </div>
-    </div>
-    <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="onkeypress"></a><span class="platform">ios</span>onKeyPress <span class="propType">function</span> <a class="hash-link" href="#onkeypress">#</a></h4>
         <div>
             <p>当一个键被按下的时候调用此回调。被按下的键会作为参数传递给回调函数。会在onChange之前调用。</p>
@@ -213,15 +213,15 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
         </div>
     </div>
     <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="selecttextonfocus"></a><span class="platform">ios</span>selectTextOnFocus <span class="propType">bool</span> <a class="hash-link" href="#selecttextonfocus">#</a></h4>
-        <div>
-            <p>如果为true，当获得焦点的时候，所有的文字都会被选中。</p>
-        </div>
-    </div>
-    <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="selectionstate"></a><span class="platform">ios</span>selectionState <span class="propType">DocumentSelectionState</span> <a class="hash-link" href="#selectionstate">#</a></h4>
         <div>
             <p>参见DocumentSelectionState.js，可以控制一个文档中哪段文字被选中的状态。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="numberoflines"></a><span class="platform">android</span>numberOfLines <span class="propType">number</span> <a class="hash-link" href="#numberoflines">#android</a></h4>
+        <div>
+            <p>设置输入框的行数。当multiline设置为true时使用它，可以占据对应的行数。</p>
         </div>
     </div>
     <div class="prop">
