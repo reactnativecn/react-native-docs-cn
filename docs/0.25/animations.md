@@ -329,7 +329,7 @@ var App = React.createClass({
 
 你还可以为弹跳值启用边界，这样它们不会超出，而是会缓缓接近最终值。在上面的例子里，我们可以添加`this._scrollSpring.setOvershootClampingEnabled(true)`来启用边界。参见下面的gif动画来看一个启用了边界的效果：
 
-![](/react-native/img/Rebound.gif) 截图来自
+![](img/Rebound.gif) 截图来自
 [react-native-scrollable-tab-view](https://github.com/brentvatne/react-native-scrollable-tab-view)。
 
 你可以在[这里](https://rnplay.org/apps/qHU_5w)看到一个类似的例子。
