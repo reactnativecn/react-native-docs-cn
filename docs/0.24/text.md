@@ -93,7 +93,7 @@ var styles = StyleSheet.create({
 	    </div>
     </div>
     <div class="prop">
-      <h6 class="propTitle"><span class="platform">android</span>textAlignVertical <span class="propType">enumenum('auto', 'top', 'bottom', 'center')</span></h6>
+      <h6 class="propTitle"><span class="platform">android</span>textAlignVertical <span class="propType">enum('auto', 'top', 'bottom', 'center')</span></h6>
     </div>
     <div class="prop">
       <h6 class="propTitle"><span class="platform">ios</span>letterSpacing <span class="propType">number</span></h6>
