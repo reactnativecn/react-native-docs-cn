@@ -210,17 +210,38 @@ var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
 
 ## 事件
 
-现在我们已经有了一个原生地图组件，并且从JS可以很容易的控制它了。不过我们怎么才能处理来自用户的事件，譬如缩放操作或者拖动来改变可视区域？关键的步骤就在于让`RCTMapManager`来委托我们提供的所有视图，然后把事件通过分发器传递给JavaScript。最终的代码看起来类似这样（比起完整的实现有所简化）：
+现在我们已经有了一个原生地图组件，并且从JS可以很容易的控制它了。不过我们怎么才能处理来自用户的事件，譬如缩放操作或者拖动来改变可视区域？关键的步骤是在`RCTMapManager`中声明一个事件处理函数的属性（onChange），来委托我们提供的所有视图，然后把事件传递给JavaScript。最终的代码看起来类似这样（比起完整的实现有所简化）：
 
 ```objective-c
-// RCTMapManager.m
+// RCTMap.h
 
+#import <MapKit/MapKit.h>
+
+#import "RCTComponent.h"
+
+@interface RCTMap: MKMapView
+
+@property (nonatomic, copy) RCTBubblingEventBlock onChange;
+
+@end
+```
+
+```objective-c
+// RCTMap.m
+
+#import "RCTMap.h"
+
+@implementation RCTMap
+
+@end
+```
+
+```objective-c
 #import "RCTMapManager.h"
 
 #import <MapKit/MapKit.h>
 
-#import "RCTBridge.h"
-#import "RCTEventDispatcher.h"
+#import "RCTMap.h"
 #import "UIView+React.h"
 
 @interface RCTMapManager() <MKMapViewDelegate>
@@ -230,9 +251,11 @@ var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
 
 RCT_EXPORT_MODULE()
 
+RCT_EXPORT_VIEW_PROPERTY(onChange, RCTBubblingEventBlock)
+
 - (UIView *)view
 {
-  MKMapView *map = [[MKMapView alloc] init];
+  RCTMap *map = [RCTMap new];
   map.delegate = self;
   return map;
 }
@@ -241,21 +264,23 @@ RCT_EXPORT_MODULE()
 
 - (void)mapView:(RCTMap *)mapView regionDidChangeAnimated:(BOOL)animated
 {
+  if (!mapView.onChange) {
+    return;
+  }
+
   MKCoordinateRegion region = mapView.region;
-  NSDictionary *event = @{
-    @"target": mapView.reactTag,
+  mapView.onChange(@{
     @"region": @{
       @"latitude": @(region.center.latitude),
       @"longitude": @(region.center.longitude),
       @"latitudeDelta": @(region.span.latitudeDelta),
       @"longitudeDelta": @(region.span.longitudeDelta),
     }
-  };
-  [self.bridge.eventDispatcher sendInputEventWithName:@"topChange" body:event];
+  });
 }
 ```
 
-如你所见，我们刚才配置了管理器，委托它代理创建的所有视图，并且在委托方法`-mapView:regionDidChangeAnimated:`中，把地图目前的区域以及`reactTag`目标封装成了一个事件，这样我们的事件就可以通过`sendInputEventWithName:body:`发送到正确的React组件实例上。事件名`@"topChange"`对应的是JavaScript端的`onChange`回调属性。这个回调会被原生事件执行，然后我们通常都会在封装组件里做一些处理，来使得API更简明：
+如你所见，我们刚才通过继承`MKMapView`添加了事件处理函数，然后我们将`onChange`暴露出来，委托`RCTMapManager`代理其创建的所有视图。最后在委托方法`-mapView:regionDidChangeAnimated:`中，根据对应的视图调用事件处理函数并传递区域数据。调用`onChange`事件会触发JavaScript端的同名回调函数。这个回调会被原生事件执行，然后我们通常都会在封装组件里做一些处理，来使得API更简明：
 
 
 ```javascript
