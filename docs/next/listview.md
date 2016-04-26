@@ -42,6 +42,9 @@ ListView还支持一些高级特性，譬如给每段/组(section)数据添加�
   </div>
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="datasource"></a>dataSource <span class="propType">ListViewDataSource</span> <a class="hash-link" href="#datasource">#</a></h4>
+	<div>
+		<p><a href="listviewdatasource.html" target="_blank">ListView.DataSource</a>实例（列表依赖的数据源）</p>
+	</div>
   </div>
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="initiallistsize"></a>initialListSize <span class="propType">number</span> <a class="hash-link" href="#initiallistsize">#</a></h4>
@@ -126,7 +129,28 @@ ListView还支持一些高级特性，譬如给每段/组(section)数据添加�
       <p>当一个行接近屏幕范围多少像素之内的时候，就开始渲染这一行。</p>
     </div>
   </div>
+  <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="stickyheaderindices"></a><span class="platform">ios</span>stickyHeaderIndices <span class="propType">[number]</span> <a class="hash-link" href="#stickyheaderindices">#</a></h4>
+        <div>
+            <p>一个子视图下标的数组，用于决定哪些成员会在滚动之后固定在屏幕顶端。举个例子，传递<code>stickyHeaderIndices={[0]}</code>会让第一个成员固定在滚动视图顶端。这个属性不能和<code>horizontal={true}</code>一起使用。</p>
+        </div>
+    </div>
 </div>
+
+### 方法
+
+<div class="props">
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="getmetrics"></a>getMetrics<span
+            class="propType">()</span> <a class="hash-link" href="#getmetrics">#</a></h4>
+        <div><p>导出一些用于性能分析的数据。</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="scrollto"></a>scrollTo<span class="propType">(...args)</span>
+        <a class="hash-link" href="#scrollto">#</a></h4>
+        <div><p>滚动到指定的x, y偏移处，可以指定是否加上过渡动画。</p>
+            <p>参考 <a href="scrollview#scrollto">ScrollView#scrollTo</a>.</p></div>
+    </div>
+</div>
+
 
 ### 例子
 
@@ -139,6 +163,7 @@ var {
   ListView,
   TouchableHighlight,
   StyleSheet,
+  RecyclerViewBackedScrollView,
   Text,
   View,
 } = React;
@@ -147,7 +172,7 @@ var UIExplorerPage = require('./UIExplorerPage');
 
 var ListViewSimpleExample = React.createClass({
   statics: {
-    title: '<ListView> - Simple',
+    title: '<ListView>',
     description: 'Performant, scrollable list of data.'
   },
 
@@ -167,12 +192,14 @@ var ListViewSimpleExample = React.createClass({
   render: function() {
     return (
       <UIExplorerPage
-        title={this.props.navigator ? null : '<ListView> - Simple'}
+        title={this.props.navigator ? null : '<ListView>'}
         noSpacer={true}
         noScroll={true}>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
+          renderScrollComponent={props => <RecyclerViewBackedScrollView {...props} />}
+          renderSeparator={(sectionID, rowID) => <View key={`${sectionID}-${rowID}`} style={styles.separator} />}
         />
       </UIExplorerPage>
     );
@@ -180,9 +207,7 @@ var ListViewSimpleExample = React.createClass({
 
   _renderRow: function(rowData: string, sectionID: number, rowID: number) {
     var rowHash = Math.abs(hashCode(rowData));
-    var imgSource = {
-      uri: THUMB_URLS[rowHash % THUMB_URLS.length],
-    };
+    var imgSource = THUMB_URLS[rowHash % THUMB_URLS.length];
     return (
       <TouchableHighlight onPress={() => this._pressRow(rowID)}>
         <View>
@@ -192,7 +217,6 @@ var ListViewSimpleExample = React.createClass({
               {rowData + ' - ' + LOREM_IPSUM.substr(0, rowHash % 301 + 10)}
             </Text>
           </View>
-          <View style={styles.separator} />
         </View>
       </TouchableHighlight>
     );
@@ -216,18 +240,18 @@ var ListViewSimpleExample = React.createClass({
 });
 
 var THUMB_URLS = [
-  'Thumbnails/like.png',
-  'Thumbnails/dislike.png',
-  'Thumbnails/call.png',
-  'Thumbnails/fist.png',
-  'Thumbnails/bandaged.png',
-  'Thumbnails/flowers.png',
-  'Thumbnails/heart.png',
-  'Thumbnails/liking.png',
-  'Thumbnails/party.png',
-  'Thumbnails/poke.png',
-  'Thumbnails/superlike.png',
-  'Thumbnails/victory.png',
+  require('./Thumbnails/like.png'),
+  require('./Thumbnails/dislike.png'),
+  require('./Thumbnails/call.png'),
+  require('./Thumbnails/fist.png'),
+  require('./Thumbnails/bandaged.png'),
+  require('./Thumbnails/flowers.png'),
+  require('./Thumbnails/heart.png'),
+  require('./Thumbnails/liking.png'),
+  require('./Thumbnails/party.png'),
+  require('./Thumbnails/poke.png'),
+  require('./Thumbnails/superlike.png'),
+  require('./Thumbnails/victory.png'),
   ];
 var LOREM_IPSUM = 'Lorem ipsum dolor sit amet, ius ad pertinax oportere accommodare, an vix civibus corrumpit referrentur. Te nam case ludus inciderint, te mea facilisi adipiscing. Sea id integre luptatum. In tota sale consequuntur nec. Erat ocurreret mei ei. Eu paulo sapientem vulputate est, vel an accusam intellegam interesset. Nam eu stet pericula reprimique, ea vim illud modus, putant invidunt reprehendunt ne qui.';
 

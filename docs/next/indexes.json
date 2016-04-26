@@ -172,6 +172,10 @@
                     "mdlink": "listview"
                 },
                 {
+                    "subject": "ListView.DataSource",
+                    "mdlink": "listviewdatasource"
+                },
+                {
                     "subject": "MapView",
                     "mdlink": "mapview"
                 },
