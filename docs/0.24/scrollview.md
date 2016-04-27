@@ -43,7 +43,7 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 			<li><p><code>interactive</code> 软键盘伴随拖拽操作同步地消失，并且如果往上滑动会恢复键盘。安卓设备上不支持这个选项，会表现的和<code>none</code>一样。</p></li>
 			</ul>
 		</div>
-	</div>b
+	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="keyboardshouldpersisttaps"></a>keyboardShouldPersistTaps <span class="propType">bool</span> <a class="hash-link" href="#keyboardshouldpersisttaps">#</a></h4>
 		<div>
@@ -258,7 +258,13 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 	</div>
 	<div class="prop">
 	<h4 class="propTitle"><a class="anchor" name="onrefreshstart"></a><span class="platform">ios</span>onRefreshStart <span class="propType">function</span> <a class="hash-link" href="#onrefreshstart">#</a></h4>
-<div class="deprecated"><div class="deprecatedTitle"><span>已过期</span></div><div class="deprecatedMessage"><div><p>请使用<code>refreshControl</code> 属性代替。</p></div></div></div>
+	<div class="deprecated">
+	<div class="deprecatedTitle"><span>已过期</span></div>
+	<div class="deprecatedMessage"><div><p>请使用<code>refreshControl</code> 属性代替。</p>
+	</div>
+	</div>
+	</div>
+	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onscrollanimationend"></a><span class="platform">ios</span>onScrollAnimationEnd <span class="propType">function</span> <a class="hash-link" href="#onscrollanimationend">#</a></h4>
 		<div>

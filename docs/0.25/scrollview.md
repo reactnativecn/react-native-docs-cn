@@ -171,7 +171,7 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 	        <a class="hash-link" href="#endfillcolor">#</a>
 	    </h4>
 	    <div>
-	        <p>有时候滚动视图会占据被实际内容更多的空间。这种情况下可以使用此属性，指定以某种颜色来填充多余的空间，以避免设置背景和创建不必要的绘制开销。一般情况下并不需要这种高级优化技巧。</p>
+	        <p>有时候滚动视图会占据比实际内容更多的空间。这种情况下可以使用此属性，指定以某种颜色来填充多余的空间，以避免设置背景和创建不必要的绘制开销。一般情况下并不需要这种高级优化技巧。</p>
 	    </div>
 	</div>
 	<div class="prop">
@@ -258,7 +258,13 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 	</div>
 	<div class="prop">
 	<h4 class="propTitle"><a class="anchor" name="onrefreshstart"></a><span class="platform">ios</span>onRefreshStart <span class="propType">function</span> <a class="hash-link" href="#onrefreshstart">#</a></h4>
-<div class="deprecated"><div class="deprecatedTitle"><span>已过期</span></div><div class="deprecatedMessage"><div><p>请使用<code>refreshControl</code> 属性代替。</p></div></div></div>
+	<div class="deprecated">
+	<div class="deprecatedTitle"><span>已过期</span></div>
+	<div class="deprecatedMessage"><div><p>请使用<code>refreshControl</code> 属性代替。</p>
+	</div>
+	</div>
+	</div>
+	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onscrollanimationend"></a><span class="platform">ios</span>onScrollAnimationEnd <span class="propType">function</span> <a class="hash-link" href="#onscrollanimationend">#</a></h4>
 		<div>
