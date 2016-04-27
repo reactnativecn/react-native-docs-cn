@@ -215,7 +215,7 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
   }
 ```
 
-组件加载完毕之后，就可以向服务器请求数据。`componentDidMount`是React组件的一个生命周期方法，它会在组件刚加载完成的时候调用一次，以后不再会被调用。React中的各种生命周期方法请[参阅此文档](http://facebook.github.io/react/docs/component-specs.html)。
+组件加载完毕之后，就可以向服务器请求数据。`componentDidMount`是React组件的一个生命周期方法，它会在组件刚加载完成的时候调用一次，以后不会再被调用。React中的各种生命周期方法请[参阅此文档](http://facebook.github.io/react/docs/component-specs.html)。
 
 ```javascript
   componentDidMount() {
