@@ -96,7 +96,8 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 ```js
 // ImageView.js
 
-var { requireNativeComponent, PropTypes } = require('react-native');
+import { PropTypes } from 'react';
+import { requireNativeComponent, View } from 'react-native';
 
 var iface = {
   name: 'ImageView',
@@ -104,6 +105,7 @@ var iface = {
     src: PropTypes.string,
     borderRadius: PropTypes.number,
     resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch']),
+    ...View.propTypes // 包含默认的View的属性
   },
 };
 
