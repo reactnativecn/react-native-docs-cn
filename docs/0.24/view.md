@@ -31,7 +31,7 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onaccessibilitytap"></a>onAccessibilityTap <span class="propType">function</span> <a class="hash-link" href="#onaccessibilitytap">#</a></h4>
 		<div>
-			<p>当<code>accessible</code>为true时，如果用户做了一个轻触(tap)手势，系统会调用此函数。</p>
+			<p>当<code>accessible</code>为true时，如果用户对一个已选中的无障碍元素做了一个双击手势时，系统会调用此函数。（译注：此事件是针对残障人士，并非是一个普通的点击事件。如果要为View添加普通点击事件，<strong>请直接使用Touchable系列组件替代View，然后添加onPress函数</strong>）。</p>
 		</div>
 	</div>
 	<div class="prop">
