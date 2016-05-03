@@ -44,7 +44,7 @@ var styles = StyleSheet.create({
 <View style={[styles.base, this.state.active && styles.active]} />
 ```
 
-最后，如果你坚持的话，你也可以在render方法中创建样式对象，但最好不要这样做（每次渲染都会被重复创建）。如果有多个样式，记得把这样动态创建的样式对象放到数组的最后。
+最后，如果你需要的话，你也可以在render方法中创建样式对象，但最好不要这样做（每次渲染都会被重复创建）。如果有多个样式，记得把这样动态创建的样式对象放到数组的最后。
 
 ```javascript
 <View
