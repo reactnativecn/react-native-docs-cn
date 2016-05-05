@@ -118,5 +118,12 @@
 		"github": "https://github.com/zhongjie-chen/rn_rank",
 		"android": "http://apk.gfan.com/Product/App1099977.html",
 		"icon": "https://github.com/zhongjie-chen/rn_rank/blob/master/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+	},
+	{
+		"name": "电猴",
+		"desc": "电商人的求职招聘平台",
+		"ios": "https://itunes.apple.com/us/app/dian-hou/id982413222?l=zh&ls=1&mt=8",
+		"android": "http://mobile.d.appchina.com/McDonald/r/3681581/com.dianhou.app?channel=aplus.direct&uid=e66dcc9b-e664-4bcf-b26e-108f14f0e2ef&page=appplus.detail",
+		"icon": "http://static.yingyonghui.com/icon/128/3681581.png"
 	}
 ]
