@@ -28,7 +28,7 @@ BigButton.android.js
 这样命名组件后你就可以在其他组件中直接引用，而无需关心当前运行的平台是哪个。
 
 ```javascript
-var BigButton = require('./components/BigButton');
+import BigButton from './components/BigButton';
 ```
 
 React Native会根据运行平台的不同引入正确对应的组件。
@@ -37,7 +37,7 @@ React Native会根据运行平台的不同引入正确对应的组件。
 React Native提供了一个检测当前运行平台的模块。如果组件只有一小部分代码需要依据平台定制，那么这个模块就可以派上用场。
 
 ```javascript
-var {Platform} = React;
+import { Platform } from 'react-native';
 
 var styles = StyleSheet.create({
   height: (Platform.OS === 'ios') ? 200 : 100,
@@ -50,7 +50,7 @@ var styles = StyleSheet.create({
 在Android上，平台模块还可以用来检测当前所运行的Android平台的版本：
 
 ```javascript
-var {Platform} = React;
+import { Platform } from 'react-native';
 
 if(Platform.Version === 21){
   console.log('Running on Lollipop!');

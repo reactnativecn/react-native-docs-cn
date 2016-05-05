@@ -43,13 +43,34 @@ npm test
 
 注意：你可能需要先在当前的环境中安装、更新或是链接Node.js和其他的一些工具，不然测试可能无法正常运行。点这里查看最新的[测试配置文件.travis.yml](https://github.com/facebook/react-native/blob/master/.travis.yml#L11-24)。
 
-## 集成测试 (仅限iOS)
+## 单元测试 (Android)
+
+React Native使用[Buck](https://github.com/facebook/buck)编译工具来运行测试。 单元测试部分直接在本地运行，不需要模拟器。运行下面的命令来执行这些测试：
+
+```bash
+$ cd react-native
+$ ./scripts/run-android-local-unit-tests.sh
+```
+
+## 集成测试 (Android)
+
+React Native使用[Buck](https://github.com/facebook/buck)编译工具来运行测试。 集成测试需要在模拟器/真机上运行，以验证模块、组件以及React Native的内核部分（比如bridge）在端对端测试中运作正常。
+
+确保你正确安装和配置了Android NDK，具体配置参见[这篇文档](https://github.com/facebook/react-native/blob/master/ReactAndroid/README.md#prerequisites)，然后运行下面的命令来执行测试：
+
+```bash
+$ cd react-native
+$ npm install
+$ ./scripts/run-android-local-integration-tests.sh
+```
+
+## 集成测试 (iOS)
 
 React Native提供了一些工具来简化跨原生与JS端的组件的集成测试。这套工具的两个主要部分是`RCTTestRunner`与`RCTTestModule`。`RCTTestRunner`预设了ReactNative的环境，并且可以以`XCTestCase`的形式在Xcode中直接运行测试 （最简单的方法就是使用`runTest:module`）。而`RCTTestModule`则是以 `NativeModules.TestModule`对象导出到了JS环境中。测试代码需要以JS写成的，并且必须在测试完成后调用`TestModule.markTestCompleted()`方法，否则测试过程会超时并且失败。失败的表现一般是抛出一个JS异常。测试错误条件也是可行的，使用`runTest:module:initialProps:expectErrorRegex:`或是`runTest:module:initialProps:expectErrorBlock:`方法，它们会按提供的条件去验证抛出的错误是否符合。你可以参考[`IntegrationTestHarnessTest.js`](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/UIExplorerIntegrationTests/js/IntegrationTestHarnessTest.js)、[`IntegrationTests.m`](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/UIExplorerIntegrationTests/IntegrationTests.m)以及 [IntegrationTestsApp.js](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/UIExplorerIntegrationTests/js/IntegrationTestsApp.js)来看具体怎么做集成测试。
 
 Xcode中运行IntegrationTest和UIExplorer两个官方示例应用时，可以按下`cmd + U`键来直接在本地运行集成测试。
 
-## 快照测试 (仅限iOS)
+## 快照测试 (iOS)
 
 快照测试是集成测试的一种常见类型。这类测试首先渲染一个组件，然后使用`TestModule.verifySnapshot()`比对屏幕截图与参考效果图，其原理是利用了[`FBSnapshotTestCase`](https://github.com/facebook/ios-snapshot-test-case)这个库。参考效果图是通过在`RCTTestRunner`中设置`recordMode = YES`，然后在运行测试时录制的。屏幕截图在32位和64位色深以及不同的操作系统版本上可能会有细微的差别，所以建议强制在指定的配置环境中执行测试。此外我们还强烈建议所有的网络数据和其他的潜在依赖项都应该事先模拟。你可以参考[`SimpleSnapshotTest`](https://github.com/facebook/react-native/blob/master/IntegrationTests/SimpleSnapshotTest.js)这个例子。
 
