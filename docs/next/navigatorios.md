@@ -126,6 +126,12 @@ var MyView = React.createClass({
 			<p>一个布尔值，决定是否导航条是半透明的。</p>
 		</div>
 	</div>
+	<div class="prop">
+		<h4 class="propTitle"><a class="anchor" name="interactivepopgestureenabled"></a>interactivePopGestureEnabled <span class="propType">bool</span> <a class="hash-link" href="#interactivepopgestureenabled">#</a></h4>
+		<div>
+			<p>决定是否启用滑动返回手势。不指定此属性时，手势会根据navigationBar的显隐情况决定是否启用（显示时启用手势，隐藏时禁用手势）。指定此属性后，手势与navigationBar的显隐情况无关。</p>
+		</div>
+	</div>
 </div>
 
 ### 样例
