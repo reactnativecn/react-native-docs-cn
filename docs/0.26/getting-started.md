@@ -34,8 +34,8 @@ _译注：_ Windows用户可以参考[这个帖子](http://bbs.reactnative.cn/to
 译注：由于众所周知的网络原因，react-native命令行从npm官方源拖代码时会遇上麻烦。请将npm仓库源替换为国内镜像：  
 
 ```bash
-npm config set registry https://registry.npm.taobao.org
-npm config set disturl https://npm.taobao.org/dist
+npm config set registry https://registry.npm.taobao.org --global
+npm config set disturl https://npm.taobao.org/dist --global
 ```
 
 另，执行init时切记不要在前面加上sudo（否则新项目的目录所有者会变为root而不是当前用户，导致一系列权限问题，请使用chown修复）。  

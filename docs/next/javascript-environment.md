@@ -9,7 +9,7 @@
 
 语法转换器可以使编写代码的过程更加享受，因为开发者可以借助转换器直接使用新的JavaScirpt语法标准，而无需等待JS解释器的支持。
 
-React Native从0.5.0版本开始已经内置[Babel转换器](https://babeljs.io)。你可以查看[Babel的文档](http://babeljs.io/docs/advanced/transformers/)来了解有关它可以转换的语法的详情。
+React Native从0.5.0版本开始已经内置[Babel转换器](https://babeljs.io)。你可以查看[Babel的文档](https://babeljs.io/docs/plugins/#transform-plugins)来了解有关它可以转换的语法的详情。
 
 这里可以看到目前React Native默认开启的[语法转换特性](https://github.com/facebook/react-native/blob/master/babel-preset/configs/main.js#L16)。  
 注：若想学习相关语法，译者推荐阮一峰老师的[《ECMAScript 6入门》](http://es6.ruanyifeng.com/)以及论坛的[讨论帖](http://bbs.reactnative.cn/topic/15)。

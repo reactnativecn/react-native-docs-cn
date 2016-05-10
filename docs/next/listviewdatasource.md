@@ -1,4 +1,4 @@
-Provides efficient data processing and access to the `ListView` component. A `ListViewDataSource` is created with functions for extracting data from the input blob, and comparing elements (with default implementations for convenience). The input blob can be as simple as an array of strings, or an object with rows nested inside section objects.
+`ListViewDataSource`为`ListView`组件提供高性能的数据处理和访问。我们需要调用方法从原始输入数据中抽取数据来创建`ListViewDataSource`对象， is created with functions for extracting data from the input blob, and comparing elements (with default implementations for convenience). The input blob can be as simple as an array of strings, or an object with rows nested inside section objects.
 
 To update the data in the datasource, use `cloneWithRows` (or `cloneWithRowsAndSections` if you care about sections). The data in the data source is immutable, so you can't modify it directly. The clone methods suck in the new data and compute a diff for each row so ListView knows whether to re-render it or not.
 
