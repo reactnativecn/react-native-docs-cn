@@ -26,6 +26,10 @@
 <span class="propType">RefreshLayoutConsts.SIZE.DEFAULT</span> <a class="hash-link" href="#size">#</a></h4>
 <div><p>指定刷新指示器的大小，具体数值可参阅RefreshControl.SIZE.</p></div>
 </div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="progressviewoffset"></a><span class="platform">android</span>progressViewOffset
+<span class="propType">React.PropTypes.number</span> <a class="hash-link" href="#progressviewoffset">#</a></h4>
+<div><p>指定刷新指示器的垂直起始位置(top offset)。</p></div>
+</div>
 <div class="prop"><h4 class="propTitle"><a class="anchor" name="tintcolor"></a><span class="platform">ios</span>tintColor
 <span class="propType">ColorPropType</span> <a class="hash-link" href="#tintcolor">#</a></h4>
 <div><p>指定刷新指示器的颜色。</p></div>
