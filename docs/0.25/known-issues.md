@@ -5,7 +5,7 @@
 
 ### 缺失的Android模块和视图
 
-虽热React Native的Android版本的开发工作晚于iOS版本，但目前大多数视图都在Android上实现了，除了下面几个例外：
+虽然React Native的Android版本的开发工作晚于iOS版本，但目前大多数视图都在Android上实现了，除了下面几个例外：
 
 #### 视图
 
