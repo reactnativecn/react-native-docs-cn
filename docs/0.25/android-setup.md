@@ -14,14 +14,27 @@
 ### 安装Android SDK(已安装的请跳过这一步)
 
 1. [安装最新版的JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+	- 此处建议安装JDK1.8
 
-2. 安装Android SDK: 
+2. 安装Android Studio 2.0+: 
+	- [Android官网均可下载](https://developer.android.com/sdk/installing/index.html)  
+
   - **Mac**: `brew install android-sdk`  
-  - **Linux或Windows**: [从Android开发者官网下载](https://developer.android.com/sdk/installing/index.html)  
-__译注__：国内用户推荐从[AndroidDevTools](http://androiddevtools.cn/)下载。
+  - **Linux或Windows**: __译注__：国内用户推荐从[AndroidDevTools](http://androiddevtools.cn/)下载。
+
+3. 安装Android Studio的时候需要一些自定义配置
+ 	- 选中Custom
+ ![custom installation](http://facebook.github.io/react-native/img/react-native-android-studio-custom-install.png)
+ 	- 选中Performance和Android Virtual Device
+![additional installs](http://facebook.github.io/react-native/img/react-native-android-studio-additional-installs.png)
+	- 安装完成之后,在Android Studio的欢迎界面(右下角)选择Configure|SDK 
+![Configure|SDK](http://facebook.github.io/react-native/img/react-native-android-studio-configure-sdk.png)
+	- 在SDK Platforms标签卡中, 选中右下角的Show Package Details选项，然后在 Android 6.0 (Marshmallow)展开的选项中选中以下内容: Google APIs, Intel x86 Atom System Image, Intel x86 Atom_64 System Image, and Google APIs Intel x86 Atom_64 System Image 	
+ ![sdk](http://facebook.github.io/react-native/img/react-native-android-studio-android-sdk-platforms.png)
+	- 在SDK Tools标签卡中, 同样选中Show Package Details，然后确保SDK Build-Tools 23.0.1该选项被选中即可（__重要__）
+![sdk tools](http://facebook.github.io/react-native/img/react-native-android-studio-android-sdk-build-tools.png)
 
 ### 定义ANDROID_HOME环境变量
-
 __重要__: 确保`ANDROID_HOME`环境变量指向你已经安装的Android SDK目录:
 
   - **Mac**, 往你的`~/.bashrc`, `~/.bash_profile` 或者你终端所用的其它配置文件中增加以下内容:  
