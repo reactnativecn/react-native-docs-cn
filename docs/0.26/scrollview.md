@@ -332,18 +332,31 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 	</div>
 </div>
 
+### 方法
+<div class="props">
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="scrollto"></a>scrollTo<span class="propType">(y: number | { x?: number, y?: number, animated?: boolean }, x: number, animated: boolean)</span>
+        <a class="hash-link" href="#scrollto">#</a></h4>
+        <div><p>滚动到指定的x, y偏移处。第三个参数为是否启用平滑滚动动画。</p>
+            <p>使用示例:</p>
+            <p><code>scrollTo({x: 0, y: 0, animated: true})</code></p></div>
+    </div>
+</div>
+
 ### 例子
 
 ```javascript
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
 var {
   ScrollView,
   StyleSheet,
+  Text,
+  TouchableOpacity,
   View,
   Image
-} = React;
+} = ReactNative;
 
 exports.displayName = (undefined: ?string);
 exports.title = '<ScrollView>';
@@ -353,27 +366,45 @@ exports.examples = [
   title: '<ScrollView>',
   description: 'To make content scrollable, wrap it within a <ScrollView> component',
   render: function() {
+    var _scrollView: ScrollView;
     return (
-      <ScrollView
-        automaticallyAdjustContentInsets={false}
-        onScroll={() => { console.log('onScroll!'); }}
-        scrollEventThrottle={200}
-        style={styles.scrollView}>
-        {THUMBS.map(createThumbRow)}
-      </ScrollView>
+      <View>
+        <ScrollView
+          ref={(scrollView) => { _scrollView = scrollView; }}
+          automaticallyAdjustContentInsets={false}
+          onScroll={() => { console.log('onScroll!'); }}
+          scrollEventThrottle={200}
+          style={styles.scrollView}>
+          {THUMBS.map(createThumbRow)}
+        </ScrollView>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => { _scrollView.scrollTo({y: 0}); }}>
+          <Text>Scroll to top</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }, {
   title: '<ScrollView> (horizontal = true)',
   description: 'You can display <ScrollView>\'s child components horizontally rather than vertically',
   render: function() {
+    var _scrollView: ScrollView;
     return (
-      <ScrollView
-        automaticallyAdjustContentInsets={false}
-        horizontal={true}
-        style={[styles.scrollView, styles.horizontalScrollView]}>
-        {THUMBS.map(createThumbRow)}
-      </ScrollView>
+      <View>
+        <ScrollView
+          ref={(scrollView) => { _scrollView = scrollView; }}
+          automaticallyAdjustContentInsets={false}
+          horizontal={true}
+          style={[styles.scrollView, styles.horizontalScrollView]}>
+          {THUMBS.map(createThumbRow)}
+        </ScrollView>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => { _scrollView.scrollTo({x: 0}); }}>
+          <Text>Scroll to start</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }];

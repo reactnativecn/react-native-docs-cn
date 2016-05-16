@@ -1,8 +1,8 @@
-Provides efficient data processing and access to the `ListView` component. A `ListViewDataSource` is created with functions for extracting data from the input blob, and comparing elements (with default implementations for convenience). The input blob can be as simple as an array of strings, or an object with rows nested inside section objects.
+`ListViewDataSource`为`ListView`组件提供高性能的数据处理和访问。我们需要调用方法从原始输入数据中抽取数据来创建`ListViewDataSource`对象，并用其进行数据变更的比较。原始输入数据可以是简单的字符串数组，也可以是复杂嵌套的对象——分不同区(section)各自包含若干行(row)数据。
 
-To update the data in the datasource, use `cloneWithRows` (or `cloneWithRowsAndSections` if you care about sections). The data in the data source is immutable, so you can't modify it directly. The clone methods suck in the new data and compute a diff for each row so ListView knows whether to re-render it or not.
+要更新datasource中的数据，请（每次都重新）调用`cloneWithRows`方法（如果用到了section，则对应`cloneWithRowsAndSections`方法）。数据源中的数据本身是不可修改的，所以请勿直接尝试修改。clone方法会自动提取新数据并进行逐行对比（使用rowHasChanged方法中的策略），这样ListView就知道哪些行需要重新渲染了。
 
-In this example, a component receives data in chunks, handled by `_onDataArrived`, which concats the new data onto the old data and updates the data source. We use concat to create a new array - mutating `this._data`, e.g. with `this._data.push(newRowData)`, would be an error. `_rowHasChanged` understands the shape of the row data and knows how to efficiently compare it.
+在下面这个例子中，一个组件在分块接受数据，这些数据由`_onDataArrived`方法中处理——将新数据拼接（concat）到旧数据尾部，同时使用clone方法更新DataSource。我们使用concat方法来修改`this._data`以创建新数组，注意不能使用push方法拼接数组。实现`_rowHasChanged`方法需要透彻了解行数据的结构，以便提供高效的比对策略。
 
 ```javascript
 constructor(props) {
@@ -23,43 +23,17 @@ _onDataArrived = (newData) => {
 
 
 ### 方法
-
 <div class="props">
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="constructor"></a>constructor<span class="propType">(params)</span>
-        <a class="hash-link" href="docs/listviewdatasource.html#constructor">#</a></h4>
-        <div><p>You can provide custom extraction and <code>hasChanged</code> functions for section
-            headers and rows. If absent, data will be extracted with the
-            <code>defaultGetRowData</code> and <code>defaultGetSectionHeaderData</code> functions.</p>
-            <p>The default extractor expects data of one of the following forms:</p>
-            <div class="prism language-javascript"><span class="token punctuation">{</span> sectionID_1<span
-                    class="token punctuation">:</span> <span class="token punctuation">{</span> rowID_1<span
-                    class="token punctuation">:</span> &lt;rowData1<span class="token operator">&gt;</span><span
-                    class="token punctuation">,</span> <span class="token punctuation">.</span><span
-                    class="token punctuation">.</span><span class="token punctuation">.</span> <span
-                    class="token punctuation">}</span><span class="token punctuation">,</span> <span
-                    class="token punctuation">.</span><span class="token punctuation">.</span><span
-                    class="token punctuation">.</span> <span class="token punctuation">}</span></div>
-            <p> or</p>
-            <div class="prism language-javascript"><span class="token punctuation">{</span> sectionID_1<span
-                    class="token punctuation">:</span> <span class="token punctuation">[</span> &lt;rowData1<span
-                    class="token operator">&gt;</span><span class="token punctuation">,</span> &lt;rowData2<span
-                    class="token operator">&gt;</span><span class="token punctuation">,</span> <span
-                    class="token punctuation">.</span><span class="token punctuation">.</span><span
-                    class="token punctuation">.</span> <span class="token punctuation">]</span><span
-                    class="token punctuation">,</span> <span class="token punctuation">.</span><span
-                    class="token punctuation">.</span><span class="token punctuation">.</span> <span
-                    class="token punctuation">}</span></div>
-            <p> or</p>
-            <div class="prism language-javascript"><span class="token punctuation">[</span> <span
-                    class="token punctuation">[</span> &lt;rowData1<span class="token operator">&gt;</span><span
-                    class="token punctuation">,</span> &lt;rowData2<span class="token operator">&gt;</span><span
-                    class="token punctuation">,</span> <span class="token punctuation">.</span><span
-                    class="token punctuation">.</span><span class="token punctuation">.</span> <span
-                    class="token punctuation">]</span><span class="token punctuation">,</span> <span
-                    class="token punctuation">.</span><span class="token punctuation">.</span><span
-                    class="token punctuation">.</span> <span class="token punctuation">]</span></div>
-            <p>The constructor takes in a params argument that can contain any of the
-                following:</p>
+        <a class="hash-link" href="#constructor">#</a></h4>
+        <div><p>你可以在构造函数中针对section标题和行数据提供自定义的提取方法和<code>hasChanged</code>比对方法。如果不提供，则会使用默认的<code>defaultGetRowData</code>和<code>defaultGetSectionHeaderData</code>方法来提取行数据和section标题。</p>
+            <p>默认的提取函数可以处理下列形式的数据:</p>
+			<p><code>{ sectionID_1: { rowID_1: rowData1, ... }, ... }</code></p>
+			<p>或者：</p>
+			<p><code>{ sectionID_1: [ rowData1, rowData2, ... ], ... }</code></p>
+			<p>或者：</p>
+			<p><code>[ [ rowData1, rowData2, ... ], ... ]</code></p>
+            <p>构造函数可以接受下列四种参数（都是可选）：</p>
             <ul>
                 <li>getRowData(dataBlob, sectionID, rowID);</li>
                 <li>getSectionHeaderData(dataBlob, sectionID);</li>
@@ -70,76 +44,62 @@ _onDataArrived = (newData) => {
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="clonewithrows"></a>cloneWithRows<span
             class="propType">(dataBlob, rowIdentities)</span> <a class="hash-link"
-                                                                 href="docs/listviewdatasource.html#clonewithrows">#</a>
+                                                                 href="#clonewithrows">#</a>
     </h4>
-        <div><p>Clones this <code>ListViewDataSource</code> with the specified <code>dataBlob</code> and
-            <code>rowIdentities</code>. The <code>dataBlob</code> is just an arbitrary blob of data. At
-            construction an extractor to get the interesting information was defined
-            (or the default was used).</p>
-            <p>The <code>rowIdentities</code> is is a 2D array of identifiers for rows.
-                ie. [['a1', 'a2'], ['b1', 'b2', 'b3'], ...]. If not provided, it's
-                assumed that the keys of the section data are the row identities.</p>
-            <p>Note: This function does NOT clone the data in this data source. It simply
-                passes the functions defined at construction to a new data source with
-                the data specified. If you wish to maintain the existing data you must
-                handle merging of old and new data separately and then pass that into
-                this function as the <code>dataBlob</code>.</p></div>
+        <div><p>根据指定的<code>dataBlob</code>和
+            <code>rowIdentities</code>为<code>ListViewDataSource</code>复制填充数据。<code>dataBlob</code>即原始数据。需要在初始化时定义抽取函数（否则使用默认的抽取函数）。</p>
+            <p><code>rowIdentities</code>是一个二维数组，包含了行数据对应的id标识符，例如[['a1', 'a2'], ['b1', 'b2', 'b3'], ...]。如果没有指定此数组，则默认取行数据的key。</p>
+            <p>注：此方法<strong>实际并没有</strong>复制数据。它只是重新创建一个datasource，然后将你指定的dataBlob传递给构造函数中指定的提取函数，因而会抛弃先前的数据。如果你希望保留先前的数据，则必须先自行进行新老数据的合并处理，然后再将合并后的结果作为<code>dataBlob</code>传递给此方法调用。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="clonewithrowsandsections"></a>cloneWithRowsAndSections<span
             class="propType">(dataBlob, sectionIdentities, rowIdentities)</span> <a class="hash-link"
-                                                                                    href="docs/listviewdatasource.html#clonewithrowsandsections">#</a>
+                                                                                    href="#clonewithrowsandsections">#</a>
     </h4>
-        <div><p>This performs the same function as the <code>cloneWithRows</code> function but here
-            you also specify what your <code>sectionIdentities</code> are. If you don't care
-            about sections you should safely be able to use <code>cloneWithRows</code>.</p>
-            <p><code>sectionIdentities</code> is an array of identifiers for sections.
-                ie. ['s1', 's2', ...]. If not provided, it's assumed that the
-                keys of dataBlob are the section identities.</p>
-            <p>Note: this returns a new object!</p></div>
+        <div><p>此方法作用基本等同<code>cloneWithRows</code>，区别在于可以额外指定<code>sectionIdentities</code> 。如果你不需要section，则直接使用<code>cloneWithRows</code>即可。</p>
+            <p><code>sectionIdentities</code>同理是包含了section标识符的数组。例如['s1', 's2', ...]。如果没有指定此数组，则默认取section的key。</p>
+            <p>注：此方法会返回新的对象！</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="getrowcount"></a>getRowCount<span class="propType">()</span>
-        <a class="hash-link" href="docs/listviewdatasource.html#getrowcount">#</a></h4></div>
+        <a class="hash-link" href="#getrowcount">#</a></h4></div>
     <div class="prop"><h4 class="propTitle"><a class="anchor"
                                                name="getrowandsectioncount"></a>getRowAndSectionCount<span
             class="propType">()</span> <a class="hash-link"
-                                          href="docs/listviewdatasource.html#getrowandsectioncount">#</a></h4></div>
+                                          href="#getrowandsectioncount">#</a></h4></div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="rowshouldupdate"></a>rowShouldUpdate<span
             class="propType">(sectionIndex, rowIndex)</span> <a class="hash-link"
-                                                                href="docs/listviewdatasource.html#rowshouldupdate">#</a>
+                                                                href="#rowshouldupdate">#</a>
     </h4>
-        <div><p>Returns if the row is dirtied and needs to be rerendered</p></div>
+        <div><p>返回值表明某行数据是否已变更，需要重新渲染。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="getrowdata"></a>getRowData<span class="propType">(sectionIndex, rowIndex)</span>
-        <a class="hash-link" href="docs/listviewdatasource.html#getrowdata">#</a></h4>
-        <div><p>Gets the data required to render the row.</p></div>
+        <a class="hash-link" href="#getrowdata">#</a></h4>
+        <div><p>返回渲染行所需的数据（指定如何从原始dataBlog中提取数据）。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="getrowidforflatindex"></a>getRowIDForFlatIndex<span
             class="propType">(index)</span> <a class="hash-link"
-                                               href="docs/listviewdatasource.html#getrowidforflatindex">#</a></h4>
-        <div><p>Gets the rowID at index provided if the dataSource arrays were flattened,
-            or null of out of range indexes.</p></div>
+                                               href="#getrowidforflatindex">#</a></h4>
+        <div><p>给定索引值，求其对应rowID。如果查找不到则返回null。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="getsectionidforflatindex"></a>getSectionIDForFlatIndex<span
             class="propType">(index)</span> <a class="hash-link"
-                                               href="docs/listviewdatasource.html#getsectionidforflatindex">#</a></h4>
-        <div><p>Gets the sectionID at index provided if the dataSource arrays were flattened,
-            or null for out of range indexes.</p></div>
+                                               href="#getsectionidforflatindex">#</a></h4>
+        <div><p>给定索引值，求其对应sectionID。如果查找不到则返回null。</div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="getsectionlengths"></a>getSectionLengths<span
-            class="propType">()</span> <a class="hash-link" href="docs/listviewdatasource.html#getsectionlengths">#</a>
+            class="propType">()</span> <a class="hash-link" href="#getsectionlengths">#</a>
     </h4>
-        <div><p>Returns an array containing the number of rows in each section</p></div>
+        <div><p>返回一个数组，包含每个section的行数量。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="sectionheadershouldupdate"></a>sectionHeaderShouldUpdate<span
             class="propType">(sectionIndex)</span> <a class="hash-link"
-                                                      href="docs/listviewdatasource.html#sectionheadershouldupdate">#</a>
+                                                      href="#sectionheadershouldupdate">#</a>
     </h4>
-        <div><p>Returns if the section header is dirtied and needs to be rerendered</p></div>
+        <div><p>返回值用于说明section标题是否需要重新渲染。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="getsectionheaderdata"></a>getSectionHeaderData<span
             class="propType">(sectionIndex)</span> <a class="hash-link"
-                                                      href="docs/listviewdatasource.html#getsectionheaderdata">#</a>
+                                                      href="#getsectionheaderdata">#</a>
     </h4>
-        <div><p>Gets the data required to render the section header</p></div>
+        <div><p>获取section标题数据。</p></div>
     </div>
 </div>

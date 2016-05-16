@@ -80,16 +80,36 @@ NetInfo.isConnected.addEventListener(
 ### 方法
 
 <div class="props">
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="addeventlistener"></a><span class="propType">static </span>addEventListener<span class="propType">(eventName: ChangeEventName, handler: Function)</span> <a class="hash-link" href="#addeventlistener">#</a></h4></div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="removeeventlistener"></a><span class="propType">static </span>removeEventListener<span class="propType">(eventName: ChangeEventName, handler: Function)</span> <a class="hash-link" href="#removeeventlistener">#</a></h4></div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="fetch"></a><span class="propType">static </span>fetch<span class="propType">()</span> <a class="hash-link" href="#fetch">#</a></h4></div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="isconnectionexpensive"></a><span class="propType">static </span>isConnectionExpensive<span class="propType">(callback: (metered: ?boolean, error?: string) =&gt; void)</span> <a class="hash-link" href="#isconnectionexpensive">#</a></h4></div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="addeventlistener"></a><span
+            class="propType">static </span>addEventListener<span class="propType">(eventName, handler)</span> <a
+            class="hash-link" href="#addeventlistener">#</a></h4>
+        <div><p>在网络状况/类型发生变化时调用此监听函数。回调的参数为上面列出的网络状况/类型。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="removeeventlistener"></a><span class="propType">static </span>removeEventListener<span
+            class="propType">(eventName, handler)</span> <a class="hash-link"
+                                                            href="#removeeventlistener">#</a></h4>
+        <div><p>移除网络状况/类型变化的监听函数。</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="fetch"></a><span class="propType">static </span>fetch<span
+            class="propType">()</span> <a class="hash-link" href="#fetch">#</a></h4>
+        <div><p>返回一个promise，用于获取当前的网络状况/类型。</p></div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="isconnectionexpensive"></a><span class="propType">static </span>isConnectionExpensive<span
+            class="propType">()</span> <a class="hash-link" href="#isconnectionexpensive">#</a></h4>
+    </div>
 </div>
 
 ### 属性
 
 <div class="props">
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="isconnected"></a>isConnected<span class="propType">: ObjectExpression</span> <a class="hash-link" href="#isconnected">#</a></h4></div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="isconnected"></a>isConnected<span class="propType">: ObjectExpression</span>
+        <a class="hash-link" href="#isconnected">#</a></h4>
+        <div><p>此属性为一个对象，也可调用上面列出的方法。但其监听函数接受的参数为一个布尔值，仅仅能表明当前网络是否联通。如果你只关心设备是否连上网了（不关心网络类型），那么使用此属性即可。</p></div>
+    </div>
 </div>
 
 ### 例子

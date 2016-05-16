@@ -23,7 +23,16 @@ ndk.dir=指向android ndk目录的绝对路径
 sdk.dir=/Users/your_unix_name/android-sdk-macosx
 ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r10e
 ```
+# 从下载链接安装Android NDK
 
+1. Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
+2. Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
+3. Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip
+4. Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86.zip
+
+更多参考您可以访问官网NDK界面 [official page](http://developer.android.com/ndk/downloads/index.html).
+
+__译注__:建议安装r10e版本，否则在编译过程可能会出错
 # 编译源代码：
 
 ## 1.在你的分支代码中进行安装
@@ -89,6 +98,11 @@ compile(project(':react-native-custom-module')) {
     exclude group: 'com.facebook.react', module: 'react-native'
 }
 ```
+# 在Android Studio中构建您的项目
+
+在Android Studio欢迎页中选择`Import project`，随后选择您应用所在的文件夹
+
+您还需要使用_Run_按钮(__译注__：Android Studio中绿色的运行按钮)来在设备上运行您的app，此外Android Studio不会自动开启服务，你还需要通过`npm start`来启动。
 
 # 其他注意事项
 从源码进行编译将会花费很长时间，尤其是第一次编译，需要下载接近200M的文件然后编译原生代码。每次你在自己的仓库更新`react-native`版本时，构建的目录可能会被删除，所有的文件都需要重新下载。为了避免构建目录被删，你需要编辑`~/.gradle/init.gradle`文件来修改构建目录路径。
