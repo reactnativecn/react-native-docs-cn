@@ -231,3 +231,16 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
         </div>
     </div>
 </div>
+
+### 方法
+
+<div class="props">
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="isfocused"></a>isFocused<span class="propType">(): boolean</span>
+        <a class="hash-link" href="#isfocused">#</a></h4>
+        <div><p>返回值表明当前输入框是否获得了焦点。</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="clear"></a>clear<span class="propType">()</span> <a
+            class="hash-link" href="#clear">#</a></h4>
+        <div><p>清空输入框的内容。</p></div>
+    </div>
+</div>
