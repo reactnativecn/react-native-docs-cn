@@ -7,11 +7,28 @@
 
 ## 准备你的App
 
-在你的App里的`build.gradle`文件中，添加React Native依赖：
+在`android/app/build.gradle`文件中，添加React Native依赖：
 
-    compile 'com.facebook.react:react-native:0.20.+'
+```
+compile "com.facebook.react:react-native:+"  // From node_modules
+```
 
-你可以在[Maven中央库](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.facebook.react%22%20AND%20a%3A%22react-native%22) [国内镜像](http://maven.oschina.net/index.html#nexus-search;quick~React native) 查询到React Native库的最新版本。然后，在你的`AndroidManifest.xml`里增加Internet访问权限：
+然后在`android/build.gradle`文件中（注意跟上面的路径不同）加入本地React Native的maven目录(现在React Native的所有组件,无论JS还是Android的预编译包，都是通过npm分发的了):
+
+```
+allprojects {
+    repositories {
+        ...
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url "$projectDir/node_modules/react-native/android"
+        }
+    }
+    ...
+}
+```
+
+最后在你的`AndroidManifest.xml`里增加Internet访问权限：
 
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
