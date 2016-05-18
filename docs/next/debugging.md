@@ -16,25 +16,9 @@
 
 选择开发者菜单中的`Reload`选项(或者在iOS模拟器上按下`⌘ + r`)即可重新加载应用的js代码。但如果你增加了新的资源(比如给iOS的`Images.xcassets`或是Andorid的`res/drawable`文件夹添加了图片)或者更改了任何的原生代码（objective-c/swift/java），那么就需要通过重新编译才能生效。
 
-## YellowBox（黄屏警告）与RedBox（红屏报错） 
-调用console.warn方法会在屏幕上产生一个黄色背景的信息。点击这行信息会转入全屏的警告页面。
-
-而调用console.error方法则会直接产生一个全屏的红色背景报错页面。
-
-在默认情况下，开发模式中启用了黄屏警告。可以通过以下代码关闭：
-```js
-console.disableYellowBox = true;
-console.warn('YellowBox is disabled.');
-```
-你也可以通过代码屏蔽指定的警告，像下面这样设置一个数组：
-```js
-console.ignoredYellowBox = ['Warning: ...'];
-```
-数组中的字符串就是要屏蔽的警告的开头的内容。（例如上面的代码会屏蔽掉所有以Warning开头的警告内容）
-
 ## Chrome开发者工具
 
-在Chrome上调试js代码，需要在开发菜单中选择`Debug in Chrome`，这会打开一个新的[http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui)tab页。
+在Chrome上调试js代码，需要在开发菜单中选择`Debug JS Remotely`，这会打开一个新的[http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui)tab页。
 
 在Chrome中，按下`⌘ + option + i`或者选择`视图(View) -> 开发者(Developer) -> 开发工具(Developer Tools)`来打开开发工具控制台。打开[有异常时暂停（Pause On Caught Exceptions）](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511)选项，能够获得更好的开发体验。  
 
