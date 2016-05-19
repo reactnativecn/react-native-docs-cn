@@ -28,7 +28,7 @@ setOpacityTo: function(value) {
   <View style={styles.button}>
     <Text>Press me!</Text>
   </View>
-<TouchableOpacity>
+</TouchableOpacity>
 ```
 
 如果不使用`setNativeProps`这个方法来实现这一需求，那么一种可能的办法是把透明值保存到state中，然后在`onPress`事件触发时更新这个值：
