@@ -57,9 +57,9 @@ var MOCKED_MOVIES_DATA = [
 我们接下来要展现一个电影，绘制它的标题、年份、以及缩略图(_译注：这个过程我们通常会叫做“渲染/render”，后面我们都会用“渲染”这个词_)。渲染缩略图需要用到Image组件，所以把Image添加到对React的import列表中。
 
 ```javascript
-import React, {
+import {Component} from 'react';
+import {
   AppRegistry,
-  Component,
   Image,
   StyleSheet,
   Text,
