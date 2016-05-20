@@ -272,7 +272,7 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 		</div>
 	</div>
 	<div class="prop">
-		<h4 class="propTitle"><a class="anchor" name="pagingenabled"></a><span class="platform">ios</span>pagingEnabled <span class="propType">bool</span> <a class="hash-link" href="#pagingenabled">#</a></h4>
+		<h4 class="propTitle"><a class="anchor" name="pagingenabled"></a>pagingEnabled <span class="propType">bool</span> <a class="hash-link" href="#pagingenabled">#</a></h4>
 		<div>
 			<p>当值为true时，滚动条会停在滚动视图的尺寸的整数倍位置。这个可以用在水平分页上。默认值为false。</p>
 		</div>
@@ -331,6 +331,7 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 		</div>
 	</div>
 </div>
+
 
 ### 方法
 <div class="props">

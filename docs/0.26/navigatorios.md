@@ -128,7 +128,143 @@ var MyView = React.createClass({
 	</div>
 </div>
 
-### 样例
+### 方法
+
+<div class="props">
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="push"></a>push<span class="propType">(route: {
+  component: Function;
+  title: string;
+  passProps?: Object;
+  backButtonTitle?: string;
+  backButtonIcon?: Object;
+  leftButtonTitle?: string;
+  leftButtonIcon?: Object;
+  onLeftButtonPress?: Function;
+  rightButtonTitle?: string;
+  rightButtonIcon?: Object;
+  onRightButtonPress?: Function;
+  wrapperStyle?: any;
+})</span> <a class="hash-link" href="#push">#</a></h4>
+        <div><p>Navigate forward to a new route</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="popn"></a>popN<span
+            class="propType">(n: number)</span> <a class="hash-link" href="#popn">#</a></h4>
+        <div><p>Go back N pages at once. When N=1, behavior matches <code>pop()</code></p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="pop"></a>pop<span class="propType">()</span> <a
+            class="hash-link" href="#pop">#</a></h4>
+        <div><p>Go back one page</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="replaceatindex"></a>replaceAtIndex<span
+            class="propType">(route: {
+  component: Function;
+  title: string;
+  passProps?: Object;
+  backButtonTitle?: string;
+  backButtonIcon?: Object;
+  leftButtonTitle?: string;
+  leftButtonIcon?: Object;
+  onLeftButtonPress?: Function;
+  rightButtonTitle?: string;
+  rightButtonIcon?: Object;
+  onRightButtonPress?: Function;
+  wrapperStyle?: any;
+}, index: number)</span> <a class="hash-link" href="#replaceatindex">#</a></h4>
+        <div><p>Replace a route in the navigation stack.</p>
+            <p><code>index</code> specifies the route in the stack that should be replaced.
+                If it's negative, it counts from the back.</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="replace"></a>replace<span class="propType">(route: {
+  component: Function;
+  title: string;
+  passProps?: Object;
+  backButtonTitle?: string;
+  backButtonIcon?: Object;
+  leftButtonTitle?: string;
+  leftButtonIcon?: Object;
+  onLeftButtonPress?: Function;
+  rightButtonTitle?: string;
+  rightButtonIcon?: Object;
+  onRightButtonPress?: Function;
+  wrapperStyle?: any;
+})</span> <a class="hash-link" href="#replace">#</a></h4>
+        <div><p>Replace the route for the current page and immediately
+            load the view for the new route.</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="replaceprevious"></a>replacePrevious<span
+            class="propType">(route: {
+  component: Function;
+  title: string;
+  passProps?: Object;
+  backButtonTitle?: string;
+  backButtonIcon?: Object;
+  leftButtonTitle?: string;
+  leftButtonIcon?: Object;
+  onLeftButtonPress?: Function;
+  rightButtonTitle?: string;
+  rightButtonIcon?: Object;
+  onRightButtonPress?: Function;
+  wrapperStyle?: any;
+})</span> <a class="hash-link" href="#replaceprevious">#</a></h4>
+        <div><p>Replace the route/view for the previous page.</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="poptotop"></a>popToTop<span
+            class="propType">()</span> <a class="hash-link" href="#poptotop">#</a></h4>
+        <div><p>Go back to the top item</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="poptoroute"></a>popToRoute<span class="propType">(route: {
+  component: Function;
+  title: string;
+  passProps?: Object;
+  backButtonTitle?: string;
+  backButtonIcon?: Object;
+  leftButtonTitle?: string;
+  leftButtonIcon?: Object;
+  onLeftButtonPress?: Function;
+  rightButtonTitle?: string;
+  rightButtonIcon?: Object;
+  onRightButtonPress?: Function;
+  wrapperStyle?: any;
+})</span> <a class="hash-link" href="#poptoroute">#</a></h4>
+        <div><p>Go back to the item for a particular route object</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor"
+                                               name="replacepreviousandpop"></a>replacePreviousAndPop<span
+            class="propType">(route: {
+  component: Function;
+  title: string;
+  passProps?: Object;
+  backButtonTitle?: string;
+  backButtonIcon?: Object;
+  leftButtonTitle?: string;
+  leftButtonIcon?: Object;
+  onLeftButtonPress?: Function;
+  rightButtonTitle?: string;
+  rightButtonIcon?: Object;
+  onRightButtonPress?: Function;
+  wrapperStyle?: any;
+})</span> <a class="hash-link" href="#replacepreviousandpop">#</a></h4>
+        <div><p>Replaces the previous route/view and transitions back to it.</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="resetto"></a>resetTo<span class="propType">(route: {
+  component: Function;
+  title: string;
+  passProps?: Object;
+  backButtonTitle?: string;
+  backButtonIcon?: Object;
+  leftButtonTitle?: string;
+  leftButtonIcon?: Object;
+  onLeftButtonPress?: Function;
+  rightButtonTitle?: string;
+  rightButtonIcon?: Object;
+  onRightButtonPress?: Function;
+  wrapperStyle?: any;
+})</span> <a class="hash-link" href="#resetto">#</a></h4>
+        <div><p>Replaces the top item and popToTop</p></div>
+    </div>
+</div>
+
+### 例子
 
 ```javascript
 'use strict';
