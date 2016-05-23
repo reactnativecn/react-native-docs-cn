@@ -38,7 +38,7 @@ render: function() {
 	        <p>设置抽屉的锁定模式。有三种状态：
 			<ul>
 	        <li><code>unlocked</code> (默认值)，意味着此时抽屉可以响应打开和关闭的手势操作。
-	        <li><code>locked-losed</code>，意味着此时抽屉将保持关闭，不可用手势打开。
+	        <li><code>locked-closed</code>，意味着此时抽屉将保持关闭，不可用手势打开。
 	        <li><code>locked-open</code>，意味着此时抽屉将保持打开，不可用手势关闭。
 	        </ul>
 	        无论抽屉处于那种状态，都仍然可以调用<code>openDrawer</code>/<code>closeDrawer</code>这两个方法打开和关闭。
