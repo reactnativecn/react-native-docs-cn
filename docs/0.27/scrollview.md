@@ -50,6 +50,13 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 			<p>当此属性为false的时候，在软键盘激活之后，点击焦点文本输入框以外的地方，键盘就会隐藏。如果为true，滚动视图不会响应点击操作，并且键盘不会自动消失。默认值为false。</p>
 		</div>
 	</div>
+	<div class="prop"><h4 class="propTitle"><a class="anchor" name="oncontentsizechange"></a>onContentSizeChange <span
+	        class="propType">function</span> <a class="hash-link" href="#oncontentsizechange">#</a></h4>
+	    <div><p>此函数会在ScrollView内部可滚动内容的视图发生变化时调用。</p>
+	        <p>调用参数为内容视图的宽和高: <code>(contentWidth,
+	            contentHeight)</code></p>
+	        <p>此方法是通过绑定在内容容器上的onLayout来实现的。</p></div>
+	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="onscroll"></a>onScroll <span class="propType">function</span> <a class="hash-link" href="#onscroll">#</a></h4>
 		<div>

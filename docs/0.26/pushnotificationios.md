@@ -53,7 +53,7 @@
 				<li><code>soundName</code> : 通知触发时播放的声音名字（可选）。</li>
 				<li><code>category </code> : 可选的通知类型，但对于交互式通知为必填。</li>
 				<li><code>userInfo </code> : 提供一个可选的object，可以在其中提供额外的数据。</li>
-				<li><code>applicationIconBadgeNumber </code> : 指定显示在应用右上角的数字角标（可选）。默认值为0，即不显示角标。。</li>
+				<li><code>applicationIconBadgeNumber </code> : 指定显示在应用右上角的数字角标（可选）。默认值为0，即不显示角标。</li>
 			</ul>
 		</div>
 	</div>
@@ -69,7 +69,7 @@
 				<li><code>soundName</code> : 通知触发时播放的声音名字（可选）。</li>
 				<li><code>category </code> : 可选的通知类型，但对于交互式通知为必填。</li>
 				<li><code>userInfo </code> : 提供一个可选的object，可以在其中提供额外的数据。</li>
-				<li><code>applicationIconBadgeNumber </code> : 指定显示在应用右上角的数字角标（可选）。默认值为0，即不显示角标。。</li>
+				<li><code>applicationIconBadgeNumber </code> : 指定显示在应用右上角的数字角标（可选）。默认值为0，即不显示角标。</li>
 			</ul>
 		</div>
 	</div>
