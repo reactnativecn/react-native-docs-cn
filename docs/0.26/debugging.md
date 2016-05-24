@@ -47,7 +47,7 @@ __译注__：Chrome中并不能直接看到App的用户界面，而只能提供c
 
 ### React开发工具（可选的）
 
-在Chrome上安装[React开发工具](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)。这个工具会在Chrome开发控制台中添加一个`React`选项卡，在这个选项卡里可以浏览组件的层级结构（点击[这里](https://github.com/facebook/react-devtools)查看更多信息）。__提示__：安装这一扩展可能需要科学上网，但是`调试并不需要安装这个扩展`，而且由于React Native目前迭代变化较大，`某些版本中可能无法开启这一调试扩展`。
+[React开发工具](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)`在目前版本无法使用，并且此工具与代码调试并无关系`。
 
 ## 实时刷新
 这个选项可以在你的js代码变更了之后，自动触发所连设备或者模拟器自动刷新。以下是开启方法：
