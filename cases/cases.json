@@ -1,12 +1,5 @@
 [
 	{
-		"name": "牛读 - NeoReader",
-		"desc": "一款定制的技术资讯类聚合阅读器",
-		"ios": "https://itunes.apple.com/cn/app/niu-du-neoreader/id1111443079?l=cn&mt=8",
-		"android": "http://fir.im/neoreader",
-		"icon": "http://firicon.fir.im/a4c5f1e8c52d9d98e7b990e5098a161a8f698653"
-	},
-	{
 		"name": "手赚助手",
 		"desc": "手机赚钱app",
 		"ios": "",
@@ -132,5 +125,12 @@
 		"ios": "https://itunes.apple.com/us/app/dian-hou/id982413222?l=zh&ls=1&mt=8",
 		"android": "http://mobile.d.appchina.com/McDonald/r/3681581/com.dianhou.app?channel=aplus.direct&uid=e66dcc9b-e664-4bcf-b26e-108f14f0e2ef&page=appplus.detail",
 		"icon": "http://static.yingyonghui.com/icon/128/3681581.png"
+	},
+	{
+		"name": "牛读",
+		"desc": "一款定制的技术资讯类聚合阅读器",
+		"ios": "https://itunes.apple.com/cn/app/niu-du-neoreader/id1111443079?l=cn&mt=8",
+		"android": "http://fir.im/neoreader",
+		"icon": "http://firicon.fir.im/a4c5f1e8c52d9d98e7b990e5098a161a8f698653"
 	}
 ]
