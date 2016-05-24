@@ -11,15 +11,16 @@ Modal组件可以用来覆盖包含React Native根视图的原生视图（如UIV
 
 <div class="props">
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="animated"></a>animated <span
-            class="propType">bool</span> <a class="hash-link" href="#animated">#</a></h4></div>
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="animated"></a>animationType  <span
-            class="propType">enum('none', 'slide', 'fade')</span> <a class="hash-link" href="#animationType ">#</a></h4>
+            class="propType">bool</span> <a class="hash-link" href="#animated">#</a></h4>
         <div class="deprecated">
             <div class="deprecatedTitle"><span>已过期</span></div>
             <div class="deprecatedMessage">
                 <div><p>请使用<code>animationType</code> 属性代替。</p></div>
             </div>
         </div>
+	</div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="animated"></a>animationType  <span
+            class="propType">enum('none', 'slide', 'fade')</span> <a class="hash-link" href="#animationType ">#</a></h4>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="onRequestClose"></a>onRequestClose <span
             class="propType">Platform.OS === 'android' ? PropTypes.func.isRequired : PropTypes.func</span> <a
