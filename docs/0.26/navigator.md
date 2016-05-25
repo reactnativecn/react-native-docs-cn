@@ -47,7 +47,7 @@ __译注__：本文档的说明较为简略，使用上有一定的难度。论�
 * replacePrevious(route) - 替换掉之前的场景
 * resetTo(route) - 跳转到新的场景，并且重置整个路由栈
 * immediatelyResetRouteStack(routeStack) - 用新的路由数组来重置路由栈
-* popToRoute(route) - pop到路由指定的场景，其他的场景将会卸载。
+* popToRoute(route) - pop到路由指定的场景，在整个路由栈中，处于指定场景之后的场景将会被卸载。
 * popToTop() - pop到栈中的第一个场景，卸载掉所有的其他场景。
 
 ### 属性
