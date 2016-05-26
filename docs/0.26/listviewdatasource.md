@@ -73,7 +73,7 @@ _onDataArrived = (newData) => {
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="getrowdata"></a>getRowData<span class="propType">(sectionIndex, rowIndex)</span>
         <a class="hash-link" href="#getrowdata">#</a></h4>
-        <div><p>返回渲染行所需的数据（指定如何从原始dataBlog中提取数据）。</p></div>
+        <div><p>返回渲染行所需的数据（指定如何从原始dataBlob中提取数据）。</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="getrowidforflatindex"></a>getRowIDForFlatIndex<span
             class="propType">(index)</span> <a class="hash-link"
