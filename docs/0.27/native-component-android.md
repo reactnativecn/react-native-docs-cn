@@ -114,7 +114,7 @@ module.exports = requireNativeComponent('RCTImageView', iface);
 
 `requireNativeComponent`通常接受两个参数，第一个参数是原生视图的名字，而第二个参数是一个描述组件接口的对象。组件接口应当声明一个友好的`name`，用来在调试信息中显示；组件接口还必须声明`propTypes`字段，用来对应到原生视图上。这个`propTypes`还可以用来检查用户使用View的方式是否正确。
 
-注意，如果你还需要一个JavaScript组件来做一些除了指定`name`和`propTypes`以外的事情，譬如事件处理，你可以把原生组件用一个普通React组件封装。在这种情况下，`reactNativeComponent`的第二个参数变为用于封装的组件。这个在后文的`MyCustomView`例子里面用到。
+注意，如果你还需要一个JavaScript组件来做一些除了指定`name`和`propTypes`以外的事情，譬如事件处理，你可以把原生组件用一个普通React组件封装。在这种情况下，`requireNativeComponent`的第二个参数变为用于封装的组件。这个在后文的`MyCustomView`例子里面用到。
 
 _译注_：和原生模块不同，原生视图的前缀RCT不会被自动去掉。
 
