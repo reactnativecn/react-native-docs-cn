@@ -21,10 +21,12 @@
 	<div class="prop"><h4 class="propTitle"><a class="anchor" name="showshareactionsheetwithoptions"></a><span class="propType">static </span>showShareActionSheetWithOptions<span class="propType">(options: Object, failureCallback: Function, successCallback: Function)</span> <a class="hash-link" href="#showshareactionsheetwithoptions">#</a></h4>
 
 		<div>
-			<p>在iOS设备上显示一个分享弹出框，其中options参数为一个对象，其属性必须包含以下一项或多项：</p>
+			<p>在iOS设备上显示一个分享弹出框，其中options参数为一个对象，其属性包含以下几项（必须至少有message或url）：</p>
 			<ul>
 				<li><code>message</code>（字符串） - 要分享的信息</li>
 				<li><code>url</code>（字符串） - 要分享的URL地址</li>
+				<li><code>subject</code>（字符串） - 要分享的信息主题</li>
+				<li><code>excludedActivityTypes</code>（数组） - 指定在actionsheet中不显示的活动</li>
 			</ul>
 			<p>注：如果<code>url</code>指向本地文件，或者是一个base64编码的url，则会直接读取并分享相应的文件。你可以用这样的方式来分享图片、视频以及PDF文件等。</p>
 		</div>
@@ -36,14 +38,15 @@
 ```javascript
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
 var {
   ActionSheetIOS,
   StyleSheet,
   Text,
   UIManager,
   View,
-} = React;
+} = ReactNative;
 
 var BUTTONS = [
   'Option 0',
@@ -218,27 +221,27 @@ exports.description = 'Interface to show iOS\' action sheets';
 exports.examples = [
   {
     title: 'Show Action Sheet',
-    render(): ReactElement { return <ActionSheetExample />; }
+    render(): ReactElement<any> { return <ActionSheetExample />; }
   },
   {
     title: 'Show Action Sheet with tinted buttons',
-    render(): ReactElement { return <ActionSheetTintExample />; }
+    render(): ReactElement<any> { return <ActionSheetTintExample />; }
   },
   {
     title: 'Show Share Action Sheet',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return <ShareActionSheetExample url="https://code.facebook.com" />;
     }
   },
   {
     title: 'Share Local Image',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return <ShareActionSheetExample url="bunny.png" />;
     }
   },
   {
     title: 'Share Screenshot',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return <ShareScreenshotExample />;
     }
   }
