@@ -155,7 +155,7 @@ renderImages() {
 ### 方法
 
 <div class="props">
-    <div class="prop"><h4 class="propTitle"><a class="anchor" name="getsize"></a><span class="propType">static </span>getSize<span
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="getsize"></a><span class="platform">ios</span><span class="propType">static </span>getSize<span
             class="propType">(uri: string, success: (width: number, height: number) =&gt; void, failure: (error: any) =&gt; void)</span>
         <a class="hash-link" href="#getsize">#</a></h4>
         <div><p>在显示图片前获取图片的宽高(以像素为单位)。如果图片地址不正确或下载失败,此方法也会失败。</p>
