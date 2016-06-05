@@ -25,6 +25,19 @@ fetch('https://mywebsite.com/endpoint/', {
   })
 })
 ```
+译注：如果你的服务器无法识别上面POST的数据格式，那么可以尝试传统的form格式，代码如下：
+
+```javascript
+fetch('https://mywebsite.com/endpoint/', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+  body: 'key1=value1&key2=value2'
+})
+```
+
+
 
 #### 异步操作
 

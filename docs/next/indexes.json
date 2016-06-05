@@ -5,7 +5,7 @@
             "contains": [
                 {
                     "subject": "开始使用React Native",
-                    "mdlink": "getting-started"
+                    "mdlink": "quickstart-gettingstarted"
                 },
                 {
                     "subject": "在Linux上使用React Native",
