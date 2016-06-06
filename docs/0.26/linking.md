@@ -16,7 +16,16 @@ componentDidMount() {
 }
 ```
 注：要了解更多如何在Android上支持深度链接的说明，请参阅[Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters)。  
-对于iOS来说，如果要在App启动后也监听传入的App链接，那么需要在`AppDelegate.m`中增加以下代码：
+
+如果要在现有的MainActivity中监听传入的intent，那么需要在`AndroidManifest.xml`中将MainActivity的`launchMode`设置为`singleTask`。相关解释可可参考[`<activity>`](http://developer.android.com/guide/topics/manifest/activity-element.html)文档。
+
+```xml
+<activity
+ android:name=".MainActivity"
+ android:launchMode="singleTask">
+```
+
+对于iOS来说，如果要在App启动后也监听传入的App链接，那么首先需要在项目中链接`RCTLinking`，具体步骤请参考[使用链接库](linking-libraries-ios.html)这篇文档，然后需要在`AppDelegate.m`中增加以下代码：
 
 ```objective-c
 #import "RCTLinkingManager.h"
@@ -51,7 +60,7 @@ _handleOpenURL(event) {
   console.log(event.url);
 }
 ```
-注意这一特性只在iOS上支持。
+
 
 #### 打开外部链接
 
@@ -76,13 +85,13 @@ Linking.canOpenURL(url).then(supported => {
 
 <div class="props">
     <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="addeventlistener"></a><span class="platform">ios</span><span class="propType">static </span>addEventListener<span class="propType">(type: string, handler: Function)</span> <a class="hash-link" href="#addeventlistener">#</a></h4>
+        <h4 class="propTitle"><a class="anchor" name="addeventlistener"></a><span class="propType">static </span>addEventListener<span class="propType">(type: string, handler: Function)</span> <a class="hash-link" href="#addeventlistener">#</a></h4>
         <div>
             <p>添加一个监听Linking变化的事件。type参数应填<code>`url`</code>，并提供一个处理函数。</p>
         </div>
     </div>
     <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="removeeventlistener"></a><span class="platform">ios</span><span class="propType">static </span>removeEventListener<span class="propType">(type: string, handler: Function)</span> <a class="hash-link" href="#removeeventlistener">#</a></h4>
+        <h4 class="propTitle"><a class="anchor" name="removeeventlistener"></a><span class="propType">static </span>removeEventListener<span class="propType">(type: string, handler: Function)</span> <a class="hash-link" href="#removeeventlistener">#</a></h4>
         <div>
             <p>删除一个事件处理函数。type参数应填<code>`url`</code>。</p>
         </div>
