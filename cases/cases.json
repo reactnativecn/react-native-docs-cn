@@ -1,5 +1,12 @@
 [
 	{
+		"name": "百贷纵横",
+		"desc": "移动在线信贷服务平台",
+		"ios": "https://itunes.apple.com/us/app/bai-dai-zong-heng/id865391997?l=zh&ls=1&mt=8",
+		"android": "http://www.eqianzhuang.com/download.html",
+		"icon": "http://www.eqianzhuang.com/salesman/wapPay/wechatYfl/images/logo.png"
+	},
+	{
 		"name": "牛读",
 		"desc": "一款定制的技术资讯类聚合阅读器",
 		"ios": "https://itunes.apple.com/cn/app/niu-du-neoreader/id1111443079?l=cn&mt=8",
