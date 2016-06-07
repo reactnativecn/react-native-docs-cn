@@ -139,5 +139,12 @@
 		"ios": "https://itunes.apple.com/us/app/dian-hou/id982413222?l=zh&ls=1&mt=8",
 		"android": "http://mobile.d.appchina.com/McDonald/r/3681581/com.dianhou.app?channel=aplus.direct&uid=e66dcc9b-e664-4bcf-b26e-108f14f0e2ef&page=appplus.detail",
 		"icon": "http://static.yingyonghui.com/icon/128/3681581.png"
+	},
+	{
+		"name": "Reading",
+		"desc": "微信好文阅读",
+		"ios": "",
+		"android": "http://www.wandoujia.com/apps/com.reading",
+		"icon": "http://7xr0xq.com1.z0.glb.clouddn.com/Reading_Logo.png"
 	}
 ]
