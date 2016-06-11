@@ -25,6 +25,19 @@ fetch('https://mywebsite.com/endpoint/', {
   })
 })
 ```
+译注：如果你的服务器无法识别上面POST的数据格式，那么可以尝试传统的form格式，代码如下：
+
+```javascript
+fetch('https://mywebsite.com/endpoint/', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+  body: 'key1=value1&key2=value2'
+})
+```
+
+
 
 #### 异步操作
 
@@ -139,4 +152,3 @@ request.send();
 要查阅完整的API描述，请参阅[MDN文档](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)。
 
 作为开发者来说，你通常不应该直接使用XMLHttpRequest，因为它的API用起来非常冗长。不过这一API的实现完全兼容浏览器，因而你可以使用很多npm上已有的第三方库，例如[frisbee](https://github.com/niftylettuce/frisbee)或是[axios](https://github.com/mzabriskie/axios)。(不过我们还是推荐你使用fetch)
-W
