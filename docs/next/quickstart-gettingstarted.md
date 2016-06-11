@@ -16,7 +16,7 @@
   background-color: #05A5D1;
   color: white;
 }
-block { display: none; }
+.qs-block { display: none; }
 .display-platform-ios.display-os-mac .ios.mac,
 .display-platform-ios.display-os-linux .ios.linux,
 .display-platform-ios.display-os-windows .ios.windows,
@@ -24,29 +24,31 @@ block { display: none; }
 .display-platform-android.display-os-linux .android.linux,
 .display-platform-android.display-os-windows .android.windows {
   display: block;
-}</style>
-<span>Target:</span>
-<a href="javascript:void(0);" class="button-ios" onclick="display('platform', 'ios')">iOS</a>
-<a href="javascript:void(0);" class="button-android" onclick="display('platform', 'android')">Android</a>
-<span>Development OS:</span>
-<a href="javascript:void(0);" class="button-mac" onclick="display('os', 'mac')">Mac</a>
-<a href="javascript:void(0);" class="button-linux" onclick="display('os', 'linux')">Linux</a>
-<a href="javascript:void(0);" class="button-windows" onclick="display('os', 'windows')">Windows</a>
+}
+</style>
+<span>目标平台：</span>
+<a class="button-ios" onclick="display('platform', 'ios')">iOS</a>
+<a class="button-android" onclick="display('platform', 'android')">Android</a>
+<span>开发平台：</span>
+<a class="button-mac" onclick="display('os', 'mac')">Mac</a>
+<a class="button-linux" onclick="display('os', 'linux')">Linux</a>
+<a class="button-windows" onclick="display('os', 'windows')">Windows</a>
 </div>
 
 <!-- ######### LINUX AND WINDOWS for iOS ##################### -->
 
-<block class="linux windows ios" />
+<div markdown class="qs-block linux windows ios">
 
 ## Unsupported
 
-<div>Unfortunately, Apple only lets you develop for iOS on a Mac machine. Please check out the <a href="" onclick="display('platform', 'android')">Android</a> instructions instead.</div>
+Unfortunately, Apple only lets you develop for iOS on a Mac machine. Please check out the Android instructions instead.
 
 ![](img/react-native-sorry-not-supported.png)
 
+
 <!-- ######### MAC for iOS ##################### -->
 
-<block class="mac ios android" />
+</div><div markdown class="qs-block mac ios android" >
 
 ## Installation
 
@@ -83,7 +85,7 @@ npm install -g react-native-cli
 > If you see the error, `EACCES: permission denied`, please run the command:
 > `sudo npm install -g react-native-cli`.
 
-<block class="mac ios" />
+</div><div markdown class="qs-block mac ios">
 
 #### Xcode
 
@@ -91,7 +93,7 @@ npm install -g react-native-cli
 
 > While generally installed by default, you can verify that the Xcode Command Line Tools are installed by launching Xcode and selecting `Xcode | Preferences | Locations` and ensuring there is a version of the command line tools shown in the `Command Line Tools` list box. The Command Line Tools give you `git`, etc.
 
-<block class="mac android" />
+</div><div markdown class="qs-block mac android" >
 
 #### Android Studio
 
@@ -142,7 +144,7 @@ this to your `~/.bashrc`, `~/.bash_profile` (or whatever your shell uses) and re
 export ANDROID_HOME=~/Library/Android/sdk
 ```
 
-<block class="mac ios android" />
+</div><div markdown class="qs-block mac ios android">
 
 ### Highly Recommended Installs
 
@@ -165,7 +167,7 @@ Flow as part of your codebase).
 brew install flow
 ```
 
-<block class="mac android" />
+</div><div markdown class="qs-block mac android">
 
 #### Add Android Tools Directory to your `PATH`
 
@@ -193,7 +195,7 @@ already installed, otherwise run the following:
 brew install git
 ```
 
-<block class="mac ios android" />
+</div><div markdown class="qs-block mac ios android">
 
 #### Nuclide
 
@@ -204,7 +206,7 @@ for writing, [running](http://nuclide.io/docs/platforms/react-native/#running-ap
 
 Get started with Nuclide [here](http://nuclide.io/docs/quick-start/getting-started/).
 
-<block class="mac android" />
+</div><div markdown class="qs-block mac android">
 
 #### Genymotion
 
@@ -249,13 +251,13 @@ try downgrading your Gradle version to 1.2.3 in `<project-name>/android/build.gr
 
 <!-- ######### LINUX and WINDOWS for ANDROID ##################### -->
 
-<block class="linux windows android" />
+</div><div markdown class="qs-block linux windows android">
 
 ## Installation
 
 ### Required Prerequisites
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 #### Chocolatey
 
@@ -280,11 +282,11 @@ Fire up the Termimal and use Chocolatey to install Python 2.
 choco install python2
 ```
 
-<block class="linux windows android" />
+</div><div markdown class="qs-block linux windows android">
 
 #### Node
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 Fire up the Terminal and type the following commands to install NodeJS from the NodeSource
 repository:
@@ -296,7 +298,7 @@ sudo apt-get install -y nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
-<block class='windows android' />
+</div><div markdown class="qs-block windows android">
 
 Fire up the Termimal and use Chocolatey to install NodeJS.
 
@@ -304,7 +306,7 @@ Fire up the Termimal and use Chocolatey to install NodeJS.
 choco install nodejs.install
 ```
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 #### React Native Command Line Tools
 
@@ -335,7 +337,7 @@ Native apps.
 > `Android Support Repository` is installed automatically with Android Studio, and we need that
 > for React Native.
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 You will need to customize your installation:
 
@@ -347,7 +349,7 @@ You will need to customize your installation:
 
 ![additional installs](img/react-native-android-studio-additional-installs-linux.png)
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 - Make sure all components are checked for the install, particularly the `Android SDK` and `Android Device Emulator`.
 
@@ -359,49 +361,49 @@ You will need to customize your installation:
 
 ![verify installs](img/react-native-android-studio-verify-installs-windows.png)
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 - After installation, choose `Configure | SDK Manager` from the Android Studio welcome window.
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 ![configure sdk](img/react-native-android-studio-configure-sdk-linux.png)
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 ![configure sdk](img/react-native-android-studio-configure-sdk-windows.png)
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 - In the `SDK Platforms` window, choose `Show Package Details` and under `Android 6.0 (Marshmallow)`, make sure that `Google APIs`, `Intel x86 Atom System Image`, `Intel x86 Atom_64 System Image`, and `Google APIs Intel x86 Atom_64 System Image` are checked.
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 ![platforms](img/react-native-android-studio-android-sdk-platforms-linux.png)
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 ![platforms](img/react-native-android-studio-android-sdk-platforms-windows.png)
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 - In the `SDK Tools` window, choose `Show Package Details` and under `Android SDK Build Tools`, make sure that `Android SDK Build-Tools 23.0.1` is selected.
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 ![build tools](img/react-native-android-studio-android-sdk-build-tools-linux.png)
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 ![build tools](img/react-native-android-studio-android-sdk-build-tools-windows.png)
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 #### ANDROID_HOME Environment Variable
 
 Ensure the `ANDROID_HOME` environment variable points to your existing Android SDK.
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 To do that, add this to your `~/.bashrc`, `~/.bash_profile` (or whatever your shell uses) and
 re-open your terminal:
@@ -415,7 +417,7 @@ export ANDROID_HOME=~/Android/Sdk
 > You need to restart the Terminal to apply the new environment variables (or `source` the relevant
 > bash file).
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 Go to `Control Panel` -> `System and Security` -> `System` -> `Change settings` ->
 `Advanced System Settings` -> `Environment variables` -> `New`
@@ -426,11 +428,11 @@ Go to `Control Panel` -> `System and Security` -> `System` -> `Change settings` 
 
 > You need to restart the Command Prompt (Windows) to apply the new environment variables.
 
-<block class="linux windows android" />
+</div><div markdown class="qs-block linux windows android">
 
 ### Highly Recommended Installs
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 #### Watchman
 
@@ -462,26 +464,26 @@ Type the following in the terminal:
 npm install -g flow-bin
 ```
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 #### Gradle Daemon
 
 Enable [Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html) which greatly
 improves incremental build times for changes in java code.
 
-<block class="mac linux android" />
+</div><div markdown class="qs-block mac linux android">
 
 ```
 touch ~/.gradle/gradle.properties && echo "org.gradle.daemon=true" >> ~/.gradle/gradle.properties
 ```
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 ```
 (if not exist "%USERPROFILE%/.gradle" mkdir "%USERPROFILE%/.gradle") && (echo org.gradle.daemon=true >> "%USERPROFILE%/.gradle/gradle.properties")
 ```
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 #### Android Emulator Accelerator
 
@@ -492,14 +494,14 @@ You may have seen the following screen when installing Android Studio.
 If your system supports KVM, you should install the
 [Intel Android Emulator Accelerator](https://software.intel.com/en-us/android/articles/speeding-up-the-android-emulator-on-intel-architecture#_Toc358213272).
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 #### Add Android Tools Directory to your `PATH`
 
 You can add the Android tools directory on your `PATH` in case you need to run any of the Android
 tools from the command line such as `android avd`.
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 In your `~/.bashrc` or `~/.bash_profile`:
 
@@ -509,7 +511,7 @@ PATH="~/Android/Sdk/tools:~/Android/Sdk/platform-tools:${PATH}"
 export PATH
 ```
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 Go to `Control Panel` -> `System and Security` -> `System` -> `Change settings` ->
 `Advanced System Settings` -> `Environment variables` ->  highlight `PATH` -> `Edit...`
@@ -518,18 +520,18 @@ Go to `Control Panel` -> `System and Security` -> `System` -> `Change settings` 
 
 ![env variable](img/react-native-android-tools-environment-variable-windows.png)
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 ### Other Optional Installs
 
 #### Git
 
-<block class="linux android">
+</div><div markdown class="qs-block linux android">
 
 Install Git [via your package manager](https://git-scm.com/download/linux)
 (e.g., `sudo apt-get install git-all`).
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 You can use Chocolatey to install `git` via:
 
@@ -541,7 +543,7 @@ Alternatively, you can download and install [Git for Windows](https://git-for-wi
 During the setup process, choose "Run Git from Windows Command Prompt", which will add `git` to your
 `PATH` environment variable.
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 #### Nuclide
 
@@ -552,7 +554,7 @@ During the setup process, choose "Run Git from Windows Command Prompt", which wi
 
 Get started with Nuclide [here](http://nuclide.io/docs/quick-start/getting-started/).
 
-<block class="linux windows android" />
+</div><div markdown class="qs-block linux windows android">
 
 #### Genymotion
 
@@ -564,7 +566,7 @@ However, it's only free for personal use. If you want to use the stock Google em
 3. Create a new emulator and start it.
 4. To bring up the developer menu press ⌘+M
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 #### Visual Studio Emulator for Android
 
@@ -586,7 +588,7 @@ You will also need to run the command `adb reverse tcp:8081 tcp:8081` with this 
 
 Then restart the emulator and when it runs you can just do `react-native run-android` as usual.
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 ### Troubleshooting
 
@@ -610,34 +612,34 @@ There is a [known bug](https://code.google.com/p/android/issues/detail?id=207563
 of Android Studio where a virtual device will not be created, even though you selected it in the
 installation sequence. You may see this at the end of the installation:
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 ```
 Creating Android virtual device
 Unable to create a virtual device: Unable to create Android virtual device
 ```
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 ![no virtual device](img/react-native-android-studio-no-virtual-device-windows.png)
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 If you see this, run `android avd` and create the virtual device manually.
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 ![avd](img/react-native-android-studio-avd-linux.png)
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 ![avd](img/react-native-android-studio-avd-windows.png)
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 Then select the new device in the AVD Manager window and click `Start...`.
 
-<block class="linux android" />
+</div><div markdown class="qs-block linux android">
 
 #### Shell Command Unresponsive Exception
 
@@ -650,11 +652,11 @@ Execution failed for task ':app:installDebug'.
 
 try downgrading your Gradle version to 1.2.3 in `<project-name>/android/build.gradle` (https://github.com/facebook/react-native/issues/2720)
 
-<block class="mac ios android" />
+</div><div markdown class="qs-block mac ios android">
 
 ## Testing Installation
 
-<block class="mac ios" />
+</div><div markdown class="qs-block mac ios">
 
 ```
 react-native init AwesomeProject
@@ -668,7 +670,7 @@ react-native run-ios
 > [run the application](http://nuclide.io/docs/platforms/react-native/#command-line), or open
 > `ios/AwesomeProject.xcodeproj` and hit the `Run` button in Xcode.
 
-<block class="mac android" />
+</div><div markdown class="qs-block mac android">
 
 ```
 react-native init AwesomeProject
@@ -681,24 +683,24 @@ react-native run-android
 > folder in [Nuclide](http://nuclide.io) and
 > [run the application](http://nuclide.io/docs/platforms/react-native/#command-line).
 
-<block class="mac ios android" />
+</div><div markdown class="qs-block mac ios android">
 
 ### Modifying Project
 
 Now that you successfully started the project, let's modify it:
 
-<block class="mac ios" />
+</div><div markdown class="qs-block mac ios">
 
 - Open `index.ios.js` in your text editor of choice (e.g. [Nuclide](http://nuclide.io/docs/platforms/react-native/)) and edit some lines.
 - Hit ⌘-R in your iOS simulator to reload the app and see your change!
 
-<block class="mac android" />
+</div><div markdown class="qs-block mac android">
 
 - Open `index.android.js` in your text editor of choice (e.g. [Nuclide](http://nuclide.io/docs/platforms/react-native/)) and edit some lines.
 - Press the `R` key twice **OR** open the menu (F2 by default, or ⌘-M in Genymotion) and select Reload JS to see your change!
 - Run `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal to see your app's logs
 
-<block class="mac ios android" />
+</div><div markdown class="qs-block mac ios android">
 
 ### That's It
 
@@ -706,7 +708,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ![](img/react-native-congratulations.png)
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 ## Testing Installation
 
@@ -716,7 +718,7 @@ cd AwesomeProject
 react-native run-android
 ```
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 ### Troubleshooting Run
 
@@ -728,11 +730,11 @@ cd AwesomeProject
 react-native start
 ```
 
-<block class="windows android" />
+</div><div markdown class="qs-block windows android">
 
 Or if you hit a `ERROR  Watcher took too long to load` on Windows, try increasing the timeout in [this file](https://github.com/facebook/react-native/blob/5fa33f3d07f8595a188f6fe04d6168a6ede1e721/packager/react-packager/src/DependencyResolver/FileWatcher/index.js#L16) (under your `node_modules/react-native/`).
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 ### Modifying Project
 
@@ -748,53 +750,34 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ![](img/react-native-congratulations.png)
 
-<block class="mac ios android" />
+</div><div markdown class="qs-block mac ios android">
 
 ## Common Followups
 
-<block class="mac ios" />
+</div><div markdown class="qs-block mac ios">
 
-- If you want to run on a physical device, see the [Running on iOS Device page](docs/running-on-device-ios.html#content).
+- If you want to run on a physical device, see the [Running on iOS Device page](running-on-device-ios.html#content).
 
-<block class="mac android" />
+</div><div markdown class="qs-block mac android">
 
-- If you want to run on a physical device, see the [Running on Android Device page](docs/running-on-device-android.html#content).
+- If you want to run on a physical device, see the [Running on Android Device page](running-on-device-android.html#content).
 
-<block class="mac ios android" />
+</div><div markdown class="qs-block mac ios android">
 
-- If you run into any issues getting started, see the [Troubleshooting page](docs/troubleshooting.html#content).
+- If you run into any issues getting started, see the [常见问题](http://bbs.reactnative.cn/topic/130).
 
 
-<block class="windows linux android" />
+</div><div markdown class="qs-block windows linux android">
 
 ## Common Followups
 
-- If you want to run on a physical device, see the [Running on Android Device page](docs/running-on-device-android.html#content).
+- If you want to run on a physical device, see the [Running on Android Device page](running-on-device-android.html#content).
 
-- If you run into any issues getting started, see the [Troubleshooting page](docs/troubleshooting.html#content).
+- If you run into any issues getting started, see the [常见问题](troubleshooting.html#content).
 
 <script>
-// Convert <div>...<span><block /></span>...</div>
-// Into <div>...<block />...</div>
-var blocks = document.getElementsByTagName('block');
-for (var i = 0; i < blocks.length; ++i) {
-  var block = blocks[i];
-  var span = blocks[i].parentNode;
-  var container = span.parentNode;
-  container.insertBefore(block, span);
-  container.removeChild(span);
-}
-// Convert <div>...<block />content<block />...</div>
-// Into <div>...<block>content</block><block />...</div>
-blocks = document.getElementsByTagName('block');
-for (var i = 0; i < blocks.length; ++i) {
-  var block = blocks[i];
-  while (block.nextSibling && block.nextSibling.tagName !== 'BLOCK') {
-    block.appendChild(block.nextSibling);
-  }
-}
 function display(type, value) {
-  var container = document.getElementsByTagName('block')[0].parentNode;
+  var container = document.querySelector('.qs-block').parentNode;
   container.className = 'display-' + type + '-' + value + ' ' +
     container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
   event && event.preventDefault();
