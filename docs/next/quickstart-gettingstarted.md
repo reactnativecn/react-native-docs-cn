@@ -1,6 +1,7 @@
 <div class="toggler">
 <style>
 .toggler a {
+  cursor: pointer;
   display: inline-block;
   padding: 10px 5px;
   margin: 2px;
@@ -35,13 +36,15 @@
 <a class="button-windows" onclick="display('os', 'windows')">Windows</a>
 </div>
 
+译注：如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供的[环境搭建视频教程](http://v.youku.com/v_show/id_XMTQ4OTYyMjg4MA==.html)、[windows环境搭建文字教程](http://bbs.reactnative.cn/topic/10)、以及[常见问题](http://bbs.reactnative.cn/topic/130)。
+
 <!-- ######### LINUX AND WINDOWS for iOS ##################### -->
 
 <div markdown class="qs-block linux windows ios">
 
-## Unsupported
+## 暂不支持
 
-Unfortunately, Apple only lets you develop for iOS on a Mac machine. Please check out the Android instructions instead.
+苹果公司目前只允许在Mac电脑上开发iOS应用。如果你没有Mac电脑，那么只能考虑先开发Android应用了。
 
 ![](img/react-native-sorry-not-supported.png)
 
@@ -50,78 +53,82 @@ Unfortunately, Apple only lets you develop for iOS on a Mac machine. Please chec
 
 </div><div markdown class="qs-block mac ios android" >
 
-## Installation
+## 安装
 
-### Required Prerequisites
+### 必需的软件
 
 #### Homebrew
 
-[Homebrew](http://brew.sh/), in order to install the required NodeJS, in addition to some
-recommended installs.
+[Homebrew](http://brew.sh/), Mac系统的包管理器，用于安装NodeJS和一些其他必需的工具软件。
 
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+译注：在Max OS X 10.11（El Capitan)版本中，homebrew在安装软件时可能会碰到`/usr/local`目录不可写的权限问题。可以使用下面的命令修复：  
+
+```bash
+chown -R `whoami` /usr/local
+```
+
 #### Node
 
-Use Homebrew to install [Node.js](https://nodejs.org/).
+使用Homebrew来安装[Node.js](https://nodejs.org/).
 
-> NodeJS 4.0 or greater is required for React Native. The default Homebrew package for Node is
-> currently 6.0, so that is not an issue.  
+> React Native需要NodeJS 4.0或更高版本。本文发布时Homebrew默认安装的是6.x版本，完全满足要求。 
 
 ```
 brew install node
 ```
 
-#### React Native Command Line Tools
+#### React Native的命令行工具（react-native-cli）
 
-The React Native command line tools allow you to easily create and initialize projects, etc.
+React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。
 
 ```
 npm install -g react-native-cli
 ```
 
-> If you see the error, `EACCES: permission denied`, please run the command:
-> `sudo npm install -g react-native-cli`.
+如果你看到`EACCES: permission denied`这样的权限报错，那么请参照上文的homebrew译注，修复`/usr/local`目录的所有权：  
+
+```bash
+chown -R `whoami` /usr/local
+```
 
 </div><div markdown class="qs-block mac ios">
 
 #### Xcode
 
-[Xcode](https://developer.apple.com/xcode/downloads/) 7.0 or higher is required. You can install Xcode via the App Store or [Apple developer downloads](https://developer.apple.com/xcode/downloads/). This will install the Xcode IDE and Xcode Command Line Tools.
+React Native目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 7.0 或更高版本。你可以通过App Store或是到[Apple开发者官网](https://developer.apple.com/xcode/downloads/)上下载。这一步骤会同时安装Xcode IDE和Xcode的命令行工具。
 
-> While generally installed by default, you can verify that the Xcode Command Line Tools are installed by launching Xcode and selecting `Xcode | Preferences | Locations` and ensuring there is a version of the command line tools shown in the `Command Line Tools` list box. The Command Line Tools give you `git`, etc.
+> 虽然一般来说命令行工具都是默认安装了，但你最好还是启动Xcode，并在`Xcode | Preferences | Locations`菜单中检查一下是否装有某个版本的`Command Line Tools`。Xcode的命令行工具中也包含一些必须的工具，比如`git`等。
 
 </div><div markdown class="qs-block mac android" >
 
 #### Android Studio
 
-[Android Studio](http://developer.android.com/sdk/index.html) 2.0 or higher.
+React Native目前需要[Android Studio](http://developer.android.com/sdk/index.html)2.0或更高版本。
 
-> Android Studio requires the Java Development Kit [JDK] 1.8 or higher. You can type
-> `javac -version` to see what version you have, if any. If you do not meet the JDK requirement,
-> you can
-> [download it](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+> Android Studio需要Java Development Kit [JDK] 1.8或更高版本。你可以在命令行中输入
+> `javac -version`来查看你当前安装的JDK版本。如果版本不合要求，则可以到
+> [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
 
-Android Studio will provide you the Android SDK and emulator required to run and test your React
-Native apps.
+Android Studio包含了运行和测试React Native应用所需的Android SDK和模拟器。
 
-> Unless otherwise mentioned, keep all the setup defaults intact. For example, the
-> `Android Support Repository` is installed automatically with Android Studio, and we need that
-> for React Native.
+> 除非特别注明，请不要改动安装过程中的选项。比如Android Studio默认安装了
+> `Android Support Repository`，而这也是React Native必须的（否则在react-native run-android时会报appcompat-v7包找不到的错误）。
 
-You will need to customize your installation:
+安装过程中有一些需要改动的选项：
 
-- Choose a `Custom` installation
+- 选择`Custom`选项：
 
 ![custom installation](img/react-native-android-studio-custom-install.png)
 
-- Choose both `Performance` and `Android Virtual Device`
+- 勾选`Performance`和`Android Virtual Device`
 
 ![additional installs](img/react-native-android-studio-additional-installs.png)
 
-- After installation, choose `Configure | SDK Manager` from the Android Studio welcome window.
+- 安装完成后，在Android Studio的启动欢迎界面中选择`Configure | SDK Manager`。
 
 ![configure sdk](img/react-native-android-studio-configure-sdk.png)
 
@@ -133,10 +140,10 @@ You will need to customize your installation:
 
 ![build tools](img/react-native-android-studio-android-sdk-build-tools.png)
 
-#### ANDROID_HOME Environment Variable
+#### ANDROID_HOME环境变量
 
 Ensure the `ANDROID_HOME` environment variable points to your existing Android SDK. To do that, add
-this to your `~/.bashrc`, `~/.bash_profile` (or whatever your shell uses) and re-open your terminal:
+this to your `~/.bash_profile`, `~/.bashrc`,  (or whatever your shell uses) and re-open your terminal:
 
 ```
 # If you installed the SDK without Android Studio, then it may be something like:
@@ -146,12 +153,11 @@ export ANDROID_HOME=~/Library/Android/sdk
 
 </div><div markdown class="qs-block mac ios android">
 
-### Highly Recommended Installs
+### 推荐安装的工具
 
 #### Watchman
 
-[Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching
-changes in the filesystem. It is recommended you install it for better performance.
+[Watchman](https://facebook.github.io/watchman/docs/install.html)是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。
 
 ```
 brew install watchman
@@ -159,8 +165,7 @@ brew install watchman
 
 #### Flow
 
-[Flow](http://www.flowtype.org), for static typechecking of your React Native code (when using
-Flow as part of your codebase).
+[Flow](http://www.flowtype.org)是一个静态的JS类型检查工具。译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。所以新手可以直接跳过（即不需要安装这一工具，也不建议去费力学习flow相关语法）。
 
 
 ```
@@ -184,7 +189,7 @@ export PATH
 
 Enable [Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html) which greatly improves incremental build times for changes in java code.
 
-### Other Optional Installs
+### 其他可选的安装项
 
 #### Git
 
@@ -218,7 +223,7 @@ However, it's only free for personal use. If you want to use Genymotion, see bel
 3. Create a new emulator and start it.
 4. To bring up the developer menu press ⌘+M
 
-### Troubleshooting
+### 常见问题
 
 #### Virtual Device Not Created When Installing Android Studio
 
