@@ -8,7 +8,7 @@
 	},
 	{
 		"name": "牛读",
-		"desc": "一款定制的技术资讯类聚合阅读器",
+		"desc": "技术资讯类聚合阅读器",
 		"ios": "https://itunes.apple.com/cn/app/niu-du-neoreader/id1111443079?l=cn&mt=8",
 		"android": "http://fir.im/neoreader",
 		"icon": "http://firicon.fir.im/a4c5f1e8c52d9d98e7b990e5098a161a8f698653"
@@ -78,7 +78,7 @@
 	},
 	{
 		"name": "你造么",
-		"desc": "你造么，专注制造业移动端协同管理",
+		"desc": "制造业移动端协同管理",
 		"ios": "https://itunes.apple.com/us/app/ni-zao-me/id1025294933?l=zh&ls=1&mt=8",
 		"android": "",
 		"icon": "http://7xk1ez.com2.z0.glb.qiniucdn.com/logo-mobile-0114logo_welcom.png"
