@@ -2,7 +2,9 @@
 
 要使用推送通知功能，首先[在苹果后台配置推送通知服务](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)并且准备好服务端的系统。设置的过程可以参考[Parse的教程](https://parse.com/tutorials/ios-push-notifications)
 
-首先请[手动链接](linking-libraries-ios.html)PushNotificationIOS的库：  
+首先请[手动链接](linking-libraries-ios.html)PushNotificationIOS的库（以下操作如果不熟悉，请自行补习Xcode的使用教程）：  
+- 将`node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj`文件拖到Xcode界面中
+- 在Xcode的`Link Binary With Libraries`中添加`libRCTPushNotification.a`
 - 在`Header Search Paths`中添加: `$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS`  
 - 将搜索选项设为`recursive`
 
