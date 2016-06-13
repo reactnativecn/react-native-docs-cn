@@ -146,5 +146,11 @@
 		"ios": "",
 		"android": "http://www.wandoujia.com/apps/com.reading",
 		"icon": "http://7xr0xq.com1.z0.glb.clouddn.com/Reading_Logo.png"
+	},{
+		"name": "QQ空间",
+		"desc": "分享生活，留住感动",
+		"ios": "https://itunes.apple.com/cn/app/qq-kong-jian-ku-xuan-zhi-bo/id364183992?mt=8",
+		"android": "http://android.myapp.com/myapp/detail.htm?apkName=com.qzone",
+		"icon": "http://pp.myapp.com/ma_icon/0/icon_9959_1460036593/96"
 	}
 ]
