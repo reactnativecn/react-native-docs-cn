@@ -34,7 +34,7 @@ InteractionManager.clearInteractionHandle(handle);
 <div class="props">
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="runafterinteractions"></a><span class="propType">static </span>runAfterInteractions<span class="propType">(callback: Function)</span> <a class="hash-link" href="#runafterinteractions">#</a></h4>
-		<div><p>安排一个函数在所有的交互和动画完成之后运行。</p></div>
+		<div><p>安排一个函数在所有的交互和动画完成之后运行。返回一个可取消的promise。</p></div>
 	</div>
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="createinteractionhandle"></a><span class="propType">static </span>createInteractionHandle<span class="propType">()</span> <a class="hash-link" href="#createinteractionhandle">#</a></h4>
