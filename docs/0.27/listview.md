@@ -38,7 +38,10 @@ ListView还支持一些高级特性，譬如给每段/组(section)数据添加�
 
 <div class="props">
   <div class="prop">
-    <h4 class="propTitle"><a class="anchor" name="scrollview"></a><a href="scrollview.html#props">ScrollView props...</a> <a class="hash-link" href="#scrollview">#</a></h4>
+    <h4 class="propTitle"><a class="anchor" name="scrollview"></a><a href="scrollview.html#props">ScrollView props...</a> <a class="hash-link" href="#scrollview">#</a></h4>   
+    <div>
+      <p>译注：这意味着ListView可以使用所有ScrollView的属性。</p>
+    </div>
   </div>
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="datasource"></a>dataSource <span class="propType">ListViewDataSource</span> <a class="hash-link" href="#datasource">#</a></h4>
