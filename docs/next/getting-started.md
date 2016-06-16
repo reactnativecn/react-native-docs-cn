@@ -593,10 +593,8 @@ cd AwesomeProject
 react-native run-ios
 ```
 
-> 你也可以在[Nuclide](http://nuclide.io)中打开
-> [`AwesomeProject`](http://nuclide.io/docs/quick-start/getting-started/#adding-a-project)文件夹
-> 然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line),或是双击
-> `ios/AwesomeProject.xcodeproj`文件然后在Xcode中点击`Run`按钮。
+你也可以在[Nuclide](http://nuclide.io)中打开[`AwesomeProject`](http://nuclide.io/docs/quick-start/getting-started/#adding-a-project)文件夹
+然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line)，或是双击`ios/AwesomeProject.xcodeproj`文件然后在Xcode中点击`Run`按钮。
 
 </div><div markdown class="qs-block mac android">
 
@@ -606,9 +604,7 @@ cd AwesomeProject
 react-native run-android
 ```
 
-> 你也可以在[Nuclide](http://nuclide.io)中打开
-> [`AwesomeProject`](http://nuclide.io/docs/quick-start/getting-started/#adding-a-project)文件夹
-> 然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line)。
+你也可以在[Nuclide](http://nuclide.io)中打开[`AwesomeProject`](http://nuclide.io/docs/quick-start/getting-started/#adding-a-project)文件夹然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line)。
 
 </div><div markdown class="qs-block mac ios android">
 
