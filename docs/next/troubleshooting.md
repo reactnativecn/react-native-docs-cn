@@ -110,12 +110,12 @@ pod 'React', :path => '../node_modules/react-native', :subspecs => [
 
 ## 使用`WebSocket`的模块（譬如Firebase）抛出了异常
 
-React Native声实现了一套WebSockets的接口兼容(POLYFILLS)。这些兼容组件作为react-native模块的一部分来初始化，所以如果你在`require('react-native')`之前引用了使用WebSockets的模块，就可能会产生错误。确保在你的程序总，最先`require('react-native')`
+React Native实现了一套WebSockets的接口兼容(POLYFILLS)。这些兼容组件作为react-native模块的一部分来初始化，所以如果你在`require('react-native')`之前引用了使用WebSockets的模块，就可能会产生错误。确保在你的程序中，最先`require('react-native')`
 
 像这样：
 
 ```
-var React = require('react-native');
+var ReactNative = require('react-native');
 var Firebase = require('firebase');
 ```
 

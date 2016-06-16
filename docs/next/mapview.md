@@ -1,3 +1,5 @@
+官方建议使用[react-native-maps](https://github.com/lelandrichardson/react-native-maps)代替此地图组件。
+
 ### 截图
 ![](img/components/mapview.png)
 
@@ -127,7 +129,9 @@
 ```javascript
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
+var { PropTypes } = React;
 var {
   Image,
   MapView,
@@ -136,7 +140,7 @@ var {
   TextInput,
   TouchableOpacity,
   View,
-} = React;
+} = ReactNative;
 
 var regionText = {
   latitude: '0',
@@ -145,36 +149,23 @@ var regionText = {
   longitudeDelta: '0',
 };
 
-type MapRegion = {
-  latitude: number,
-  longitude: number,
-  latitudeDelta?: number,
-  longitudeDelta?: number,
-};
-
-type MapRegionInputState = {
-  region: MapRegion,
-};
-
 var MapRegionInput = React.createClass({
 
   propTypes: {
-    region: React.PropTypes.shape({
-      latitude: React.PropTypes.number.isRequired,
-      longitude: React.PropTypes.number.isRequired,
-      latitudeDelta: React.PropTypes.number,
-      longitudeDelta: React.PropTypes.number,
+    region: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      latitudeDelta: PropTypes.number,
+      longitudeDelta: PropTypes.number,
     }),
-    onChange: React.PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
   },
 
-  getInitialState(): MapRegionInputState {
+  getInitialState() {
     return {
       region: {
         latitude: 0,
         longitude: 0,
-        latitudeDelta: 0,
-        longitudeDelta: 0,
       }
     };
   },
@@ -276,36 +267,14 @@ var MapRegionInput = React.createClass({
 
 });
 
-type Annotations = Array<{
-  animateDrop?: boolean,
-  latitude: number,
-  longitude: number,
-  title?: string,
-  subtitle?: string,
-  hasLeftCallout?: boolean,
-  hasRightCallout?: boolean,
-  onLeftCalloutPress?: Function,
-  onRightCalloutPress?: Function,
-  tintColor?: number | string,
-  image?: any,
-  id?: string,
-  view?: ReactElement,
-  leftCalloutView?: ReactElement,
-  rightCalloutView?: ReactElement,
-  detailCalloutView?: ReactElement,
-}>;
-type MapViewExampleState = {
-  isFirstLoad: boolean,
-  mapRegion?: MapRegion,
-  mapRegionInput?: MapRegion,
-  annotations?: Annotations,
-};
-
 var MapViewExample = React.createClass({
 
-  getInitialState(): MapViewExampleState {
+  getInitialState() {
     return {
       isFirstLoad: true,
+      mapRegion: undefined,
+      mapRegionInput: undefined,
+      annotations: [],
     };
   },
 
@@ -327,7 +296,7 @@ var MapViewExample = React.createClass({
     );
   },
 
-  _getAnnotations(region): Annotations {
+  _getAnnotations(region) {
     return [{
       longitude: region.longitude,
       latitude: region.latitude,
@@ -361,16 +330,13 @@ var MapViewExample = React.createClass({
 
 });
 
-type AnnotationExampleState = {
-  isFirstLoad: boolean,
-  annotations?: Annotations,
-  mapRegion?: MapRegion,
-};
 var AnnotationExample = React.createClass({
 
-  getInitialState(): AnnotationExampleState {
+  getInitialState() {
     return {
       isFirstLoad: true,
+      annotations: [],
+      mapRegion: undefined,
     };
   },
 
@@ -384,6 +350,56 @@ var AnnotationExample = React.createClass({
             latitude: region.latitude,
             ...this.props.annotation,
           }],
+        });
+      };
+    }
+
+    return (
+      <MapView
+        style={styles.map}
+        onRegionChangeComplete={onRegionChangeComplete}
+        region={this.state.mapRegion}
+        annotations={this.state.annotations}
+      />
+    );
+  },
+
+});
+
+var DraggableAnnotationExample = React.createClass({
+
+  createAnnotation(longitude, latitude) {
+    return {
+      longitude,
+      latitude,
+      draggable: true,
+      onDragStateChange: (event) => {
+        if (event.state === 'idle') {
+          this.setState({
+            annotations: [this.createAnnotation(event.longitude, event.latitude)],
+          });
+        }
+        console.log('Drag state: ' + event.state);
+      },
+    };
+  },
+
+  getInitialState() {
+    return {
+      isFirstLoad: true,
+      annotations: [],
+      mapRegion: undefined,
+    };
+  },
+
+  render() {
+    if (this.state.isFirstLoad) {
+      var onRegionChangeComplete = (region) => {
+        //When the MapView loads for the first time, we can create the annotation at the
+        //region that was loaded.
+        this.setState({
+          isFirstLoad: false,
+          annotations: [this.createAnnotation(region.longitude, region.latitude)],
         });
       };
     }
@@ -439,9 +455,15 @@ exports.examples = [
     }
   },
   {
-    title: 'Map shows user location',
+    title: 'showsUserLocation + followUserLocation',
     render() {
-      return <MapView style={styles.map} showsUserLocation={true} />;
+      return (
+        <MapView
+          style={styles.map}
+          showsUserLocation={true}
+          followUserLocation={true}
+        />
+      );
     }
   },
   {
@@ -456,11 +478,31 @@ exports.examples = [
             }}>
             <Image
               style={{width:30, height:30}}
-              source={require('image!uie_thumb_selected')}
+              source={require('./uie_thumb_selected.png')}
             />
           </TouchableOpacity>
         ),
       }}/>;
+    }
+  },
+  {
+    title: 'Annotation focus example',
+    render() {
+      return <AnnotationExample style={styles.map} annotation={{
+        title: 'More Info...',
+        onFocus: () => {
+          alert('Annotation gets focus');
+        },
+        onBlur: () => {
+          alert('Annotation lost focus');
+        }
+      }}/>;
+    }
+  },
+  {
+    title: 'Draggable pin',
+    render() {
+      return <DraggableAnnotationExample/>;
     }
   },
   {

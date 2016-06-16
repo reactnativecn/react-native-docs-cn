@@ -311,16 +311,17 @@ class DraggableView extends React.Component {
  ### 例子
 
  ```javascript
- 'use strict';
+'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
 var {
   Animated,
   Easing,
   StyleSheet,
   Text,
   View,
-} = React;
+} = ReactNative;
 var UIExplorerButton = require('./UIExplorerButton');
 
 exports.framework = 'React';
@@ -337,6 +338,8 @@ exports.examples = [
       'mounts.',
     render: function() {
       class FadeInView extends React.Component {
+        state: any;
+
         constructor(props) {
           super(props);
           this.state = {
@@ -364,6 +367,8 @@ exports.examples = [
         }
       }
       class FadeInExample extends React.Component {
+        state: any;
+
         constructor(props) {
           super(props);
           this.state = {
@@ -493,6 +498,7 @@ exports.examples = [
           {['Composite', 'Easing', 'Animations!'].map(
             (text, ii) => (
               <Animated.View
+                key={text}
                 style={[styles.content, {
                   left: this.anims[ii]
                 }]}>

@@ -45,7 +45,8 @@
 ```javascript
 'use strict';
 
-const React = require('react-native');
+const React = require('react');
+const ReactNative = require('react-native');
 const {
   ScrollView,
   StyleSheet,
@@ -53,7 +54,7 @@ const {
   Text,
   TouchableWithoutFeedback,
   View,
-} = React;
+} = ReactNative;
 
 const styles = StyleSheet.create({
   row: {
@@ -100,7 +101,7 @@ const RefreshControlExample = React.createClass({
       isRefreshing: false,
       loaded: 0,
       rowData: Array.from(new Array(20)).map(
-        (val, i) => ({text: 'Initial row' + i, clicks: 0})),
+        (val, i) => ({text: 'Initial row ' + i, clicks: 0})),
     };
   },
 
@@ -124,6 +125,7 @@ const RefreshControlExample = React.createClass({
             onRefresh={this._onRefresh}
             tintColor="#ff0000"
             title="Loading..."
+            titleColor="#00ff00"
             colors={['#ff0000', '#00ff00', '#0000ff']}
             progressBackgroundColor="#ffff00"
           />
@@ -139,7 +141,7 @@ const RefreshControlExample = React.createClass({
       // prepend 10 items
       const rowData = Array.from(new Array(10))
       .map((val, i) => ({
-        text: 'Loaded row' + (+this.state.loaded + i),
+        text: 'Loaded row ' + (+this.state.loaded + i),
         clicks: 0,
       }))
       .concat(this.state.rowData);

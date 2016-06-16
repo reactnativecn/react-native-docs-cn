@@ -70,27 +70,24 @@ RCT_EXPORT_VIEW_PROPERTY(pitchEnabled, BOOL)
 
 ```javascript
 // MapView.js
-var React = require('react-native');
-var { requireNativeComponent } = React;
+import React, { Component, PropTypes } from 'react';
+import { requireNativeComponent } from 'react-native';
 
-class MapView extends React.Component {
+var RCTMap = requireNativeComponent('RCTMap', MapView);
+
+export default class MapView extends Component {
+  static propTypes = {
+    /**
+    * 当这个属性被设置为true，并且地图上绑定了一个有效的可视区域的情况下，
+    * 可以通过捏放操作来改变摄像头的偏转角度。
+    * 当这个属性被设置成false时，摄像头的角度会被忽略，地图会一直显示为俯视状态。
+    */
+    pitchEnabled: PropTypes.bool,
+  };
   render() {
     return <RCTMap {...this.props} />;
   }
 }
-
-MapView.propTypes = {
-  /**
-   * 当这个属性被设置为true，并且地图上绑定了一个有效的可视区域的情况下，
-   * 可以通过捏放操作来改变摄像头的偏转角度。
-   * 当这个属性被设置成false时，摄像头的角度会被忽略，地图会一直显示为俯视状态。
-   */
-  pitchEnabled: React.PropTypes.bool,
-};
-
-var RCTMap = requireNativeComponent('RCTMap', MapView);
-
-module.exports = MapView;
 ```
 
 _译注_：使用了封装组件之后，你还需要注意到module.exports导出的不再是requireNativeComponent的返回值，而是所创建的包装组件。

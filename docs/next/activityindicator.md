@@ -20,16 +20,9 @@
         </div>
     </div>
     <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="hideswhenstopped"></a>hidesWhenStopped <span class="propType">bool</span> <a class="hash-link" href="#hideswhenstopped">#</a></h4>
+        <h4 class="propTitle"><a class="anchor" name="hideswhenstopped"></a><span class="platform">ios</span>hidesWhenStopped <span class="propType">bool</span> <a class="hash-link" href="#hideswhenstopped">#</a></h4>
         <div>
             <p>在没有动画的时候，是否要隐藏指示器（默认为true）。</p>
-        </div>
-    </div>
-    <div class="prop">
-        <h4 class="propTitle"><a class="anchor" name="onlayout"></a>onLayout <span class="propType">function</span> <a class="hash-link" href="#onlayout">#</a></h4>
-        <div>
-            <p>当组件挂载或者布局发生变化时调用，参数为：</p>
-            <p>  {nativeEvent: { layout: {x, y, width, height}}}.</p>
         </div>
     </div>
     <div class="prop">
@@ -45,40 +38,38 @@
 ```javascript
 'use strict';
 
-var React = require('react-native');
-var {
-  ActivityIndicatorIOS,
+const React = require('react');
+const ReactNative = require('react-native');
+const {
+  ActivityIndicator,
   StyleSheet,
   View,
-} = React;
-var TimerMixin = require('react-timer-mixin');
+} = ReactNative;
+const TimerMixin = require('react-timer-mixin');
 
-var ToggleAnimatingActivityIndicator = React.createClass({
+const ToggleAnimatingActivityIndicator = React.createClass({
   mixins: [TimerMixin],
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       animating: true,
     };
   },
 
-  setToggleTimeout: function() {
-    this.setTimeout(
-      () => {
-        this.setState({animating: !this.state.animating});
-        this.setToggleTimeout();
-      },
-      1200
-    );
+  setToggleTimeout() {
+    this.setTimeout(() => {
+      this.setState({animating: !this.state.animating});
+      this.setToggleTimeout();
+    }, 2000);
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     this.setToggleTimeout();
   },
 
-  render: function() {
+  render() {
     return (
-      <ActivityIndicatorIOS
+      <ActivityIndicator
         animating={this.state.animating}
         style={[styles.centering, {height: 80}]}
         size="large"
@@ -89,31 +80,31 @@ var ToggleAnimatingActivityIndicator = React.createClass({
 
 exports.displayName = (undefined: ?string);
 exports.framework = 'React';
-exports.title = '<ActivityIndicatorIOS>';
+exports.title = '<ActivityIndicator>';
 exports.description = 'Animated loading indicators.';
 
 exports.examples = [
   {
     title: 'Default (small, white)',
-    render: function() {
+    render() {
       return (
-        <ActivityIndicatorIOS
-          style={[styles.centering, styles.gray, {height: 40}]}
+        <ActivityIndicator
+          style={[styles.centering, styles.gray]}
           color="white"
-          />
+        />
       );
     }
   },
   {
     title: 'Gray',
-    render: function() {
+    render() {
       return (
         <View>
-          <ActivityIndicatorIOS
-            style={[styles.centering, {height: 40}]}
+          <ActivityIndicator
+            style={[styles.centering]}
           />
-          <ActivityIndicatorIOS
-            style={[styles.centering, {backgroundColor: '#eeeeee', height: 40}]}
+          <ActivityIndicator
+            style={[styles.centering, {backgroundColor: '#eeeeee'}]}
           />
         </View>
       );
@@ -121,23 +112,23 @@ exports.examples = [
   },
   {
     title: 'Custom colors',
-    render: function() {
+    render() {
       return (
         <View style={styles.horizontal}>
-          <ActivityIndicatorIOS color="#0000ff" />
-          <ActivityIndicatorIOS color="#aa00aa" />
-          <ActivityIndicatorIOS color="#aa3300" />
-          <ActivityIndicatorIOS color="#00aa00" />
+          <ActivityIndicator color="#0000ff" />
+          <ActivityIndicator color="#aa00aa" />
+          <ActivityIndicator color="#aa3300" />
+          <ActivityIndicator color="#00aa00" />
         </View>
       );
     }
   },
   {
     title: 'Large',
-    render: function() {
+    render() {
       return (
-        <ActivityIndicatorIOS
-          style={[styles.centering, styles.gray, {height: 80}]}
+        <ActivityIndicator
+          style={[styles.centering, styles.gray]}
           color="white"
           size="large"
         />
@@ -146,22 +137,22 @@ exports.examples = [
   },
   {
     title: 'Large, custom colors',
-    render: function() {
+    render() {
       return (
         <View style={styles.horizontal}>
-          <ActivityIndicatorIOS
+          <ActivityIndicator
             size="large"
             color="#0000ff"
           />
-          <ActivityIndicatorIOS
+          <ActivityIndicator
             size="large"
             color="#aa00aa"
           />
-          <ActivityIndicatorIOS
+          <ActivityIndicator
             size="large"
             color="#aa3300"
           />
-          <ActivityIndicatorIOS
+          <ActivityIndicator
             size="large"
             color="#00aa00"
           />
@@ -171,16 +162,28 @@ exports.examples = [
   },
   {
     title: 'Start/stop',
-    render: function(): ReactElement {
+    render() {
       return <ToggleAnimatingActivityIndicator />;
+    }
+  },
+  {
+    title: 'Custom size',
+    render() {
+      return (
+        <ActivityIndicator
+          style={[styles.centering, {transform: [{scale: 1.5}]}]}
+          size="large"
+        />
+      );
     }
   },
 ];
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   centering: {
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 8,
   },
   gray: {
     backgroundColor: '#cccccc',
@@ -188,6 +191,7 @@ var styles = StyleSheet.create({
   horizontal: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    padding: 8,
   },
 });
 ```

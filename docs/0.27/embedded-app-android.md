@@ -21,7 +21,7 @@ allprojects {
         ...
         maven {
             // All of React Native (JS, Android binaries) is installed from npm
-            url "$projectDir/node_modules/react-native/android"
+            url "$rootDir/node_modules/react-native/android"
         }
     }
     ...
@@ -128,6 +128,7 @@ public boolean onKeyUp(int keyCode, KeyEvent event) {
 
 ```
 $ npm init
+$ npm install --save react
 $ npm install --save react-native
 $ curl -o .flowconfig https://raw.githubusercontent.com/facebook/react-native/master/.flowconfig
 ```
@@ -143,13 +144,15 @@ $ curl -o .flowconfig https://raw.githubusercontent.com/facebook/react-native/ma
 ```js
 'use strict';
 
-var React = require('react-native');
-var {
+import React, { Component } from 'react';
+import {
+  AppRegistry,
   Text,
-  View
-} = React;
+  StyleSheet,
+  View,
+} from 'react-native';
 
-class MyAwesomeApp extends React.Component {
+class MyAwesomeApp extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -158,7 +161,7 @@ class MyAwesomeApp extends React.Component {
     )
   }
 }
-var styles = React.StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -170,7 +173,7 @@ var styles = React.StyleSheet.create({
   },
 });
 
-React.AppRegistry.registerComponent('MyAwesomeApp', () => MyAwesomeApp);
+AppRegistry.registerComponent('MyAwesomeApp', () => MyAwesomeApp);
 ```
 
 ## 运行你的应用

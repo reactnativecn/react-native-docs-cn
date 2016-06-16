@@ -117,13 +117,14 @@ NetInfo.isConnected.addEventListener(
 ```javascript
 'use strict';
 
-const React = require('react-native');
+const React = require('react');
+const ReactNative = require('react-native');
 const {
   NetInfo,
   Text,
   View,
   TouchableWithoutFeedback,
-} = React;
+} = ReactNative;
 
 const ConnectionInfoSubscription = React.createClass({
   getInitialState() {
@@ -236,8 +237,8 @@ const IsConnectionExpensive = React.createClass({
     };
   },
   _checkIfExpensive() {
-    NetInfo.isConnectionExpensive(
-        (isConnectionExpensive) => { this.setState({isConnectionExpensive}); }
+    NetInfo.isConnectionExpensive().then(
+        isConnectionExpensive => { this.setState({isConnectionExpensive}); }
     );
   },
   render() {
@@ -263,23 +264,23 @@ exports.examples = [
   {
     title: 'NetInfo.isConnected',
     description: 'Asynchronously load and observe connectivity',
-    render(): ReactElement { return <IsConnected />; }
+    render(): ReactElement<any> { return <IsConnected />; }
   },
   {
     title: 'NetInfo.update',
     description: 'Asynchronously load and observe connectionInfo',
-    render(): ReactElement { return <ConnectionInfoCurrent />; }
+    render(): ReactElement<any> { return <ConnectionInfoCurrent />; }
   },
   {
     title: 'NetInfo.updateHistory',
     description: 'Observed updates to connectionInfo',
-    render(): ReactElement { return <ConnectionInfoSubscription />; }
+    render(): ReactElement<any> { return <ConnectionInfoSubscription />; }
   },
   {
     platform: 'android',
     title: 'NetInfo.isConnectionExpensive (Android)',
     description: 'Asynchronously check isConnectionExpensive',
-    render(): ReactElement { return <IsConnectionExpensive />; }
+    render(): ReactElement<any> { return <IsConnectionExpensive />; }
   },
 ];
 ```

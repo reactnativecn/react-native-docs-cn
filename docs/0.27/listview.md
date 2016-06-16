@@ -62,7 +62,7 @@ ListView还支持一些高级特性，譬如给每段/组(section)数据添加�
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="onendreached"></a>onEndReached <span class="propType">function</span> <a class="hash-link" href="#onendreached">#</a></h4>
     <div>
-      <p>当所有的数据都已经渲染过，并且列表被滚动到距离最底部不足onEndReachedThreshold个像素的距离时调用。原生的滚动事件会被作为参数传递。</p>
+      <p>当所有的数据都已经渲染过，并且列表被滚动到距离最底部不足onEndReachedThreshold个像素的距离时调用。原生的滚动事件会被作为参数传递。译注：当第一次渲染时，如果数据不足一屏（比如初始值是空的），这个事件也会被触发。</p>
     </div>
   </div>
   <div class="prop">
@@ -157,7 +157,8 @@ ListView还支持一些高级特性，譬如给每段/组(section)数据添加�
 ```javascript
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
 var {
   Image,
   ListView,
@@ -166,7 +167,7 @@ var {
   RecyclerViewBackedScrollView,
   Text,
   View,
-} = React;
+} = ReactNative;
 
 var UIExplorerPage = require('./UIExplorerPage');
 
@@ -199,17 +200,20 @@ var ListViewSimpleExample = React.createClass({
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
           renderScrollComponent={props => <RecyclerViewBackedScrollView {...props} />}
-          renderSeparator={(sectionID, rowID) => <View key={`${sectionID}-${rowID}`} style={styles.separator} />}
+          renderSeparator={this._renderSeperator}
         />
       </UIExplorerPage>
     );
   },
 
-  _renderRow: function(rowData: string, sectionID: number, rowID: number) {
+  _renderRow: function(rowData: string, sectionID: number, rowID: number, highlightRow: (sectionID: number, rowID: number) => void) {
     var rowHash = Math.abs(hashCode(rowData));
     var imgSource = THUMB_URLS[rowHash % THUMB_URLS.length];
     return (
-      <TouchableHighlight onPress={() => this._pressRow(rowID)}>
+      <TouchableHighlight onPress={() => {
+          this._pressRow(rowID);
+          highlightRow(sectionID, rowID);
+        }}>
         <View>
           <View style={styles.row}>
             <Image style={styles.thumb} source={imgSource} />
@@ -237,6 +241,18 @@ var ListViewSimpleExample = React.createClass({
       this._genRows(this._pressData)
     )});
   },
+
+  _renderSeperator: function(sectionID: number, rowID: number, adjacentRowHighlighted: bool) {
+    return (
+      <View
+        key={`${sectionID}-${rowID}`}
+        style={{
+          height: adjacentRowHighlighted ? 4 : 1,
+          backgroundColor: adjacentRowHighlighted ? '#3B5998' : '#CCCCCC',
+        }}
+      />
+    );
+  }
 });
 
 var THUMB_URLS = [
@@ -270,10 +286,6 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 10,
     backgroundColor: '#F6F6F6',
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#CCCCCC',
   },
   thumb: {
     width: 64,

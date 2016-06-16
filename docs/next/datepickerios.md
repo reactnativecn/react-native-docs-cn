@@ -62,14 +62,15 @@
 ```javascript
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
 var {
   DatePickerIOS,
   StyleSheet,
   Text,
   TextInput,
   View,
-} = React;
+} = ReactNative;
 
 var DatePickerExample = React.createClass({
   getDefaultProps: function () {
@@ -178,7 +179,7 @@ exports.description = 'Select dates and times using the native UIDatePicker.';
 exports.examples = [
 {
   title: '<DatePickerIOS>',
-  render: function(): ReactElement {
+  render: function(): ReactElement<any> {
     return <DatePickerExample />;
   },
 }];

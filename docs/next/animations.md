@@ -377,8 +377,7 @@ render: function() {
 正如文档[导航器对比](navigator-comparison.html#content)所说，`Navigator`使用JavaScript实现，而`NavigatoIOS`则是一个对于`UINavigationController`提供的原生功能的包装。所以这些场景切换动画仅仅对`Navigator`有效。为了在Navigator中重新创建`UINavigationController`所提供的动画并且使之可以被自定义，React Native导出了一个[NavigatorSceneConfigs](https://github.com/facebook/react-native/blob/master/Libraries/CustomComponents/Navigator/NavigatorSceneConfigs.js)API。
 
 ```javascript
-var React = require('react-native');
-var { Dimensions } = React;
+import { Dimensions } from 'react-native';
 var SCREEN_WIDTH = Dimensions.get('window').width;
 var BaseConfig = Navigator.SceneConfigs.FloatFromRight;
 

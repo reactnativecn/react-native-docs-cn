@@ -89,13 +89,14 @@
 ```javascript
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
 var {
   Slider,
   Text,
   StyleSheet,
   View,
-} = React;
+} = ReactNative;
 
 var SliderExample = React.createClass({
   getDefaultProps() {
@@ -167,19 +168,19 @@ exports.description = 'Slider input for numeric values';
 exports.examples = [
   {
     title: 'Default settings',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return <SliderExample />;
     }
   },
   {
     title: 'Initial value: 0.5',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return <SliderExample value={0.5} />;
     }
   },
   {
     title: 'minimumValue: -1, maximumValue: 2',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return (
         <SliderExample
           minimumValue={-1}
@@ -190,13 +191,13 @@ exports.examples = [
   },
   {
     title: 'step: 0.25',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return <SliderExample step={0.25} />;
     }
   },
   {
     title: 'onSlidingComplete',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return (
         <SlidingCompleteExample />
       );
@@ -205,7 +206,7 @@ exports.examples = [
   {
     title: 'Custom min/max track tint color',
     platform: 'ios',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return (
         <SliderExample
           minimumTrackTintColor={'red'}
@@ -217,21 +218,21 @@ exports.examples = [
   {
     title: 'Custom thumb image',
     platform: 'ios',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return <SliderExample thumbImage={require('./uie_thumb_big.png')} />;
     }
   },
   {
     title: 'Custom track image',
     platform: 'ios',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return <SliderExample trackImage={require('./slider.png')} />;
     }
   },
   {
     title: 'Custom min/max track image',
     platform: 'ios',
-    render(): ReactElement {
+    render(): ReactElement<any> {
       return (
         <SliderExample
           minimumTrackImage={require('./slider-left.png')}

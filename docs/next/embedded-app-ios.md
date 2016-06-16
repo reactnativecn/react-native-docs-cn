@@ -5,7 +5,9 @@
 - [CocoaPods](http://cocoapods.org/) – `gem install cocoapods`
 - [Node.js](http://nodejs.org)
     - 安装 **nvm**（安装向导在[这里](https://github.com/creationix/nvm#installation)）。然后运行`nvm install node && nvm alias default node`，这将会默认安装最新版本的Node.js并且设置好命令行的环境变量，这样你可以输入`node`命令来启动Node.js环境。nvm使你可以可以同时安装多个版本的Node.js，并且在这些版本之间轻松切换。
-- 在你JS代码文件所在目录下，安装React Native依赖：`npm install react-native --save`
+- 在你JS代码文件所在目录下，安装React和React Native依赖：
+  - npm install react
+  - npm install react-native
 
 ## 通过CocoaPods安装React Native
 
@@ -53,20 +55,22 @@ $ touch ReactComponent/index.ios.js
 ```
 'use strict';
 
-var React = require('react-native');
-var {
+import React, { Component } from 'react';
+import {
+  AppRegistry,
   Text,
-  View
-} = React;
+  StyleSheet,
+  View,
+} from 'react-native';
 
-var styles = React.StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'red'
   }
 });
 
-class SimpleApp extends React.Component {
+class SimpleApp extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -76,7 +80,7 @@ class SimpleApp extends React.Component {
   }
 }
 
-React.AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
+AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
 ```
 
 `SimpleApp`就是你的**模块名**，这个在后面会要用到。

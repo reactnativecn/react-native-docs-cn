@@ -132,12 +132,13 @@ onActionSelected: function(position) {
 ```javascript
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
 var {
   StyleSheet,
   Text,
   View,
-} = React;
+} = ReactNative;
 var UIExplorerBlock = require('./UIExplorerBlock');
 var UIExplorerPage = require('./UIExplorerPage');
 
@@ -165,7 +166,7 @@ var ToolbarAndroidExample = React.createClass({
         <UIExplorerBlock title="Toolbar with title/subtitle and actions">
           <ToolbarAndroid
             actions={toolbarActions}
-            navIcon={require('./ic_menu_black_24dp')}
+            navIcon={require('image!ic_menu_black_24dp')}
             onActionSelected={this._onActionSelected}
             onIconClicked={() => this.setState({actionText: 'Icon clicked'})}
             style={styles.toolbar}
@@ -175,7 +176,7 @@ var ToolbarAndroidExample = React.createClass({
         </UIExplorerBlock>
         <UIExplorerBlock title="Toolbar with logo & custom title view (a View with Switch+Text)">
           <ToolbarAndroid
-            logo={require('./launcher_icon')}
+            logo={require('image!launcher_icon')}
             style={styles.toolbar}>
             <View style={{height: 56, flexDirection: 'row', alignItems: 'center'}}>
               <SwitchAndroid
@@ -194,13 +195,13 @@ var ToolbarAndroidExample = React.createClass({
         <UIExplorerBlock title="Toolbar with navIcon & logo, no title">
           <ToolbarAndroid
             actions={toolbarActions}
-            logo={require('./launcher_icon')}
-            navIcon={require('./ic_menu_black_24dp')}
+            logo={require('image!launcher_icon')}
+            navIcon={require('image!ic_menu_black_24dp')}
             style={styles.toolbar} />
         </UIExplorerBlock>
         <UIExplorerBlock title="Toolbar with custom title colors">
           <ToolbarAndroid
-            navIcon={require('./ic_menu_black_24dp')}
+            navIcon={require('image!ic_menu_black_24dp')}
             onIconClicked={() => this.setState({colorProps: {}})}
             title="Wow, such toolbar"
             style={styles.toolbar}
@@ -235,9 +236,9 @@ var ToolbarAndroidExample = React.createClass({
 });
 
 var toolbarActions = [
-  {title: 'Create', icon: require('./ic_create_black_48dp'), show: 'always'},
+  {title: 'Create', icon: require('image!ic_create_black_48dp'), show: 'always'},
   {title: 'Filter'},
-  {title: 'Settings', icon: require('./ic_settings_black_48dp'), show: 'always'},
+  {title: 'Settings', icon: require('image!ic_settings_black_48dp'), show: 'always'},
 ];
 
 var styles = StyleSheet.create({

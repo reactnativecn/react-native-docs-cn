@@ -6,25 +6,52 @@
                 {
                     "subject": "开始使用React Native",
                     "mdlink": "getting-started"
-                },
-                {
-                    "subject": "在Linux上使用React Native",
-                    "mdlink": "getting-started-on-linux"
-                },
-                {
-                    "subject": "安卓环境配置",
-                    "mdlink": "android-setup"
-                },
-                {
-                    "subject": "Linux和Windows支持",
-                    "mdlink": "linux-windows-support"
-                },
-                {
-                    "subject": "新手引导",
-                    "mdlink": "tutorial"
                 }
             ]
         },
+        {
+            "group": "新手教程",
+            "contains": [
+                {
+                    "subject": "核心组件",
+                    "mdlink": "tutorial-core-components"
+                }
+            ]
+        }, 
+        {
+            "group": "完整示例",
+            "contains": [
+                {
+                    "subject": "Movie Fetcher",
+                    "mdlink": "sample-application-movies"
+                },
+                {
+                    "subject": "F8 2016 App",
+                    "external": "http://f8-app.liaohuqiu.net"
+                }
+            ]
+        }, 
+        {
+            "group": "社区资源",
+            "contains": [
+                {
+                    "subject": "中文视频教程",
+                    "external": "/videos.html"
+                },
+                {
+                    "subject": "js.coach第三方组件库",
+                    "external": "https://js.coach/react-native"
+                },
+                {
+                    "subject": "中文论坛组件分享区",
+                    "external": "http://bbs.reactnative.cn/category/5"
+                },
+                {
+                    "subject": "中文论坛问题求助区",
+                    "external": "http://bbs.reactnative.cn/category/4"
+                }
+            ]
+        }, 
         {
             "group": "使用指南",
             "contains": [

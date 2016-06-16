@@ -147,6 +147,21 @@ var styles = StyleSheet.create({
 9-17: bold, red
 ```
 
+## 嵌套视图（仅限iOS）
+
+在iOS中，你还可以把视图嵌入到文本中，例如像下面这样：
+
+```js
+<Text>
+  There is a blue square
+  <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+  in between my text.
+</Text>
+```
+
+注意此时视图必须要指定宽度和高度。
+
+
 ## 容器
 
 `<Text>`元素在布局上不同于其它组件：在Text内部的元素不再使用flexbox布局，而是采用文本布局。这意味着`<Text>`内部的元素不再是一个个矩形，而可能会在行末进行折叠。
@@ -564,7 +579,7 @@ exports.examples = [
   },
 }, {
   title: 'Toggling Attributes',
-  render: function(): ReactElement {
+  render: function(): ReactElement<any> {
     return <AttributeToggler />;
   },
 }, {
@@ -635,12 +650,13 @@ exports.examples = [
     );
   },
 }, {
-  title: 'Inline images',
+  title: 'Inline views',
   render: function() {
     return (
       <View>
         <Text>
-          This text contains an inline image <Image source={require('./flux.png')} style={{width: 30, height: 11, resizeMode: 'cover'}}/>. Neat, huh?
+          This text contains an inline blue view <View style={{width: 25, height: 25, backgroundColor: 'steelblue'}} /> and
+          an inline image <Image source={require('./flux.png')} style={{width: 30, height: 11, resizeMode: 'cover'}}/>. Neat, huh?
         </Text>
       </View>
     );
@@ -652,6 +668,26 @@ exports.examples = [
       <View>
         <Text style={{fontSize: 20, textShadowOffset: {width: 2, height: 2}, textShadowRadius: 1, textShadowColor: '#00cccc'}}>
           Demo text shadow
+        </Text>
+      </View>
+    );
+  },
+}, {
+  title: 'Line break mode',
+  render: function() {
+    return (
+      <View>
+        <Text numberOfLines={1}>
+          This very long text should be truncated with dots in the end.
+        </Text>
+        <Text lineBreakMode="middle" numberOfLines={1}>
+          This very long text should be truncated with dots in the middle.
+        </Text>
+        <Text lineBreakMode="head" numberOfLines={1}>
+          This very long text should be truncated with dots in the beginning.
+        </Text>
+        <Text lineBreakMode="clip" numberOfLines={1}>
+          This very looooooooooooooooooooooooooooong text should be clipped.
         </Text>
       </View>
     );
@@ -1042,6 +1078,17 @@ var TextExample = React.createClass({
         <UIExplorerBlock title="Text shadow">
           <Text style={{fontSize: 20, textShadowOffset: {width: 2, height: 2}, textShadowRadius: 1, textShadowColor: '#00cccc'}}>
             Demo text shadow
+          </Text>
+        </UIExplorerBlock>
+        <UIExplorerBlock title="Line break mode">
+          <Text numberOfLines={1}>
+            This very long text should be truncated with dots in the end.
+          </Text>
+          <Text lineBreakMode="middle" numberOfLines={1}>
+            This very long text should be truncated with dots in the middle.
+          </Text>
+          <Text lineBreakMode="head" numberOfLines={1}>
+            This very long text should be truncated with dots in the beginning.
           </Text>
         </UIExplorerBlock>
       </UIExplorerPage>

@@ -221,27 +221,27 @@ exports.description = 'Interface to show iOS\' action sheets';
 exports.examples = [
   {
     title: 'Show Action Sheet',
-    render(): ReactElement<any> { return <ActionSheetExample />; }
+    render(): ReactElement { return <ActionSheetExample />; }
   },
   {
     title: 'Show Action Sheet with tinted buttons',
-    render(): ReactElement<any> { return <ActionSheetTintExample />; }
+    render(): ReactElement { return <ActionSheetTintExample />; }
   },
   {
     title: 'Show Share Action Sheet',
-    render(): ReactElement<any> {
+    render(): ReactElement {
       return <ShareActionSheetExample url="https://code.facebook.com" />;
     }
   },
   {
     title: 'Share Local Image',
-    render(): ReactElement<any> {
+    render(): ReactElement {
       return <ShareActionSheetExample url="bunny.png" />;
     }
   },
   {
     title: 'Share Screenshot',
-    render(): ReactElement<any> {
+    render(): ReactElement {
       return <ShareScreenshotExample />;
     }
   }
