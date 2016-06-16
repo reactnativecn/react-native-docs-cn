@@ -1,4 +1,4 @@
-这一组件用在ScrollView内部，为其添加下拉刷新的功能。当ScrollView处于竖直方向的起点位置（scrollY: 0），此时下拉会触发一个`onRefresh`事件。
+这一组件用在ScrollView或者ListView内部，为其添加下拉刷新的功能。当ScrollView处于竖直方向的起点位置（scrollY: 0），此时下拉会触发一个`onRefresh`事件。
 
 ### 属性
 <div class="props">
