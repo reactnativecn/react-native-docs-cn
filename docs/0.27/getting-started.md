@@ -69,7 +69,7 @@
 译注：在Max OS X 10.11（El Capitan)版本中，homebrew在安装软件时可能会碰到`/usr/local`目录不可写的权限问题。可以使用下面的命令修复：  
 
 ```bash
-chown -R `whoami` /usr/local
+sudo chown -R `whoami` /usr/local
 ```
 
 #### Node
@@ -93,7 +93,7 @@ npm install -g react-native-cli
 如果你看到`EACCES: permission denied`这样的权限报错，那么请参照上文的homebrew译注，修复`/usr/local`目录的所有权：  
 
 ```bash
-chown -R `whoami` /usr/local
+sudo chown -R `whoami` /usr/local
 ```
 
 </div><div markdown class="qs-block mac ios">
