@@ -1,5 +1,8 @@
 <div class="toggler">
 <style>
+.toggler {
+  margin-bottom: 10px;
+}
 .toggler a {
   cursor: pointer;
   display: inline-block;
