@@ -396,7 +396,7 @@ var PAGE_SIZE = 25;
 var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
 var REQUEST_URL = API_URL + PARAMS;
 
-class AwesomeProject extends Component {
+class SampleAppMovies extends Component {
   constructor(props) {
     super(props);
     this.state = {
