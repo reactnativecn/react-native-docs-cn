@@ -115,6 +115,7 @@ import { AppRegistry, Text, View, ListView} from 'react-native';
 class SimpleList extends React.Component {
   // 初始化模拟数据
   constructor(props) {
+    super(props);
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows(['John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie'])
