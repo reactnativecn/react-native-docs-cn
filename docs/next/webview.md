@@ -114,6 +114,14 @@
 		<h4 class="propTitle"><a class="anchor" name="url"></a>url <span class="propType">string</span> <a class="hash-link" href="#url">#</a></h4>
 		<div class="deprecated"><div class="deprecatedTitle"><span>已过期</span></div><div class="deprecatedMessage"><div><p>请使用<code>source</code> 属性代替。</p></div></div></div>
 	</div>
+	<div class="prop">
+	    <h4 class="propTitle">
+	        <a class="anchor" name="useragent"></a>
+	        <span class="platform">android</span>userAgent
+	        <span class="propType">string</span> <a class="hash-link" href="#useragent">#</a>
+	    </h4>
+	    <div><p>为WebView设置user-agent字符串标识。这一字符串也可以在原生端用WebViewConfig来设置,但js端的设置会覆盖原生端的设置。</p></div>
+	</div>
 </div>
 
 ### 例子
