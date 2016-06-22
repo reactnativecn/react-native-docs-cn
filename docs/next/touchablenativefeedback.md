@@ -23,6 +23,9 @@ renderButton: function() {
 <div class="props">
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="touchablewithoutfeedback"></a><a href="touchablewithoutfeedback.html#props">TouchableWithoutFeedback props...</a> <a class="hash-link" href="#touchablewithoutfeedback">#</a></h4>
+        <div>
+      		<p>译注：这意味着本组件继承了所有TouchableWithoutFeedback的属性。</p>
+        </div>
     </div>
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="background"></a>background <span class="propType">backgroundPropType</span> <a class="hash-link" href="#background">#</a></h4>

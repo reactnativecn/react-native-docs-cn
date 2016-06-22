@@ -166,7 +166,7 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
     <div class="prop">
         <h4 class="propTitle"><a class="anchor" name="style"></a>style <span class="propType"><a href="text.html#style">Text#style</a></span> <a class="hash-link" href="#style">#</a></h4>
         <div>
-            <p>Styles</p>
+      		<p>译注：这意味着本组件继承了所有Text的样式。</p>
         </div>
     </div>
     <div class="prop">
