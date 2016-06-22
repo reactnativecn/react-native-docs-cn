@@ -4,7 +4,7 @@
 
 ## 准备工作
 
-React Native需要一些基础的配置工作，你可以参考[开始使用React Native](/docs/getting-started.html)来进行。
+React Native需要一些基础的配置工作，你可以参考[开始使用React Native](getting-started.html)来进行。
 
 在所有依赖的软件都已经安装完毕后，只需要输入两条命令就可以创建一个React Native工程。
 
@@ -19,11 +19,11 @@ React Native需要一些基础的配置工作，你可以参考[开始使用Reac
 __译注__：由于众所周知的网络原因，react-native命令行从npm官方源拖代码时会遇上麻烦。请先将npm仓库源替换为国内镜像：  
 
 ```bash
-npm config set registry https://registry.npm.taobao.org
-npm config set disturl https://npm.taobao.org/dist
+npm config set registry https://registry.npm.taobao.org --global
+npm config set disturl https://npm.taobao.org/dist --global
 ```
 
-另，执行init时切记不要在前面加上sudo（否则新项目的目录所有者会变为root而不是当前用户，导致一系列权限问题，请使用chown修复）。  
+另，执行init时切记`不要`在前面加上sudo（否则新项目的目录所有者会变为root而不是当前用户，导致一系列权限问题。如果你这样做了，请使用chown命令修复）。  
 
 ## 开发
 
@@ -209,6 +209,9 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
     this.state = {
       movies: null,  //这里放你自己定义的state变量及初始值
     };
+    // 在ES6中，如果在自定义的函数里使用了this关键字，则需要对其进行“绑定”操作，否则this的指向不对
+    // 像下面这行代码一样，在constructor中使用bind是其中一种做法（还有一些其他做法，如使用箭头函数等）
+    this.fetchDate = this.fetchData.bind(this); 
   }
 ```
 
@@ -227,6 +230,7 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
+        // 注意，这里使用了this关键字，为了保证this在调用时仍然指向当前组件，我们需要对其进行“绑定”操作
         this.setState({
           movies: responseData.movies,
         });
@@ -333,6 +337,9 @@ import {
       }),
       loaded: false,
     };
+    // 在ES6中，如果在自定义的函数里使用了this关键字，则需要对其进行“绑定”操作，否则this的指向不对
+    // 像下面这行代码一样，在constructor中使用bind是其中一种做法（还有一些其他做法，如使用箭头函数等）
+    this.fetchDate = this.fetchData.bind(this); 
   }
 ```
 
@@ -343,6 +350,7 @@ import {
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
+        // 注意，这里使用了this关键字，为了保证this在调用时仍然指向当前组件，我们需要对其进行“绑定”操作
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
           loaded: true,
@@ -390,11 +398,7 @@ import {
   View,
 } from 'react-native';
 
-var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
-var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
-var PAGE_SIZE = 25;
-var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
-var REQUEST_URL = API_URL + PARAMS;
+var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
 
 class SampleAppMovies extends Component {
   constructor(props) {
@@ -405,6 +409,9 @@ class SampleAppMovies extends Component {
       }),
       loaded: false,
     };
+    // 在ES6中，如果在自定义的函数里使用了this关键字，则需要对其进行“绑定”操作，否则this的指向会变为空
+    // 像下面这行代码一样，在constructor中使用bind是其中一种做法（还有一些其他做法，如使用箭头函数等）
+    this.fetchDate = this.fetchData.bind(this);
   }
 
   componentDidMount() {
@@ -415,6 +422,7 @@ class SampleAppMovies extends Component {
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
+        // 注意，这里使用了this关键字，为了保证this在调用时仍然指向当前组件，我们需要对其进行“绑定”操作
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
           loaded: true,

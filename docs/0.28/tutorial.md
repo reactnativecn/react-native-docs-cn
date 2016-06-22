@@ -1,10 +1,12 @@
-## 简介
+## 序言
 
-在本示例教程中，我们将编写一个简单的应用，可以从电影数据库中取得最近正在上映的25部电影，并在一个`ListView`中展示出来。
+本教程希望让您快速熟悉使用React Native来编写iOS和Android App的技巧。如果你希望知道React Native是什么以及为什么Facebook打造了它，可以读读[这篇博文](http://bbs.reactnative.cn/topic/14)
+
+我们这里假设你已经有了使用React编写Web应用程序的经验。如果还没有，建议你可以先从[React官网](http://facebook.github.io/react/)开始学习。
 
 ## 准备工作
 
-React Native需要一些基础的配置工作，你可以参考[开始使用React Native](getting-started.html)来进行。
+React Native需要一些基础的配置工作，你可以参考[开始使用React Native](/docs/getting-started.html)来进行。
 
 在所有依赖的软件都已经安装完毕后，只需要输入两条命令就可以创建一个React Native工程。
 
@@ -12,28 +14,31 @@ React Native需要一些基础的配置工作，你可以参考[开始使用Reac
 
     react-native-cli是一个终端命令，它可以完成其余的设置工作。它可以通过npm安装。刚才这条命令会往你的终端安装一个叫做`react-native`的命令。这个安装过程你只需要进行一次。
 
-2. `react-native init SampleAppMovies`
+2. `react-native init AwesomeProject`
 
-    这个命令会初始化一个工程、下载React Native的所有源代码和依赖包，最后在`SampleAppMovies/iOS/SampleAppMovies.xcodeproj`和`SampleAppMovies/android/app`下分别创建一个新的XCode工程和一个gradle工程。  
+    这个命令会初始化一个工程、下载React Native的所有源代码和依赖包，最后在`AwesomePrjoect/iOS/AwesomeProject.xcodeproj`和`AwesomeProject/android/app`下分别创建一个新的XCode工程和一个gradle工程。  
     
 __译注__：由于众所周知的网络原因，react-native命令行从npm官方源拖代码时会遇上麻烦。请先将npm仓库源替换为国内镜像：  
 
 ```bash
-npm config set registry https://registry.npm.taobao.org --global
-npm config set disturl https://npm.taobao.org/dist --global
+npm config set registry https://registry.npm.taobao.org
+npm config set disturl https://npm.taobao.org/dist
 ```
 
-另，执行init时切记`不要`在前面加上sudo（否则新项目的目录所有者会变为root而不是当前用户，导致一系列权限问题。如果你这样做了，请使用chown命令修复）。  
+另，执行init时切记不要在前面加上sudo（否则新项目的目录所有者会变为root而不是当前用户，导致一系列权限问题，请使用chown修复）。  
+本站论坛区提供了[完整的绿色纯净新项目包](http://bbs.reactnative.cn/topic/11)。完整打包全部iOS和Android的第三方依赖，只要环境配置正确，无需科学上网漫长等待，解压即可直接运行。
 
 ## 开发
 
-想开发iOS版本，你现在可以在XCode中打开刚刚创建的工程(`SampleAppMovies/iOS/SampleAppMovies.xcodeproj`)，然后只要按下`⌘+R`就可以构建并运行。这个操作会同时打开一个用于实现动态代码加载的Node服务（React Packager）。所以每当你修改代码，你只需要在模拟器中按下`⌘+R`，而无需重新在XCode中编译。
+想开发iOS版本，你现在可以在XCode中打开刚刚创建的工程(`AwesomePrjoect/iOS/AwesomeProject.xcodeproj`)，然后只要按下`⌘+R`就可以构建并运行。这个操作会同时打开一个用于实现动态代码加载的Node服务（React Packager）。所以每当你修改代码，你只需要在模拟器中按下`⌘+R`，而无需重新在XCode中编译。
 
-想开发Android版本，先连接你的设备或启动模拟器，然后在`SampleAppMovies`目录下运行`react-native run-android`，就会构建工程并自动安装到你的模拟器或者设备，同时启动用于实现动态代码加载的Node服务。当你修改代码之后，你需要打开摇一摇菜单(摇一下设备，或者按下设备的Menu键，或者在模拟器上按下F2或Page Up，Genymotion按下⌘+M)，然后在菜单中点击“Reload JS”。
+想开发Android版本，先连接你的设备或启动模拟器，然后在`AwesomeProject`目录下运行`react-native run-android`，就会构建工程并自动安装到你的模拟器或者设备，同时启动用于实现动态代码加载的Node服务。当你修改代码之后，你需要打开摇一摇菜单(摇一下设备，或者按下设备的Menu键，或者在模拟器上按下F2或Page Up，Genymotion按下⌘+M)，然后在菜单中点击“Reload JS”。
+
+在本向导中我们会创建一个简单的Movies应用，它可以获取25个上映中的电影，然后把他们在一个ListView中显示。
 
 ### Hello World
 
-`react-native init`命令会创建一个指定名字的应用，我们刚才输入的命令就创建了一个名为SampleAppMovies的应用。这是一个简单的Hello World应用。对于iOS版本，你可以编辑`index.ios.js`来做一些改动，然后在模拟器中按⌘+R来看到修改的结果。对Android版本，你可以编辑`index.android.js`来做一些改动，然后在摇一摇菜单中点击“Reload JS”来看到修改的结果。
+`react-native init`命令会创建一个指定名字的应用，我们刚才输入的命令就创建了一个名为AwesomeProject的应用。这是一个简单的Hello World应用。对于iOS版本，你可以编辑`index.ios.js`来做一些改动，然后在模拟器中按⌘+R来看到修改的结果。对Android版本，你可以编辑`index.android.js`来做一些改动，然后在摇一摇菜单中点击“Reload JS”来看到修改的结果。
 
 ### 模拟数据
 
@@ -209,9 +214,6 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
     this.state = {
       movies: null,  //这里放你自己定义的state变量及初始值
     };
-    // 在ES6中，如果在自定义的函数里使用了this关键字，则需要对其进行“绑定”操作，否则this的指向不对
-    // 像下面这行代码一样，在constructor中使用bind是其中一种做法（还有一些其他做法，如使用箭头函数等）
-    this.fetchDate = this.fetchData.bind(this); 
   }
 ```
 
@@ -230,7 +232,6 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
-        // 注意，这里使用了this关键字，为了保证this在调用时仍然指向当前组件，我们需要对其进行“绑定”操作
         this.setState({
           movies: responseData.movies,
         });
@@ -337,9 +338,6 @@ import {
       }),
       loaded: false,
     };
-    // 在ES6中，如果在自定义的函数里使用了this关键字，则需要对其进行“绑定”操作，否则this的指向不对
-    // 像下面这行代码一样，在constructor中使用bind是其中一种做法（还有一些其他做法，如使用箭头函数等）
-    this.fetchDate = this.fetchData.bind(this); 
   }
 ```
 
@@ -350,7 +348,6 @@ import {
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
-        // 注意，这里使用了this关键字，为了保证this在调用时仍然指向当前组件，我们需要对其进行“绑定”操作
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
           loaded: true,
@@ -398,9 +395,13 @@ import {
   View,
 } from 'react-native';
 
-var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
+var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
+var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
+var PAGE_SIZE = 25;
+var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
+var REQUEST_URL = API_URL + PARAMS;
 
-class SampleAppMovies extends Component {
+class AwesomeProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -409,9 +410,6 @@ class SampleAppMovies extends Component {
       }),
       loaded: false,
     };
-    // 在ES6中，如果在自定义的函数里使用了this关键字，则需要对其进行“绑定”操作，否则this的指向会变为空
-    // 像下面这行代码一样，在constructor中使用bind是其中一种做法（还有一些其他做法，如使用箭头函数等）
-    this.fetchDate = this.fetchData.bind(this);
   }
 
   componentDidMount() {
@@ -422,7 +420,6 @@ class SampleAppMovies extends Component {
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
-        // 注意，这里使用了this关键字，为了保证this在调用时仍然指向当前组件，我们需要对其进行“绑定”操作
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
           loaded: true,
@@ -500,5 +497,7 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('SampleAppMovies', () => SampleAppMovies);
+AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
 ```
+
+
