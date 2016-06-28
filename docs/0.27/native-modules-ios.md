@@ -59,7 +59,7 @@ CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
 - number (`NSInteger`, `float`, `double`, `CGFloat`, `NSNumber`)
 - boolean (`BOOL`, `NSNumber`)
 - array (`NSArray`) 包含本列表中任意类型
-- map (`NSDictionary`) 包含string类型的键和本列表中任意类型的值
+- object (`NSDictionary`) 包含string类型的键和本列表中任意类型的值
 - function (`RCTResponseSenderBlock`)
 
 除此以外，任何`RCTConvert`类支持的的类型也都可以使用(参见[`RCTConvert`](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h)了解更多信息)。`RCTConvert`还提供了一系列辅助函数，用来接收一个JSON值并转换到原生Objective-C类型或类。
