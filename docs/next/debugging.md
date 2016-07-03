@@ -1,59 +1,97 @@
-如何访问App内的开发菜单：
+---
+id: debugging
+title: Debugging
+layout: docs
+category: Guides
+permalink: docs/debugging.html
+next: testing
+---
 
-1. 在iOS中晃动设备或者在模拟器上按下`control + ⌘ + z`。  
-2. 在Android中晃动设备或者按下硬件菜单键（一般只有老设备或者大多数模拟器还有这个键。比如，在[genymotion](https://www.genymotion.com) 中你可以通过按下`⌘ + m`来模拟点击硬件菜单）。PC键盘上也有这个键，一般在标准键盘右边的Ctrl和右Windows键之间，即模拟鼠标右键的键。
+## Accessing the In-App Developer Menu
 
-> 提示
+You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the **`Command`**`⌘` + **`D`** keyboard shortcut when your app is running in the iPhone Simulator, or **`Command`**`⌘` + **`M`** when running in an Android emulator.
 
+![](img/DeveloperMenu.png)
 
-> 如何在成品（production builds）中关掉开发者菜单：
+> The Developer Menu is disabled in release (production) builds.
 
+## Reloading JavaScript
 
-> 1. 对于iOS来说，在Xcode中打开你的项目，选择`Product → Scheme → Edit Scheme...` (或者按下 `⌘ + <`)。接着选择菜单上左边的`Run`，然后将构建设置(Build Configuration)更改为`Release`.
-> 2. 在Android中，默认情况下gradle的release版本（比如使用gradle的`assembleRelease`任务来构建）就会关闭开发者菜单。你也可以通过给`ReactInstanceManager#setUseDeveloperSupport`传递需要的参数来定制这一行为。
+Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu. You can also press **`Command`**`⌘` + **`R`** in the iOS Simulator, or press **`R`** twice on Android emulators.
 
-## 刷新
+> If the **`Command`**`⌘` + **`R`** keyboard shortcut does not seem to reload the iOS Simulator, go to the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
 
-选择开发者菜单中的`Reload`选项(或者在iOS模拟器上按下`⌘ + r`)即可重新加载应用的js代码。但如果你增加了新的资源(比如给iOS的`Images.xcassets`或是Andorid的`res/drawable`文件夹添加了图片)或者更改了任何的原生代码（objective-c/swift/java），那么就需要通过重新编译才能生效。
+### Automatic reloading
 
-## YellowBox（黄屏警告）与RedBox（红屏报错） 
-调用console.warn方法会在屏幕上产生一个黄色背景的信息。点击这行信息会转入全屏的警告页面。
+You can speed up your development times by having your app reload automatically any time your code changes. Automatic reloading can be enabled by selecting "Enable Live Reload" from the Developer Menu.
 
-而调用console.error方法则会直接产生一个全屏的红色背景报错页面。
+You may even go a step further and keep your app running as new versions of your files are injected into the JavaScript bundle automatically by enabling [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html) from the Developer Menu. This will allow you to persist the app's state through reloads.
 
-在默认情况下，开发模式中启用了黄屏警告。可以通过以下代码关闭：
-```js
-console.disableYellowBox = true;
-console.warn('YellowBox is disabled.');
+> There are some instances where hot reloading cannot be implemented perfectly. If you run into any issues, use a full reload to reset your app.
+
+You will need to rebuild your app for changes to take effect in certain situations:
+
+* You have added new resources to your native app's bundle, such as an image in `Images.xcassets` on iOS or the `res/drawable` folder on Android.
+* You have modified native code (Objective-C/Swift on iOS or Java/C++ on Android).
+
+## In-app Errors and Warnings
+
+Errors and warnings are displayed inside your app in development builds.
+
+### Errors
+
+In-app errors are displayed in a full screen alert with a red background inside your app. This screen is known as a RedBox. You can use `console.error()` to manually trigger one.
+
+### Warnings
+
+Warnings will be displayed on screen with a yellow background. These alerts are known as YellowBoxes. Click on the alerts to show more information or to dismiss them.
+
+As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
+
+YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored: `console.ignoredYellowBox = ['Warning: ...'];`
+
+> RedBoxes and YellowBoxes are automatically disabled in release (production) builds.
+
+## Accessing console logs
+
+You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
+
 ```
-你也可以通过代码屏蔽指定的警告，像下面这样设置一个数组：
-```js
-console.ignoredYellowBox = ['Warning: ...'];
+$ react-native log-ios
+$ react-native log-android
 ```
-数组中的字符串就是要屏蔽的警告的开头的内容。（例如上面的代码会屏蔽掉所有以Warning开头的警告内容）
 
-## Chrome开发者工具
+You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
 
-在Chrome上调试js代码，需要在开发菜单中选择`Debug JS Remotely`，这会打开一个新的[http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui)tab页。
+## Chrome Developer Tools
 
-在Chrome中，按下`⌘ + option + i`或者选择`视图(View) -> 开发者(Developer) -> 开发工具(Developer Tools)`来打开开发工具控制台。打开[有异常时暂停（Pause On Caught Exceptions）](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511)选项，能够获得更好的开发体验。  
+To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
 
-__译注__：Chrome中并不能直接看到App的用户界面，而只能提供console的输出，以及在sources项中断点调试js脚本。
+Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools). You may also access the DevTools using keyboard shortcuts (**`Command`**`⌘` + **`Option`**`⌥` + **`I`** on Mac, **`Ctrl`** + **`Shift`** + **`I`** on Windows). You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
 
-在真机上调试：
+> It is [currently not possible](https://github.com/facebook/react-devtools/issues/229) to use the "React" tab in the Chrome Developer Tools to inspect app widgets. You can use Nuclide's "React Native Inspector" as a workaround.
 
-1. 在iOS上 —— 打开`RCTWebSocketExecutor.m`文件，将其中的`localhost`替换为你电脑的ip地址。然后晃动设备打开开发菜单，即可开始调试。
-2. 对于Android设备 —— 如果你通过usb连接了一个Android 5.0或更高版本的设备，则可以通过`adb`命令建立一个从设备向电脑转发的端口：`adb reverse tcp:8081 tcp:8081`(点击[这里](http://developer.android.com/tools/help/adb.html)查看`adb`命令的帮助)。或者，你可以通过摇晃打开开发者菜单，选择`Dev Settings`，然后在`Debug server host for device`中设置你电脑的`ip地址:端口号`。
+### Debugging on a device with Chrome Developer Tools
 
-### React开发工具（可选的）
+On iOS devices, open the file [`RCTWebSocketExecutor.m`](https://github.com/facebook/react-native/blob/master/Libraries/WebSocket/RCTWebSocketExecutor.m) and change "localhost" to the IP address of your computer, then select "Debug JS Remotely" from the Developer Menu.
 
-[React开发工具](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)`在目前版本无法使用，并且此工具与代码调试并无关系`。
+On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
 
-## 实时刷新
-这个选项可以在你的js代码变更了之后，自动触发所连设备或者模拟器自动刷新。以下是开启方法：
+`adb reverse tcp:8081 tcp:8081`
 
-1. iOS平台上选择开发菜单中的`Enable Live Reload`即可开启js代码自动刷新。
-2. Android平台上，先打开开发菜单，选择`Dev Settings`，然后选择`Auto reload on JS change`选项。
+Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 
-## FPS（每秒帧数）监视器
-从`0.5.0-rc`及以上版本开始，你可以打开开发者选项中的FPS覆盖层来帮助你调试性能问题。
+> If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
+
+
+### Debugging using a custom JavaScript debugger
+
+To use a custom JavaScript debugger in place of Chrome Developer Tools, set the `REACT_DEBUGGER` environment variable to a command that will start your custom debugger. You can then select "Debug JS Remotely" from the Developer Menu to start debugging.
+
+The debugger will receive a list of all project roots, separated by a space. For example, if you set `REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"`, then the command `node /path/to/launchDebugger.js --port 2345 --type ReactNative /path/to/reactNative/app` will be used to start your debugger.
+
+> Custom debugger commands executed this way should be short-lived processes, and they shouldn't produce more than 200 kilobytes of output.
+
+## Performance Monitor
+
+You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Developer Menu.

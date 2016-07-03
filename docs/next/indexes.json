@@ -1,36 +1,127 @@
 {
     "contains": [
         {
-            "group": "快速入门",
+            "group": "入门基础",
             "contains": [
                 {
                     "subject": "开始使用React Native",
                     "mdlink": "getting-started"
+                },
+                {
+                    "subject": "编写Hello World",
+                    "mdlink": "tutorial"
+                },
+                {
+                    "subject": "Props（属性）",
+                    "mdlink": "props"
+                },
+                {
+                    "subject": "State（状态）",
+                    "mdlink": "state"
+                },
+                {
+                    "subject": "高度与宽度",
+                    "mdlink": "heightandwidth"
+                },
+                {
+                    "subject": "使用Flexbox布局",
+                    "mdlink": "layoutwithflexbox"
+                },
+                {
+                    "subject": "处理文本输入",
+                    "mdlink": "HandlingTextInput"
+                },
+                {
+                    "subject": "如何使用ScrollView",
+                    "mdlink": "usingascrollview"
+                },
+                {
+                    "subject": "如何使用ListView",
+                    "mdlink": "usingalistview"
+                },
+                {
+                    "subject": "网络",
+                    "mdlink": "Networking"
+                },
+                {
+                    "subject": "使用导航器跳转页面",
+                    "mdlink": "Navigators"
+                },
+                {
+                    "subject": "其他参考资源",
+                    "mdlink": "MoreResources"
                 }
             ]
         },
         {
-            "group": "新手教程",
+            "group": "进阶指南",
             "contains": [
                 {
-                    "subject": "核心组件",
-                    "mdlink": "tutorial-core-components"
-                }
-            ]
-        }, 
-        {
-            "group": "完整示例",
-            "contains": [
-                {
-                    "subject": "Movie Fetcher",
-                    "mdlink": "sample-application-movies"
+                    "subject": "嵌入到现有原生应用",
+                    "mdlink": "IntegrationWithExistingApps"
                 },
                 {
-                    "subject": "F8 2016 App",
-                    "external": "http://f8-app.liaohuqiu.net"
+                    "subject": "颜色",
+                    "mdlink": "colors"
+                },
+                {
+                    "subject": "图片",
+                    "mdlink": "images"
+                },
+                {
+                    "subject": "处理触摸事件",
+                    "mdlink": "HandlingTouches"
+                },
+                {
+                    "subject": "动画",
+                    "mdlink": "animations"
+                },
+                {
+                    "subject": "无障碍功能",
+                    "mdlink": "accessibility"
+                },
+                {
+                    "subject": "定时器",
+                    "mdlink": "timers"
+                },
+                {
+                    "subject": "直接操作",
+                    "mdlink": "direct-manipulation"
+                },
+                {
+                    "subject": "调试",
+                    "mdlink": "Debugging"
+                },
+                {
+                    "subject": "自动化测试",
+                    "mdlink": "testing"
+                },
+                {
+                    "subject": "JavaScript环境",
+                    "mdlink": "javascript-environment"
+                },
+                {
+                    "subject": "导航器对比",
+                    "mdlink": "Navigation"
+                },
+                {
+                    "subject": "性能",
+                    "mdlink": "performance"
+                },
+                {
+                    "subject": "升级",
+                    "mdlink": "upgrading"
+                },
+                {
+                    "subject": "特定平台代码",
+                    "mdlink": "platform-specific-code"
+                },
+                {
+                    "subject": "手势响应系统",
+                    "mdlink": "gesture-responder-system"
                 }
             ]
-        }, 
+        },
         {
             "group": "社区资源",
             "contains": [
@@ -51,67 +142,6 @@
                     "external": "http://bbs.reactnative.cn/category/4"
                 }
             ]
-        }, 
-        {
-            "group": "使用指南",
-            "contains": [
-                {
-                    "subject": "样式",
-                    "mdlink": "style"
-                },
-                {
-                    "subject": "图片",
-                    "mdlink": "images"
-                },
-                {
-                    "subject": "手势响应系统",
-                    "mdlink": "gesture-responder-system"
-                },
-                {
-                    "subject": "动画",
-                    "mdlink": "animations"
-                },
-                {
-                    "subject": "无障碍功能",
-                    "mdlink": "accessibility"
-                },
-                {
-                    "subject": "直接操作",
-                    "mdlink": "direct-manipulation"
-                },
-                {
-                    "subject": "调试",
-                    "mdlink": "debugging"
-                },
-                {
-                    "subject": "自动化测试",
-                    "mdlink": "testing"
-                },
-                {
-                    "subject": "JavaScript环境",
-                    "mdlink": "javascript-environment"
-                },
-                {
-                    "subject": "导航器对比",
-                    "mdlink": "navigator-comparison"
-                },
-                {
-                    "subject": "已知问题",
-                    "mdlink": "known-issues"
-                },
-                {
-                    "subject": "性能",
-                    "mdlink": "performance"
-                },
-                {
-                    "subject": "升级",
-                    "mdlink": "upgrading"
-                },
-                {
-                    "subject": "特定平台代码",
-                    "mdlink": "platform-specific-code"
-                }
-            ]
         },
         {
             "group": "使用指南(iOS)",
@@ -130,11 +160,11 @@
                 },
                 {
                     "subject": "在设备上运行",
-                    "mdlink": "running-on-device-ios"
+                    "mdlink": "RunningOnDeviceIOS"
                 },
                 {
-                    "subject": "植入原生应用",
-                    "mdlink": "embedded-app-ios"
+                    "subject": "在模拟器上运行",
+                    "mdlink": "RunningOnSimulatorIOS"
                 },
                 {
                     "subject": "在原生和React Native间通信",
@@ -156,10 +186,6 @@
                 {
                     "subject": "在设备上运行",
                     "mdlink": "running-on-device-android"
-                },
-                {
-                    "subject": "植入原生应用",
-                    "mdlink": "embedded-app-android"
                 },
                 {
                     "subject": "生成已签名的APK",
@@ -364,6 +390,10 @@
                     "mdlink": "dimensions"
                 },
                 {
+                    "subject": "Geolocation",
+                    "mdlink": "geolocation"
+                }
+                {
                     "subject": "IntentAndroid",
                     "mdlink": "intentandroid"
                 },
@@ -378,10 +408,6 @@
                 {
                     "subject": "Linking",
                     "mdlink": "linking"
-                },
-                {
-                    "subject": "LinkingIOS",
-                    "mdlink": "linkingios"
                 },
                 {
                     "subject": "NativeMethodsMixin",
@@ -422,36 +448,15 @@
                 {
                     "subject": "Vibration",
                     "mdlink": "vibration"
-                }
-            ]
-        },
-        {
-            "group": "接口兼容(POLYFILLS)",
-            "contains": [
-                {
-                    "subject": "弹性盒(Flexbox)",
-                    "mdlink": "flexbox"
                 },
                 {
-                    "subject": "ShadowPropTypesIOS",
-                    "mdlink": "shadowproptypesios"
+                    "subject": "布局样式属性",
+                    "mdlink": "LayoutProps"
                 },
                 {
-                    "subject": "定位",
-                    "mdlink": "geolocation"
+                    "subject": "阴影样式属性",
+                    "mdlink": "ShadowProps"
                 },
-                {
-                    "subject": "网络",
-                    "mdlink": "network"
-                },
-                {
-                    "subject": "定时器",
-                    "mdlink": "timers"
-                },
-                {
-                    "subject": "颜色",
-                    "mdlink": "colors"
-                }
             ]
         }
     ]
