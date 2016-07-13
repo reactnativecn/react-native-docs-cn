@@ -661,7 +661,7 @@ react-native start
 
 </div><div markdown class="qs-block windows linux android">
 
-### Modifying Project
+### 修改项目
 
 现在你已经成功运行了项目，我们可以开始尝试动手改一改了：
 
