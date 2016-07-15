@@ -1,21 +1,12 @@
----
-id: handling-touches
-title: Handling Touches
-layout: docs
-category: Guides
-permalink: docs/handling-touches.html
-next: animations
----
+移动应用上的用户交互基本靠“摸”。当然，“摸”也是有各种姿势的：在一个按钮上点击，在一个列表上滑动，或是在一个地图上缩放。
 
-Users interact with mobile apps mainly through touch. They can use a combination of gestures, such as tapping on a button, scrolling a list, or zooming on a map.
+React Native提供了可以处理常见触摸手势（例如点击或滑动）的组件， 以及可用于识别更复杂的手势的完整的[手势响应系统](gesturerespondersystem.html)。
 
-React Native provides components to handle common gestures, such as taps and swipes, as well as a comprehensive [gesture responder system](/docs/gesturerespondersystem.html) to allow for more advanced gesture recognition.
+## 可点击的组件
 
-## Tappable Components
+在需要捕捉用户点击操作时，可以使用"Touchable"开头的一系列组件。这些组件通过`onPress`属性接受一个点击事件的处理函数。当一个点击操作开始并且终止于本组件时（即在本组件上按下手指并且抬起手指时也没有移开到组件外），此函数会被调用。
 
-You can use "Touchable" components when you want to capture a tapping gesture. They take a function through the `onPress` props which will be called when the touch begins and ends within the bounds of the component.
-
-Example:
+示例：
 
 ```javascript
 class MyButton extends Component {
@@ -33,34 +24,34 @@ class MyButton extends Component {
 }
 ```
 
-Tappable components should provide feedback that show the user what is handling their touch, and what will happen when they lift their finger. The user should also be able to cancel a tap by dragging their finger away.
+可点击的组件需要给用户提供视觉反馈，例如是哪个组件正在响应用户的操作，以及当用户抬起手指后会发生什么。用户也应该可以通过把手指移到一边来取消点击操作。
 
-Which component you use will depend on what kind of feedback you want to provide:
+具体使用哪种组件，取决于你希望给用户什么样的视觉反馈：
 
-- Generally, you can use [**TouchableHighlight**](/docs/touchablehighlight.html) anywhere you would use a button or link on web. The view's background will be darkened when the user presses down on the button.
+- 一般来说，你可以使用[**TouchableHighlight**](touchablehighlight.html)来制作按钮或者链接。注意此组件的背景会在用户手指按下时变暗。
 
-- You may consider using [**TouchableNativeFeedback**](/docs/touchablenativefeedback.html) on Android to display ink surface reaction ripples that respond to the user's touch.
+- 在Android上还可以使用[**TouchableNativeFeedback**](touchablenativefeedback.html)，它会在用户手指按下时形成类似墨水涟漪的视觉效果。 
 
-- [**TouchableOpacity**](/docs/touchableopacity.html) can be used to provide feedback by reducing the opacity of the button, allowing the background to be seen through while the user is pressing down.
+- [**TouchableOpacity**](touchableopacity.html)会在用户手指按下时降低按钮的透明度，而不会改变背景的颜色。
 
-- If you need to handle a tap gesture but you don't want any feedback to be displayed, use [**TouchableWithoutFeedback**](/docs/touchablewithoutfeedback.html).
+- 如果你想在处理点击事件的同时不显示任何视觉反馈，则需要使用[**TouchableWithoutFeedback**](touchablewithoutfeedback.html)。
 
-### Long presses
+### 长按
 
-In some cases, you may want to detect when a user presses and holds a view for a set amount of time. These long presses can be handled by passing a function to the `onLongPress` props of any of the touchable components listed above.
+某些场景中你可能需要检测用户是否进行了长按操作。可以在上面列出的任意组件中使用`onLongPress`属性来实现。
 
-## Scrolling lists and swiping views
+## 在列表中上下滑动和在视图上左右滑动
 
-A common pattern to many mobile apps is the scrollable list of items. Users interact with these using panning or swiping gestures. The [ScrollView](/docs/basics-component-scrollview.html) component displays a list of items that can be scrolled using these gestures.
+可滚动的列表是移动应用中一个常见的模式。用户会在列表中或快或慢的各种滑动。[ScrollView](UsingAScrollView.html)组件可以满足这一需求。
 
-ScrollViews can scroll vertically or horizontally, and can be configured to allow paging through views using swiping gestures by using the `pagingEnabled` props. Swiping horizontally between views can also be implemented on Android using the [ViewPagerAndroid](/docs/viewpagerandroid.html) component.
+ScrollView可以在垂直或水平方向滚动，还可以配置`pagingEnabled`属性来让用户整屏整屏的滑动。此外，水平方向的滑动还可以使用Android上的[ViewPagerAndroid](viewpagerandroid.html) 组件。
 
-A [ListView](/docs/basics-component-listview.html) is a special kind of ScrollView that is best suited for displaying long vertical lists of items. It can also display section headers and footers, similar to `UITableView`s on iOS.
+[ListView](UsingAListView.html)则是一种特殊的ScrollView，用于显示比较长的垂直列表。它还可以显示分区块的头部和尾部，类似iOS上的`UITableView`控件。
 
-### Pinch-to-zoom
+### 双指缩放
 
-A ScrollView with a single item can be used to allow the user to zoom content. Set up the `maximumZoomScale` and `minimumZoomScale` props and your user will be able to use pinch and expand gestures to zoom in and out.
+如果在ScrollView中只放置一个组件，则可以用来实现缩放操作。设置`maximumZoomScale`和`minimumZoomScale`属性即可以使用户能够缩放其中的内容。
 
-## Handling additional gestures
+## 处理其他的手势
 
-If you want to allow a user to drag a view around the screen, or you want to implement your own custom pan/drag gesture, take a look at the [PanResponder](/docs/panresponder.html) API or the [gesture responder system docs](/docs/gesturerespondersystem.html).
+如果你想实现视图的拖拽，或是实现自定义的手势，那么请参阅[PanResponder](panresponder.html) API或是[手势识别系统](gesturerespondersystem.html)的文档。
