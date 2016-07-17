@@ -1,5 +1,4 @@
-### 截图
-![activityindicatorios](img/components/activityindicatorios.png)
+显示一个圆形的loading提示符号。
 
 ### 属性
 
