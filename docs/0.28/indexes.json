@@ -179,8 +179,8 @@
             "group": "组件",
             "contains": [
                 {
-                    "subject": "ActivityIndicatorIOS",
-                    "mdlink": "activityindicatorios"
+                    "subject": "ActivityIndicator",
+                    "mdlink": "activityindicator"
                 },
                 {
                     "subject": "DatePickerIOS",
