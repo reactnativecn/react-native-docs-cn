@@ -1,6 +1,6 @@
 `PanResponder`类可以将多点触摸操作协调成一个手势。它使得一个单点触摸可以接受更多的触摸操作，也可以用于识别简单的多点触摸手势。
 
-它提供了一个对[触摸响应系统](/docs/gesture-responder-system.html)响应器的可预测的包装。对于每一个处理函数，它在原生事件之外提供了一个新的`gestureState`对象。  
+它提供了一个对[触摸响应系统](gesture-responder-system.html)响应器的可预测的包装。对于每一个处理函数，它在原生事件之外提供了一个新的`gestureState`对象。  
 
 ```javascript
 onPanResponderMove: (event, gestureState) => {}
@@ -78,7 +78,7 @@ onPanResponderMove: (event, gestureState) => {}
 
 ### 可运行的例子
 
-要想看看可以直接使用的例子，请参阅[UIExplorer中的PanResponder](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/PanResponderExample.js)
+要想看看可以直接使用的例子，请参阅[UIExplorer中的PanResponder](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/js/PanResponderExample.js)
 
 ### 方法
 

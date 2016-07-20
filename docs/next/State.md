@@ -48,4 +48,4 @@ AppRegistry.registerComponent('BlinkApp', () => BlinkApp);
 
 State的工作原理和React.js完全一致，所以对于处理state的一些更深入的细节，你可以参阅[React.Component API](https://facebook.github.io/react/docs/component-api.html)。
 
-看到这里，你可能觉得我们的例子总是千篇一律的黑色文本，太特么无聊了。那么我们一起来[学习一下样式](style.html)吧。
+看到这里，你可能觉得我们的例子总是千篇一律的黑色文本，太特么无聊了。那么我们一起来[学习一下样式](Style.html)吧。
