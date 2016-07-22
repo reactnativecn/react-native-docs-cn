@@ -1,12 +1,3 @@
----
-id: height-and-width
-title: Height and Width
-layout: docs
-category: The Basics
-permalink: docs/height-and-width.html
-next: flexbox
----
-
 A component's height and width determine its size on the screen.
 
 #### Fixed Dimensions

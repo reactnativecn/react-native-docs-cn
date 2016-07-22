@@ -700,6 +700,7 @@ react-native start
 
 - 如果你碰到了一些问题，请参阅[常见问题](http://bbs.reactnative.cn/topic/130)。
 
+</div>
 <script>
 function display(type, value) {
   var container = document.querySelector('.qs-block').parentNode;
