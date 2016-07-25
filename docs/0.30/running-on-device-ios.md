@@ -1,27 +1,47 @@
-注意在iOS设备上运行React Native应用需要一个[Apple Developer account](https://developer.apple.com/register)并且把你的设备注册为测试设备。本向导只包含React Native相关的主题。
+---
+id: running-on-device-ios
+title: Running On Device
+layout: docs
+category: Guides (iOS)
+permalink: docs/running-on-device-ios.html
+next: running-on-simulator-ios
+---
 
-_译注_：从XCode 7起，在自己的设备上调试App不再需要开发者账户了。
+Running an iOS app on a device requires an [Apple Developer account](https://developer.apple.com/) and provisioning your iPhone. This guide covers only React Native specific topics.
 
-## 从设备访问开发服务器
+## Accessing the development server from device
 
-在启用开发服务器的情况下，你可以快速的迭代修改应用，然后在设备上查看结果。这样做的前提是你的电脑和设备必须在同一个wifi环境下。
+You can iterate quickly on device using the development server. First, ensure that you are on the same Wi-Fi network as your computer.
 
-1. 打开`AwesomeApp/ios/AwesomeApp/AppDelegate.m`
-2. 修改里面的URL，把`localhost`改为你的电脑的IP。在Mac系统下，你可以在系统设置/网络里找到电脑的IP地址。
-3. 在XCode里选中你的设备作为运行目标，然后点击“Build and Run”。
+1. Open `ios/YourApp/AppDelegate.m`
+2. Change the host in the URL from `localhost` to your laptop's IP address. On Mac, you can find the IP address in System Preferences / Network.
+3. In Xcode, select your phone as build target and press "Build and run"
 
-> 提示
+> Hint
 >
-> 摇晃设备来打开开发菜单(重新加载、调试，等等……)
+> Shake the device to open the [developer menu](/docs/debugging.html#accessing-the-in-app-developer-menu).
 
-## 使用离线包
+## Building your app for production
 
-当你在真机上运行app时，所有的JavaScript代码和图片都会自动打包到App内部。这样可以脱离开发服务器运行，并最终提交到AppStore进行发布。
+You have built a great app using React Native, and you are now itching to release it in the App Store. The process is the same as any other native iOS app, with some additional considerations to take into account.
 
-1. 打开`AwesomeApp/ios/AwesomeApp/AppDelegate.m`
-2. 取消注释`jsCodeLocation = [[NSBundle mainBundle] ...`这一行。
-3. 根据你的app选择的scheme的不同，会生成不同的离线包（Debug会生成带有警告的开发模式的包，Release则会生成压缩优化过的包）。要修改scheme的话，选择Xcode顶部菜单中的`Product > Scheme > Edit Scheme...`，在`Build Configuration`选项中切换选择`Debug`或是`Release`。
+### Disabling the developer menu
 
-## 禁用应用内的开发者菜单
+Building an app for distribution in the App Store requires using the `Release` scheme in Xcode. Apps built for `Release` will automatically disable the in-app developer menu. This will prevent your users from inadvertently accessing the menu in production.
 
-当我们发布应用之前，你应该把应用的“Schema”设置为`Release`，来禁用开发者菜单。文档[调试](debugging.html#debugging-react-native-apps)讲述了一些详细的操作方式。
+### Using the offline bundle
+
+Set up your app to load your JavaScript, images, and other static assets from its resource bundle rather than the development server. This way you can test the app independently of the development server, and will allow you to distribute the app to beta testers and submit the app to the App Store.
+
+1. Open `ios/YourApp/AppDelegate.m`
+2. Uncomment the line, `jsCodeLocation = [[NSBundle mainBundle] ...`
+
+### App Transport Security
+
+App Transport Security is a security feature, added in iOS 9, that rejects all HTTP requests that are not sent over HTTPS. This can result in HTTP traffic being blocked, including the developer React Native server.
+
+ATS is disabled by default in projects generated using the React Native CLI in order to make development easier. You should re-enable ATS prior to building your app for production by removing the `NSAllowsArbitraryLoads` entry from your `Info.plist` file in the `ios/` folder.
+
+To learn more about how to configure ATS on your own Xcode projects, see [this post on ATS][cats].
+
+[cats]: http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/

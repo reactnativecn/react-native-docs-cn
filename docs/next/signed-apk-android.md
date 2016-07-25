@@ -1,21 +1,21 @@
-要通过[Google Play store](https://play.google.com/store)或者其它渠道发布应用，你需要生成一个签名的发行版APK包。Android开发者文档中的[为你的应用程序签名](https://developer.android.com/tools/publishing/app-signing.html)已经说明了相应的内容。本向导会简略的介绍这些过程，然后着重讲解如何打包JavaScript代码。
+Android requires that all apps be digitally signed with a certificate before they can be installed, so to distribute your Android application via [Google Play store](https://play.google.com/store), you'll need to generate a signed release APK. The [Signing Your Applications](https://developer.android.com/tools/publishing/app-signing.html) page on Android Developers documentation describes the topic in detail. This guide covers the process in brief, as well as lists the steps required to packaging the JavaScript bundle.
 
-### 生成一个签名密钥
+### Generating a signing key
 
-你可以用`keytool`命令生成一个私有密钥。
+You can generate a private signing key using `keytool`.
 
     $ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 
-这条命令会要求你输入密钥库（keystore）和对应密钥的密码，然后设置一些发行相关的信息。最后它会生成一个叫做`my-release-key.keystore`的密钥库文件。
+This command prompts you for passwords for the keystore and key, and to provide the Distinguished Name fields for your key. It then generates the keystore as a file called `my-release-key.keystore`.
 
-在运行上面这条语句之后，密钥库里应该已经生成了一个单独的密钥，有效期为10000天。--alias参数后面的别名是你将来为应用签名时所需要用到的，所以记得记录这个别名。
+The keystore contains a single key, valid for 10000 days. The alias is a name that you will use later when signing your app, so remember to take note of the alias.
 
-_注：请记得妥善地保管好你的密钥库文件，不要上传到版本库或者其它的地方。_、
+_Note: Remember to keep your keystore file private and never commit it to version control._
 
-### 设置gradle变量
+### Setting up gradle variables
 
-1. 把`my-release-key.keystore`文件放到你工程中的`android/app`文件夹下。
-2. 编辑`~/.gradle/gradle.properties`，添加如下的代码（注意把其中的`****`替换为相应密码）
+1. Place the `my-release-key.keystore` file under the `android/app` directory in your project folder.
+2. Edit the file `~/.gradle/gradle.properties` and add the following (replace `*****` with the correct keystore password, alias and key password),
 
 ```
 MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
@@ -24,15 +24,20 @@ MYAPP_RELEASE_STORE_PASSWORD=*****
 MYAPP_RELEASE_KEY_PASSWORD=*****
 ```
 
-上面的这些会作为全局的gradle变量，我们在后面的步骤中可以用来给应用签名。
+These are going to be global gradle variables, which we can later use in our gradle config to sign our app.
 
-_注：一旦你在Play Store发布了你的应用，如果想修改签名，就必须用一个不同的包名来重新发布你的应用。所以请务必备份好你的签名库和密码。_
+> __Note about saving the keystore:__
 
-### 添加签名到应用的gradle配置文件
+> Once you publish the app on the Play Store, you will need to republish your app under a different package name (losing all downloads and ratings) if you want to change the signing key at any point. So backup your keystore and don't forget the passwords.
 
-编辑你工程目录下的`android/app/build.gradle`，添加如下的内容：
+_Note about security: If you are not keen on storing your passwords in plaintext and you are running OSX, you can also [store your credentials in the Keychain Access app](https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/). Then you can skip the two last rows in `~/.gradle/gradle.properties`._
 
-```
+
+### Adding signing config to your app's gradle config
+
+Edit the file `android/app/build.gradle` in your project folder and add the signing config,
+
+```gradle
 ...
 android {
     ...
@@ -55,54 +60,41 @@ android {
 ...
 ```
 
-### 生成发行APK包
+### Generating the release APK
 
-#### 如果你在`android/app`下有一个`react.gradle`
-
-只要在终端下运行以下命令：
+Simply run the following in a terminal:
 
 ```sh
 $ cd android && ./gradlew assembleRelease
 ```
 
-如果你希望改变JavaScript代码包或者资源文件被打包的方式（譬如你想改变这些文件存放的目录或者整个工程的文件结构），你可以读一下`android/app/build.gradle`看看你可以做什么配置来应用这些修改。
+Gradle's `assembleRelease` will bundle all the JavaScript needed to run your app into the APK. If you need to change the way the JavaScript bundle and/or drawable resources are bundled (e.g. if you changed the default file/folder names or the general structure of the project), have a look at `android/app/build.gradle` to see how you can update it to reflect these changes.
 
-#### 如果你*没有*`react.gradle`文件：
+The generated APK can be found under `android/app/build/outputs/apk/app-release.apk`, and is ready to be distributed.
 
-你可以[升级](/docs/upgrading.html)到最新版本的React Native来获得这一文件。或者，你也可以选择自行在终端里运行下述命令来打包JavaScript代码和资源文件：
+### Testing the release build of your app
 
-```sh
-$ mkdir -p android/app/src/main/assets
-$ react-native bundle --platform android --dev false --entry-file index.android.js \
-  --bundle-output android/app/src/main/assets/index.android.bundle \
-  --assets-dest android/app/src/main/res/
-$ cd android && ./gradlew assembleRelease
-```
-
-不论哪种情况，你都应该能在`android/app/build/outputs/apk/app-release.apk`中找到生成的APK文件，并且它已经可以用来被发布。
-
-### 测试应用的发行版本
-
-在把发行版本提交到Play Store之前，你应该做一次最终测试。输入以下命令可以在设备上安装发行版本：
+Before uploading the release build to the Play Store, make sure you test it thoroughly. Install it on the device using:
 
 ```sh
 $ cd android && ./gradlew installRelease
 ```
 
-注意`installRelease`命令只能在你完成了上面的签名配置之后才可以使用。
-你可以结束掉任何的packager实例，所有你的代码和框架代码已经都被打包到了apk资源中。
+Note that `installRelease` is only available if you've set up signing as described above.
 
-### 启用Proguard代码混淆来缩小APK文件的大小（可选）
+You can kill any running packager instances, all your and framework JavaScript code is bundled in the APK's assets.
 
-Proguard是一个Java字节码混淆压缩工具，它可以移除掉React Native Java（和它的依赖库中）中没有被使用到的部分，最终有效的减少APK的大小。
+### Enabling Proguard to reduce the size of the APK (optional)
 
-_**重要**：启用Proguard之后，你必须再次全面地测试你的应用。Proguard有时候需要为你引入的每个原生库做一些额外的配置。参见`app/proguard-rules.pro`文件。_
+Proguard is a tool that can slightly reduce the size of the APK. It does this by stripping parts of the React Native Java bytecode (and its dependencies) that your app is not using.
 
-要启用Proguard，编辑`android/app/build.gradle`文件：
+_**IMPORTANT**: Make sure to thoroughly test your app if you've enabled Proguard. Proguard often requires configuration specific to each native library you're using. See `app/proguard-rules.pro`._
 
-```
+To enable Proguard, edit `android/app/build.gradle`:
+
+```gradle
 /**
- * 运行Proguard来减小发布版本的Java字节码大小
+ * Run Proguard to shrink the Java bytecode in release builds.
  */
 def enableProguardInReleaseBuilds = true
 ```

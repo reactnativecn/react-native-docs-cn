@@ -108,7 +108,7 @@ class AnExampleReactPackage implements ReactPackage {
   }
 ```
 
-这个package需要在`MainActivity.java`文件的`getPackages`方法中提供。这个文件位于你的react-native应用文件夹的android目录中。具体路径是: `android/app/src/main/java/com/your-app-name/MainActivity.java`.
+这个package需要在`MainApplication.java`文件的`getPackages`方法中提供。这个文件位于你的react-native应用文件夹的android目录中。具体路径是: `android/app/src/main/java/com/your-app-name/MainApplication.java`.
 
 ```java
 protected List<ReactPackage> getPackages() {

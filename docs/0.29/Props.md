@@ -53,6 +53,6 @@ AppRegistry.registerComponent('LotsOfGreetings', () => LotsOfGreetings);
 
 我们在`Greeting`组件中将`name`作为一个属性来定制，这样可以复用这一组件来制作各种不同的“问候语”。上面的例子把`Greeting`组件写在JSX语句中，用法和内置组件并无二致——这正是React体系的魅力所在——如果你想搭建一套自己的基础UI框架，那就放手做吧！ 
 
-上面的例子出现了一样新的名为[`View`](view.html)的组件。[`View`](iew.html) 常用作其他组件的容器，来帮助控制布局和样式。
+上面的例子出现了一样新的名为[`View`](view.html)的组件。[`View`](view.html) 常用作其他组件的容器，来帮助控制布局和样式。
 
 仅仅使用`props`和基础的[`Text`](text.html)、[`Image`](image.html)以及[`View`](view.html)组件，你就已经足以编写各式各样的UI组件了。要学习如何动态修改你的界面，那就需要进一步[学习State（状态）的概念](state.html)。

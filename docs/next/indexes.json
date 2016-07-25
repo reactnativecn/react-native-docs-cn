@@ -4,52 +4,52 @@
             "group": "入门基础",
             "contains": [
                 {
-                    "subject": "开始使用React Native",
+                    "subject": "搭建开发环境",
                     "mdlink": "getting-started"
                 },
                 {
                     "subject": "编写Hello World",
-                    "mdlink": "Tutorial"
+                    "mdlink": "tutorial"
                 },
                 {
                     "subject": "Props（属性）",
-                    "mdlink": "Props"
+                    "mdlink": "props"
                 },
                 {
                     "subject": "State（状态）",
-                    "mdlink": "State"
+                    "mdlink": "state"
                 },
                 {
                     "subject": "高度与宽度",
-                    "mdlink": "HeightAndWidth"
+                    "mdlink": "height-and-width"
                 },
                 {
                     "subject": "使用Flexbox布局",
-                    "mdlink": "LayoutWithFlexbox"
+                    "mdlink": "layout-with-flexbox"
                 },
                 {
                     "subject": "处理文本输入",
-                    "mdlink": "HandlingTextInput"
+                    "mdlink": "handling-text-input"
                 },
                 {
                     "subject": "如何使用ScrollView",
-                    "mdlink": "UsingAScrollView"
+                    "mdlink": "using-a-scrollView"
                 },
                 {
                     "subject": "如何使用ListView",
-                    "mdlink": "UsingAListView"
+                    "mdlink": "using-a-listView"
                 },
                 {
                     "subject": "网络",
-                    "mdlink": "Networking"
+                    "mdlink": "networking"
                 },
                 {
                     "subject": "使用导航器跳转页面",
-                    "mdlink": "UsingNavigators"
+                    "mdlink": "using-navigators"
                 },
                 {
                     "subject": "其他参考资源",
-                    "mdlink": "MoreResources"
+                    "mdlink": "more-resources"
                 }
             ]
         },
@@ -58,7 +58,7 @@
             "contains": [
                 {
                     "subject": "嵌入到现有原生应用",
-                    "mdlink": "IntegrationWithExistingApps"
+                    "mdlink": "integration-with-existing-apps"
                 },
                 {
                     "subject": "颜色",
@@ -70,7 +70,7 @@
                 },
                 {
                     "subject": "处理触摸事件",
-                    "mdlink": "HandlingTouches"
+                    "mdlink": "handling-touches"
                 },
                 {
                     "subject": "动画",
@@ -90,7 +90,7 @@
                 },
                 {
                     "subject": "调试",
-                    "mdlink": "Debugging"
+                    "mdlink": "debugging"
                 },
                 {
                     "subject": "自动化测试",
@@ -102,7 +102,7 @@
                 },
                 {
                     "subject": "导航器对比",
-                    "mdlink": "Navigation"
+                    "mdlink": "navigation"
                 },
                 {
                     "subject": "性能",
@@ -160,11 +160,11 @@
                 },
                 {
                     "subject": "在设备上运行",
-                    "mdlink": "RunningOnDeviceIOS"
+                    "mdlink": "running-on-device-ios"
                 },
                 {
                     "subject": "在模拟器上运行",
-                    "mdlink": "RunningOnSimulatorIOS"
+                    "mdlink": "running-on-simulator-ios"
                 },
                 {
                     "subject": "在原生和React Native间通信",
@@ -189,7 +189,7 @@
                 },
                 {
                     "subject": "生成已签名的APK",
-                    "mdlink": "SignedAPKAndroid"
+                    "mdlink": "signed--apk-android"
                 },
                 {
                     "subject": "调试Android UI性能",
@@ -197,7 +197,7 @@
                 },
                 {
                     "subject": "从源代码编译React Native",
-                    "mdlink": "android-buildingfromsource"
+                    "mdlink": "android-building-from-source"
                 }
             ]
         },
@@ -451,11 +451,11 @@
                 },
                 {
                     "subject": "布局样式属性",
-                    "mdlink": "LayoutProps"
+                    "mdlink": "layout-props"
                 },
                 {
                     "subject": "阴影样式属性",
-                    "mdlink": "ShadowProps"
+                    "mdlink": "shadow-props"
                 }
             ]
         }

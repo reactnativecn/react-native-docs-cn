@@ -1,19 +1,10 @@
----
-id: network
-title: Networking
-layout: docs
-category: The Basics
-permalink: docs/network.html
-next: navigators
----
-
 Many mobile apps need to load resources from a remote URL. You may want to make a POST request to a REST API, or you may simply need to fetch a chunk of static content from another server.
 
-## Using Fetch
+## 使用Fetch
 
 React Native provides the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for your networking needs. Fetch will seem familiar if you have used `XMLHttpRequest` or other networking APIs before. You may refer to MDN's guide on [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for additional information.
 
-#### Making requests
+#### 发起网络请求
 
 In order to fetch content from an arbitrary URL, just pass the URL to fetch:
 
@@ -39,7 +30,7 @@ fetch('https://mywebsite.com/endpoint/', {
 
 Take a look at the [Fetch Request docs](https://developer.mozilla.org/en-US/docs/Web/API/Request) for a full list of properties.
 
-#### Handling the response
+#### 处理服务器的响应数据
 
 The above examples show how you can make a request. In many cases, you will want to do something with the response.
 
@@ -98,9 +89,9 @@ request.send();
 
 > The security model for XMLHttpRequest is different than on web as there is no concept of [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in native apps.
 
-## WebSocket Support
+## WebSocket支持
 
-React Native also supports [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket), a protocol which provides full-duplex communication channels over a single TCP connection.
+React Native还支持[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)，这种协议可以在单个TCP连接上提供全双工的通信信道。
 
 ```js
 var ws = new WebSocket('ws://host.com/path');
@@ -127,4 +118,4 @@ ws.onclose = (e) => {
 };
 ```
 
-Your app can now display all sorts of data and you may soon need to organize this content into several screens. To manage the transition between these screens, you will need to learn about [navigators](/react-native/docs/using-navigators.html).
+Your app can now display all sorts of data and you may soon need to organize this content into several screens. To manage the transition between these screens, you will need to learn about [navigators](using-navigators.html).

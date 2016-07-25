@@ -1,21 +1,12 @@
----
-id: debugging
-title: Debugging
-layout: docs
-category: Guides
-permalink: docs/debugging.html
-next: testing
----
-
-## Accessing the In-App Developer Menu
+## 访问App内的开发菜单
 
 You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the **`Command`**`⌘` + **`D`** keyboard shortcut when your app is running in the iPhone Simulator, or **`Command`**`⌘` + **`M`** when running in an Android emulator.
 
 ![](img/DeveloperMenu.png)
 
-> The Developer Menu is disabled in release (production) builds.
+> 注意：在成品（release/producation builds）中开发者菜单会被关闭。
 
-## Reloading JavaScript
+## 刷新JavaScript
 
 Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu. You can also press **`Command`**`⌘` + **`R`** in the iOS Simulator, or press **`R`** twice on Android emulators.
 
@@ -34,7 +25,7 @@ You will need to rebuild your app for changes to take effect in certain situatio
 * You have added new resources to your native app's bundle, such as an image in `Images.xcassets` on iOS or the `res/drawable` folder on Android.
 * You have modified native code (Objective-C/Swift on iOS or Java/C++ on Android).
 
-## In-app Errors and Warnings
+## 应用内的错误与警告提示（红屏和黄屏）
 
 Errors and warnings are displayed inside your app in development builds.
 
@@ -65,7 +56,7 @@ You may also access these through `Debug → Open System Log...` in the iOS Simu
 
 ## Chrome Developer Tools
 
-To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
+To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at <http://localhost:8081/debugger-ui>
 
 Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools). You may also access the DevTools using keyboard shortcuts (**`Command`**`⌘` + **`Option`**`⌥` + **`I`** on Mac, **`Ctrl`** + **`Shift`** + **`I`** on Windows). You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
 
@@ -83,7 +74,6 @@ Alternatively, select "Dev Settings" from the Developer Menu, then update the "D
 
 > If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
 
-
 ### Debugging using a custom JavaScript debugger
 
 To use a custom JavaScript debugger in place of Chrome Developer Tools, set the `REACT_DEBUGGER` environment variable to a command that will start your custom debugger. You can then select "Debug JS Remotely" from the Developer Menu to start debugging.
@@ -91,6 +81,46 @@ To use a custom JavaScript debugger in place of Chrome Developer Tools, set the 
 The debugger will receive a list of all project roots, separated by a space. For example, if you set `REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"`, then the command `node /path/to/launchDebugger.js --port 2345 --type ReactNative /path/to/reactNative/app` will be used to start your debugger.
 
 > Custom debugger commands executed this way should be short-lived processes, and they shouldn't produce more than 200 kilobytes of output.
+
+### Debugging with [Stetho](http://facebook.github.io/stetho/) on Android 
+
+1. In ```android/app/build.gradle``` , add
+
+   ```gradle
+   compile 'com.facebook.stetho:stetho:1.3.1'
+   compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+   ```
+
+2. In ```android/app/src/main/java/com/{yourAppName}/MainApplication.java```, add the following imports : 
+
+   ```java
+   import com.facebook.react.modules.network.ReactCookieJarContainer;
+   import com.facebook.stetho.Stetho;
+   import okhttp3.OkHttpClient;
+   import com.facebook.react.modules.network.OkHttpClientProvider;
+   import com.facebook.stetho.okhttp3.StethoInterceptor;
+   import java.util.concurrent.TimeUnit;
+   ```
+
+3. In ```android/app/src/main/java/com/{yourAppName}/MainApplication.java``` add the function:
+   ```java
+   public void onCreate() {
+         super.onCreate();
+         Stetho.initializeWithDefaults(this);
+         OkHttpClient client = new OkHttpClient.Builder()
+         .connectTimeout(0, TimeUnit.MILLISECONDS)
+         .readTimeout(0, TimeUnit.MILLISECONDS)
+         .writeTimeout(0, TimeUnit.MILLISECONDS)
+         .cookieJar(new ReactCookieJarContainer())
+         .addNetworkInterceptor(new StethoInterceptor())
+         .build();
+         OkHttpClientProvider.replaceOkHttpClient(client);
+   }
+   ```
+
+4. Run  ```react-native run-android ```
+
+5. In a new chrome tab, open : ```chrome://inspect```, click on 'Inspect device' (the one followed by "Powered by Stetho")
 
 ## Performance Monitor
 

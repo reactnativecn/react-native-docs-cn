@@ -1,22 +1,12 @@
----
-id: debugging
-title: Debugging
-layout: docs
-category: Guides
-permalink: docs/debugging.html
-next: testing
-previous: direct-manipulation
----
-
-## Accessing the In-App Developer Menu
+## 访问App内的开发菜单
 
 You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the **`Command`**`⌘` + **`D`** keyboard shortcut when your app is running in the iPhone Simulator, or **`Command`**`⌘` + **`M`** when running in an Android emulator.
 
 ![](img/DeveloperMenu.png)
 
-> The Developer Menu is disabled in release (production) builds.
+> 注意：在成品（release/producation builds）中开发者菜单会被关闭。
 
-## Reloading JavaScript
+## 刷新JavaScript
 
 Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu. You can also press **`Command`**`⌘` + **`R`** in the iOS Simulator, or press **`R`** twice on Android emulators.
 
@@ -35,7 +25,7 @@ You will need to rebuild your app for changes to take effect in certain situatio
 * You have added new resources to your native app's bundle, such as an image in `Images.xcassets` on iOS or the `res/drawable` folder on Android.
 * You have modified native code (Objective-C/Swift on iOS or Java/C++ on Android).
 
-## In-app Errors and Warnings
+## 应用内的错误与警告提示（红屏和黄屏）
 
 Errors and warnings are displayed inside your app in development builds.
 
@@ -66,7 +56,7 @@ You may also access these through `Debug → Open System Log...` in the iOS Simu
 
 ## Chrome Developer Tools
 
-To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
+To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at <http://localhost:8081/debugger-ui>
 
 Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools). You may also access the DevTools using keyboard shortcuts (**`Command`**`⌘` + **`Option`**`⌥` + **`I`** on Mac, **`Ctrl`** + **`Shift`** + **`I`** on Windows). You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
 
