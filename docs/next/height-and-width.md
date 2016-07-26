@@ -52,4 +52,4 @@ class FlexDimensionsBasics extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => FlexDimensionsBasics);
 ```
 
-当你熟练掌握了如何控制组件的尺寸后，下一步可以[学习如何在屏幕上排列组件了](LayoutWithFlexbox.html)。
+当你熟练掌握了如何控制组件的尺寸后，下一步可以[学习如何在屏幕上排列组件了](layout-with-flexbox.html)。

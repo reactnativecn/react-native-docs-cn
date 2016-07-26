@@ -1,6 +1,6 @@
 `ListView`组件用于显示一个垂直的滚动列表，其中的元素之间结构近似而仅数据不同。
 
-`ListView`更适于长列表数据，且元素个数可以增删。不同于更通用的[`ScrollView`](using-a-scrollview.html)， the `ListView` only renders elements that are currently showing on the screen, not all the elements at once.
+`ListView`更适于长列表数据，且元素个数可以增删。和[`ScrollView`](using-a-scrollview.html)不同的是，`ListView`并不立即渲染所有元素，而是优先渲染屏幕上可见的元素。
 
 The `ListView` component requires two props: `dataSource` and `renderRow`. `dataSource` is the source of information for the list. `renderRow` takes one item from the source and returns a formatted component to render.
 

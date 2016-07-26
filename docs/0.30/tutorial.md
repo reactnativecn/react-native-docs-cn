@@ -40,4 +40,4 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
 ## 这个示例弱爆了！
 
-……是的。如果想做些更有意思的东西，请[接着学习Props属性](props.html).
+……是的。如果想做些更有意思的东西，请[接着学习Props属性](props.html)。或者可以看看一个[稍微复杂些的“电影列表”例子](sample-application-movies.html)。
