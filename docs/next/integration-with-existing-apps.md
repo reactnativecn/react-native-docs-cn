@@ -1,5 +1,8 @@
 <div class="integration-toggler">
 <style>
+.integration-toggler {
+  margin-bottom: 10px;
+}
 .integration-toggler a {
   display: inline-block;
   padding: 10px 5px;
@@ -14,29 +17,27 @@
   background-color: #05A5D1;
   color: white;
 }
-block { display: none; }
+.md-block { display: none; }
+.md-block img { max-width:650px; }
 .display-platform-objc .objc,
 .display-platform-swift .swift,
 .display-platform-android .android {
   display: block;
-}</style>
+}
+</style>
 <span>平台:</span>
 <a class="button-objc" onclick="display('platform', 'objc')">Objective-C</a>
 <a class="button-swift" onclick="display('platform', 'swift')">Swift</a>
 <a class="button-android" onclick="display('platform', 'android')">Android</a>
 </div>
-
-<div markdown class="android">
-
-> This section will be updated shortly showing an integration into a more real world application such as the 2048 app that was used for Objective-C and Swift.
-
-</div><div markdown class="objc swift android">
+<div markdown class="md-block objc swift android">
 
 ## 核心概念
 
 React Native is great when you are starting a new mobile app from scratch. However, it also works well for adding a single view or user flow to existing native applications. With a few steps, you can add new React Native based features, screens, views, etc.
 
-</div><div markdown class="objc swift">
+</div>
+<div markdown class="md-block objc swift">
 
 The keys to integrating React Native components into your iOS application are to:
 
@@ -50,7 +51,8 @@ The keys to integrating React Native components into your iOS application are to
 8. Prepare for [deployment](running-on-device-ios.html) (e.g., via the `react-native-xcode.sh` script).
 9. Deploy and Profit!
 
-</div><div markdown class="android">
+</div>
+<div markdown class="md-block android">
 
 The keys to integrating React Native components into your Android application are to:
 
@@ -65,17 +67,20 @@ The keys to integrating React Native components into your Android application ar
 8. [Prepare](signed-apk-android.html) for [deployment](running-on-device-android.html).
 9. Deploy and Profit!
 
-</div><div markdown class="objc swift android">
+</div>
+<div markdown class="md-block objc swift android">
 
-## Prerequisites
+## 开发环境准备  
 
-</div><div markdown class="android">
+</div>
+<div markdown class="md-block android">
 
 The [Android Getting Started guide](getting-started.html) will install the appropriate prerequisites (e.g., `npm`) for React Native on the Android target platform and your chosen development environment.
 
-</div><div markdown class="objc swift">
+</div>
+<div markdown class="md-block objc swift">
 
-### General
+### 基础环境
 
 First, follow the [Getting Started guide](getting-started.html) for your development environment and the iOS target platform to install the prerequisites for React Native.
 
@@ -89,21 +94,24 @@ $ sudo gem install cocoapods
 
 > It is technically possible not to use CocoaPods, but this requires manual library and linker additions that overly complicates this process.
 
-## Our Sample App
+## 示例App
 
-</div><div markdown class="obj">
+</div>
+<div markdown class="md-block objc">
 
 Assume the [app for integration](https://github.com/JoelMarcey/iOS-2048) is a [2048](https://en.wikipedia.org/wiki/2048_(video_game) game. Here is what the main menu of the native application looks like without React Native.
 
-</div><div markdown class="swift">
+</div>
+<div markdown class="md-block swift">
 
 Assume the [app for integration](https://github.com/JoelMarcey/swift-2048) is a [2048](https://en.wikipedia.org/wiki/2048_(video_game) game. Here is what the main menu of the native application looks like without React Native.
 
-</div><div markdown class="objc swift">
+</div>
+<div markdown class="md-block objc swift">
 
 ![Before RN Integration](img/react-native-existing-app-integration-ios-before.png)
 
-## Package Dependencies
+## Packag依赖
 
 React Native integration requires both the React and React Native node modules. The React Native Framework will provide the code to allow your application integration to happen.
 
@@ -118,7 +126,7 @@ Below is an example of what your `package.json` file should minimally contain.
 
 > Version numbers will vary according to your needs. Normally the latest versions for both [React](https://github.com/facebook/react/releases) and [React Native](https://github.com/facebook/react/releases) will be sufficient.
 
-</div><div markdown class="obj">
+</div><div markdown class="md-block objc">
 
 ```bash
 {
@@ -135,7 +143,7 @@ Below is an example of what your `package.json` file should minimally contain.
 }
 ```
 
-</div><div markdown class="swift">
+</div><div markdown class="md-block swift">
 
 ```bash
 {
@@ -152,7 +160,7 @@ Below is an example of what your `package.json` file should minimally contain.
 }
 ```
 
-</div><div markdown class="objc swift">
+</div><div markdown class="md-block objc swift">
 
 ### Packages Installation
 
@@ -188,7 +196,7 @@ $ pod init
 
 The `Podfile` will be created and saved in the *iOS* directory (e.g., `ios/`) of your current project and will contain a boilerplate setup that you will tweak for your integration purposes. In the end, `Podfile` should look something similar to this:
 
-</div><div markdown class="obj">
+</div><div markdown class="md-block objc">
 
 ```
 # The target name is most likely the name of your project.
@@ -206,7 +214,7 @@ target 'NumberTileGame' do
 end
 ```
 
-</div><div markdown class="swift">
+</div><div markdown class="md-block swift">
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
@@ -230,9 +238,9 @@ target 'swift-2048' do
 end
 ```
 
-</div><div markdown class="objc swift">
+</div><div markdown class="md-block objc swift">
 
-#### Po安装
+#### Pod安装
 
 After you have created your `Podfile`, you are ready to install the React Native pod.
 
@@ -253,11 +261,11 @@ Sending stats
 Pod installation complete! There are 3 dependencies from the Podfile and 1 total pod installed.
 ```
 
-</div><div markdown class="swift">
+</div><div markdown class="md-block swift">
 
 > If you get a warning such as "*The `swift-2048 [Debug]` target overrides the `FRAMEWORK_SEARCH_PATHS` build setting defined in `Pods/Target Support Files/Pods-swift-2048/Pods-swift-2048.debug.xcconfig`. This can lead to problems with the CocoaPods installation*", then make sure the `Framework Search Paths` in `Build Settings` for both `Debug` and `Release` only contain `$(inherited)`.
 
-</div><div markdown class="objc swift">
+</div><div markdown class="md-block objc swift">
 
 ## 代码集成
 
@@ -356,7 +364,7 @@ When you build a React Native application, you use the React Native packager to 
 
 We will, for debugging purposes, log that the event handler was invoked. Then, we will create a string with the location of our React Native code that exists inside the `index.ios.bundle`. Finally, we will create the main `RCTRootView`. Notice how we provide `RNHighScores` as the `moduleName` that we created [above](#the-react-native-component) when writing the code for our React Native component.
 
-</div><div markdown class="obj">
+</div><div markdown class="md-block objc">
 
 First `import` the `RCTRootView` library.
 
@@ -396,7 +404,7 @@ First `import` the `RCTRootView` library.
 
 > Note that `RCTRootView initWithURL` starts up a new JSC VM. To save resources and simplify the communication between RN views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `[RCTRootView alloc] initWithURL`, use [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L93) to create a bridge and then use `RCTRootView initWithBridge`.
 
-</div><div markdown class="swift">
+</div><div markdown class="md-block swift">
 
 First `import` the `React` library.
 
@@ -431,15 +439,15 @@ import React
 
 > Note that `RCTRootView bundleURL` starts up a new JSC VM. To save resources and simplify the communication between RN views in different parts of your native app, you can have multiple views powered by React Native that are associated with a single JS runtime. To do that, instead of using `RCTRootView bundleURL`, use [`RCTBridge initWithBundleURL`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridge.h#L93) to create a bridge and then use `RCTRootView initWithBridge`.
 
-</div><div markdown class="obj">
+</div><div markdown class="md-block objc">
 
 > When moving your app to production, the `NSURL` can point to a pre-bundled file on disk via something like `[[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/packager/` to generate that pre-bundled file.
 
-</div><div markdown class="swift">
+</div><div markdown class="md-block swift">
 
 > When moving your app to production, the `NSURL` can point to a pre-bundled file on disk via something like `let mainBundle = NSBundle(URLForResource: "main" withExtension:"jsbundle")`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/packager/` to generate that pre-bundled file.
 
-</div><div markdown class="objc swift">
+</div><div markdown class="md-block objc swift">
 
 #### Wire Up
 
@@ -501,15 +509,15 @@ Here is the *React Native* high score screen:
 
 ### See the Code
 
-</div><div markdown class="obj">
+</div><div markdown class="md-block objc">
 
 You can examine the code that added the React Native screen on [GitHub](https://github.com/JoelMarcey/iOS-2048/commit/9ae70c7cdd53eb59f5f7c7daab382b0300ed3585).
 
-</div><div markdown class="swift">
+</div><div markdown class="md-block swift">
 
 You can examine the code that added the React Native screen on [GitHub](https://github.com/JoelMarcey/swift-2048/commit/13272a31ee6dd46dc68b1dcf4eaf16c1a10f5229).
 
-</div><div markdown class="android">
+</div><div markdown class="md-block android">
 
 ## Add JS to your app
 
@@ -694,13 +702,12 @@ Now build and run your Android app as normal (e.g. `./gradlew installDebug`). On
 
 ![Screenshot](img/EmbeddedAppAndroid.png)
 
-<script>
+</div>
+<script class="markdown-script">
 function display(type, value) {
-  var container = document.getElementsByTagName('block')[0].parentNode;
+  var container = document.querySelector('.md-block').parentNode;
   container.className = 'display-' + type + '-' + value + ' ' +
     container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
-  console.log(container.className);
-  event && event.preventDefault();
 }
 
 // If we are coming to the page with a hash in it (i.e. from a search, for example), try to get

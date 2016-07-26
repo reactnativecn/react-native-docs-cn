@@ -24,7 +24,8 @@
   background-color: #05A5D1;
   color: white;
 }
-.qs-block { display: none; }
+.md-block { display: none; }
+.md-block img { max-width:650px; }
 .display-platform-ios.display-os-mac .ios.mac,
 .display-platform-ios.display-os-linux .ios.linux,
 .display-platform-ios.display-os-windows .ios.windows,
@@ -33,7 +34,6 @@
 .display-platform-android.display-os-windows .android.windows {
   display: block;
 }
-.qs-block img { max-width:650px; }
 </style>
 <span>目标平台：</span>
 <a class="button-ios" onclick="display('platform', 'ios')">iOS</a>
@@ -48,7 +48,7 @@
 
 <!-- ######### LINUX AND WINDOWS for iOS ##################### -->
 
-<div markdown class="qs-block linux windows ios">
+<div markdown class="md-block linux windows ios">
 
 ## 暂不支持
 
@@ -59,7 +59,7 @@
 
 <!-- ######### MAC for iOS ##################### -->
 
-</div><div markdown class="qs-block mac ios android" >
+</div><div markdown class="md-block mac ios android" >
 
 ## 安装
 
@@ -103,7 +103,7 @@ npm install -g react-native-cli
 sudo chown -R `whoami` /usr/local
 ```
 
-</div><div markdown class="qs-block mac ios">
+</div><div markdown class="md-block mac ios">
 
 #### Xcode
 
@@ -111,7 +111,7 @@ React Native目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 7.
 
 > 虽然一般来说命令行工具都是默认安装了，但你最好还是启动Xcode，并在`Xcode | Preferences | Locations`菜单中检查一下是否装有某个版本的`Command Line Tools`。Xcode的命令行工具中也包含一些必须的工具，比如`git`等。
 
-</div><div markdown class="qs-block mac android" >
+</div><div markdown class="md-block mac android" >
 
 #### Android Studio
 
@@ -165,7 +165,7 @@ source ~/.bash_profile
 
 可以使用`echo $ANDROID_HOME`检查此变量是否已正确设置。
 
-</div><div markdown class="qs-block mac ios android">
+</div><div markdown class="md-block mac ios android">
 
 ### 推荐安装的工具
 
@@ -186,7 +186,7 @@ brew install watchman
 brew install flow
 ```
 
-</div><div markdown class="qs-block mac android">
+</div><div markdown class="md-block mac android">
 
 #### 将Android SDK的Tools目录添加到`PATH`变量中
 
@@ -212,7 +212,7 @@ Git版本控制。如果你已经安装过[Xcode](https://developer.apple.com/xc
 brew install git
 ```
 
-</div><div markdown class="qs-block mac ios android">
+</div><div markdown class="md-block mac ios android">
 
 #### Nuclide
 
@@ -223,7 +223,7 @@ brew install git
 
 译注：我们更推荐使用[WebStorm](https://www.jetbrains.com/webstorm/)或[Sublime Text](http://www.sublimetext.com/)来编写React Native应用。
 
-</div><div markdown class="qs-block mac android">
+</div><div markdown class="md-block mac android">
 
 #### Genymotion
 
@@ -265,13 +265,13 @@ Execution failed for task ':app:installDebug'.
 
 <!-- ######### LINUX and WINDOWS for ANDROID ##################### -->
 
-</div><div markdown class="qs-block linux windows android">
+</div><div markdown class="md-block linux windows android">
 
 ## 安装
 
 ### 必需的软件
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 #### Chocolatey
 
@@ -294,11 +294,11 @@ Execution failed for task ':app:installDebug'.
 choco install python2
 ```
 
-</div><div markdown class="qs-block linux windows android">
+</div><div markdown class="md-block linux windows android">
 
 #### Node
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 打开终端窗口，输入下面的命令来安装NodeJS:
 
@@ -309,7 +309,7 @@ sudo apt-get install -y nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 打开命令提示符窗口，使用Chocolatey来安装NodeJS.
 
@@ -317,7 +317,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 choco install nodejs.install
 ```
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 #### React Native命令行工具（react-native-cli）
 
@@ -347,7 +347,7 @@ Android Studio包含了运行和测试React Native应用所需的Android SDK和�
 > 除非特别注明，请不要改动安装过程中的选项。比如Android Studio默认安装了
 > `Android Support Repository`，而这也是React Native必须的（否则在react-native run-android时会报appcompat-v7包找不到的错误）。
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 安装过程中有一些需要改动的选项：
 
@@ -359,7 +359,7 @@ Android Studio包含了运行和测试React Native应用所需的Android SDK和�
 
 ![additional installs](img/react-native-android-studio-additional-installs-linux.png)
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 - 确定所有安装都勾选了，尤其是`Android SDK`和`Android Device Emulator`。
 
@@ -371,50 +371,50 @@ Android Studio包含了运行和测试React Native应用所需的Android SDK和�
 
 ![verify installs](img/react-native-android-studio-verify-installs-windows.png)
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 - 安装完成后，在Android Studio的欢迎界面中选择`Configure | SDK Manager`。
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 ![configure sdk](img/react-native-android-studio-configure-sdk-linux.png)
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 ![configure sdk](img/react-native-android-studio-configure-sdk-windows.png)
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 - 在`SDK Platforms`窗口中，选择`Show Package Details`，然后在`Android 6.0 (Marshmallow)`中勾选`Google APIs`、`Intel x86 Atom System Image`、`Intel x86 Atom_64 System Image`以及`Google APIs Intel x86 Atom_64 System Image`。
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 ![platforms](img/react-native-android-studio-android-sdk-platforms-linux.png)
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 ![platforms](img/react-native-android-studio-android-sdk-platforms-windows.png)
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 - 在`SDK Tools`窗口中，选择`Show Package Details`，然后在`Android SDK Build Tools`中勾选`Android SDK Build-Tools 23.0.1`。（必须是这个版本）
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 ![build tools](img/react-native-android-studio-android-sdk-build-tools-linux.png)
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 ![build tools](img/react-native-android-studio-android-sdk-build-tools-windows.png)
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 
 #### ANDROID_HOME环境变量
 
 确保`ANDROID_HOME`环境变量正确地指向了你安装的Android SDK的路径。
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 具体的做法是把下面的命令加入到`~/.bashrc`、`~/.bash_profile`文件中。如果你使用的是其他的shell，则选择对应的配置文件:
 
@@ -431,7 +431,7 @@ source ./bash_profile
 
 可以使用`echo $ANDROID_HOME`检查此变量是否已正确设置。
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 打开`控制面板` -> `系统和安全` -> `系统` -> `高级系统设置` ->
 `高级` -> `环境变量` -> `新建`
@@ -442,11 +442,11 @@ source ./bash_profile
 
 > 你需要关闭现有的命令符提示窗口然后重新打开，这样新的环境变量才能生效。
 
-</div><div markdown class="qs-block linux windows android">
+</div><div markdown class="md-block linux windows android">
 
 ### 推荐安装的工具
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 #### Watchman
 
@@ -476,25 +476,25 @@ sudo make install
 npm install -g flow-bin
 ```
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 #### Gradle Daemon
 
 开启[Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html)可以极大地提升java代码的增量编译速度。
 
-</div><div markdown class="qs-block mac linux android">
+</div><div markdown class="md-block mac linux android">
 
 ```
 touch ~/.gradle/gradle.properties && echo "org.gradle.daemon=true" >> ~/.gradle/gradle.properties
 ```
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 ```
 (if not exist "%USERPROFILE%/.gradle" mkdir "%USERPROFILE%/.gradle") && (echo org.gradle.daemon=true >> "%USERPROFILE%/.gradle/gradle.properties")
 ```
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 #### Android模拟器加速器
 
@@ -504,13 +504,13 @@ touch ~/.gradle/gradle.properties && echo "org.gradle.daemon=true" >> ~/.gradle/
 
 如果你的系统支持KVM，那就应该安装[Intel的Android模拟器加速器](https://software.intel.com/en-us/android/articles/speeding-up-the-android-emulator-on-intel-architecture#_Toc358213272)。
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 #### 将Android SDK的Tools目录添加到`PATH`变量中
 
 你可以把Android SDK的tools和platform-tools目录添加到`PATH`变量中，以便在终端中运行一些Android工具，例如`android avd`或是`adb logcat`等。
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 在`~/.bashrc`或是`~/.bash_profile`文件中添加：
 
@@ -520,7 +520,7 @@ PATH="~/Android/Sdk/tools:~/Android/Sdk/platform-tools:${PATH}"
 export PATH
 ```
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 打开`控制面板` -> `系统和安全` -> `系统` -> `高级系统设置` ->
 `高级` -> `环境变量` -> 选中`PATH` -> 双击进行编辑
@@ -529,18 +529,18 @@ export PATH
 
 ![env variable](img/react-native-android-tools-environment-variable-windows.png)
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 ### 可选的安装项
 
 #### Git
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 [使用包管理器](https://git-scm.com/download/linux)来安装Git
 (例如`sudo apt-get install git-all`).
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 你可以使用Chocolatey来安装`git`:
 
@@ -551,7 +551,7 @@ choco install git
 另外你也可以直接去下载[Git for Windows](https://git-for-windows.github.io/)。
 在安装过程中注意勾选"Run Git from Windows Command Prompt"，这样才会把`git`命令添加到`PATH`环境变量中。
 
-</div><div markdown class="qs-block linux android">
+</div><div markdown class="md-block linux android">
 
 #### Nuclide
 
@@ -562,7 +562,7 @@ choco install git
 
 译注：我们更推荐使用[WebStorm](https://www.jetbrains.com/webstorm/)或[Sublime Text](http://www.sublimetext.com/)来编写React Native应用。
 
-</div><div markdown class="qs-block linux windows android">
+</div><div markdown class="md-block linux windows android">
 
 #### Genymotion
 
@@ -573,7 +573,7 @@ choco install git
 3. 创建一个新模拟器并启动。
 4. 启动React Native应用后，可以按下F1来打开开发者菜单。
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 #### Visual Studio Emulator for Android
 
@@ -588,11 +588,11 @@ choco install git
 5. 名称设为`Path`
 6. 双击`Path`，将其值设为你的Android SDK的路径。（例如`C:\Program Files\Android\sdk`）
 
-</div><div markdown class="qs-block mac ios android">
+</div><div markdown class="md-block mac ios android">
 
 ## 测试安装
 
-</div><div markdown class="qs-block mac ios">
+</div><div markdown class="md-block mac ios">
 
 ```
 react-native init AwesomeProject
@@ -603,7 +603,7 @@ react-native run-ios
 你也可以在[Nuclide](http://nuclide.io)中打开[`AwesomeProject`](http://nuclide.io/docs/quick-start/getting-started/#adding-a-project)文件夹
 然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line)，或是双击`ios/AwesomeProject.xcodeproj`文件然后在Xcode中点击`Run`按钮。
 
-</div><div markdown class="qs-block mac android">
+</div><div markdown class="md-block mac android">
 
 ```
 react-native init AwesomeProject
@@ -613,24 +613,24 @@ react-native run-android
 
 你也可以在[Nuclide](http://nuclide.io)中打开[`AwesomeProject`](http://nuclide.io/docs/quick-start/getting-started/#adding-a-project)文件夹然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line)。
 
-</div><div markdown class="qs-block mac ios android">
+</div><div markdown class="md-block mac ios android">
 
 ### 修改项目
 
 现在你已经成功运行了项目，我们可以开始尝试动手改一改了：
 
-</div><div markdown class="qs-block mac ios">
+</div><div markdown class="md-block mac ios">
 
 - 使用你喜欢的编辑器打开`index.ios.js`并随便改上几行。
 - 在iOS Emulator中按下`⌘-R`就可以刷新APP并看到你的最新修改！
 
-</div><div markdown class="qs-block mac android">
+</div><div markdown class="md-block mac android">
 
 - 使用你喜欢的文本编辑器打开`index.android.js`并随便改上几行
 - 按两下R键，或是用Menu键（通常是F2，在Genymotion模拟器中是`⌘+M`）打开开发者菜单，然后选择 *Reload JS* 就可以看到你的最新修改。
 - 在终端下运行`adb logcat *:S ReactNative:V ReactNativeJS:V`可以看到你的应用的日志。
 
-</div><div markdown class="qs-block mac ios android">
+</div><div markdown class="md-block mac ios android">
 
 ### 完成了！
 
@@ -638,7 +638,7 @@ react-native run-android
 
 ![](img/react-native-congratulations.png)
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 ## 测试安装
 
@@ -648,7 +648,7 @@ cd AwesomeProject
 react-native run-android
 ```
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 ### 手动运行Packager
 
@@ -659,11 +659,11 @@ cd AwesomeProject
 react-native start
 ```
 
-</div><div markdown class="qs-block windows android">
+</div><div markdown class="md-block windows android">
 
 如果你碰到了`ERROR  Watcher took too long to load`的报错，请尝试将[这个文件](https://github.com/facebook/react-native/blob/5fa33f3d07f8595a188f6fe04d6168a6ede1e721/packager/react-packager/src/DependencyResolver/FileWatcher/index.js#L16)中的MAX_WAIT_TIME值改得更大一些 (文件在`node_modules/react-native/`目录下)。
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 ### 修改项目
 
@@ -679,24 +679,24 @@ react-native start
 
 ![](img/react-native-congratulations.png)
 
-</div><div markdown class="qs-block mac ios android">
+</div><div markdown class="md-block mac ios android">
 
 ## Common Followups
 
-</div><div markdown class="qs-block mac ios">
+</div><div markdown class="md-block mac ios">
 
 - 如果你想要在真机上运行应用，请参阅[在设备上运行](running-on-device-ios.html#content)。
 
-</div><div markdown class="qs-block mac android">
+</div><div markdown class="md-block mac android">
 
 - 如果你想要在真机上运行应用，请参阅[在设备上运行](running-on-device-android.html#content)。
 
-</div><div markdown class="qs-block mac ios android">
+</div><div markdown class="md-block mac ios android">
 
 - 如果你碰到了一些问题，请参阅[常见问题](http://bbs.reactnative.cn/topic/130)。
 
 
-</div><div markdown class="qs-block windows linux android">
+</div><div markdown class="md-block windows linux android">
 
 ## 接下来
 
@@ -705,9 +705,9 @@ react-native start
 - 如果你碰到了一些问题，请参阅[常见问题](http://bbs.reactnative.cn/topic/130)。
 
 </div>
-<script>
+<script class="markdown-script">
 function display(type, value) {
-  var container = document.querySelector('.qs-block').parentNode;
+  var container = document.querySelector('.md-block').parentNode;
   container.className = 'display-' + type + '-' + value + ' ' +
     container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
 }
