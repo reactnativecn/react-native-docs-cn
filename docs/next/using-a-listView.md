@@ -1,6 +1,6 @@
-The `ListView` component displays a vertically scrolling list of changing, but similarly structured, data.
+`ListView`组件用于显示一个垂直的滚动列表，其中的元素之间结构近似而仅数据不同。
 
-`ListView` works well for long lists of data, where the number of items might change over time. Unlike the more generic [`ScrollView`](/react-native/docs/using-a-scrollview.html), the `ListView` only renders elements that are currently showing on the screen, not all the elements at once.
+`ListView`更适于长列表数据，且元素个数可以增删。不同于更通用的[`ScrollView`](using-a-scrollview.html)， the `ListView` only renders elements that are currently showing on the screen, not all the elements at once.
 
 The `ListView` component requires two props: `dataSource` and `renderRow`. `dataSource` is the source of information for the list. `renderRow` takes one item from the source and returns a formatted component to render.
 
@@ -13,7 +13,7 @@ import React, { Component } from 'react';
 import { AppRegistry, ListView, Text, View } from 'react-native';
 
 class ListViewBasics extends Component {
-  // Initialize the hardcoded data
+  // 初始化伪数据
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -35,8 +35,8 @@ class ListViewBasics extends Component {
   }
 }
 
-// App registration and rendering
+// 注册应用
 AppRegistry.registerComponent('ListViewBasics', () => ListViewBasics);
 ```
 
-One of the most common uses for a `ListView` is displaying data that you fetch from a server. To do that, you will need to [learn about networking in React Native](/react-native/docs/network.html).
+One of the most common uses for a `ListView` is displaying data that you fetch from a server. To do that, you will need to [learn about networking in React Native](network.html).

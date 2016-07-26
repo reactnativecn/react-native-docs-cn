@@ -1,18 +1,20 @@
-React Native的目标之一是创造一个实验场，让我们可以实验不同的技术和一些疯狂的想法。因为浏览器环境还不够灵活，我们除了自己实现整个技术栈以外别无选择。其中有些部分我们没有刻意修改，而且希望尽可能地忠实于浏览器的API。网络API就是一个典型的例子。
+Many mobile apps need to load resources from a remote URL. You may want to make a POST request to a REST API, or you may simply need to fetch a chunk of static content from another server.
 
-## Fetch
+## 使用Fetch
 
-[fetch](https://fetch.spec.whatwg.org/)是一个更好的网络API，它由标准委员会提出，并已经在Chrome中实现。它在React Native中也默认可以使用。
+React Native provides the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for your networking needs. Fetch will seem familiar if you have used `XMLHttpRequest` or other networking APIs before. You may refer to MDN's guide on [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for additional information.
 
-#### 使用方法
+#### 发起网络请求
 
-```javascript
-fetch('https://mywebsite.com/endpoint/')
+In order to fetch content from an arbitrary URL, just pass the URL to fetch:
+
+```js
+fetch('https://mywebsite.com/mydata.json')
 ```
 
-第二个参数对象是可选的，它可以自定义HTTP请求中的一些部分。
+Fetch also takes an optional second argument that allows you to customize the HTTP request. You may want to specify additional headers, or make a POST request:
 
-```javascript
+```js
 fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
@@ -25,86 +27,49 @@ fetch('https://mywebsite.com/endpoint/', {
   })
 })
 ```
-译注：如果你的服务器无法识别上面POST的数据格式，那么可以尝试传统的form格式，代码如下：
 
-```javascript
-fetch('https://mywebsite.com/endpoint/', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
-  },
-  body: 'key1=value1&key2=value2'
-})
-```
+Take a look at the [Fetch Request docs](https://developer.mozilla.org/en-US/docs/Web/API/Request) for a full list of properties.
 
+#### 处理服务器的响应数据
 
+The above examples show how you can make a request. In many cases, you will want to do something with the response.
 
-#### 异步操作
+Networking is an inherently asynchronous operation. Fetch methods will return a  [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that make it straightforward to write code that works in an asynchronous manner:
 
-`fetch`的返回值是一个[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)对象，你可以用两种办法来使用它：
-
-
-1. 使用`then`和`catch`指定回调函数：
-
-```javascript
-fetch('https://mywebsite.com/endpoint.php')
-  .then((response) => response.text())
-  .then((responseText) => {
-    console.log(responseText);
-  })
-  .catch((error) => {
-    console.warn(error);
-  });
-```
-
-2. 使用ES7的`async`/`await`语法来发起一个异步调用：
-
-```javascript
-async getUsersFromApi() {
-  try {
-    let response = await fetch('https://mywebsite.com/endpoint/');
-    return response.users;
-  } catch(error) {
-    throw error;
+  ```js
+  getMoviesFromApiAsync() {
+    return fetch('http://facebook.github.io/react-native/movies.json')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        return responseJson.movies;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
-}
-```
+  ```
 
-- 注意：Promise可能会被拒绝，此时会抛出一个错误。你需要自己catch这个错误，否则可能没有任何提示。
+You can also use ES7's `async`/`await` syntax in React Native app:
 
-## WebSocket
+  ```js
+  async getMoviesFromApi() {
+    try {
+      let response = await fetch('http://facebook.github.io/react-native/movies.json');
+      let responseJson = await response.json();
+      return responseJson.movies;
+    } catch(error) {
+      console.error(error);
+    }
+  }
+  ```
 
-WebSocket是一种基于TCP连接的全双工通讯协议。
+Don't forget to catch any errors that may be thrown by `fetch`, otherwise they will be dropped silently.
 
-```javascript
-var ws = new WebSocket('ws://host.com/path');
+### Using Other Networking Libraries
 
-ws.onopen = () => {
-  // 建立连接
-  ws.send('something');
-};
+The [XMLHttpRequest API](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) is built in to React Native. This means that you can use third party libraries such as [frisbee](https://github.com/niftylettuce/frisbee) or [axios](https://github.com/mzabriskie/axios) that depend on it, or you can use the XMLHttpRequest API directly if you prefer.
 
-ws.onmessage = (e) => {
-  // 收到了消息
-  console.log(e.data);
-};
-
-ws.onerror = (e) => {
-  // 有错误发生
-  console.log(e.message);
-};
-
-ws.onclose = (e) => {
-  // 连接关闭
-  console.log(e.code, e.reason);
-};
-```
-
-## XMLHttpRequest
-
-XMLHttpRequest基于[iOS网络API](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html)实现。需要注意与网页环境不同的地方就是安全机制：你可以访问任何网站，没有[跨域](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing)的限制。
-
-```javascript
+```js
 var request = new XMLHttpRequest();
 request.onreadystatechange = (e) => {
   if (request.readyState !== 4) {
@@ -118,37 +83,39 @@ request.onreadystatechange = (e) => {
   }
 };
 
-request.open('GET', 'https://mywebsite.com/endpoint.php');
+request.open('GET', 'https://mywebsite.com/endpoint/');
 request.send();
 ```
 
-也可以这样用：  
+> The security model for XMLHttpRequest is different than on web as there is no concept of [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in native apps.
 
-```javascript
-var request = new XMLHttpRequest();
+## WebSocket支持
 
-function onLoad() {
-    console.log(request.status);
-    console.log(request.responseText);
+React Native还支持[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)，这种协议可以在单个TCP连接上提供全双工的通信信道。
+
+```js
+var ws = new WebSocket('ws://host.com/path');
+
+ws.onopen = () => {
+  // connection opened
+
+  ws.send('something'); // send a message
 };
 
-function onTimeout() {
-    console.log('Timeout');
-    console.log(request.responseText);
+ws.onmessage = (e) => {
+  // a message was received
+  console.log(e.data);
 };
 
-function onError() {
-    console.log('General network error');
-    console.log(request.responseText);
+ws.onerror = (e) => {
+  // an error occurred
+  console.log(e.message);
 };
 
-request.onload = onLoad;
-request.ontimeout = onTimeout;
-request.onerror = onError;
-request.open('GET', 'https://mywebsite.com/endpoint.php');
-request.send();
-```  
+ws.onclose = (e) => {
+  // connection closed
+  console.log(e.code, e.reason);
+};
+```
 
-要查阅完整的API描述，请参阅[MDN文档](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)。
-
-作为开发者来说，你通常不应该直接使用XMLHttpRequest，因为它的API用起来非常冗长。不过这一API的实现完全兼容浏览器，因而你可以使用很多npm上已有的第三方库，例如[frisbee](https://github.com/niftylettuce/frisbee)或是[axios](https://github.com/mzabriskie/axios)。(不过我们还是推荐你使用fetch)
+Your app can now display all sorts of data and you may soon need to organize this content into several screens. To manage the transition between these screens, you will need to learn about [navigators](using-navigators.html).

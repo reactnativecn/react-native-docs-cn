@@ -32,7 +32,7 @@ block { display: none; }
 
 </div><div markdown class="objc swift android">
 
-## Key Concepts
+## 核心概念
 
 React Native is great when you are starting a new mobile app from scratch. However, it also works well for adding a single view or user flow to existing native applications. With a few steps, you can add new React Native based features, screens, views, etc.
 
@@ -46,8 +46,8 @@ The keys to integrating React Native components into your iOS application are to
 4. Add a new event handler that creates a `RCTRootView` that points to your React Native component and its `AppRegistry` name that you defined in `index.ios.js`.
 5. Start the React Native server and run your native application.
 6. Optionally add more React Native components.
-7. [Debug](/react-native/releases/next/docs/debugging.html).
-8. Prepare for [deployment](/react-native/docs/running-on-device-ios.html) (e.g., via the `react-native-xcode.sh` script).
+7. [Debug](debugging.html).
+8. Prepare for [deployment](running-on-device-ios.html) (e.g., via the `react-native-xcode.sh` script).
 9. Deploy and Profit!
 
 </div><div markdown class="android">
@@ -61,8 +61,8 @@ The keys to integrating React Native components into your Android application ar
 4. Create a custom React Native specific `Activity` that creates a `ReactRootView`.
 5. Start the React Native server and run your native application.
 6. Optionally add more React Native components.
-7. [Debug](/react-native/releases/next/docs/debugging.html).
-8. [Prepare](/react-native/releases/next/docs/signed-apk-android.html) for [deployment](/react-native/docs/running-on-device-android.html).
+7. [Debug](debugging.html).
+8. [Prepare](signed-apk-android.html) for [deployment](running-on-device-android.html).
 9. Deploy and Profit!
 
 </div><div markdown class="objc swift android">
@@ -71,13 +71,13 @@ The keys to integrating React Native components into your Android application ar
 
 </div><div markdown class="android">
 
-The [Android Getting Started guide](/react-native/docs/getting-started.html) will install the appropriate prerequisites (e.g., `npm`) for React Native on the Android target platform and your chosen development environment.
+The [Android Getting Started guide](getting-started.html) will install the appropriate prerequisites (e.g., `npm`) for React Native on the Android target platform and your chosen development environment.
 
 </div><div markdown class="objc swift">
 
 ### General
 
-First, follow the [Getting Started guide](/react-native/docs/getting-started.html) for your development environment and the iOS target platform to install the prerequisites for React Native.
+First, follow the [Getting Started guide](getting-started.html) for your development environment and the iOS target platform to install the prerequisites for React Native.
 
 ### CocoaPods
 
@@ -164,7 +164,7 @@ Install the React and React Native modules via the Node package manager. The Nod
 $ npm install
 ```
 
-## React Native Framework
+## React Native框架
 
 The React Native Framework was installed as Node module in your project [above](#package-dependencies). We will now install a CocoaPods `Podfile` with the components you want to use from the framework itself.
 
@@ -232,7 +232,7 @@ end
 
 </div><div markdown class="objc swift">
 
-#### Pod Installation
+#### Po安装
 
 After you have created your `Podfile`, you are ready to install the React Native pod.
 
@@ -259,7 +259,7 @@ Pod installation complete! There are 3 dependencies from the Podfile and 1 total
 
 </div><div markdown class="objc swift">
 
-## Code Integration
+## 代码集成
 
 Now that we have a package foundation, we will actually modify the native application to integrate React Native into the application. For our 2048 app, we will add a "High Score" screen in React Native.
 
@@ -587,7 +587,7 @@ Next, make sure you have the Internet permission in your `AndroidManifest.xml`:
 
 This is only really used in dev mode when reloading JavaScript from the development server, so you can strip this in release builds if you need to.
 
-## Add native code
+## 添加原生代码
 
 You need to add some native code in order to start the React Native runtime and get it to render something. To do this, we're going to create an `Activity` that creates a `ReactRootView`, starts a React application inside it and sets it as the main content view.
 
@@ -684,7 +684,7 @@ public boolean onKeyUp(int keyCode, KeyEvent event) {
 
 That's it, your activity is ready to run some JavaScript code.
 
-## Run your app
+## 运行你的应用
 
 To run your app, you need to first start the development server. To do this, simply run the following command in your root folder:
 
