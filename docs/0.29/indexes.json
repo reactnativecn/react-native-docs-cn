@@ -189,7 +189,7 @@
                 },
                 {
                     "subject": "生成已签名的APK",
-                    "mdlink": "signed--apk-android"
+                    "mdlink": "signed-apk-android"
                 },
                 {
                     "subject": "调试Android UI性能",
