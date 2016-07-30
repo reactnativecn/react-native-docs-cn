@@ -100,14 +100,12 @@ __译注__：本文档的说明较为简略，使用上有一定的难度。论�
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="ondidfocus"></a>onDidFocus <span class="propType">function</span> <a class="hash-link" href="#ondidfocus">#</a></h4>
     <div>
-      <p>@已废弃。使用<code>navigationContext.addListener('didfocus', callback)</code>来替代。</p>
       <p>每当导航切换完成或初始化之后，调用此回调，参数为新场景的路由。</p>
     </div>
   </div>
   <div class="prop">
     <h4 class="propTitle"><a class="anchor" name="onwillfocus"></a>onWillFocus <span class="propType">function</span> <a class="hash-link" href="#onwillfocus">#</a></h4>
     <div>
-      <p>@已废弃。使用<code>navigationContext.addListener('willfocus', callback)</code>来替代。</p>
       <p>会在导航切换之前调用，参数为目标路由。</p>
     </div>
   </div>
