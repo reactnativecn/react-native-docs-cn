@@ -14,6 +14,8 @@ __译注__：[更新日志点这里查看](http://bbs.reactnative.cn/category/1)
 $ npm install
 ```
 
+译注：从0.24版本开始，react-native还需要额外安装react模块，且对react的版本有严格要求，高于或低于某个范围都不可以。本文无法在这里列出所有react native和对应的react模块版本要求，只能提醒读者先尝试执行npm install，然后注意观察安装过程中的报错信息，例如`require react@某.某.某版本, but none was installed`，然后根据这样的提示，执行`npm install react@某.某.某版本 --save`。
+
 ## 2. 升级项目模板文件
 
 新版本的npm包通常还会包含一些动态生成的文件，这些文件是在运行`react-native init`创建新项目时生成的，比如iOS和Android的项目文件。为了使老项目的项目文件也能得到更新（不重新init），你需要在命令行中运行：
@@ -32,25 +34,4 @@ __译注__：如果你有修改原生代码，那么在使用upgrade升级前，
 
 # 手动升级
 
-Xcode项目格式是相当复杂的，所以有些时候需要手工更新和合并一些修改。
-
-### 从0.13升级到0.14
-
-此次更新最大的变化是命令行相关的参数([查看更新日志](https://github.com/facebook/react-native/releases/tag/v0.14.0-rc)) 以及[静态图片的新用法](images.html)。要更新到新的资源系统的话，请执行以下升级步骤：
-
-打开Xcode，在项目的Build Phases中添加新的运行脚本：
-
-![](img/Upgrading1.png)
-
-将脚本路径设置到
-```sh
-../node_modules/react-native/packager/react-native-xcode.sh
-```
-
-![](img/Upgrading2.png)
-
-删除现有的main.jsbundle（Xcode会使用上面这个脚本自动生成新的bundle）
-
-![](img/Upgrading3.png)
-
-如果你是通过nvm安装的Node，那么可能会碰到"react-native: command not found"的错误。请参考[issues/3974](https://github.com/facebook/react-native/issues/3974)中提供的临时方案，以及[pull/4015](https://github.com/facebook/react-native/pull/4015)中提供的补丁。
+有时候React Native的项目结构改动较大，此时还需要手动做一些修改，例如从0.13到0.14版本，或是0.28到0.29版本。所以在升级时请先阅读一下[更新日志](http://bbs.reactnative.cn/category/1/)，以确定是否需要做一些额外的手动修改。
