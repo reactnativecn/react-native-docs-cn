@@ -2,7 +2,7 @@
 
 一般来说，使用`flexDirection`、`alignItems`和 `justifyContent`三个样式属性就已经能满足大多数布局需求。 
 
-> React Native中的Flexbox的工作原理和web上的CSS基本一致，当然也存在少许差异。首先是默认值不同：`fledDirection`的默认值是`column`而不是`row`，`alignItems`的默认值是`stretch`而不是`flex-start`，以及`flex`只能指定一个数字值。
+> React Native中的Flexbox的工作原理和web上的CSS基本一致，当然也存在少许差异。首先是默认值不同：`flexDirection`的默认值是`column`而不是`row`，`alignItems`的默认值是`stretch`而不是`flex-start`，以及`flex`只能指定一个数字值。
 
 #### Flex Direction
 
