@@ -15,7 +15,7 @@ import { AppRegistry, View } from 'react-native';
 class FlexDirectionBasics extends Component {
   render() {
     return (
-      // Try setting `flexDirection` to `column`.
+      // 尝试把`flexDirection`改为`column`看看
       <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
@@ -30,7 +30,7 @@ AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 
 #### Justify Content
 
-Adding `justifyContent` to a component's style determines the **distribution** of children along the **primary axis**. Should children be distributed at the start, the center, the end, or spaced evenly? Available options are `flex-start`, `center`, `flex-end`, `space-around`, and `space-between`.
+在组件的style中指定`justifyContent`可以决定其子元素沿着**主轴**的**排列方式**。子元素是应该靠近主轴的起始端还是末尾段分布呢？亦或应该均匀分布？对应的这些可选项有：`flex-start`、`center`、`flex-end`、`space-around`以及`space-between`。
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -39,8 +39,8 @@ import { AppRegistry, View } from 'react-native';
 class JustifyContentBasics extends Component {
   render() {
     return (
-      // Try setting `justifyContent` to `center`.
-      // Try setting `flexDirection` to `row`.
+      // 尝试把`justifyContent`改为`center`看看
+      // 尝试把`flexDirection`改为`row`看看
       <View style={{
         flex: 1,
         flexDirection: 'column',
@@ -59,9 +59,9 @@ AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
 
 #### Align Items
 
-Adding `alignItems` to a component's style determines the **alignment** of children along the **secondary axis** (if the primary axis is `row`, then the secondary is `column`, and vice versa). Should children be aligned at the start, the center, the end, or stretched to fill? Available options are `flex-start`, `center`, `flex-end`, and `stretch`.
+在组件的style中指定`alignItems`可以决定其子元素沿着**次轴**（与主轴垂直的轴，比如若主轴方向为`row`，则次轴方向为`column`）的**排列方式**。子元素是应该靠近次轴的起始端还是末尾段分布呢？亦或应该均匀分布？对应的这些可选项有：`flex-start`、`center`、`flex-end`以及`stretch`。
 
-> For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
+> 注意：要使`stretch`选项生效的话，子元素在次轴方向上不能有固定的尺寸。以下面的代码为例：只有将子元素样式中的`width: 50`去掉之后，`alignItems: 'stretch'`才能生效。
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -70,9 +70,9 @@ import { AppRegistry, View } from 'react-native';
 class AlignItemsBasics extends Component {
   render() {
     return (
-      // Try setting `alignItems` to 'flex-start'
-      // Try setting `justifyContent` to `flex-end`.
-      // Try setting `flexDirection` to `row`.
+      // 尝试把`alignItems`改为`flex-start`看看
+      // 尝试把`justifyContent`改为`flex-end`看看
+      // 尝试把`flexDirection`改为`row`看看
       <View style={{
         flex: 1,
         flexDirection: 'column',
@@ -90,8 +90,8 @@ class AlignItemsBasics extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
 ```
 
-#### Going Deeper
+#### 深入学习
 
-We've covered the basics, but there are many other styles you may need for layouts. The full list of props that control layout is documented [here](layout-props.html).
+以上我们已经介绍了一些基础知识，但要运用好布局，我们还需要很多其他的样式。对于布局有影响的完整样式列表记录在[这篇文档中](layout-props.html)。
 
-We're getting close to being able to build a real application. One thing we are still missing is a way to take user input, so let's move on to [learn how to handle text input with the TextInput component](handling-text-input.html).
+现在我们已经差不多可以开始真正的开发工作了。哦，忘了还有个常用的知识点：[如何使用TextInput组件来处理用户输入](handling-text-input.html)。
