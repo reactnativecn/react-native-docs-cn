@@ -681,7 +681,7 @@ react-native start
 
 </div><div markdown class="md-block mac ios android">
 
-## Common Followups
+## 接下来
 
 </div><div markdown class="md-block mac ios">
 
