@@ -20,6 +20,10 @@
                     "mdlink": "state"
                 },
                 {
+                    "subject": "样式",
+                    "mdlink": "style"
+                },
+                {
                     "subject": "高度与宽度",
                     "mdlink": "height-and-width"
                 },
