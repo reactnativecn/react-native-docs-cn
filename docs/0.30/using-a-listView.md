@@ -3,6 +3,7 @@
 `ListView`更适于长列表数据，且元素个数可以增删。和[`ScrollView`](using-a-scrollview.html)不同的是，`ListView`并不立即渲染所有元素，而是优先渲染屏幕上可见的元素。
 
 The `ListView` component requires two props: `dataSource` and `renderRow`. `dataSource` is the source of information for the list. `renderRow` takes one item from the source and returns a formatted component to render.
+`ListView`组件需要连个属性:`dataSource` 和 `renderRow`. ` dateSource`是列表要展示信息的数据源. `renderRow`从数据源中取出一项数据, 根据取出的数据来渲染一个格式化的组件并返回. 
 
 This example creates a simple `ListView` of hardcoded data. It first initializes the `dataSource` that will be used to populate the `ListView`. Each item in the `dataSource` is then rendered as a `Text` component. Finally it renders the `ListView` and all `Text` components.
 
