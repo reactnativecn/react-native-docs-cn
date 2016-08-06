@@ -19,7 +19,8 @@ class FixedDimensionsBasics extends Component {
     );
   }
 };
-
+// 注册应用(registerComponent)后才能正确渲染
+// 注意：只把应用作为一个整体注册一次，而不是每个组件/模块都注册
 AppRegistry.registerComponent('AwesomeProject', () => FixedDimensionsBasics);
 ```
 这样给组件设置尺寸也是一种常见的模式，比如要求在不同尺寸的屏幕上都显示成一样的大小。

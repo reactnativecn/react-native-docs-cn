@@ -32,7 +32,7 @@ public class ToastModule extends ReactContextBaseJavaModule {
 }
 ```
 
-`ReactContextBaseJavaModule`要求派生类实现`getName`方法。这个函数用于返回一个字符串名字，这个名字在JavaScript端标记这个模块。这里我们把这个模块叫做`ToastAndroid`，这样就可以在JavaScript中通过`React.NativeModules.ToastAndroid`访问到这个模块。
+`ReactContextBaseJavaModule`要求派生类实现`getName`方法。这个函数用于返回一个字符串名字，这个名字在JavaScript端标记这个模块。这里我们把这个模块叫做`ToastAndroid`，这样就可以在JavaScript中通过`React.NativeModules.ToastAndroid`访问到这个模块。**译注：RN已经内置了一个名为ToastAndroid的模块，所以如果你在练习时完全照抄，那么运行时会报错名字冲突！所以请在这里选择另外一个名字！**
 
 ```java
   @Override
@@ -130,14 +130,19 @@ protected List<ReactPackage> getPackages() {
  * 1. String message: A string with the text to toast
  * 2. int duration: The duration of the toast. May be ToastAndroid.SHORT or ToastAndroid.LONG
  */
-var { NativeModules } = require('react-native');
-module.exports = NativeModules.ToastAndroid;
+import { NativeModules } from 'react-native';
+
+// 下一句中的ToastAndroid即对应上文
+// public String getName()中返回的字符串
+// 练习时请务必选择另外的名字！
+
+export default NativeModules.ToastAndroid;
 ```
 
 现在，在别处的JavaScript代码中可以这样调用你的方法：
 
 ```javascript
-var ToastAndroid = require('./ToastAndroid')
+import ToastAndroid from './ToastAndroid';
 ToastAndroid.show('Awesome', ToastAndroid.SHORT);
 ```
 

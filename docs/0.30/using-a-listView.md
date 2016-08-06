@@ -2,18 +2,18 @@
 
 `ListView`更适于长列表数据，且元素个数可以增删。和[`ScrollView`](using-a-scrollview.html)不同的是，`ListView`并不立即渲染所有元素，而是优先渲染屏幕上可见的元素。
 
-The `ListView` component requires two props: `dataSource` and `renderRow`. `dataSource` is the source of information for the list. `renderRow` takes one item from the source and returns a formatted component to render.
+`ListView`组件必须的两个属性是`dataSource`和`renderRow`。`dataSource`是列表的数据源，而`renderRow`则逐个解析数据源中的数据，然后返回一个设定好格式的组件来渲染。
 
-This example creates a simple `ListView` of hardcoded data. It first initializes the `dataSource` that will be used to populate the `ListView`. Each item in the `dataSource` is then rendered as a `Text` component. Finally it renders the `ListView` and all `Text` components.
+下面的例子创建了一个简单的`ListView`，并预设了一些模拟数据。首先是初始化`ListView`所需的`dataSource`，其中的每一项（行）数据之后都在`renderRow`中被渲染成了`Text`组件，最后构成整个`ListView`。 
 
-> A `rowHasChanged` function is required to use `ListView`. Here we just say a row has changed if the row we are on is not the same as the previous row.
+> `rowHasChanged`函数也是`ListView`的必需属性。这里我们只是简单的比较两行数据是否是同一个数据（===符号只比较基本类型数据的值，和引用类型的地址）来判断某行数据是否变化了。
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
 import { AppRegistry, ListView, Text, View } from 'react-native';
 
 class ListViewBasics extends Component {
-  // 初始化伪数据
+  // 初始化模拟数据
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -35,8 +35,9 @@ class ListViewBasics extends Component {
   }
 }
 
-// 注册应用
+// 注册应用(registerComponent)后才能正确渲染
+// 注意：只把应用作为一个整体注册一次，而不是每个组件/模块都注册
 AppRegistry.registerComponent('ListViewBasics', () => ListViewBasics);
 ```
 
-One of the most common uses for a `ListView` is displaying data that you fetch from a server. To do that, you will need to [learn about networking in React Native](network.html).
+`ListView`的一个常用场景就是从服务器端取回列表数据然后显示，要实现这一过程，你可能还需要学习[React Native的网络相关用法](network.html).
