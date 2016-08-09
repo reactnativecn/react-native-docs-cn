@@ -28,6 +28,18 @@ fetch('https://mywebsite.com/endpoint/', {
 })
 ```
 
+译注：如果你的服务器无法识别上面POST的数据格式，那么可以尝试传统的form格式，代码如下：
+
+```javascript
+fetch('https://mywebsite.com/endpoint/', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+  body: 'key1=value1&key2=value2'
+})
+```
+
 Take a look at the [Fetch Request docs](https://developer.mozilla.org/en-US/docs/Web/API/Request) for a full list of properties.
 
 #### 处理服务器的响应数据
@@ -90,7 +102,7 @@ request.open('GET', 'https://mywebsite.com/endpoint/');
 request.send();
 ```
 
-> The security model for XMLHttpRequest is different than on web as there is no concept of [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in native apps.
+> 需要注意的是，安全机制与网页环境有所不同：在应用中你可以访问任何网站，没有[跨域](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing)的限制。
 
 ## WebSocket支持
 

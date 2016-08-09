@@ -70,7 +70,7 @@ renderImages() {
         <h4 class="propTitle"><a class="anchor" name="style"></a>style <span class="propType">style</span> <a class="hash-link" href="#style">#</a></h4>
         <div class="compactProps">
             <div class="prop">
-                <h6 class="propTitle"><a href="flexbox.html#proptypes">Flexbox...</a></h6>
+                <h6 class="propTitle"><a href="layout-with-flexbox.html">Flexbox...</a></h6>
             </div>
             <div class="prop">
                 <h6 class="propTitle"><a href="transforms.html#proptypes">Transforms...</a></h6>
