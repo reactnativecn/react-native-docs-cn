@@ -1,4 +1,4 @@
-Mobile apps rarely consist of just one screen. As soon as you add a second screen to your app, you will have to take into consideration how the user will navigate from one screen to the other.
+﻿Mobile apps rarely consist of just one screen. As soon as you add a second screen to your app, you will have to take into consideration how the user will navigate from one screen to the other.
 
 You can use navigators to transition between multiple screens. These transitions can be typical side-to-side animations down a master/detail stack, or vertical modal popups.
 
@@ -21,7 +21,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 export default class MyScene extends Component {
-  getDefaultProps() {
+  static get defaultProps() {
     return {
       title: 'MyScene'
     };
