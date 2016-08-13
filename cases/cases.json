@@ -152,5 +152,11 @@
 		"ios": "https://itunes.apple.com/cn/app/qq-kong-jian-ku-xuan-zhi-bo/id364183992?mt=8",
 		"android": "http://android.myapp.com/myapp/detail.htm?apkName=com.qzone",
 		"icon": "http://pp.myapp.com/ma_icon/0/icon_9959_1460036593/96"
+	},{
+		"name": "蜂房",
+		"desc": "名校老司机技能经验共享",
+		"ios": "https://itunes.apple.com/us/app/feng-fang/id1088841582?ls=1&mt=8",
+		"android": "http://a.app.qq.com/o/simple.jsp?pkgname=com.taskbee",
+		"icon": "http://7xn0s3.com1.z0.glb.clouddn.com/playstore-icon.png"
 	}
 ]
