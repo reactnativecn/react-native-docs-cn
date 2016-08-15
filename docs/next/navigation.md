@@ -1,14 +1,14 @@
-This guide covers the various navigation components available in React Native. If you are just getting started with navigation, you will probably want to use  `Navigator`. If you are only targeting iOS and would like to stick to the native look and feel, check out `NavigatorIOS`. If you are looking for greater control over your navigation stack, you can't go wrong with `NavigationExperimental`.
+本文档总结对比了React Native中现有的几个导航组件。如果你刚开始接触，那么直接选择`Navigator`就好。如果你只针对iOS平台开发，并且想和系统原生外观一致，那么可以选择`NavigatorIOS`。如果你想更好地管理导航栈，那么应该尝试一下`NavigationExperimental`。
 
 ## Navigator
 
-`Navigator` provides a JavaScript implementation of a navigation stack, so it works on both iOS and Android and is easy to customize. This is the same component you used to build your first navigation stack in the [navigators tutorial](docs/navigators.html).
+`Navigator`使用纯JavaScript实现了一个导航栈，因此可以跨平台工作，同时也便于定制。这也是我们在[使用导航器跳转页面](using-navigators.html)的教程中示例用的组件。
 
 ![](img/NavigationStack-Navigator.gif)
 
 `Navigator` can easily be adapted to render different components based on the current route in its `renderScene` function. It will transition new scenes onto the screen by sliding in from the right by default, but you can control this behavior by using the `configureScene` function. You can also configure a navigation bar through the `navigationBar` prop.
 
-Check out the [Navigator API reference](docs/navigator.html) for specific examples that cover each of these scenarios.
+Check out the [Navigator API reference](navigator.html) for specific examples that cover each of these scenarios.
 
 ## NavigatorIOS
 
@@ -332,4 +332,4 @@ const styles = StyleSheet.create({
 
 ### Homework
 
-You are now an expert navigator. Take a look at [NavigationExperimental in UIExplorer](https://github.com/facebook/react-native/tree/master/Examples/UIExplorer/NavigationExperimental) to learn how to implement other types of navigation hierarchies, such as a tabbed application with multiple navigation stacks.
+You are now an expert navigator. Take a look at [NavigationExperimental in UIExplorer](https://github.com/facebook/react-native/tree/master/Examples/UIExplorer/js/NavigationExperimental) to learn how to implement other types of navigation hierarchies, such as a tabbed application with multiple navigation stacks.
