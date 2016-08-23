@@ -1,27 +1,18 @@
----
-id: navigation
-title: Navigation
-layout: docs
-category: Guides
-permalink: docs/navigation.html
-next: performance
----
-
-This guide covers the various navigation components available in React Native. If you are just getting started with navigation, you will probably want to use  `Navigator`. If you are only targeting iOS and would like to stick to the native look and feel, check out `NavigatorIOS`. If you are looking for greater control over your navigation stack, you can't go wrong with `NavigationExperimental`.
+本文档总结对比了React Native中现有的几个导航组件。如果你刚开始接触，那么直接选择`Navigator`就好。如果你只针对iOS平台开发，并且想和系统原生外观一致，那么可以选择`NavigatorIOS`。如果你想更好地管理导航栈，那么应该尝试一下`NavigationExperimental`。
 
 ## Navigator
 
-`Navigator` provides a JavaScript implementation of a navigation stack, so it works on both iOS and Android and is easy to customize. This is the same component you used to build your first navigation stack in the [navigators tutorial](docs/navigators.html).
+`Navigator`使用纯JavaScript实现了一个导航栈，因此可以跨平台工作，同时也便于定制。这也是我们在[使用导航器跳转页面](using-navigators.html)的教程中示例用的组件。
 
 ![](img/NavigationStack-Navigator.gif)
 
-`Navigator` can easily be adapted to render different components based on the current route in its `renderScene` function. It will transition new scenes onto the screen by sliding in from the right by default, but you can control this behavior by using the `configureScene` function. You can also configure a navigation bar through the `navigationBar` prop.
+`Navigator`可以在`renderScene`方法中根据当前路由渲染不同的组件。默认情况下新的场景会从屏幕右侧滑进来，但你也可以通过`configureScene`方法来管理这一行为。你还可以通过`navigationBar`属性来配置一个跨场景的导航栏。（译注：但我们不推荐使用跨场景的navigationBar，它的代码逻辑维护起来很困难！建议自己在场景中用`View`实现自定义的导航栏。）
 
-Check out the [Navigator API reference](docs/navigator.html) for specific examples that cover each of these scenarios.
+点击这里阅读[Navigator的API文档](navigator.html)。
 
 ## NavigatorIOS
 
-If you are targeting iOS only, you may also want to consider using [NavigatorIOS](docs/navigatorios.html). It looks and feels just like [`UINavigationController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/), because it is actually built on top of it.
+如果你只针对iOS平台开发，那么可以考虑使用[NavigatorIOS](navigatorios.html)。它是基于 [`UINavigationController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/)封装的，所以看起来很像。
 
 ![](img/NavigationStack-NavigatorIOS.gif)
 
@@ -35,9 +26,9 @@ If you are targeting iOS only, you may also want to consider using [NavigatorIOS
 />
 ```
 
-Just like `Navigator`, `NavigatorIOS` uses routes to represent scenes, with some important differences. The actual component that will be rendered can be specified using the `component` key in the route, and any props that should be passed to this component can be specified in `passProps`. A "navigator" object is automatically passed as a prop to the component, allowing you to call `push` and `pop` as needed.
+用法类似`Navigator`，`NavigatorIOS`也使用路由对象来描述场景，但有一些重要区别。其中要渲染的组件在路由对象的`component`字段中指定，要给目标组件传递的参数则写在`passProps`中。被渲染的component都会自动接受到一个名为`navigator`的属性，你可以直接调用此对象(this.props.navigator)的`push`和`pop`方法。
 
-As `NavigatorIOS` leverages native UIKit navigation, it will automatically render a navigation bar with a back button and title.
+由于`NavigatorIOS`使用的是原生的UIKit导航，所以它会自动渲染一个带有返回按钮和标题的导航栏。
 
 ```javascript
 import React, { Component, PropTypes } from 'react';
@@ -87,13 +78,13 @@ class MyScene extends Component {
 }
 ```
 
-Check out the [`NavigatorIOS` reference docs](docs/navigatorios.html) to learn more about this component.
+点击这里阅读[Navigator的API文档](navigatorios.html)。
 
-> You may also want to check out [react-native-navigation](https://github.com/wix/react-native-navigation), a component that aims to provide native navigation on both iOS and Android.
+> 你还可以看看[react-native-navigation](https://github.com/wix/react-native-navigation)，这是一个第三方的组件，旨在于提供原生的跨平台的导航组件。
 
 ## NavigationExperimental
 
-`Navigator` and `NavigatorIOS` are both stateful components. If your app has multiple of these, it can become tricky to coordinate navigation transitions between them. NavigationExperimental provides a different approach to navigation, allowing any view to act as a navigation view and using reducers to manipulate state at a top-level object. It is bleeding edge as the name implies, but you might want to check it out if you are craving greater control over your app's navigation.
+`Navigator`和`NavigatorIOS`都是有状态的组件。如果你在app中多处使用这些组件，那么维护工作就会变得非常麻烦。`NavigationExperimental`以不同的方式实现了导航，它可以使用任何视图来作为导航视图，同时还用到了规约函数（reducer）自顶向下地管理状态。正如名字中的`Experimental`所示，这一组件的整体实现具有一定的实验性，但我们仍然建议你尝试一下用它去更好地管理应用的导航。
 
 ```javascript
 <NavigationCardStack
@@ -103,7 +94,7 @@ Check out the [`NavigatorIOS` reference docs](docs/navigatorios.html) to learn m
 />
 ```
 
-You can import `NavigationExperimental` like any other component in React Native. Once you have that, you can deconstruct any additional components from `NavigationExperimental` that you may find useful. Since I am feeling like building navigation stacks today, I'll go ahead and pick out `NavigationCardStack` and `NavigationStateUtils`.
+引入`NavigationExperimental`的步骤和React Native中的其他组件一样。在引入此组件之后，还可以进一步解构其中一些有用的子组件，比如这里我们会从中解构`NavigationCardStack`和 `NavigationStateUtils`这两个子组件。
 
 ```javascript
 import React, { Component } from 'react';
@@ -115,11 +106,11 @@ const {
 } = NavigationExperimental;
 ```
 
-As I said earlier, `NavigationExperimental` takes a different approach than `Navigator` and `NavigatorIOS`. Using it to build a navigation stack requires a few more steps than the stateful components, but the payoff is worth it.
+正如上文所说，`NavigationExperimental`的实现机制与`Navigator`和`NavigatorIOS`有所不同。用它来构筑导航栈还需要一些额外的步骤，但这些步骤并不是无用功。
 
-### Step 1. Define Initial State and Top Level Component
+### 第一步：定义初始状态和根容器
 
-Create a new component for your application. This will be the top-level object, so we will define the initial state here. The navigation state will be defined in the `navigationState` key, where we define our initial route:
+首先创建一个新组件，我们会把它作为根容器，并在这里定义初始状态。导航栈会定义在`navigationState`字段中，其中也包含了初始的路由定义：
 
 ```javascript
 class BleedingEdgeApplication extends Component {
@@ -127,36 +118,34 @@ class BleedingEdgeApplication extends Component {
     super(props, context);
 
     this.state = {
-      // This defines the initial navigation state.
+      // 定义初始的导航状态
       navigationState: {
-        index: 0, // Starts with first route focused.
-        routes: [{key: 'My Initial Scene'}], // Starts with only one route.
+        index: 0, // 现在是第一页（索引从0开始）
+        routes: [{key: 'My Initial Scene'}], // 初始仅设定一个路由
       },
     };
 
-    // We'll define this function later - hang on
+    // 我们稍后再补充此函数的实现细节
     this._onNavigationChange = this._onNavigationChange.bind(this);
   }
 
   _onNavigationChange(type) {
-    // It's literally the next step. We'll get to it!
+    // 我们稍后再补充此函数的实现细节
   }
 
   render() {
     return (
-      <Text>This is a placeholder. We will come back to this and render our navigation here later.</Text>
+      <Text>这是一段占位的文字。稍后我们会在这里渲染导航。</Text>
     );
   }
 }
 ```
 
-Alright, now we have a simple stateful component that doesn't do much at all. We can change that. Our initial state contains one route, and the current index. That looks suspiciously just like our initial route definition in Navigator. Do you remember which actions its navigator object provided?
+现在我们定义了一个有状态的组件，然而暂时并无太多卵用。我们的初始状态包含了一个路由对象，以及当前页面的索引值。但是这看起来跟Navigator的初始路由定义好像没什么区别嘛！回忆一下navigator对象提供了哪些操作？——对的，push和pop，看起来也非常直观。但是前面我们说过了，现在我们会在根容器上使用规约函数来管理状态。下面注意仔细看好了。
 
-Push and pop, of course. That seems pretty straightforward to implement. I promised you earlier we would be using reducers to manage state at the top-level object. Sit tight.
+### 第二步：规约导航状态
 
-### Step 2. Reducing the Navigation State
-
-NavigationExperimental comes built-in with a some useful reducers, and they are all available as part of NavigationStateUtils. The two we will be using right now are called -- yep -- push and pop. They take a navigationState object, and return a new navigationState object.
+NavigationExperimental内置了一些有用的规约函数（reducer），都放在NavigationStateUtils中。我们现在要用两个就是push和pop了。它们接受一个navigationState对象参数，然后返回新的navigationState对象。
 
 We can use them to write our `_onNavigationChange` function which, given a "push" or "pop" action, will reduce the state accordingly.
 
@@ -196,9 +185,9 @@ Cool. I'm getting the hang of this. This is the heart of NavigationExperimental.
 
 I am still missing the initial scene that will be rendered (as well as the actual navigator that will wrap it, but let's not get ahead of ourselves).
 
-### Step 3. Define Scenes
+### 第三步：定义场景
 
-First I want to define a Row component out of convenience. It displays some text and can call some function when pressed.
+为方便起见我们先定义一个Row（行）组件。其中显示了一些文字，并带有点击事件。
 
 ```javascript
 class TappableRow extends Component {
@@ -241,7 +230,7 @@ class MyVeryComplexScene extends Component {
 }
 ```
 
-### Step 4. Create a Navigation Stack
+### 第四步：创建导航栈
 
 Now that I have defined the state and a function to manage it, I think I can go ahead and create a proper navigator component now. While I'm at it, I'll render my scene after configuring it with the current route's props.
 
@@ -307,11 +296,11 @@ class BleedingEdgeApplication extends Component {
 }
 ```
 
-We're done! Bask in the glory of NavigationExperimental.
+完工了！赞美NavigationExperimental吧！
 
-#### Hey -- I think you are missing something.
+#### 等一下——好像少了什么？
 
-(Oh yes, sorry about that -- here's our missing imports and styles.)
+(啊没错，我们忘了引入组件和样式。)
 
 ```javascript
 import { NavigationExperimental, PixelRatio, ScrollView, StyleSheet, Text, TouchableHighlight } from 'react-native';
@@ -339,6 +328,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-### Homework
+### 小作业
 
-You are now an expert navigator. Take a look at [NavigationExperimental in UIExplorer](https://github.com/facebook/react-native/tree/master/Examples/UIExplorer/NavigationExperimental) to learn how to implement other types of navigation hierarchies, such as a tabbed application with multiple navigation stacks.
+你现在是导航器的专家了！参考下我们写的[NavigationExperimental的例子](https://github.com/facebook/react-native/tree/master/Examples/UIExplorer/js/NavigationExperimental)，学习如何实现其他类型的导航结构，比如多个tab对应多个导航栈的情况。
+
