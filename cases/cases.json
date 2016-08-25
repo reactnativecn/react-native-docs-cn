@@ -9,9 +9,16 @@
 	{
 		"name": "牛读",
 		"desc": "技术资讯类聚合阅读器",
-		"ios": "https://itunes.apple.com/cn/app/niu-du-neoreader/id1111443079?l=cn&mt=8",
-		"android": "http://android.myapp.com/myapp/detail.htm?apkName=com.liteneo.reader",
+		"ios": "https://itunes.apple.com/cn/app/id1111443079",
+		"android": "http://a.app.qq.com/o/simple.jsp?pkgname=com.liteneo.reader",
 		"icon": "http://pp.myapp.com/ma_icon/0/icon_42308563_1468229339/256"
+	},
+	{
+		"name": "数独",
+		"desc": "重拾纯粹数独的乐趣",
+		"ios": "https://itunes.apple.com/cn/app/id1138612488",
+		"android": "http://a.app.qq.com/o/simple.jsp?pkgname=com.liteneo.sudoku",
+		"icon": "http://pp.myapp.com/ma_icon/0/icon_42308563_1470896044/256"
 	},
 	{
 		"name": "手赚助手",
