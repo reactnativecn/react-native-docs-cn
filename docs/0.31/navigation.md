@@ -160,30 +160,31 @@ _onNavigationChange(type) {
       // 我个人喜欢随机数的key（但是说正经的，key必须要确保唯一性）
       const route = {key: 'Route-' + Date.now()};
 
-      // Use the push reducer provided by NavigationStateUtils
+      // 调用NavigationStateUtils提供的push规约函数
       navigationState = NavigationStateUtils.push(navigationState, route);
       break;
 
     case 'pop':
-      // Pop the current route using the pop reducer.
+      // 使用pop函数来弹出当前路由
       navigationState = NavigationStateUtils.pop(navigationState);
       break;
   }
 
-  // NavigationStateUtils gives you back the same `navigationState` if nothing
-  // has changed. We will only update state if it has changed.
+  // 如果没有实际变化，则NavigationStateUtils会返回同样的`navigationState`
+  // 我们只会更新确实发生变化的状态
   if (this.state.navigationState !== navigationState) {
-    // Always use setState() when setting a new state!
+    // 请记住更新状态必须通过setState()方法！
     this.setState({navigationState});
-    // If you are new to ES6, the above is equivalent to:
+    // 如果你还不了解ES6中的新语法，那么简单讲解一下上面那一句
+    // 如果key和value的字面一样，那么可以简写成一个，等同于下面的写法：
     // this.setState({navigationState: navigationState});
   }
 }
 ```
 
-Cool. I'm getting the hang of this. This is the heart of NavigationExperimental. We are only handling two actions here, but a more complex application could also take into account a "back" action (e.g. Android back button), as well as handle the transition between several tabs in a tabbed application.
+Cool.我们已经触碰到了NavigationExperimental的精髓之所在。这里我们只处理了两种行为，实际开发中行为可能更复杂，比如可能会考虑后退（back）行为，又或者是tab间的切换过渡行为等等。
 
-I am still missing the initial scene that will be rendered (as well as the actual navigator that will wrap it, but let's not get ahead of ourselves).
+我们现在还没写初始场景和实际的导航器，不过别急，我们一步一步来。
 
 ### 第三步：定义场景
 
@@ -206,7 +207,7 @@ class TappableRow extends Component {
 }
 ```
 
-Now I will define my actual scene. It uses a scroll view to display a vertical list of items. The first row displays the current route's key, and two more rows will call our theoretical navigator's push and pop functions.
+现在来定义实际的场景。其中用到了一个ScrollView来显示一个垂直列表，第一行显示当前路由对象的key字段值，后两行用来点击后调用导航器的push和pop方法。
 
 ```javascript
 class MyVeryComplexScene extends Component {
@@ -232,12 +233,12 @@ class MyVeryComplexScene extends Component {
 
 ### 第四步：创建导航栈
 
-Now that I have defined the state and a function to manage it, I think I can go ahead and create a proper navigator component now. While I'm at it, I'll render my scene after configuring it with the current route's props.
+我们之前已经定义了状态和管理状态的规约函数，现在可以创建导航器组件了。在写导航器的同时，我们可以使用当前路由的属性来配置场景并渲染它了。
 
 ```javascript
 class MyVerySimpleNavigator extends Component {
 
-  // This sets up the methods (e.g. Pop, Push) for navigation.
+  // 在这里绑定一些导航用的方法
   constructor(props, context) {
     super(props, context);
 
@@ -259,11 +260,9 @@ class MyVerySimpleNavigator extends Component {
     );
   }
 
-  // Render a scene for route.
-  // The detailed spec of `sceneProps` is defined at `NavigationTypeDefinition`
-  // as type `NavigationSceneRendererProps`.
-  // Here you could choose to render a different component for each route, but
-  // we'll keep it simple.
+  // 根据路由来渲染场景
+  // `sceneProps`的具体结构定义在`NavigationTypeDefinition`的`NavigationSceneRendererProps`中
+  // 这里你可以根据路由的不同来返回不同的场景组件，我们这里为了简要说明，始终只返回这一个场景组件
   _renderScene(sceneProps) {
     return (
       <MyVeryComplexScene
@@ -277,12 +276,12 @@ class MyVerySimpleNavigator extends Component {
 }
 ```
 
-That's it -- so close to the finish line I can smell it. Let's plug our new navigator into our top-level component:
+差不多了！我已经可以闻到终点线的味道啦。现在把我们新做的导航器放到根容器中：
 
 ```javascript
 class BleedingEdgeApplication extends Component {
 
-  // constructor and other methods omitted for clarity
+  // 为了简化说明，这里省略了constructor和其他的方法
 
   render() {
     return (
