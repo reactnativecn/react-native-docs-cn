@@ -171,5 +171,12 @@
 		"ios": "https://itunes.apple.com/app/apple-store/id1041859777?pt=117780230&ct=website&mt=8",
 		"android": "http://android.myapp.com/myapp/detail.htm?apkName=com.damaiwan.dmapp",
 		"icon": "http://pp.myapp.com/ma_icon/0/icon_42306280_1471514591/96"
+	},
+	{
+		"name": "美图",
+		"desc": "收集各大模特平台的美图",
+		"ios": "https://appsto.re/cn/Hfzqeb.i",
+		"android": "",
+		"icon": "http://img2.yhwj168.com/1024.png"
 	}
 ]
