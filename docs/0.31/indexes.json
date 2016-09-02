@@ -225,6 +225,10 @@
                     "mdlink": "image"
                 },
                 {
+                    "subject": "KeyboardAvoidingView",
+                    "mdlink": "keyboardavoidingview"
+                },
+                {
                     "subject": "ListView",
                     "mdlink": "listview"
                 },

@@ -88,7 +88,7 @@
 			<ul>
 				<li><code>auto</code>：视图可以作为触控事件的目标。</li>
 				<li><code>none</code>：视图不能作为触控事件的目标。</li>
-				<li><code>box-none</code>：视图自身不能作为触控事件的目标，但其子视图可以。类似于你在<code>CSS</code> 中这样设置:</li>
+				<li><code>box-none</code>：视图自身不能作为触控事件的目标，但其子视图可以。类似于你在<code>CSS</code> 中这样设置:
 			<pre>
 <code class="lang-css"><span class="hljs-class">.box-none</span> <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> none</span></span>; 
@@ -97,8 +97,8 @@
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> all</span></span>; 
 }</span>
 </code></pre>
-				<li><code>box-only</code>：视图自身可以作为触控事件的目标，但其子视图不能。类似于你在<code>CSS</code> 中这样设置:</li>
-			</ul>
+				</li>
+				<li><code>box-only</code>：视图自身可以作为触控事件的目标，但其子视图不能。类似于你在<code>CSS</code> 中这样设置:
 			<pre><code class="lang-css">
 <span class="hljs-class">.box-none</span> <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> all</span></span>; 
@@ -107,6 +107,8 @@
   <span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value"> none</span></span>; 
 }</span>
 </code></pre>
+				</li>
+			</ul>
 		</div>
 	</div>
 	<div class="prop">
@@ -119,10 +121,10 @@
 	<div class="prop">
 		<h4 class="propTitle"><a class="anchor" name="style"></a>style <span class="propType">style</span> <a class="hash-link" href="#style">#</a></h4><div class="compactProps">
 		<div class="prop">
-			<h6 class="propTitle"><a href="flexbox.html#proptypes">Flexbox...</a></h6>
+			<h6 class="propTitle"><a href="layout-with-flexbox.html">Flexbox...</a></h6>
 		</div>
 		<div class="prop">
-			<h6 class="propTitle"><a href="shadowproptypesios.html#style">ShadowPropTypesIOS#style...</a></h6>
+			<h6 class="propTitle"><a href="shadow-props.html">ShadowProp#style...</a></h6>
 		</div>
 		<div class="prop">
 			<h6 class="propTitle"><a href="transforms.html#proptypes">Transforms...</a></h6>
