@@ -1,3 +1,7 @@
+# 注：本文档仓库已转移至 → https://github.com/reactnativecn/react-native.cn/tree/next/docs/docs
+
+# 此处不再维护
+
 # React Native中文文档
 
 
