@@ -184,5 +184,11 @@
 		"ios": "",
 		"android": "http://zhushou.360.cn/detail/index/soft_id/3438248?recrefer=SE_D_16%E7%9B%B4%E6%92%AD",
 		"icon": "http://p17.qhimg.com/t012e5fe09adb1d0ffa.png"
+	},{
+		"name": "BIGTIGER.ME",
+		"desc": "大连一前端的个人博客",
+		"ios": "https://itunes.apple.com/cn/app/bigtiger.me/id1147944464?mt=8",
+		"android": "",
+		"icon": "http://www.bigtiger.me/wp-content/uploads/2016/08/180.png"
 	}
 ]
