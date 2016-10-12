@@ -97,10 +97,14 @@ navigator.pop();
 下面是一个更完整的示例：
 
 ```javascript
-import React, { Component, PropTypes } from 'react';
-import { Navigator, Text, TouchableHighlight, View } from 'react-native';
+编辑你的 index*.js文件，像下面这样:
 
-export default class SimpleNavigationApp extends Component {
+import React, { Component } from 'react';
+import { AppRegistry, Navigator, Text, View } from 'react-native';
+
+import MyScene from './MyScene';
+
+class SimpleNavigationApp extends Component {
   render() {
     return (
       <Navigator
@@ -109,8 +113,8 @@ export default class SimpleNavigationApp extends Component {
           <MyScene
             title={route.title}
 
-            // 推入新场景所调用的方法           
-            onForward={() => {    
+            // Function to call when a new scene should be displayed           
+            onForward={ () => {    
               const nextIndex = route.index + 1;
               navigator.push({
                 title: 'Scene ' + nextIndex,
@@ -118,7 +122,7 @@ export default class SimpleNavigationApp extends Component {
               });
             }}
 
-            // 返回上一个场景所调用的方法
+            // Function to call to go back to the previous scene
             onBack={() => {
               if (route.index > 0) {
                 navigator.pop();
@@ -131,7 +135,14 @@ export default class SimpleNavigationApp extends Component {
   }
 }
 
-class MyScene extends Component {
+AppRegistry.registerComponent('SimpleNavigationApp', () => SimpleNavigationApp);
+
+修改或新建你的 MyScene.js 文件像下面这样:
+
+import React, { Component, PropTypes } from 'react';
+import { View, Text, TouchableHighlight } from 'react-native';
+
+export default class MyScene extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     onForward: PropTypes.func.isRequired,
