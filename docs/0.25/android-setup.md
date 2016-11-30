@@ -28,7 +28,7 @@ __重要__: 确保`ANDROID_HOME`环境变量指向你已经安装的Android SDK�
  (__译注__：~表示用户目录，即`/Users/你的用户名/`，而小数点开头的文件在Finder中是隐藏的，并且这两个文件有可能还没有被创建。请在终端下使用`sudo vi ~/.bashrc`命令创建或编辑。如不熟悉vi操作，请点击[这里](http://www.eepw.com.cn/article/48018.htm)学习)  
 	
         # 如果你是通过Homebrew安装SDK的，则加入下列路径
-        export ANDROID_HOME=/usr/local/opt/android-sdk
+        export ANDROID_HOME=/user/local/opt/android-sdk
         # 否则可能是（当然具体视你把SDK放在哪）：
         export ANDROID_HOME=~/Library/Android/sdk
   - **Linux**，往你的`~/.bashrc`, `~/.bash_profile` 或者你终端所用的其它配置文件中增加以下内容：
