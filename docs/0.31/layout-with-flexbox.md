@@ -30,7 +30,7 @@ AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 
 #### Justify Content
 
-在组件的style中指定`justifyContent`可以决定其子元素沿着**主轴**的**排列方式**。子元素是应该靠近主轴的起始端还是末尾段分布呢？亦或应该均匀分布？对应的这些可选项有：`flex-start`、`center`、`flex-end`、`space-around`以及`space-between`。
+在组件的style中指定`justifyContent`可以决定其子元素沿着**水平方向上**的**排列方式**。子元素是应该靠近主轴的起始端还是末尾段分布呢？亦或应该均匀分布？对应的这些可选项有：`flex-start`、`center`、`flex-end`、`space-around`以及`space-between`。
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
